@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PennyWise | Smart Price Comparison for Pakistan</title>
+  <!-- Google Fonts: Climate Crisis & Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Spline 3D Viewer -->
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon-192.png">
+  <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#F5B72B] selection:text-[#221636]">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
+    <span class="text-[#96D4C7]">Course: Web Technologies</span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="bg-[#F5B72B] text-[#221636] px-2.5 py-0.5 rounded-full font-black text-[11px] border border-[#221636] shadow-[2px_2px_0px_#221636]">
+      Arcade Crawler v0.1
+    </span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="text-[#BBDCF4]">Zero-Hallucination Price Verification</span>
+  </div>
+
+  <!-- Header Section with Sawtooth Border -->
+  <header class="w-full bg-[#221636] text-white pt-6 pb-12 border-b-4 border-[#96D4C7] relative pm-sawtooth-bottom-blush">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(150,212,199,0.25)]">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#F5B72B] border-3 border-[#221636] flex items-center justify-center font-display text-2xl text-[#221636] shadow-[3px_3px_0px_#FFFFFF] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+            ₨
+          </div>
+          <div>
+            <span class="font-display text-3xl tracking-tight text-white group-hover:text-[#F5B72B] transition-colors">PennyWise</span>
+            <span class="text-xs font-bold text-[#96D4C7] uppercase tracking-widest ml-1">.pk</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links with Stepped Underlines -->
+        <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
+          <a href="index.html" class="pm-nav active">Home</a>
+          <a href="results.html?q=iPhone+15" class="pm-nav">Live Crawler</a>
+          <a href="about.html" class="pm-nav">About</a>
+          <a href="404.html" class="pm-nav text-[#4C4066] hover:text-[#96D4C7]">404</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Arcade Coin Token Section Rule -->
+  <div class="pm-coin-divider px-4 my-6">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex-grow">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      
+      <!-- Left Column: Search & Value Prop -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        <div class="inline-flex items-center gap-2 self-start flex-wrap">
+          <span class="pm-tag pm-tag-mint">Live Prototype v0.1</span>
+          <span class="pm-tag pm-tag-gold">Pakistan E-Commerce</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-[#221636] leading-[1.1] uppercase">
+          FIND THE <span class="bg-[#F5B72B] px-3 py-1 border-3 border-[#221636] inline-block shadow-[4px_4px_0px_#221636] rounded-lg">CHEAPEST</span> STORE IN PAKISTAN.
+        </h1>
+
+        <p class="text-lg sm:text-xl font-medium text-[#4C4066] max-w-xl leading-relaxed">
+          Search any gadget or product. We crawl real online stores across Pakistan, collect live prices in PKR, and show them sorted lowest to highest with direct store links.
+        </p>
+
+        <!-- Search Box (Arcade Console) -->
+        <div class="pm-card p-5 bg-white mt-2">
+          <form id="search-form" action="results.html" method="GET" class="flex flex-col sm:flex-row gap-3">
+            <div class="relative flex-grow">
+              <input 
+                type="text" 
+                id="search-input"
+                name="q" 
+                placeholder="Search products (e.g. iPhone 15, AirPods Pro, MacBook)..." 
+                class="pm-input text-base sm:text-lg font-bold"
+                autocomplete="off"
+                required
+                minlength="2"
+              >
+              <div id="search-error" class="hidden text-xs font-bold text-[#EE2D2B] mt-2 pl-3">
+                Please enter at least 2 characters to search.
+              </div>
+            </div>
+            <button 
+              type="submit" 
+              class="pm-btn pm-btn-primary px-8 py-4 text-base whitespace-nowrap flex items-center justify-center gap-2"
+            >
+              <span>SEARCH STORES</span>
+              <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Popular Search Sticker Pills -->
+          <div class="mt-5 pt-4 border-t-2 border-dashed border-[#221636] flex flex-wrap items-center gap-2">
+            <span class="text-xs font-black uppercase tracking-wider text-[#4C4066]">Popular:</span>
+            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-90" data-query="iPhone 15">iPhone 15</button>
+            <button type="button" class="quick-pill pm-tag pm-tag-mint cursor-pointer hover:opacity-90" data-query="Redragon K552">Redragon K552</button>
+            <button type="button" class="quick-pill pm-tag pm-tag-white cursor-pointer hover:opacity-90" data-query="MacBook Air M2">MacBook Air</button>
+            <button type="button" class="quick-pill pm-tag pm-tag-sky cursor-pointer hover:opacity-90" data-query="AirPods Pro">AirPods Pro</button>
+            <button type="button" class="quick-pill pm-tag pm-tag-blush cursor-pointer hover:opacity-90" data-query="Samsung Galaxy S24">Samsung S24</button>
+          </div>
+        </div>
+
+        <!-- Strict Accuracy Guarantee Banner -->
+        <div class="pm-card p-4 bg-[#FCD7D7] border-3 border-[#221636] flex items-center gap-3.5 shadow-[4px_4px_0px_#221636]">
+          <div class="w-8 h-8 rounded-full bg-[#96D4C7] border-2 border-[#221636] flex items-center justify-center font-bold text-sm text-[#221636] flex-shrink-0 shadow-[2px_2px_0px_#221636]">
+            ✓
+          </div>
+          <div class="text-xs font-bold text-[#221636]">
+            <strong class="uppercase tracking-wider">Zero Hallucination Guarantee:</strong> We never estimate, generate, or simulate prices. Every single rupee shown links directly to a real Pakistani store page.
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive 3D Mascot & Fallback -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="relative w-full max-w-md aspect-square pm-card bg-[#BBDCF4] p-4 flex flex-col items-center justify-center overflow-hidden">
+          
+          <!-- Decorative washi tape -->
+          <div class="pm-washi pm-washi-gold"></div>
+
+          <!-- Spline 3D Viewer Container (Lazy Loaded) -->
+          <div id="spline-container" class="w-full h-full relative z-10 flex items-center justify-center">
+            <spline-viewer 
+              id="spline-viewer-hero"
+              loading="lazy"
+              url="https://prod.spline.design/6W-e197KzkR8S3ku/scene.splinecode" 
+              class="w-full h-full"
+              style="width: 100%; height: 100%; pointer-events: auto;"
+            ></spline-viewer>
+
+            <!-- Fallback Neo-Brutalist 3D Coin Graphic -->
+            <div id="spline-fallback" class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0 pointer-events-none">
+              <div class="w-36 h-36 rounded-full bg-[#F5B72B] border-4 border-[#221636] shadow-[8px_8px_0px_#221636] flex items-center justify-center pm-bounce">
+                <span class="font-display text-6xl text-[#221636] select-none">₨</span>
+              </div>
+              <div class="mt-6 pm-tag pm-tag-white text-xs font-black">
+                Interactive 3D Coin Mascot
+              </div>
+              <p class="text-xs font-bold mt-2 text-[#221636]">Drag or hover to rotate in 3D space</p>
+            </div>
+          </div>
+
+          <!-- Bottom Label Tag -->
+          <div class="absolute bottom-3 left-3 right-3 z-20 flex justify-between items-center pointer-events-none">
+            <span class="pm-tag pm-tag-white text-[10px]">Spline 3D Mascot</span>
+            <span class="pm-tag pm-tag-mint text-[10px]">Web Tech Prototype</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3 Core Feature Cards Section (Polaroid Sketchbook Cards) -->
+    <div class="mt-20 sm:mt-28">
+      <div class="text-center mb-12">
+        <span class="pm-tag pm-tag-mint mb-2">How It Works</span>
+        <h2 class="font-display text-3xl sm:text-4xl text-[#221636] uppercase mt-2">
+          SIMPLE. ACCURATE. ZERO GUESSWORK.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Feature 1: Polaroid Card -->
+        <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(-1deg);">
+          <div class="pm-sticker-number">1</div>
+          <div class="pm-washi"></div>
+          <div>
+            <div class="pt-4 pb-2">
+              <span class="pm-tag pm-tag-mint text-[10px] mb-2">Discovery Phase</span>
+              <h3 class="font-display text-xl text-[#221636] uppercase mb-2">Search Product</h3>
+              <p class="text-sm font-medium text-[#4C4066] leading-relaxed">
+                Type any product name. Our backend automatically queries DuckDuckGo for Pakistani e-commerce listings and discovers top merchant store URLs.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-[#221636] flex items-center gap-2 text-xs font-bold text-[#4C4066]">
+            <span>• DuckDuckGo Engine</span>
+            <span>• Concurrency Semaphores</span>
+          </div>
+        </div>
+
+        <!-- Feature 2: Polaroid Card -->
+        <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(1deg);">
+          <div class="pm-sticker-number" style="background:#96D4C7;">2</div>
+          <div class="pm-washi pm-washi-gold"></div>
+          <div>
+            <div class="pt-4 pb-2">
+              <span class="pm-tag pm-tag-gold text-[10px] mb-2">Extraction Phase</span>
+              <h3 class="font-display text-xl text-[#221636] uppercase mb-2">Live Price Extraction</h3>
+              <p class="text-sm font-medium text-[#4C4066] leading-relaxed">
+                We parse Schema.org JSON-LD, OpenGraph tags, and HTML price selectors directly from store pages. Unverified numbers are dropped immediately.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-[#221636] flex items-center gap-2 text-xs font-bold text-[#4C4066]">
+            <span>• Zero Hallucination</span>
+            <span>• PKR Standardized</span>
+          </div>
+        </div>
+
+        <!-- Feature 3: Polaroid Card -->
+        <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(-1deg);">
+          <div class="pm-sticker-number" style="background:#FCD7D7;">3</div>
+          <div class="pm-washi"></div>
+          <div>
+            <div class="pt-4 pb-2">
+              <span class="pm-tag pm-tag-sky text-[10px] mb-2">Ranking Phase</span>
+              <h3 class="font-display text-xl text-[#221636] uppercase mb-2">Lowest Price First</h3>
+              <p class="text-sm font-medium text-[#4C4066] leading-relaxed">
+                Results are sorted from lowest to highest. The cheapest verified store is awarded the #1 lowest price badge so you always get the best deal.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t-2 border-[#221636] flex items-center gap-2 text-xs font-bold text-[#4C4066]">
+            <span>• Lowest Price Badge</span>
+            <span>• Direct Store Outlinks</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Supported Stores Strip -->
+    <div class="mt-16 pm-card p-6 bg-[#FFFFFF]">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
+          <h4 class="font-display text-lg text-[#221636] uppercase">SUPPORTED PAKISTANI STORES (PROTOTYPE)</h4>
+          <p class="text-xs font-bold text-[#4C4066]">Crawls and verifies listed prices from top retail domains across Pakistan</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <span class="pm-tag pm-tag-mint">PriceOye</span>
+          <span class="pm-tag pm-tag-gold">Daraz Mall</span>
+          <span class="pm-tag pm-tag-white">Telemart</span>
+          <span class="pm-tag pm-tag-sky">Shophive</span>
+          <span class="pm-tag pm-tag-blush">Mega.pk</span>
+          <span class="pm-tag pm-tag-mint">Paklap</span>
+          <span class="pm-tag pm-tag-gold">Computer Zone</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Arcade Coin Token Divider before Footer -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Footer (Deep Night Purple Theme) -->
+  <footer class="w-full bg-[#221636] text-[#FCD7D7] border-t-4 border-[#96D4C7] py-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center font-display text-sm text-[#221636] shadow-[2px_2px_0px_#FFFFFF]">
+          ₨
+        </div>
+        <span class="font-display text-xl text-white">PennyWise</span>
+        <span class="text-xs font-bold text-[#96D4C7]">| Smart Price Comparison for Pakistan</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+        <a href="index.html" class="pm-nav active">Home</a>
+        <a href="results.html?q=iPhone+15" class="pm-nav">Live Crawler</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="404.html" class="pm-nav">404</a>
+      </div>
+
+      <p class="text-xs font-medium text-[#BBDCF4]">
+        © 2026 PennyWise Prototype. All store names and prices belong to their respective merchants.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

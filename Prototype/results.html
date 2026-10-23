@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PennyWise | Live Price Crawler & Comparison</title>
+  <!-- Google Fonts: Climate Crisis & Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="favicon-192.png">
+  <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#F5B72B] selection:text-[#221636]">
+
+  <!-- Top Announcement Bar (Arcade Night Theme) -->
+  <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
+    <span class="text-[#96D4C7]">Course: Web Technologies</span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="bg-[#F5B72B] text-[#221636] px-2.5 py-0.5 rounded-full font-black text-[11px] border border-[#221636] shadow-[2px_2px_0px_#221636]">
+      Arcade Crawler v0.1
+    </span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="text-[#BBDCF4]">Zero-Hallucination Verified Store Scraper</span>
+  </div>
+
+  <!-- Header Section with Sawtooth Border -->
+  <header class="w-full bg-[#221636] text-white pt-6 pb-12 border-b-4 border-[#96D4C7] relative pm-sawtooth-bottom-blush">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(150,212,199,0.25)]">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#F5B72B] border-3 border-[#221636] flex items-center justify-center font-display text-2xl text-[#221636] shadow-[3px_3px_0px_#FFFFFF] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+            ₨
+          </div>
+          <div>
+            <span class="font-display text-3xl tracking-tight text-white group-hover:text-[#F5B72B] transition-colors">PennyWise</span>
+            <span class="text-xs font-bold text-[#96D4C7] uppercase tracking-widest ml-1">.pk</span>
+          </div>
+        </a>
+
+        <!-- Navigation Links with Stepped Underlines -->
+        <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
+          <a href="index.html" class="pm-nav">Home</a>
+          <a href="results.html?q=iPhone+15" class="pm-nav active">Live Crawler</a>
+          <a href="about.html" class="pm-nav">About</a>
+          <a href="404.html" class="pm-nav text-[#4C4066] hover:text-[#96D4C7]">404</a>
+        </nav>
+      </div>
+
+      <!-- Main Search Box (Arcade Pill Console) -->
+      <div class="mt-8 max-w-4xl mx-auto">
+        <form id="results-search-form" class="flex flex-col sm:flex-row gap-3 items-stretch">
+          <div class="relative flex-grow">
+            <input 
+              type="text" 
+              id="results-search-input" 
+              name="q" 
+              placeholder="Search product (e.g. iPhone 15, Redragon K552, MacBook Air)..." 
+              class="pm-input text-base sm:text-lg font-bold"
+              required
+              minlength="2"
+              autocomplete="off"
+            >
+          </div>
+          <button 
+            type="submit" 
+            id="btn-search-submit"
+            class="pm-btn pm-btn-primary px-8 py-4 whitespace-nowrap text-base flex items-center justify-center gap-2"
+          >
+            <span>CRAWL & COMPARE</span>
+            <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Category Sticker Quick-Tags -->
+        <div class="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs">
+          <span class="font-bold text-[#96D4C7] uppercase tracking-wider text-[11px]">Popular Searches:</span>
+          <button type="button" class="quick-tag pm-tag cursor-pointer hover:opacity-90" data-q="iPhone 15">iPhone 15</button>
+          <button type="button" class="quick-tag pm-tag pm-tag-mint cursor-pointer hover:opacity-90" data-q="Redragon K552">Redragon K552</button>
+          <button type="button" class="quick-tag pm-tag pm-tag-white cursor-pointer hover:opacity-90" data-q="MacBook Air M2">MacBook Air M2</button>
+          <button type="button" class="quick-tag pm-tag pm-tag-sky cursor-pointer hover:opacity-90" data-q="AirPods Pro">AirPods Pro</button>
+          <button type="button" class="quick-tag pm-tag pm-tag-blush cursor-pointer hover:opacity-90" data-q="Samsung Galaxy S24">Samsung S24</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Arcade Coin Token Section Rule -->
+  <div class="pm-coin-divider px-4 my-6">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Crawler Diagnostics & Control Toolbar -->
+  <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 mb-6">
+    <div class="pm-card p-4 bg-white flex flex-wrap items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-2 font-black text-xs text-[#221636]">
+          <span id="crawler-status-dot" class="w-3 h-3 rounded-full bg-[#F5B72B] border-2 border-[#221636]"></span>
+          <span class="uppercase tracking-wider">CRAWLER STATUS:</span>
+          <span id="crawler-status-label" class="font-bold text-[#4C4066]">Ready</span>
+        </div>
+        <div class="h-4 w-px bg-gray-300 hidden sm:block"></div>
+        <div id="metrics-chips" class="flex flex-wrap items-center gap-2 font-bold">
+          <span id="chip-duration" class="pm-tag pm-tag-white py-1 px-3 text-[11px]">⏱ 0ms</span>
+          <span id="chip-crawled" class="pm-tag pm-tag-mint py-1 px-3 text-[11px]">🌐 0 Pages Checked</span>
+          <span id="chip-cache" class="pm-tag pm-tag-sky py-1 px-3 text-[11px]">⚡ Fresh Crawl</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <button id="btn-toggle-inspector" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <span id="inspector-btn-text">SHOW CRAWLER LOGS</span>
+        </button>
+        <button id="btn-force-refresh" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-1.5" title="Bypass memory cache and re-crawl target stores">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          <span>RE-CRAWL</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLLAPSIBLE CRAWLER OUTPUT INSPECTOR (Terminal / Arcade Debugger) -->
+  <section id="crawler-inspector-panel" class="hidden w-full max-w-7xl mx-auto px-4 sm:px-6 mb-8">
+    <div class="pm-card-dark p-6 border-3 border-[#221636] relative overflow-hidden">
+      <!-- Mint Top Keyline -->
+      <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#96D4C7]"></div>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[#4C4066]">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-[#F5B72B] border border-[#221636]"></span>
+            <h2 class="font-display text-xl text-[#F5B72B] tracking-wide uppercase">CRAWLER ENGINE LOGS & RAW OUTPUT</h2>
+          </div>
+          <p class="text-xs text-[#BBDCF4] mt-1 font-medium">
+            Live inspection of DuckDuckGo discovery, store HTTP response codes, JSON-LD / regex extraction strategies, and raw JSON payload.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="btn-copy-json" class="pm-btn pm-btn-white pm-btn-sm text-xs">
+            <span>📋 COPY RAW JSON</span>
+          </button>
+          <button id="btn-close-inspector" class="w-8 h-8 rounded-full bg-[#4C4066] text-white font-bold flex items-center justify-center hover:bg-gray-600 transition-colors">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="flex gap-2 mt-4 text-xs font-bold">
+        <button id="tab-btn-logs" class="pm-btn pm-btn-gold pm-btn-sm">Scraped Stores Table</button>
+        <button id="tab-btn-json" class="pm-btn pm-btn-dark pm-btn-sm">Raw JSON Payload</button>
+      </div>
+
+      <!-- Tab Content 1: Scraped Stores Table -->
+      <div id="tab-content-logs" class="mt-4 overflow-x-auto">
+        <table class="w-full text-left text-xs border-2 border-[#4C4066] rounded-lg overflow-hidden">
+          <thead class="bg-[#282E6B] text-[#96D4C7] font-bold uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="p-3 border-b border-[#4C4066]">Store</th>
+              <th class="p-3 border-b border-[#4C4066]">HTTP Status</th>
+              <th class="p-3 border-b border-[#4C4066]">Strategy</th>
+              <th class="p-3 border-b border-[#4C4066]">Extracted Product & Price</th>
+              <th class="p-3 border-b border-[#4C4066]">Latency</th>
+              <th class="p-3 border-b border-[#4C4066]">Store URL</th>
+            </tr>
+          </thead>
+          <tbody id="crawler-logs-tbody" class="divide-y divide-[#4C4066] font-mono text-[11px] bg-[#1a1129]">
+            <tr>
+              <td colspan="6" class="p-4 text-center text-gray-400">No crawl executed yet. Perform a search above to see logs.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab Content 2: Raw JSON Viewer -->
+      <div id="tab-content-json" class="hidden mt-4">
+        <pre id="raw-json-viewer" class="bg-[#0e0917] text-[#96D4C7] p-4 border-2 border-[#4C4066] rounded-xl text-xs font-mono max-h-96 overflow-auto whitespace-pre-wrap">{}</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Results Container -->
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-2 flex-grow">
+    
+    <!-- Results Header / Controls -->
+    <div id="results-meta-bar" class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8 pb-4 border-b-3 border-[#221636]">
+      <div>
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="pm-tag pm-tag-white text-xs">QUERY RESULTS:</span>
+          <h1 id="query-display" class="font-display text-2xl sm:text-3xl text-[#221636]">
+            "Loading..."
+          </h1>
+        </div>
+        <p id="results-count-text" class="text-xs font-bold text-[#4C4066] mt-1.5">
+          Crawling verified Pakistani store listings...
+        </p>
+      </div>
+
+      <!-- Sorting Controls -->
+      <div class="flex items-center gap-3 self-end sm:self-center">
+        <label for="sort-select" class="text-xs font-bold uppercase tracking-wider text-[#221636]">SORT BY:</label>
+        <select id="sort-select" class="pm-select">
+          <option value="lowest">Price: Lowest First (Default)</option>
+          <option value="highest">Price: Highest First</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- 1. LOADING STATE (Retro Arcade Bouncing Token) -->
+    <div id="state-loading" class="flex flex-col items-center justify-center py-12 px-4">
+      <div class="pm-card p-8 max-w-lg w-full bg-white text-center flex flex-col items-center relative">
+        <!-- Washi Tape -->
+        <div class="pm-washi pm-washi-gold"></div>
+
+        <div class="w-20 h-20 rounded-full bg-[#F5B72B] border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-3xl text-[#221636] pm-bounce mb-6 mt-2">
+          ₨
+        </div>
+        <h3 class="font-display text-2xl text-[#221636] mb-2 uppercase">CRAWLING STORES...</h3>
+        <p class="text-sm font-medium text-[#4C4066] mb-6">
+          Fetching live listings and extracting real prices from PriceOye, Daraz, Telemart, Shophive, Mega.pk & more.
+        </p>
+        
+        <!-- Retro Arcade Progress Steps -->
+        <div class="w-full space-y-2.5 text-left text-xs font-bold">
+          <div class="flex items-center justify-between p-3 rounded-lg border-2 border-[#221636] bg-[#96D4C7] shadow-[2px_2px_0px_#221636]">
+            <span>1. Discovering Stores via DuckDuckGo</span>
+            <span class="text-[#221636]">✓ COMPLETE</span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg border-2 border-[#221636] bg-[#F5B72B] shadow-[2px_2px_0px_#221636] animate-pulse">
+            <span>2. Concurrently Fetching Store Pages</span>
+            <span>FETCHING...</span>
+          </div>
+          <div class="flex items-center justify-between p-3 rounded-lg border-2 border-[#221636] bg-gray-100 text-gray-400 shadow-[2px_2px_0px_#221636]">
+            <span>3. Zero-Hallucination JSON-LD & Regex Price Extraction</span>
+            <span>WAITING...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. EMPTY STATE -->
+    <div id="state-empty" class="hidden flex-col items-center justify-center py-16 px-4">
+      <div class="pm-card p-8 max-w-lg w-full bg-white text-center flex flex-col items-center relative">
+        <div class="pm-washi"></div>
+        <div class="w-16 h-16 rounded-full bg-[#FCD7D7] border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-2xl text-[#221636] mb-4 mt-2">
+          ∅
+        </div>
+        <h3 class="font-display text-2xl text-[#221636] mb-2 uppercase">NO RESULTS FOUND</h3>
+        <p class="text-sm text-[#4C4066] mb-6 leading-relaxed">
+          The crawler could not find verified store pages matching this product. In accordance with our <strong class="text-[#221636]">Zero-Hallucination Policy</strong>, we never invent or simulate product data.
+        </p>
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FCD7D7] w-full text-left mb-6 shadow-[3px_3px_0px_#221636]">
+          <span class="text-xs font-black uppercase tracking-wider text-[#221636] block mb-2">Search Suggestions:</span>
+          <ul class="text-xs font-bold text-[#4C4066] list-disc list-inside space-y-1">
+            <li>Check for spelling errors (e.g. "iPhone 15" instead of "ipon 15")</li>
+            <li>Try broader brand and model terms (e.g. "Redragon K552", "MacBook Air")</li>
+            <li>Open "Show Crawler Logs" above to see which URLs were examined</li>
+          </ul>
+        </div>
+        <button id="btn-empty-retry" class="pm-btn pm-btn-gold">TRY ANOTHER SEARCH</button>
+      </div>
+    </div>
+
+    <!-- 3. ERROR STATE -->
+    <div id="state-error" class="hidden flex-col items-center justify-center py-16 px-4">
+      <div class="pm-card p-8 max-w-lg w-full bg-white text-center flex flex-col items-center relative border-[#EE2D2B]">
+        <div class="w-16 h-16 rounded-full bg-[#EE2D2B] text-white border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-2xl mb-4">
+          ⚠
+        </div>
+        <h3 class="font-display text-2xl text-[#221636] mb-2 uppercase">CRAWLER ERROR</h3>
+        <p id="error-message-text" class="text-sm text-[#4C4066] mb-6 leading-relaxed">
+          The backend crawler service or search engine connection timed out while collecting prices.
+        </p>
+        <button id="btn-retry-search" class="pm-btn pm-btn-primary">
+          RETRY SEARCH
+        </button>
+      </div>
+    </div>
+
+    <!-- 4. RESULTS CARDS GRID (NORMAL STATE) -->
+    <div id="state-results" class="hidden">
+      
+      <!-- Best Price Callout Banner (Arcade Gold Box) -->
+      <div id="best-price-banner" class="pm-card p-5 bg-[#F5B72B] border-3 border-[#221636] mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[6px_6px_0px_#221636]">
+        <div class="flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-full bg-white border-3 border-[#221636] flex items-center justify-center font-display text-xl text-[#221636] shadow-[2px_2px_0px_#221636] flex-shrink-0">
+            ★
+          </div>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#221636] block">BEST AVAILABLE DEAL</span>
+            <span id="best-deal-summary" class="font-display text-xl sm:text-2xl text-[#221636]">
+              Cheapest option is Rs. 0 at Store Name
+            </span>
+          </div>
+        </div>
+        <div id="savings-tag" class="pm-tag pm-tag-white text-xs font-black">
+          Save Money
+        </div>
+      </div>
+
+      <!-- Product Cards Container (Rendered as Polaroid Sketchbook Cards) -->
+      <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Cards dynamically injected via JavaScript -->
+      </div>
+
+      <!-- Pricing Disclaimer Note -->
+      <div class="mt-14 pm-card p-5 bg-white border-3 border-[#221636] text-xs font-medium text-[#4C4066] shadow-[4px_4px_0px_#221636]">
+        <div class="flex items-center gap-2 mb-1.5">
+          <span class="pm-tag pm-tag-mint text-[10px]">Zero-Hallucination Guarantee</span>
+        </div>
+        All prices shown are crawled live directly from Pakistani e-commerce merchants via Schema.org JSON-LD, OpenGraph tags, or confirmed HTML price containers. Listed prices reflect the merchant's current page data. Always verify final checkout totals on the merchant's official site.
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Arcade Coin Token Divider before Footer -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Footer (Deep Night Purple Theme) -->
+  <footer class="w-full bg-[#221636] text-[#FCD7D7] border-t-4 border-[#96D4C7] py-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center font-display text-sm text-[#221636] shadow-[2px_2px_0px_#FFFFFF]">
+          ₨
+        </div>
+        <span class="font-display text-xl text-white">PennyWise</span>
+        <span class="text-xs font-bold text-[#96D4C7]">| Smart Price Comparison for Pakistan</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+        <a href="index.html" class="pm-nav">Home</a>
+        <a href="results.html?q=iPhone+15" class="pm-nav">Live Crawler</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="404.html" class="pm-nav">404</a>
+      </div>
+
+      <p class="text-xs font-medium text-[#BBDCF4]">
+        © 2026 PennyWise Prototype.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/results.js"></script>
+</body>
+</html>

@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- 5Four: GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EJM2GXN4ES"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EJM2GXN4ES');</script>
+<!-- 5Four: Microsoft Clarity -->
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","hjyf2gx9s4");</script>
+<title>Pigeon’s Mission | A pixel platformer by a kid and his dad</title>
+<meta name="description" content="A 2D pixel platformer drawn by six-year-old Logan and built with his dad. Seven worlds, eight bosses, one flightless pigeon. Out now on Steam.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://www.pigeonsmission.com/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Pigeon’s Mission">
+<meta property="og:description" content="A pixel-packed adventure by a kid and his dad. Out now on Steam.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.pigeonsmission.com/">
+<meta property="og:site_name" content="Pigeon’s Mission">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.pigeonsmission.com/og/pigeons-mission.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pigeon’s Mission share card: Archie, a flightless pigeon, leaping over pixel-art hills beside the wordmark, the line “a pixel-packed adventure by a kid and his dad”, and “Out now on Steam, $9.99”.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pigeon’s Mission">
+<meta name="twitter:description" content="A pixel-packed adventure by a kid and his dad. Out now on Steam.">
+<meta name="twitter:image" content="https://www.pigeonsmission.com/og/pigeons-mission.jpg">
+<link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/icons/icon-512.png" sizes="512x512" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#221636">
+<link rel="preload" href="/assets/fonts/climate-crisis-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/jost-normal-300800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com"><link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.clarity.ms">
+<style>/* 5Four: design system + self-hosted fonts, inlined (was 8 requests + an @import chain) */
+@font-face{font-family:'Climate Crisis';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/climate-crisis-normal-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Climate Crisis';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/climate-crisis-normal-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Jost';font-style:italic;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-italic-300800-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Jost';font-style:italic;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-italic-300800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-normal-300800-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-normal-300800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+:root{
+--pm-ink:#221636;
+--pm-navy:#282E6B;
+--pm-blue:#1C75BC;
+--pm-cyan:#00A7C9;
+--pm-red:#EE2D2B;
+--pm-maroon:#A52928;
+--pm-mint:#96D4C7;
+--pm-sky:#BBDCF4;
+--pm-blush:#FCD7D7;
+--pm-gold:#F5B72B;
+--pm-white:#FFFFFF;
+--pm-grad-blue:linear-gradient(180deg,#1C75BC 0%,#00A7C9 100%);
+--pm-grad-red:linear-gradient(180deg,#EE2D2B 0%,#A52928 100%);
+--surface-page:var(--pm-blush);
+--surface-dark:var(--pm-ink);
+--surface-card:var(--pm-white);
+--text-body:var(--pm-ink);
+--text-muted:#4C4066;
+--text-on-dark:var(--pm-blush);
+--text-link:var(--pm-blue);
+--action-fill:var(--pm-grad-red);
+--action-fill-pressed:var(--pm-maroon);
+--border-ink:var(--pm-ink);
+--border-keyline:var(--pm-mint);
+}
+:root{
+--font-display:"Climate Crisis",system-ui,sans-serif;
+--font-body:"Jost","Futura",system-ui,sans-serif;
+--display-xl-size:96px; --display-xl-size-sm:72px; --display-xl-track:-0.02em;
+--display-lg-size:64px; --display-lg-size-sm:48px; --display-lg-track:-0.01em;
+--display-md-size:40px; --display-md-size-sm:32px; --display-md-track:0em;
+--display-leading:1.0;
+--display-leading-loose:1.05;
+--heading-lg-size:32px; --heading-lg-size-sm:28px; --heading-lg-weight:700; --heading-lg-track:-0.01em;
+--heading-md-size:24px; --heading-md-size-sm:22px; --heading-md-weight:600; --heading-md-track:0em;
+--heading-sm-size:18px; --heading-sm-weight:600; --heading-sm-track:0.01em;
+--heading-leading:1.25;
+--body-lg-size:18px;
+--body-size:16px;
+--body-sm-size:14px; --body-sm-track:0.01em;
+--body-weight:400;
+--body-leading:1.5;
+--label-size:12px; --label-weight:600; --label-track:0.08em; --label-transform:uppercase;
+}
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--radius-sm:4px;
+--radius-md:16px;
+--radius-pill:999px;
+--grid-columns:12;
+--grid-gutter:24px;
+--content-max:1280px;
+--container-max:1440px;
+--store-grid-columns:4;
+--store-gutter:24px;
+}
+:root{
+--border-width:3px;
+--border-width-thick:4px;
+--shadow-hard-sm:2px 2px 0 var(--pm-ink);
+--shadow-hard:4px 4px 0 var(--pm-ink);
+--shadow-hard-lg:8px 8px 0 var(--pm-ink);
+}
+:root{
+--ease-out:cubic-bezier(0.22,0.61,0.36,1);
+--ease-bounce:cubic-bezier(0.34,1.56,0.64,1);
+--dur-hover:150ms;
+--dur-press:90ms;
+--dur-reveal:250ms;
+--dur-hero:1200ms;
+--hover-lift:-2px;
+--press-scale:0.97;
+}
+@media (prefers-reduced-motion:reduce){
+:root{--dur-hover:0ms;  --dur-press:0ms;  --dur-reveal:0ms;  --dur-hero:0ms }
+}
+body{margin:0;font-family:var(--font-body);font-size:var(--body-size);line-height:var(--body-leading);color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+*,*::before,*::after{box-sizing:border-box}
+a{color:var(--text-link);text-decoration-thickness:2px;text-underline-offset:3px;transition:color var(--dur-hover) var(--ease-out)}
+a:hover{color:var(--pm-maroon)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pm-cyan);outline-offset:3px}
+img{image-rendering:auto}
+.pm-pixel{image-rendering:pixelated}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.pigeonsmission.com/#studio","name":"Glowing Cheetah Studios","url":"https://glowingcheetah.com","email":"hello@glowingcheetah.com","address":{"@type":"PostalAddress","addressLocality":"Miami","addressRegion":"FL","addressCountry":"US"}},{"@type":"WebSite","@id":"https://www.pigeonsmission.com/#website","url":"https://www.pigeonsmission.com/","name":"Pigeon’s Mission","publisher":{"@id":"https://www.pigeonsmission.com/#studio"},"inLanguage":"en-US"},{"@type":"VideoGame","@id":"https://www.pigeonsmission.com/#game","name":"Pigeon’s Mission","url":"https://www.pigeonsmission.com/","description":"A 2D pixel platformer drawn by six-year-old Logan and built with his dad. Play as Archie, a flightless pigeon, across seven worlds and eight boss fights to rescue his family.","image":"https://www.pigeonsmission.com/assets/schema/key-art-1200.jpg","datePublished":"2025-12-18","genre":["Action","Adventure","Casual","Indie"],"gamePlatform":["Windows","macOS"],"operatingSystem":"Windows, macOS","applicationCategory":"GameApplication","author":{"@id":"https://www.pigeonsmission.com/#studio"},"publisher":{"@id":"https://www.pigeonsmission.com/#studio"},"inLanguage":"en-US","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD","availability":"https://schema.org/InStock","url":"https://store.steampowered.com/app/2676220/Pigeons_Mission/"}},{"@type":"WebPage","@id":"https://www.pigeonsmission.com/#webpage","url":"https://www.pigeonsmission.com/","name":"Pigeon’s Mission | A pixel platformer by a kid and his dad","description":"A 2D pixel platformer drawn by six-year-old Logan and built with his dad. Seven worlds, eight bosses, one flightless pigeon. Out now on Steam.","isPartOf":{"@id":"https://www.pigeonsmission.com/#website"},"about":{"@id":"https://www.pigeonsmission.com/#game"},"primaryImageOfPage":"https://www.pigeonsmission.com/assets/schema/key-art-1200.jpg"}]}</script>
+<script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"/vendor/react-18.3.1.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"/vendor/react-dom-18.3.1.min.js"};</script>
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <script src="/_ds/pigeon-s-mission-design-system-87042302-1058-4551-ad6d-f648118363b2/_ds_bundle.js"></script>
+  <style>
+    body{margin:0;background:#221636;font-family:"Jost",system-ui,sans-serif;color:#221636}
+    a{color:#BBDCF4;text-decoration:none}a:hover{color:#FFFFFF}
+    @keyframes pm-run{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+    @keyframes pm-drift-lg{from{background-position-x:0}to{background-position-x:-3456px}}
+    .pm-nav{position:relative;display:inline-block}
+    .pm-nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#F5B72B 0 8px,transparent 8px 12px) 0 0/12px 6px repeat-x;clip-path:inset(0 100% 0 0);transition:clip-path 220ms steps(6,end)}
+    .pm-nav:hover::after{clip-path:inset(0 0 0 0)}
+    .pm-nav:hover{text-shadow:3px 3px 0 #221636;transform:translate(-1px,-1px)}
+        @keyframes pm-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    @keyframes pm-bar{from{width:0}to{width:100%}}
+    .pm-loader{position:fixed;inset:0;z-index:9999;background:#221636;display:flex;align-items:center;justify-content:center;transition:transform 900ms cubic-bezier(0.76,0,0.24,1);will-change:transform}
+    .pm-loader-inner{transition:opacity 350ms ease-out,transform 500ms cubic-bezier(0.76,0,0.24,1)}
+    .pm-loader.is-out .pm-loader-inner{opacity:0;transform:translateY(-40px)}
+    .pm-loader.is-out{transform:translateY(-100%)}
+    .pm-loader.is-gone{display:none}
+    .pm-loader::after{content:"";position:absolute;left:0;right:0;bottom:-32px;height:32px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'32'%20viewBox%3D'0%200%2064%2032'%20shape-rendering%3D'crispEdges'%3E%3Crect%20x%3D'0'%20y%3D'0'%20width%3D'64'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3Crect%20x%3D'8'%20y%3D'8'%20width%3D'48'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3Crect%20x%3D'16'%20y%3D'16'%20width%3D'32'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3Crect%20x%3D'24'%20y%3D'24'%20width%3D'16'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3C%2Fsvg%3E") repeat-x 0 0/64px 32px}
+    @keyframes pm-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    .pm-reveal{opacity:0;transform:translateY(32px);transition:opacity 600ms ease-out,transform 600ms ease-out}
+    .pm-reveal.is-in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){.pm-reveal{opacity:1;transform:none;transition:none}}
+    @keyframes pm-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+        @keyframes pm-drift{from{background-position-x:0}to{background-position-x:-2880px}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+    @media (max-width:1024px){
+      [data-bp="menubtn"]{display:flex!important}
+      [data-bp="navlinks"]{display:flex!important;position:absolute;left:auto;right:32px;width:min(300px,calc(100vw - 64px));top:calc(100% - 8px);flex-direction:column;align-items:stretch;gap:0!important;background:#221636;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #F5B72B;padding:8px 20px 20px;z-index:60;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-12px) scale(0.98);transform-origin:top right;transition:opacity 180ms ease-out,transform 220ms cubic-bezier(0.34,1.4,0.64,1),visibility 0s linear 220ms}
+      [data-bp="navlinks"].is-open{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity 180ms ease-out,transform 260ms cubic-bezier(0.34,1.4,0.64,1),visibility 0s}
+      [data-bp="navlinks"] a{opacity:0;transform:translateY(-6px);transition:opacity 180ms ease-out,transform 180ms ease-out}
+      [data-bp="navlinks"].is-open a{opacity:1;transform:none}
+      [data-bp="navlinks"].is-open a:nth-child(1){transition-delay:40ms}[data-bp="navlinks"].is-open a:nth-child(2){transition-delay:80ms}[data-bp="navlinks"].is-open a:nth-child(3){transition-delay:120ms}[data-bp="navlinks"].is-open a:nth-child(4){transition-delay:160ms}[data-bp="navlinks"].is-open a:nth-child(5){transition-delay:200ms}
+      [data-bp="menubtn"]{transition:transform 150ms ease-out,box-shadow 150ms ease-out}
+      [data-bp="menubtn"].is-open{transform:translate(3px,3px);box-shadow:1px 1px 0 #221636!important}
+      [data-bp="menubtn"] svg{transition:transform 220ms ease-out}
+      [data-bp="menubtn"].is-open svg{transform:rotate(90deg)}
+      [data-bp="navlinks"] a{font-size:17px!important;padding:16px 4px!important;text-align:left!important;justify-content:flex-start!important;align-self:stretch;display:flex;border-bottom:1px solid rgba(150,212,199,0.25)!important;border-radius:0!important}
+      [data-bp="navlinks"] a:last-child{margin-top:16px;justify-content:center!important;text-align:center!important;padding:14px 20px!important;border-bottom:0!important;border-radius:999px!important}
+      [data-bp="section"]{padding-left:32px!important;padding-right:32px!important;padding-top:120px!important;padding-bottom:104px!important}
+      [data-bp="cta"]{padding:176px 32px 48px!important}
+      [data-bp="herocopy"]{padding-left:32px!important;padding-right:32px!important}
+      [data-bp="herobar"]{padding-left:32px!important;padding-right:32px!important;padding-bottom:80px!important}
+      [data-bp="nav"]{padding:20px 32px!important}
+      [data-bp="card"]{flex-basis:440px!important}
+      [data-bp="footwrap"]{padding:72px 32px 64px!important}
+      [data-bp="footcard"]{padding:32px!important}
+      [data-bp="accolades"],[data-bp="contact"]{padding:36px 32px!important}
+      [data-bp="facts"]{padding:24px 24px 8px!important}
+      [data-bp="section"] h2{font-size:clamp(26px,5.2vw,56px)!important}
+      [data-bp="herocopy"] h1{font-size:clamp(26px,5.6vw,60px)!important}
+    }
+    @media (max-width:720px){
+      [data-bp="navlinks"]{right:20px!important;width:min(280px,calc(100vw - 40px))!important}
+      [data-bp="nav"]{padding:16px 20px!important}
+      [data-bp="nav"] img{width:160px!important}
+      [data-bp="section"]{padding-left:20px!important;padding-right:20px!important;padding-top:96px!important;padding-bottom:88px!important;gap:56px!important}
+      #game[data-bp="section"]{gap:104px!important}
+      #game[data-bp="section"] > [style*="margin:-52px auto"]{margin:-28px auto!important}
+      [data-bp="cta"]{padding:140px 20px 40px!important}
+      [data-bp="herocopy"]{padding-left:20px!important;padding-right:20px!important;padding-top:6vh!important}
+      [data-bp="herocopy"] h1{font-size:clamp(26px,8vw,40px)!important;letter-spacing:0.06em!important}
+      [data-bp="herocopy"] a{font-size:15px!important;padding:12px 20px!important}
+      [data-bp="herobar"]{padding:0 20px 56px!important}
+      [data-bp="herobar"] span:last-child{font-size:16px!important}
+      [data-bp="section"] h2{font-size:clamp(22px,6vw,32px)!important;letter-spacing:0.05em!important}
+      [data-bp="section"] p,[data-bp="section"] [style*="font-size: 21px"],[data-bp="section"] [style*="font-size:21px"]{font-size:16px!important;line-height:1.55!important}
+      [data-bp="section"] [style*="font-size: 19px"],[data-bp="section"] [style*="font-size:19px"]{font-size:15px!important;line-height:1.5!important}
+      [data-bp="section"]{padding-top:80px!important;padding-bottom:72px!important}
+      #game[data-bp="section"]{gap:88px!important}
+      [data-bp="badges"]{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;justify-items:center}
+      [data-bp="badges"] > img{width:100%!important;max-width:none!important;flex:none!important}
+      [data-bp="accolades"]{gap:28px!important}
+      [data-bp="contact"]{gap:20px!important}
+      [data-bp="section"] > [style*="margin:-52px auto"]{margin:-24px auto!important}
+      [data-bp="facts"]{gap:0!important}
+      [data-bp="footcard"]{gap:24px!important}
+      [data-bp="footwrap"]{padding:40px 20px 40px!important}
+      [data-bp="cta"]{padding:120px 20px 24px!important}
+      [data-bp="sky"]{height:400px!important}
+      [data-bp="archie"]{width:min(360px,80vw)!important;top:calc(418px - 0.684 * min(360px,80vw))!important}
+      [data-bp="card"]{flex-basis:min(78vw,340px)!important}
+      [data-bp="card"] [style*="font-size: 22px"],[data-bp="card"] [style*="font-size:22px"]{font-size:18px!important}
+      [data-bp="footwrap"]{padding:56px 20px 48px!important}
+      [data-bp="footcard"]{padding:24px!important;gap:32px!important}
+      [data-bp="footgrid"]{grid-template-columns:1fr!important;gap:32px!important}
+      [data-bp="accolades"],[data-bp="contact"]{padding:28px 20px!important}
+      [data-bp="contact"] a{white-space:normal!important;font-size:15px!important;padding:14px 20px!important;word-break:break-all}
+      [data-bp="facts"]{padding:20px 20px 4px!important}
+      [data-bp="cta"] a{font-size:15px!important;padding:14px 24px!important}
+    }
+  
+    /* 5Four: skip link (checklist §10) */
+    .pm-skip{position:absolute;left:-9999px;top:0;z-index:10000;padding:14px 20px;background:#F5B72B;color:#221636;font-weight:700;border:3px solid #221636;border-radius:0 0 12px 0}
+    .pm-skip:focus{left:0}
+    /* 5Four: the footer card is only ~262px wide inside on a 390px phone, so
+       the badges cannot sit four-across at this size. At 96px they pair up
+       two to a row, including the two wider Davey marks, which keeps the
+       block to three tidy rows instead of four ragged ones. */
+    @media (max-width:720px){
+      [data-bp="awards"] img{height:96px!important;width:auto!important}
+      [data-bp="awards"] > div:last-child{gap:16px!important}
+      /* the footer card's own gap drops from 56px to 32px here, so the
+         two-row badge block needs more of its own room above the divider */
+      [data-bp="awards"]{padding-bottom:40px!important}
+    }
+    /* 5Four: on phones the sketchbook cards were clipped at both screen edges.
+       The rail had 20px of left padding and none on the right, and the cards
+       were wide enough (317px in a 390px viewport) that one never sat fully in
+       view. Narrower cards plus symmetric padding mean a whole card always
+       fits, with the next one peeking. */
+    @media (max-width:720px){
+      [data-bp="card"]{flex-basis:min(68vw,290px)!important}
+      div:has(> [data-bp="card"]){padding-left:24px!important;padding-right:24px!important}
+    }
+    /* 5Four: the last Quick Facts row carried a border-bottom like the others,
+       so the card ended on a rule with nothing beneath it. */
+    [data-bp="facts"] > div:last-child{border-bottom:0!important}
+    /* 5Four: visible focus ring (checklist §10) */
+    a:focus-visible,button:focus-visible{outline:3px solid #F5B72B;outline-offset:3px;border-radius:4px}
+    /* 5Four: 44px minimum tap target (checklist §2). position:relative is set
+       unconditionally — never gated on [style*="position"], because Safari
+       expands the font shorthand and the test then matches every link. */
+    @media (max-width:1024px){
+      [data-bp="navlinks"] a,footer a{position:relative}
+      [data-bp="navlinks"] a::after,footer a::after{content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:44px;min-height:100%}
+    }
+</style>
+</helmet>
+
+<!-- 5Four: skip link -->
+<a href="#main" class="pm-skip">Skip to content</a>
+<div ref="{{ loaderRef }}" class="pm-loader" aria-hidden="true">
+  <div class="pm-loader-inner" style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:24px">
+    <img width="352" height="320" src="/assets/motion/preloader.gif" alt="" style="width:min(440px,80vw);height:auto;display:block;image-rendering:pixelated">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:-24px">
+      <div style="font-family:'Climate Crisis',sans-serif;font-size:clamp(20px,2.4vw,30px);letter-spacing:0.12em;text-transform:uppercase;color:#FFFFFF;text-shadow:4px 4px 0 #1C75BC">Loading<span style="display:inline-block;animation:pm-blink 0.6s steps(1,end) infinite">_</span></div>
+      <div style="width:min(320px,70vw);height:18px;border:3px solid #FFFFFF;background:#221636;padding:2px;box-sizing:border-box"><div style="height:100%;background:repeating-linear-gradient(90deg,#F5B72B 0 10px,#221636 10px 12px);animation:pm-bar 3.2s steps(26,end) forwards"></div></div>
+    </div>
+  </div>
+</div>
+
+<header id="top" data-screen-label="Hero" style="position:relative;height:100vh;min-height:640px;overflow:hidden;background:#221636;color:#FFFFFF;display:flex;flex-direction:column">
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
+    <video ref="{{ heroVideo }}" src="/assets/motion/hero-loop.mp4" autoplay muted="muted" loop playsinline disableremoteplayback preload="metadata" poster="/assets/motion/hero-poster.webp" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.28);transform-origin:center 75%"></video>
+  </div>
+
+  <div style="position:absolute;left:0;right:0;top:0;height:220px;background:linear-gradient(180deg,rgba(34,22,54,0.6) 0%,rgba(34,22,54,0) 100%);pointer-events:none;z-index:1"></div>
+  <nav data-bp="nav" style="position:relative;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:32px;padding:28px 48px;max-width:1440px;width:100%;margin:0 auto;box-sizing:border-box">
+    <a href="#top" onClick="{{ scrollToTop }}" aria-label="Pigeon’s Mission home" style="display:block"><img fetchpriority="high" decoding="async" width="1435" height="481" src="/assets/logo/wordmark-white.webp" alt="Pigeon’s Mission" style="width:216px;height:auto;display:block"></a>
+    <button type="button" data-bp="menubtn" ref="{{ menuBtnRef }}" aria-label="Menu" aria-expanded="false" onClick="{{ toggleMenu }}" style="display:none;width:52px;height:52px;border-radius:12px;background:#F5B72B;border:3px solid #221636;box-shadow:4px 4px 0 #221636;align-items:center;justify-content:center;cursor:pointer;padding:0;color:#221636"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <div data-bp="navlinks" ref="{{ navLinksRef }}" style="display:flex;align-items:center;gap:clamp(20px,3vw,40px);flex-wrap:nowrap;justify-content:flex-end;min-width:0">
+      <a href="#story" onClick="{{ scrollToStory }}" class="pm-nav" style="color:#FFFFFF;font-size:18px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:8px 0 12px;transition:transform 120ms steps(2,end)" style-hover="color:#FFFFFF">Story</a>
+      <a href="#game" onClick="{{ scrollToGame }}" class="pm-nav" style="color:#FFFFFF;font-size:18px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:8px 0 12px;transition:transform 120ms steps(2,end)" style-hover="color:#FFFFFF">Game</a>
+      <a href="#press" onClick="{{ scrollToPress }}" class="pm-nav" style="color:#FFFFFF;font-size:18px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:8px 0 12px;transition:transform 120ms steps(2,end)" style-hover="color:#FFFFFF">Press</a>
+      <a href="#contact" onClick="{{ scrollToContact }}" class="pm-nav" style="color:#FFFFFF;font-size:18px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:8px 0 12px;transition:transform 120ms steps(2,end)" style-hover="color:#FFFFFF">Contact</a>
+      <a href="https://store.steampowered.com/app/2676220/Pigeons_Mission/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:12px 28px;border-radius:999px;background:linear-gradient(180deg,#EE2D2B 0%,#A52928 100%);border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#FFFFFF;font-weight:600;font-size:18px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.25;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#FFFFFF">Buy Now</a>
+    </div>
+  </nav>
+
+  <div data-bp="herocopy" style="position:relative;z-index:2;padding:min(8vh,80px) 48px 0;pointer-events:none;max-width:1440px;width:100%;margin:0 auto;box-sizing:border-box">
+    <h1 style="margin:0;text-align:left;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;text-shadow:5px 5px 0 #221636;text-wrap:balance"><span style="color:#FFFFFF">A pixel-packed adventure </span><span style="color:#F5B72B">by a kid and his dad.</span></h1>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;pointer-events:auto">
+        <a href="https://store.steampowered.com/app/2676220/Pigeons_Mission/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:12px 28px;border-radius:999px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#221636;font-weight:600;font-size:18px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.25;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#221636">Buy on Steam</a>
+        <a href="https://www.youtube.com/watch?v=wqi7tYuLsVM" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:12px 28px;border-radius:999px;background:transparent;border:3px solid #FFFFFF;color:#FFFFFF;font-weight:600;font-size:18px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.25;transition:transform 150ms ease-out" style-hover="transform:translate(-2px,-2px);background:#FFFFFF;color:#221636">Watch the Trailer</a>
+    </div>
+
+  </div>
+
+  <div style="position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(180deg,rgba(34,22,54,0) 0%,rgba(34,22,54,0.85) 55%,#221636 100%);pointer-events:none;z-index:1"></div>
+  <div data-bp="herobar" style="position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 48px 104px">
+    <div style="max-width:1440px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.5);padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+      <a href="#story" onClick="{{ scrollToStory }}" style="display:flex;align-items:center;gap:16px;color:#FFFFFF" style-hover="color:#F5B72B">
+        <span style="width:44px;height:44px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;flex-shrink:0;animation:pm-bob 1.4s ease-in-out infinite"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#221636" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg></span>
+        <span style="font-size:21px;font-weight:600">A 2D pixel platformer drawn by a six-year-old and built with his dad. Out now on Steam.</span>
+      </a>
+    </div>
+  </div>
+</header>
+<!-- 5Four: main landmark -->
+<main id="main">
+
+<section id="story" data-bp="section" data-screen-label="Story" style="position:relative;z-index:2;background:#FCD7D7;padding:168px 48px 152px;display:flex;flex-direction:column;gap:80px;overflow:visible">
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%)">
+    <div style="position:absolute;inset:0;background-image:linear-gradient(#221636 2px,transparent 2px),linear-gradient(90deg,#221636 2px,transparent 2px);background-size:48px 48px;opacity:0.06"></div>
+    <div style="position:absolute;left:0;right:0;top:80px;height:200px;background:url(/assets/parallax/clouds.webp) repeat-x 0 0;background-size:1440px 270px;image-rendering:pixelated;opacity:0.35;animation:pm-drift 160s linear infinite"></div>
+  </div>
+  <div style="position:absolute;left:0;right:0;top:-32px;height:32px;pointer-events:none;background:url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'32'%20viewBox%3D'0%200%2064%2032'%20shape-rendering%3D'crispEdges'%3E%3Crect%20x%3D'0'%20y%3D'24'%20width%3D'64'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'8'%20y%3D'16'%20width%3D'48'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'16'%20y%3D'8'%20width%3D'32'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'24'%20y%3D'0'%20width%3D'16'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3C%2Fsvg%3E&quot;) repeat-x 0 0/64px 32px;image-rendering:pixelated"></div>
+  <div style="position:absolute;left:0;right:0;bottom:-32px;height:32px;pointer-events:none;z-index:2;background:url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'32'%20viewBox%3D'0%200%2064%2032'%20shape-rendering%3D'crispEdges'%3E%3Crect%20x%3D'0'%20y%3D'0'%20width%3D'64'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'8'%20y%3D'8'%20width%3D'48'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'16'%20y%3D'16'%20width%3D'32'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'24'%20y%3D'24'%20width%3D'16'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3C%2Fsvg%3E&quot;) repeat-x 0 0/64px 32px;image-rendering:pixelated"></div>
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
+    <div style="display:inline-flex;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636;image-rendering:pixelated">The story</div>
+    <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#221636;text-shadow:5px 5px 0 #FFFFFF;text-wrap:balance;max-width:1100px"><span style="color:#1C75BC">It started</span> with a sketchbook.</h2>
+    <div style="max-width:760px;display:flex;flex-direction:column;gap:24px;font-size:21px;line-height:1.7;color:#221636;text-wrap:pretty">
+      <p style="margin:0">One day, <strong style="font-weight:700;color:#1C75BC">Logan approached his dad with an idea</strong>. He wanted to create his own game.</p>
+      <p style="margin:0">As an avid fan of Super Mario, Yoshi’s Island and other titles, the young gamer wanted to develop his OWN adventure. So, <strong style="font-weight:700;color:#1C75BC">he ran to his sketchbook to jot down his ideas</strong> and concepts.</p>
+      <p style="margin:0">His dad JUMPED at the idea and got to work! Together, they transformed Logan’s imagination into a captivating digital world, where <strong style="font-weight:700;color:#1C75BC">players can explore, fight, and embark on an unforgettable journey</strong>.</p>
+    </div>
+  </div>
+  <div class="pm-reveal" ref="{{ railRef }}" style="position:relative;width:100%;overflow-x:auto;overflow-y:hidden;padding:24px 0 16px;transition-delay:150ms;cursor:grab;scrollbar-width:none;-webkit-overflow-scrolling:touch;user-select:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)">
+    <div style="display:flex;gap:40px;width:max-content;padding-left:20px;padding-top:12px">
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(-2deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">1</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(4deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="799" height="618" loading="lazy" decoding="async" src="/assets/story/sketch-story.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The idea</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">“A pigeon was sleeping but his whole family got captured, and he went on a mission to save them.”</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(1.5deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">2</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-3deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="797" height="593" loading="lazy" decoding="async" src="/assets/story/logan-desk.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Homework</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Classics, sketches and work.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(-1deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">3</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(2deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="793" height="592" loading="lazy" decoding="async" src="/assets/story/sketch-characters.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The cast</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Pigeon, Bob, Meg, Mom &amp; Dad and more, inspired by Logan.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(2deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">4</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-4deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="2000" height="1500" loading="lazy" decoding="async" src="/assets/story/logan-drawing.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Logan at work</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Creating enemies, their attributes and naming fun characters.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(-1.5deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">5</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(3deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="1546" height="1195" loading="lazy" decoding="async" src="/assets/story/sketch-bosses.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The bad guys</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Big Bug, Rocky Ronster and friends, drawn before they had names. Or backstories.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(1deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">6</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-2deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="793" height="592" loading="lazy" decoding="async" src="/assets/story/logan-screen.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The cast comes to life</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Logan’s sketches, redrawn in color and ready to become pixels.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(-2deg);transition:transform 150ms ease-out" aria-hidden="true" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">1</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(4deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="799" height="618" loading="lazy" decoding="async" src="/assets/story/sketch-story.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The idea</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">“A pigeon was sleeping but his whole family got captured, and he went on a mission to save them.”</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(1.5deg);transition:transform 150ms ease-out" aria-hidden="true" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">2</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-3deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="797" height="593" loading="lazy" decoding="async" src="/assets/story/logan-desk.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Homework</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Classics, sketches and work.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(-1deg);transition:transform 150ms ease-out" aria-hidden="true" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">3</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(2deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="793" height="592" loading="lazy" decoding="async" src="/assets/story/sketch-characters.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The cast</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Pigeon, Bob, Meg, Mom &amp; Dad and more, inspired by Logan.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(2deg);transition:transform 150ms ease-out" aria-hidden="true" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">4</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-4deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="2000" height="1500" loading="lazy" decoding="async" src="/assets/story/logan-drawing.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Logan at work</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Creating enemies, their attributes and naming fun characters.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(-1.5deg);transition:transform 150ms ease-out" aria-hidden="true" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">5</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(3deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="1546" height="1195" loading="lazy" decoding="async" src="/assets/story/sketch-bosses.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The bad guys</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Big Bug, Rocky Ronster and friends, drawn before they had names. Or backstories.</div>
+            </div>
+          </div>
+        </div>
+        <div data-bp="card" style="position:relative;flex:0 0 560px;display:flex;flex-direction:column;transform:rotate(1deg);transition:transform 150ms ease-out" aria-hidden="true" style-hover="transform:rotate(0deg) translateY(-6px)">
+          <div style="position:absolute;left:-12px;top:-12px;z-index:2;width:60px;height:60px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:26px;color:#221636">6</div>
+          <div style="position:absolute;left:50%;top:-10px;transform:translateX(-50%) rotate(-2deg);z-index:2;width:90px;height:24px;background:#96D4C7;opacity:0.9;border:2px solid #221636"></div>
+          <div style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:12px;display:flex;flex-direction:column;gap:14px;height:100%">
+            <div style="aspect-ratio:4/3;overflow:hidden;border-radius:8px;border:2px solid #221636"><img width="793" height="592" loading="lazy" decoding="async" src="/assets/story/logan-screen.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+            <div style="display:flex;flex-direction:column;gap:10px;padding:4px 6px 10px">
+              <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The cast comes to life</div>
+              <div style="font-size:21px;line-height:1.6;color:#221636;text-wrap:pretty">Logan’s sketches, redrawn in color and ready to become pixels.</div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="pm-reveal" style="position:relative;z-index:4;display:flex;justify-content:center;gap:16px;margin-top:-24px">
+    <button type="button" aria-label="Previous" onClick="{{ railPrev }}" style="width:64px;height:64px;border-radius:999px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out;padding:0" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;background:#F5B72B" style-active="transform:translate(3px,3px);box-shadow:1px 1px 0 #221636"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" aria-label="Next" onClick="{{ railNext }}" style="width:64px;height:64px;border-radius:999px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out;padding:0" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;background:#F5B72B" style-active="transform:translate(3px,3px);box-shadow:1px 1px 0 #221636"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</section>
+
+<section id="game" data-bp="section" data-screen-label="The Game" style="position:relative;background:#221636;padding:168px 48px 152px;display:flex;flex-direction:column;gap:120px;overflow:hidden">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(#FFFFFF 2px,transparent 2px),linear-gradient(90deg,#FFFFFF 2px,transparent 2px);background-size:48px 48px;opacity:0.04;pointer-events:none"></div>
+
+  <!-- intro -->
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
+    <div style="display:inline-flex;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636">The game</div>
+    <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(24px,3.4vw,56px);line-height:1.1;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;text-shadow:5px 5px 0 #221636;text-align:center;display:flex;flex-direction:column"><span>Seven worlds.</span><span>Eight bosses.</span><span style="color:#F5B72B">One flightless pigeon.</span></h2>
+    <div style="max-width:760px"><p style="margin:0;font-size:21px;line-height:1.7;color:#BBDCF4;text-wrap:pretty">A pixel-rich platformer born from a six-year-old’s imagination. Skill-based gameplay that is fun for kids and rewarding for seasoned platformer fans: precision controls, awesome power-ups, fierce boss fights and an epic storyline.</p></div>
+  </div>
+
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:-52px auto;display:flex;align-items:center;gap:24px">
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+    <div style="width:28px;height:28px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #FFFFFF"></div>
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+  </div>
+
+  <!-- story -->
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:64px;align-items:center">
+    <div class="pm-reveal" style="display:flex;flex-direction:column;gap:24px">
+      <div style="display:inline-flex;align-self:flex-start;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636">Story</div>
+      <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;text-shadow:5px 5px 0 #221636;text-wrap:balance;text-align:left"><span style="color:#FFFFFF">Save </span><span style="color:#F5B72B">Mom &amp; Dad!</span></h2>
+      <p style="margin:0;font-size:21px;line-height:1.7;color:#BBDCF4;text-wrap:pretty">Meet Archie, a brave flightless pigeon from Pepper Pines. One night while he was sleeping, his whole family was captured by Crazy Guy, a goo-mutated villain with big plans. Now Archie is on a mission to save his mom and dad.</p>
+      <p style="margin:0;font-size:21px;line-height:1.7;color:#BBDCF4;text-wrap:pretty">Wall-jump, dash and battle through seven dreamy worlds inspired by Logan’s original drawings. Unlock quirky gadgets, power up with the Harvest Pulse System, and uncover heartfelt story beats and laugh-out-loud boss fights along the way.</p>
+    </div>
+    <div class="pm-reveal" style="display:flex;flex-direction:column;gap:24px;transition-delay:150ms">
+      <img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/story-elements.webp" alt="Archie’s parents held captive by Crazy Guy" style="width:100%;height:auto;display:block;filter:drop-shadow(6px 6px 0 #F5B72B);transform:rotate(-1.5deg);position:relative;z-index:2">
+      <img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/pepper-pines.webp" alt="Archie looking out over Pepper Pines at night" style="width:100%;height:auto;display:block;margin-top:-6%;filter:drop-shadow(6px 6px 0 #F5B72B);transform:rotate(1.5deg)">
+    </div>
+  </div>
+
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:-52px auto;display:flex;align-items:center;gap:24px">
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+    <div style="width:28px;height:28px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #FFFFFF"></div>
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+  </div>
+
+  <!-- characters -->
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+    <div class="pm-reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <div style="display:inline-flex;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636">Characters</div>
+      <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;text-shadow:5px 5px 0 #221636;text-wrap:balance;text-align:center"><span style="color:#FFFFFF">Meet </span><span style="color:#F5B72B">the crew</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:56px 40px;align-items:end">
+        <div class="pm-reveal" style="position:relative;display:flex;flex-direction:column;align-items:center;transform:rotate(-2deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="width:100%;max-width:484px;height:clamp(260px,26vw,400px);display:flex;align-items:flex-end;justify-content:center"><img width="2000" height="2186" loading="lazy" decoding="async" src="/assets/game/char-archie.webp" alt="Archie Airborne" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;transform:scale(1.1);transform-origin:bottom center;filter:drop-shadow(8px 8px 0 #F5B72B)"></div>
+          <div style="margin-top:-8px;position:relative;z-index:2;background:#FFFFFF;border:3px solid #221636;border-radius:999px;box-shadow:4px 4px 0 #221636;padding:12px 26px;display:flex;flex-direction:column;align-items:center;line-height:1.2">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Archie Airborne</div>
+            <div style="font-size:15px;font-weight:600;color:#4C4066">The hero. Cannot fly.</div>
+          </div>
+        </div>
+        <div class="pm-reveal" style="position:relative;display:flex;flex-direction:column;align-items:center;transform:rotate(1.5deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="width:100%;max-width:484px;height:clamp(260px,26vw,400px);display:flex;align-items:flex-end;justify-content:center"><img width="2000" height="1703" loading="lazy" decoding="async" src="/assets/game/char-bob.webp" alt="Big Bob" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;transform:scale(1.15);transform-origin:bottom center;filter:drop-shadow(8px 8px 0 #F5B72B)"></div>
+          <div style="margin-top:-8px;position:relative;z-index:2;background:#FFFFFF;border:3px solid #221636;border-radius:999px;box-shadow:4px 4px 0 #221636;padding:12px 26px;display:flex;flex-direction:column;align-items:center;line-height:1.2">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Big Bob</div>
+            <div style="font-size:15px;font-weight:600;color:#4C4066">The muscle. Also the snacks.</div>
+          </div>
+        </div>
+        <div class="pm-reveal" style="position:relative;display:flex;flex-direction:column;align-items:center;transform:rotate(-1deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="width:100%;max-width:484px;height:clamp(260px,26vw,400px);display:flex;align-items:flex-end;justify-content:center"><img width="2000" height="2175" loading="lazy" decoding="async" src="/assets/game/char-meg.webp" alt="Meg" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;transform:scale(1.1);transform-origin:bottom center;filter:drop-shadow(8px 8px 0 #F5B72B)"></div>
+          <div style="margin-top:-8px;position:relative;z-index:2;background:#FFFFFF;border:3px solid #221636;border-radius:999px;box-shadow:4px 4px 0 #221636;padding:12px 26px;display:flex;flex-direction:column;align-items:center;line-height:1.2">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Meg</div>
+            <div style="font-size:15px;font-weight:600;color:#4C4066">The heart. And the brains.</div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:-52px auto;display:flex;align-items:center;gap:24px">
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+    <div style="width:28px;height:28px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #FFFFFF"></div>
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+  </div>
+
+  <!-- world -->
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+    <div class="pm-reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <div style="display:inline-flex;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636">World</div>
+      <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;text-shadow:5px 5px 0 #221636;text-wrap:balance;text-align:center"><span style="color:#FFFFFF">Explore seven </span><span style="color:#F5B72B">whimsical worlds</span></h2>
+      <p style="margin:0;max-width:760px;font-size:21px;line-height:1.7;color:#BBDCF4;text-wrap:pretty">Every world started as a page in Logan’s sketchbook. From grassy fields to a high-tech alien lair, each one brings new enemies, new tools and new ways to jump.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:stretch">
+      <div class="pm-reveal" style="position:relative;border:3px solid #221636;border-radius:16px;box-shadow:8px 8px 0 #F5B72B;overflow:hidden;background:#282E6B;min-height:320px">
+        <img width="2400" height="1350" loading="lazy" decoding="async" src="/assets/game/world-map.webp" alt="The world map of Pigeon’s Mission" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated">
+      </div>
+      <div class="pm-reveal" style="display:flex;flex-direction:column;gap:14px;transition-delay:150ms">
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 20px;border-radius:16px;background:#282E6B;border:3px solid #221636;box-shadow:4px 4px 0 #221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636">
+          <div style="width:52px;height:52px;flex-shrink:0;border-radius:8px;background:#96D4C7;border:3px solid #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:22px;color:#221636">1</div>
+          <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF">Hill Hopping</div>
+            <div style="font-size:17px;line-height:1.4;color:#BBDCF4">Your cozy intro to the adventure.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 20px;border-radius:16px;background:#282E6B;border:3px solid #221636;box-shadow:4px 4px 0 #221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636">
+          <div style="width:52px;height:52px;flex-shrink:0;border-radius:8px;background:#F5B72B;border:3px solid #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:22px;color:#221636">2</div>
+          <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF">Dusty Dunes</div>
+            <div style="font-size:17px;line-height:1.4;color:#BBDCF4">Enemy waves and desert wind puzzles.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 20px;border-radius:16px;background:#282E6B;border:3px solid #221636;box-shadow:4px 4px 0 #221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636">
+          <div style="width:52px;height:52px;flex-shrink:0;border-radius:8px;background:#FCD7D7;border:3px solid #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:22px;color:#221636">3</div>
+          <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF">Rocky Road</div>
+            <div style="font-size:17px;line-height:1.4;color:#BBDCF4">Heavy combat and hidden smash paths.</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:20px;padding:16px 20px;border-radius:16px;border:3px dashed rgba(255,255,255,0.35)">
+          <div style="width:52px;height:52px;flex-shrink:0;border-radius:8px;background:#F5B72B;border:3px solid #221636;display:flex;align-items:center;justify-content:center;font-family:'Climate Crisis',sans-serif;font-size:22px;color:#221636">+4</div>
+          <div style="font-family:'Climate Crisis',sans-serif;font-size:clamp(20px,2.2vw,28px);line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#F5B72B">And four more!</div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:-52px auto;display:flex;align-items:center;gap:24px">
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+    <div style="width:28px;height:28px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #FFFFFF"></div>
+    <div style="flex:1;height:4px;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.35) 0 12px,transparent 12px 24px)"></div>
+  </div>
+
+  <!-- bosses -->
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+    <div class="pm-reveal" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px">
+      <div style="display:inline-flex;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636">Bosses</div>
+      <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;text-shadow:5px 5px 0 #221636;text-wrap:balance;text-align:center"><span style="color:#FFFFFF">Eight bosses </span><span style="color:#F5B72B">with backstories</span></h2>
+      <div style="max-width:760px"><p style="margin:0;font-size:21px;line-height:1.7;color:#BBDCF4;text-wrap:pretty">Every boss has a backstory, a twist and a kid-style flair. Ray the Rat, Big Bug, Rocky Ronster, Whirlpool Wave, The Magnificent Marvo, Flam, Crazy Guy, and one more we are keeping secret.</p></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:56px 64px;align-items:end">
+        <div class="pm-reveal" style="position:relative;display:flex;flex-direction:column;align-items:center;transform:rotate(-2deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="width:100%;max-width:484px;height:clamp(260px,26vw,400px);display:flex;align-items:flex-end;justify-content:center"><img width="2000" height="1565" loading="lazy" decoding="async" src="/assets/game/boss-bigbug.webp" alt="Big Bug" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;transform:scale(1.1);transform-origin:bottom center;filter:drop-shadow(8px 8px 0 #F5B72B)"></div>
+          <div style="margin-top:-8px;position:relative;z-index:2;background:#FFFFFF;border:3px solid #221636;border-radius:999px;box-shadow:4px 4px 0 #221636;padding:12px 26px;display:flex;flex-direction:column;align-items:center;line-height:1.2;text-align:center">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Big Bug</div>
+            <div style="font-size:15px;font-weight:600;color:#4C4066">Digs, rolls, drops from above</div>
+          </div>
+        </div>
+        <div class="pm-reveal" style="position:relative;display:flex;flex-direction:column;align-items:center;transform:rotate(1.5deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="width:100%;max-width:484px;height:clamp(260px,26vw,400px);display:flex;align-items:flex-end;justify-content:center"><img width="2000" height="1574" loading="lazy" decoding="async" src="/assets/game/boss-ronster.webp" alt="Rocky Ronster" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;transform:scale(1.1);transform-origin:bottom center;filter:drop-shadow(8px 8px 0 #F5B72B)"></div>
+          <div style="margin-top:-8px;position:relative;z-index:2;background:#FFFFFF;border:3px solid #221636;border-radius:999px;box-shadow:4px 4px 0 #221636;padding:12px 26px;display:flex;flex-direction:column;align-items:center;line-height:1.2;text-align:center">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;color:#221636">Rocky Ronster</div>
+            <div style="font-size:15px;font-weight:600;color:#4C4066">Fire punches and rising lava</div>
+          </div>
+        </div>
+        <div class="pm-reveal" style="position:relative;display:flex;flex-direction:column;align-items:center;transform:rotate(-1deg);transition:transform 150ms ease-out" style-hover="transform:rotate(0deg) translateY(-8px)">
+          <div style="width:100%;max-width:484px;height:clamp(260px,26vw,400px);display:flex;align-items:flex-end;justify-content:center"><img width="2000" height="2482" loading="lazy" decoding="async" src="/assets/game/boss-marvo.webp" alt="The Magnificent Marvo" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;transform:scale(0.92);transform-origin:bottom center;filter:drop-shadow(8px 8px 0 #F5B72B)"></div>
+          <div style="margin-top:-8px;position:relative;z-index:2;background:#FFFFFF;border:3px solid #221636;border-radius:999px;box-shadow:4px 4px 0 #221636;padding:12px 26px;display:flex;flex-direction:column;align-items:center;line-height:1.2;text-align:center">
+            <div style="font-family:'Climate Crisis',sans-serif;font-size:22px;letter-spacing:0.06em;text-transform:uppercase;color:#221636">The Magnificent Marvo</div>
+            <div style="font-size:15px;font-weight:600;color:#4C4066">A magic squirrel with illusions</div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="press" data-bp="section" data-screen-label="Press" style="position:relative;z-index:2;background:#FCD7D7;padding:168px 48px 152px;display:flex;flex-direction:column;gap:80px;overflow:visible">
+  <div style="position:absolute;left:0;right:0;top:-32px;height:32px;pointer-events:none;background:url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'32'%20viewBox%3D'0%200%2064%2032'%20shape-rendering%3D'crispEdges'%3E%3Crect%20x%3D'0'%20y%3D'24'%20width%3D'64'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'8'%20y%3D'16'%20width%3D'48'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'16'%20y%3D'8'%20width%3D'32'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'24'%20y%3D'0'%20width%3D'16'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3C%2Fsvg%3E&quot;) repeat-x 0 0/64px 32px;image-rendering:pixelated"></div>
+  <div style="position:absolute;left:0;right:0;bottom:-32px;height:32px;pointer-events:none;z-index:2;background:url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'32'%20viewBox%3D'0%200%2064%2032'%20shape-rendering%3D'crispEdges'%3E%3Crect%20x%3D'0'%20y%3D'0'%20width%3D'64'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'8'%20y%3D'8'%20width%3D'48'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'16'%20y%3D'16'%20width%3D'32'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3Crect%20x%3D'24'%20y%3D'24'%20width%3D'16'%20height%3D'8'%20fill%3D'%23FCD7D7'%2F%3E%3C%2Fsvg%3E&quot;) repeat-x 0 0/64px 32px;image-rendering:pixelated"></div>
+  <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none"><div style="position:absolute;inset:0;background-image:linear-gradient(#221636 2px,transparent 2px),linear-gradient(90deg,#221636 2px,transparent 2px);background-size:48px 48px;opacity:0.06"></div></div>
+  <div class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
+    <div style="display:inline-flex;padding:10px 22px;border-radius:4px;background:#F5B72B;border:3px solid #221636;box-shadow:6px 6px 0 #221636;font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#221636">Press</div>
+    <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#221636;text-shadow:5px 5px 0 #FFFFFF;text-wrap:balance;max-width:1100px"><span style="color:#1C75BC">Everything</span> you need to write about us</h2>
+    <p style="margin:0;max-width:760px;font-size:21px;line-height:1.7;color:#221636;text-wrap:pretty">Quick facts, press kit, release, screenshots and badges. Grab what you need. For interviews or review keys, email us and a human (probably John) will write back.</p>
+  </div>
+
+  <div style="position:relative;max-width:1280px;width:100%;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px;align-items:start">
+    <div data-bp="facts" class="pm-reveal" style="background:#FFFFFF;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #221636;padding:32px 32px 16px;display:flex;flex-direction:column">
+      <div style="font-family:'Climate Crisis',sans-serif;font-size:24px;letter-spacing:0.06em;text-transform:uppercase;color:#221636;padding-bottom:8px">Quick facts</div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Title</div><div style="font-size:19px;line-height:1.4;color:#221636">Pigeon’s Mission</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Developer</div><div style="font-size:19px;line-height:1.4;color:#221636">Glowing Cheetah Studios, Miami, FL</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Genre</div><div style="font-size:19px;line-height:1.4;color:#221636">2D pixel platformer, action adventure</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Platforms</div><div style="font-size:19px;line-height:1.4;color:#221636">Windows and macOS on Steam. iOS and Android coming soon.</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Release</div><div style="font-size:19px;line-height:1.4;color:#221636">December 18, 2025</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Price</div><div style="font-size:19px;line-height:1.4;color:#221636">$9.99</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Engine</div><div style="font-size:19px;line-height:1.4;color:#221636">GameMaker Studio 2</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Kickstarter</div><div style="font-size:19px;line-height:1.4;color:#221636">$23,149 from 258 backers. Project We Love.</div></div>
+        <div style="display:flex;flex-direction:column;gap:4px;padding:16px 0;border-bottom:2px solid rgba(34,22,54,0.15)"><div style="font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#4C4066">Coverage</div><div style="font-size:19px;line-height:1.4;color:#221636">GameMaker feature. GDoC Expo 2024 and 2025. OTK Games Expo 2025 Chat Choice Award.</div></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div class="pm-reveal" style="display:flex;flex-direction:column;gap:16px;transition-delay:100ms">
+        <a href="https://drive.google.com/drive/folders/1JYAvE8q3FKqs4-NWxIiZPKB_mGi2f7J9?usp=drive_link" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border-radius:16px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#221636"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase">Press kit</span><span style="font-size:15px;font-weight:600;color:#4C4066">Logos, art, screenshots, GIFs (Google Drive)</span></span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+        <a href="https://docs.google.com/document/d/18J1162szIkOe32Knp5fxh0LDzc_YpxNAFDFmYMwgkyw/edit?usp=drive_link" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border-radius:16px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#221636"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase">Press release</span><span style="font-size:15px;font-weight:600;color:#4C4066">Launch announcement (Google Doc)</span></span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+        <a href="https://www.youtube.com/watch?v=wqi7tYuLsVM" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border-radius:16px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#221636"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase">Watch the trailer</span><span style="font-size:15px;font-weight:600;color:#4C4066">YouTube</span></span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+        <a href="https://store.steampowered.com/app/2676220/Pigeons_Mission/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border-radius:16px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#221636;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#221636"><span style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Climate Crisis',sans-serif;font-size:20px;letter-spacing:0.06em;text-transform:uppercase">Steam page</span><span style="font-size:15px;font-weight:600;color:#4C4066">Buy, wishlist, review</span></span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a>
+      </div>
+      <div class="pm-reveal" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;transition-delay:200ms">
+        <div style="aspect-ratio:16/9;border:3px solid #221636;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #221636;background:#221636"><img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/shot-1.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated"></div>
+        <div style="aspect-ratio:16/9;border:3px solid #221636;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #221636;background:#221636"><img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/shot-14.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated"></div>
+        <div style="aspect-ratio:16/9;border:3px solid #221636;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #221636;background:#221636"><img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/shot-11.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated"></div>
+        <div style="aspect-ratio:16/9;border:3px solid #221636;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #221636;background:#221636"><img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/shot-8.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated"></div>
+        <div style="aspect-ratio:16/9;border:3px solid #221636;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #221636;background:#221636"><img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/shot-2.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated"></div>
+        <div style="aspect-ratio:16/9;border:3px solid #221636;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #221636;background:#221636"><img width="1920" height="1080" loading="lazy" decoding="async" src="/assets/game/shot-7.webp" alt="" style="width:100%;height:100%;object-fit:cover;display:block;image-rendering:pixelated"></div>
+      </div>
+      <div class="pm-reveal" style="font-size:15px;line-height:1.5;color:#4C4066;transition-delay:250ms">Screenshots, character cutouts, logos and GIFs are free to use in coverage of Pigeon’s Mission. High-resolution files available on request.</div>
+    </div>
+  </div>
+
+  <div data-bp="accolades" class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:0 auto;background:#221636;border:3px solid #221636;border-radius:16px;box-shadow:8px 8px 0 #F5B72B;padding:48px;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px">
+      <div style="font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#96D4C7">Badges and accolades</div>
+      <div style="font-family:'Climate Crisis',sans-serif;font-size:clamp(24px,3vw,44px);line-height:1.08;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF">People seem to like it.</div>
+    </div>
+    <div data-bp="badges" style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:24px">
+        <img width="620" height="520" loading="lazy" decoding="async" src="/assets/badges/7346d80c04e3874a21c1940914dda148.webp" alt="Kickstarter Project We Love" style="flex:0 1 180px;width:180px;max-width:100%;height:auto;display:block;transition:transform 150ms ease-out" style-hover="transform:translateY(-4px)">
+        <img width="620" height="520" loading="lazy" decoding="async" src="/assets/badges/9c2e7c821046ef4368a76f3f9b15c046.webp" alt="Gamm! Dev 2024" style="flex:0 1 180px;width:180px;max-width:100%;height:auto;display:block;transition:transform 150ms ease-out" style-hover="transform:translateY(-4px)">
+        <img width="620" height="520" loading="lazy" decoding="async" src="/assets/badges/127278a4172082a9fb283a6f9d465336.webp" alt="GDoC Expo 2024 Selection" style="flex:0 1 180px;width:180px;max-width:100%;height:auto;display:block;transition:transform 150ms ease-out" style-hover="transform:translateY(-4px)">
+        <img width="620" height="520" loading="lazy" decoding="async" src="/assets/badges/1fba7dc79b75d230af69b047243c661b.webp" alt="OTK Games Expo 2025 Chat Choice Award" style="flex:0 1 180px;width:180px;max-width:100%;height:auto;display:block;transition:transform 150ms ease-out" style-hover="transform:translateY(-4px)">
+        <img width="620" height="520" loading="lazy" decoding="async" src="/assets/badges/6adc85f27e8bd3c197d52d30652d5c8e.webp" alt="GDoC Expo 2025 Selection" style="flex:0 1 180px;width:180px;max-width:100%;height:auto;display:block;transition:transform 150ms ease-out" style-hover="transform:translateY(-4px)">
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;align-items:center;padding-top:8px;border-top:1px solid rgba(150,212,199,0.25)">
+      <div style="display:flex;flex-direction:column;gap:12px;padding-top:24px">
+        <div style="font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#96D4C7">Featured</div>
+        <div style="font-family:'Climate Crisis',sans-serif;font-size:clamp(22px,2.4vw,32px);line-height:1.1;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF">Watch the feature.</div>
+        <p style="margin:0;font-size:19px;line-height:1.6;color:#BBDCF4;text-wrap:pretty">Logan and John talk sketchbooks, pixels and building a game as a family.</p>
+      </div>
+      <a href="https://www.youtube.com/watch?v=jyL9FyMbJKw" target="_blank" rel="noopener" aria-label="Watch the feature on YouTube" style="position:relative;display:block;aspect-ratio:16/9;border:3px solid #221636;border-radius:16px;overflow:hidden;box-shadow:6px 6px 0 #FFFFFF;background:#282E6B;margin-top:24px">
+        <img width="680" height="383" loading="lazy" decoding="async" src="/assets/motion/logan-working.gif" alt="Logan working on Pigeon’s Mission" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block">
+        <span style="position:absolute;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#F5B72B;border:3px solid #221636;box-shadow:3px 3px 0 #221636;color:#221636;font-size:14px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase">Watch full feature</span>
+      </a>
+    </div>
+  </div>
+
+  <div id="contact" data-bp="contact" class="pm-reveal" style="position:relative;max-width:1280px;width:100%;margin:0 auto;background:#221636;border:3px solid #221636;border-radius:16px;box-shadow:8px 8px 0 #F5B72B;padding:56px 48px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+      <div style="font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#96D4C7">Contact</div>
+      <div style="font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,3.6vw,52px);line-height:1.05;letter-spacing:0.06em;text-transform:uppercase;color:#FFFFFF">Say hello!</div>
+      <div style="font-size:19px;line-height:1.6;color:#BBDCF4">Press, partnerships, or a kid who wants to show us a drawing. All three welcome.</div>
+    </div>
+    <a href="mailto:hello@glowingcheetah.com" style="display:inline-flex;align-items:center;gap:14px;padding:18px 32px;border-radius:999px;background:linear-gradient(180deg,#EE2D2B 0%,#A52928 100%);border:3px solid #221636;box-shadow:4px 4px 0 #FFFFFF;color:#FFFFFF;font-weight:600;font-size:18px;letter-spacing:0.04em;transition:transform 150ms ease-out,box-shadow 150ms ease-out;white-space:nowrap" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #FFFFFF;color:#FFFFFF"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6"/></svg>hello@glowingcheetah.com</a>
+  </div>
+</section>
+
+</main>
+<div style="position:relative;background:#38B1FA;overflow:hidden">
+<section id="buy" data-bp="cta" data-screen-label="CTA" class="pm-reveal" style="position:relative;padding:224px 48px 64px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:32px">
+  <h2 style="margin:0;font-family:'Climate Crisis',sans-serif;font-size:clamp(28px,4.6vw,76px);line-height:1.08;letter-spacing:0.08em;text-transform:uppercase;color:#FFFFFF;text-shadow:5px 5px 0 #221636;max-width:1100px;text-wrap:balance">Save Mom &amp; Dad!</h2>
+  <p style="margin:0;font-size:21px;line-height:1.7;color:#221636;max-width:620px;text-wrap:pretty">Archie cannot fly. He is going anyway. Grab Pigeon’s Mission on Steam and help a very determined pigeon get his family back.</p>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+    <a href="https://store.steampowered.com/app/2676220/Pigeons_Mission/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:16px 36px;border-radius:999px;background:linear-gradient(180deg,#EE2D2B 0%,#A52928 100%);border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#FFFFFF;font-weight:600;font-size:18px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.25;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#FFFFFF">Buy on Steam, $9.99</a>
+    <a href="https://www.youtube.com/watch?v=wqi7tYuLsVM" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;padding:16px 36px;border-radius:999px;background:#FFFFFF;border:3px solid #221636;box-shadow:4px 4px 0 #221636;color:#221636;font-weight:600;font-size:18px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.25;transition:transform 150ms ease-out,box-shadow 150ms ease-out" style-hover="transform:translate(-2px,-2px);box-shadow:6px 6px 0 #221636;color:#221636">Watch the Trailer</a>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="position:relative;overflow:hidden;color:#FFFFFF">
+  <div role="img" aria-label="Archie running" data-bp="archie" style="position:absolute;left:50%;top:calc(738px - 0.684 * min(720px,90vw));width:min(720px,90vw);aspect-ratio:1;transform:translateX(-50%);overflow:hidden;pointer-events:none;z-index:3">
+    <div style="width:600%;height:100%;background:url(/assets/motion/archie-run-6.webp) 0 0 / 100% 100% no-repeat;image-rendering:pixelated;animation:pm-run 0.48s steps(6) infinite"></div>
+  </div>
+
+  <div ref="{{ skyRef }}" data-bp="sky" style="position:relative;height:720px;overflow:hidden">
+    <div ref="{{ layerClouds }}" style="position:absolute;left:0;right:0;top:0;height:540px;background:url(/assets/parallax/clouds.webp) repeat-x 0 0;background-size:2880px 540px;image-rendering:pixelated;animation:pm-drift 130s linear infinite;will-change:transform"></div>
+    <div ref="{{ layerHills }}" style="position:absolute;left:0;right:0;bottom:130px;height:700px;background:url(/assets/parallax/hills.webp) repeat-x 0 bottom;background-size:3456px 648px;image-rendering:pixelated;will-change:transform;animation:pm-drift-lg 54s linear infinite"></div>
+    <div ref="{{ layerMid }}" style="position:absolute;left:0;right:0;bottom:30px;height:690px;background:url(/assets/parallax/mid-trees.webp) repeat-x 400px bottom;background-size:3456px 648px;image-rendering:pixelated;will-change:transform;animation:pm-drift-lg 28s linear infinite"></div>
+    <div ref="{{ layerClose }}" style="position:absolute;left:0;right:0;bottom:0;height:540px;background:url(/assets/parallax/close-trees.webp) repeat-x -240px bottom;background-size:2880px 540px;image-rendering:pixelated;will-change:transform;animation:pm-drift 16s linear infinite"></div>
+
+
+  </div>
+
+  <div data-bp="footwrap" style="position:relative;background:#2A1B22;padding:96px 48px 84px;overflow:hidden">
+    <div style="position:absolute;left:0;right:0;top:0;height:540px;background:url(/assets/parallax/dirt-top.webp) repeat-x 0 0;background-size:2880px 540px;image-rendering:pixelated;animation:pm-drift 16s linear infinite"></div>
+    <div style="position:absolute;left:0;right:0;top:540px;bottom:0;background:url(/assets/parallax/dirt-mid.webp) repeat 0 0;background-size:2880px 540px;image-rendering:pixelated;animation:pm-drift 16s linear infinite"></div>
+
+    <div data-bp="footcard" style="position:relative;max-width:1280px;margin:0 auto;display:flex;flex-direction:column;gap:56px;image-rendering:auto;background:rgba(34,22,54,0.72);border-radius:16px;padding:48px">
+      <div data-bp="footgrid" style="display:grid;grid-template-columns:minmax(0,2fr) minmax(140px,auto);gap:48px 56px;align-items:start">
+        <div style="display:flex;flex-direction:column;gap:32px;max-width:720px">
+          <img fetchpriority="high" decoding="async" width="1435" height="481" loading="lazy" decoding="async" src="/assets/logo/wordmark-white.webp" alt="Pigeon’s Mission" style="width:220px;height:auto;display:block">
+          <div style="font-size:19px;line-height:1.7;letter-spacing:0.01em;color:#FCD7D7;text-wrap:pretty">Join Archie, a brave flightless pigeon, on a heartfelt quest to save his mom and dad. Explore Pepper Pines, unlock quirky gadgets and power up with the Harvest Pulse System in a whimsical platforming adventure.</div>
+          <div style="display:flex;flex-direction:column;gap:0;margin-top:-8px">
+          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-left:-6px">
+            <a href="https://store.steampowered.com/app/2676220/Pigeons_Mission/" target="_blank" rel="noopener" aria-label="Steam" title="Steam" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;transition:transform 150ms ease-out" style-hover="transform:translateY(-2px);color:#F5B72B"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-9.96 9.08l5.36 2.22a2.83 2.83 0 0 1 1.6-.5h.16l2.38-3.45v-.05a3.77 3.77 0 1 1 3.77 3.77h-.09l-3.4 2.43v.13a2.83 2.83 0 0 1-5.62.51L2.32 14.5A10 10 0 1 0 12 2Zm-5.7 15.2 1.23.51a2.12 2.12 0 1 0 1.15-4.05l1.27.53a1.56 1.56 0 1 1-1.2 2.88l-1.45-.6a2.12 2.12 0 0 0 1.4 2.38 2.12 2.12 0 0 0-2.4-1.65Zm9.01-5.27a2.51 2.51 0 1 0 0-5.02 2.51 2.51 0 0 0 0 5.02Zm0-4.4a1.89 1.89 0 1 1 0 3.78 1.89 1.89 0 0 1 0-3.78Z"/></svg></a>
+            <a href="https://www.youtube.com/watch?v=wqi7tYuLsVM" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;transition:transform 150ms ease-out" style-hover="transform:translateY(-2px);color:#F5B72B"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4L15.8 12l-6.2 3.6Z"/></svg></a>
+            <a href="https://kck.st/3IKRJMm" target="_blank" rel="noopener" aria-label="Kickstarter" title="Kickstarter" style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;color:#FFFFFF;transition:transform 150ms ease-out" style-hover="transform:translateY(-2px);color:#F5B72B"><svg width="44" height="44" viewBox="0 0 24 24" fill="currentColor"><path d="M8.1 2a4 4 0 0 0-4 4v12a4 4 0 0 0 8 0v-2.2l1.9 2.6a4 4 0 1 0 6.4-4.7L17.6 10l2.8-3.7a4 4 0 0 0-6.4-4.7L12.1 4.2V6a4 4 0 0 0-4-4Z"/></svg></a>
+          </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#96D4C7">Links</div>
+          <div style="display:flex;flex-direction:column;gap:0;font-size:21px;font-weight:600;line-height:1.25;margin-top:-10px">
+            <a href="/terms" style="color:#FFFFFF;display:inline-flex;align-items:center;min-height:44px" style-hover="color:#F5B72B">Terms</a>
+            <a href="/privacy" style="color:#FFFFFF;display:inline-flex;align-items:center;min-height:44px" style-hover="color:#F5B72B">Privacy</a>
+            <a href="#press" onClick="{{ scrollToPress }}" style="color:#FFFFFF;display:inline-flex;align-items:center;min-height:44px" style-hover="color:#F5B72B">Press Kit</a>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- 5Four: CSS Design Awards, 29 Sep 2026 -->
+      <div data-bp="awards" style="display:flex;flex-direction:column;gap:18px;padding-bottom:24px">
+        <div style="font-size:15px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#96D4C7">Awards</div>
+        <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:center">
+              <a href="https://www.cssdesignawards.com/sites/pigeons-mission/50223" target="_blank" rel="noopener" title="CSS Design Awards — Special Kudos" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform 150ms ease-out" style-hover="transform:translateY(-3px)"><img src="/assets/awards/cssda-special-kudos-color.svg" width="128" height="128" loading="lazy" decoding="async" alt="CSS Design Awards — Special Kudos" style="height:128px;width:auto;display:block"></a>
+              <a href="https://www.cssdesignawards.com/sites/pigeons-mission/50223" target="_blank" rel="noopener" title="CSS Design Awards — Best UI Design" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform 150ms ease-out" style-hover="transform:translateY(-3px)"><img src="/assets/awards/cssda-best-ui-color.png" width="128" height="128" loading="lazy" decoding="async" alt="CSS Design Awards — Best UI Design" style="height:128px;width:auto;display:block"></a>
+              <a href="https://www.cssdesignawards.com/sites/pigeons-mission/50223" target="_blank" rel="noopener" title="CSS Design Awards — Best UX Design" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform 150ms ease-out" style-hover="transform:translateY(-3px)"><img src="/assets/awards/cssda-best-ux-color.png" width="128" height="128" loading="lazy" decoding="async" alt="CSS Design Awards — Best UX Design" style="height:128px;width:auto;display:block"></a>
+              <a href="https://www.cssdesignawards.com/sites/pigeons-mission/50223" target="_blank" rel="noopener" title="CSS Design Awards — Best Innovation" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform 150ms ease-out" style-hover="transform:translateY(-3px)"><img src="/assets/awards/cssda-best-innovation-color.png" width="128" height="128" loading="lazy" decoding="async" alt="CSS Design Awards — Best Innovation" style="height:128px;width:auto;display:block"></a>
+              <a href="https://daveyawards.com/winners-area/gallery/?event=1105&amp;award=99&amp;type=36&amp;id=739452" target="_blank" rel="noopener" title="The Davey Awards — Silver Winner 2026, Mobile Apps &amp; Sites: Games" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform 150ms ease-out" style-hover="transform:translateY(-3px)"><img src="/assets/awards/davey-silver-2026.png" width="156" height="128" loading="lazy" decoding="async" alt="The Davey Awards — Silver Winner 2026, Mobile Apps &amp; Sites: Games" style="height:128px;width:auto;display:block"></a>
+              <a href="https://daveyawards.com/winners-area/gallery/?event=1105&amp;award=99&amp;type=36&amp;id=739452" target="_blank" rel="noopener" title="The Davey Awards — Silver Winner 2026, Mobile Apps &amp; Sites: Diversity, Equity &amp; Inclusion" style="display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;transition:transform 150ms ease-out" style-hover="transform:translateY(-3px)"><img src="/assets/awards/davey-silver-2026.png" width="156" height="128" loading="lazy" decoding="async" alt="The Davey Awards — Silver Winner 2026, Mobile Apps &amp; Sites: Diversity, Equity &amp; Inclusion" style="height:128px;width:auto;display:block"></a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid rgba(255,255,255,0.3);font-size:14px;line-height:1.5;color:#FFFFFF">
+        <div style="white-space:nowrap">© 2026 <a href="https://glowingcheetah.com" target="_blank" rel="noopener" style="color:#FFFFFF;display:inline-block;padding:12px 0" style-hover="color:#F5B72B">Glowing Cheetah Studios</a></div>
+        <a href="https://5fourdigital.com" target="_blank" rel="noopener" style="color:#FFFFFF;white-space:nowrap" style-hover="color:#F5B72B">Made by 5Four®</a>
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  skyRef = React.createRef();
+  layerClouds = React.createRef();
+  layerHills = React.createRef();
+  layerMid = React.createRef();
+  layerClose = React.createRef();
+  heroVideo = React.createRef();
+  railRef = React.createRef();
+  initRail() {
+    const el = this.railRef.current; if (!el) return;
+    let half = () => el.scrollWidth / 2;
+    let pauseUntil = 0, dragging = false, startX = 0, startLeft = 0, last = performance.now();
+    const wrap = () => { const hw = half(); if (el.scrollLeft >= hw) el.scrollLeft -= hw; else if (el.scrollLeft < 0) el.scrollLeft += hw; };
+    const tick = (now) => {
+      const dt = now - last; last = now;
+      if (!dragging && !this._railStopped && now > pauseUntil && !this._reduced) { el.scrollLeft += dt * 0.045; }
+      wrap(); this._railRaf = requestAnimationFrame(tick);
+    };
+    this._railRaf = requestAnimationFrame(tick);
+    el.addEventListener('pointerdown', e => { dragging = true; startX = e.clientX; startLeft = el.scrollLeft; el.style.cursor = 'grabbing'; el.setPointerCapture(e.pointerId); });
+    const end = () => { if (!dragging) return; dragging = false; el.style.cursor = 'grab'; pauseUntil = performance.now() + 2500; };
+    el.addEventListener('pointermove', e => { if (!dragging) return; const dx = e.clientX - startX; if (Math.abs(dx) > 8 && this._railTakeOver) this._railTakeOver(); el.scrollLeft = startLeft - dx; });
+    el.addEventListener('pointerup', end); el.addEventListener('pointercancel', end); el.addEventListener('pointerleave', end);
+    el.addEventListener('wheel', e => { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { pauseUntil = performance.now() + 2500; } }, { passive: true });
+    el.addEventListener('touchstart', () => { pauseUntil = performance.now() + 2500; }, { passive: true });
+    this._railPause = () => { pauseUntil = performance.now() + 4000; };
+    /* 5Four: first deliberate interaction stops the marquee and turns on snap */
+    this._railTakeOver = () => {
+      if (this._railStopped) return;
+      this._railStopped = true;
+    };
+
+  }
+  railStep(dir) {
+    const el = this.railRef.current; if (!el) return;
+    if (this._railPause) this._railPause();
+    if (this._railTakeOver) this._railTakeOver();
+    /* 5Four: snap to real card offsets rather than a fixed pixel step */
+    const track = el.firstElementChild;
+    const cards = track ? Array.from(track.children) : [];
+    if (!cards.length) return;
+    const padL = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    const stops = cards.map((c) => c.offsetLeft - padL);
+    let start = el.scrollLeft;
+    let idx = 0;
+    for (let i = 0; i < stops.length; i++) if (stops[i] <= start + 4) idx = i;
+    let target = stops[Math.max(0, Math.min(stops.length - 1, idx + dir))];
+    /* the track is duplicated for the infinite loop, so a position and that
+       position minus half the track look identical — rebase instead of letting
+       wrap() yank the animation mid-flight */
+    const hw = el.scrollWidth / 2;
+    if (target >= hw) { target -= hw; start -= hw; el.scrollLeft = start; }
+    else if (target < 0) { target += hw; start += hw; el.scrollLeft = start; }
+    const t0 = performance.now(), dur = 450;
+    const ease = (x) => 1 - Math.pow(1 - x, 3);
+    const anim = (now) => { const p = Math.min(1, (now - t0) / dur); el.scrollLeft = start + (target - start) * ease(p); if (p < 1) requestAnimationFrame(anim); };
+    requestAnimationFrame(anim);
+  }
+  loaderRef = React.createRef();
+  navLinksRef = React.createRef();
+  menuBtnRef = React.createRef();
+  setMenu(open) {
+    const el = this.navLinksRef.current, btn = this.menuBtnRef.current;
+    if (el) el.classList.toggle('is-open', open);
+    if (btn) { btn.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); }
+    if (open && !this._menuDoc) {
+      this._menuDoc = (ev) => { if (!el.contains(ev.target) && !(btn && btn.contains(ev.target))) this.setMenu(false); };
+      setTimeout(() => document.addEventListener('pointerdown', this._menuDoc), 0);
+    } else if (!open && this._menuDoc) { document.removeEventListener('pointerdown', this._menuDoc); this._menuDoc = null; }
+  }
+  toggleMenu = () => { const el = this.navLinksRef.current; this.setMenu(!(el && el.classList.contains('is-open'))); };
+  closeMenu = () => this.setMenu(false);
+  runLoader() {
+    const el = this.loaderRef.current; if (!el) return;
+    const seen = sessionStorage.getItem('pm-loaded') || new URLSearchParams(location.search).has('nopreload');
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (seen || reduced) { el.classList.add('is-gone'); return; }
+    document.documentElement.style.overflow = 'hidden';
+    const finish = () => {
+      el.classList.add('is-out');
+      setTimeout(() => { el.classList.add('is-gone'); document.documentElement.style.overflow = ''; sessionStorage.setItem('pm-loaded', '1'); }, 950);
+    };
+    let timerDone = false, videoDone = false;
+    const tryFinish = () => { if (timerDone && videoDone) finish(); };
+    setTimeout(() => { timerDone = true; tryFinish(); }, 3300);
+    const v = this.heroVideo.current;
+    if (v && v.readyState < 3) { v.addEventListener('canplay', () => { videoDone = true; tryFinish(); }, { once: true }); setTimeout(() => { videoDone = true; tryFinish(); }, 6000); }
+    else { videoDone = true; }
+  }
+  componentDidMount() {
+    this.runLoader();
+    const v = this.heroVideo.current; if (v) { v.muted = true; v.defaultMuted = true; v.volume = 0; v.addEventListener('volumechange', () => { if (!v.muted) v.muted = true; });
+      v.loop = true;
+      v.addEventListener('timeupdate', () => { if (v.currentTime >= 34.7 && v.currentTime < 36.4) v.currentTime = 36.4; });
+      v.play().catch(() => {}); }
+    this._reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); this._io.unobserve(e.target); } }), { threshold: 0, rootMargin: "0px 0px -8% 0px" } /* 5Four: was 0.15 */);
+    document.querySelectorAll('.pm-reveal').forEach(el => this._io.observe(el));
+    this._mo = new MutationObserver(() => document.querySelectorAll('.pm-reveal:not(.is-in)').forEach(el => this._io.observe(el)));
+    this._mo.observe(document.body, { childList: true, subtree: true });
+    this.initRail();
+    /* 5Four: Esc closes the menu and returns focus to the button (checklist §2, §10) */
+    this._onKey = (e) => {
+      if (e.key !== 'Escape') return;
+      const el = this.navLinksRef.current;
+      if (el && el.classList.contains('is-open')) { this.setMenu(false); const b = this.menuBtnRef.current; if (b) b.focus(); }
+    };
+    addEventListener('keydown', this._onKey);
+    const railEl = this.railRef.current;
+    if (railEl) {
+      const revealRail = () => railEl.querySelectorAll('.pm-reveal').forEach((n) => n.classList.add('is-in'));
+      const railIo = new IntersectionObserver((es) => {
+        if (es.some((e) => e.isIntersecting)) { revealRail(); railIo.disconnect(); }
+      }, { threshold: 0 });
+      railIo.observe(railEl);
+      /* belt and braces: if anything above goes wrong, never leave them blank */
+      setTimeout(revealRail, 4000);
+    }
+    this._onScroll = () => { if (!this._raf) this._raf = requestAnimationFrame(() => { this._raf = 0; this.update(); }); };
+    addEventListener('scroll', this._onScroll, { passive: true });
+    addEventListener('resize', this._onScroll);
+    this.update();
+  }
+  componentWillUnmount() { removeEventListener('keydown', this._onKey); removeEventListener('scroll', this._onScroll); removeEventListener('resize', this._onScroll); if (this._io) this._io.disconnect(); if (this._railRaf) cancelAnimationFrame(this._railRaf); }
+  update() {
+    const sky = this.skyRef.current; if (!sky || this._reduced) return;
+    const r = sky.getBoundingClientRect(); const vh = innerHeight;
+    // 0 when sky top enters viewport bottom, 1 when sky top reaches viewport top
+    const p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+    const t = (p - 0.5) * 2; // -1..1
+    const set = (ref, y) => { if (ref.current) ref.current.style.transform = `translate3d(0,${y.toFixed(1)}px,0)`; };
+    set(this.layerClouds, Math.max(0, t) * 30);
+    set(this.layerHills, t * 40);
+    set(this.layerMid, t * 25);
+  }
+  smoothTo(id) {
+    return (e) => {
+      const el = document.getElementById(id); if (!el) return;
+      e.preventDefault(); this.closeMenu();
+      let target = 0; for (let n = el; n; n = n.offsetParent) target += n.offsetTop; /* 5Four: was getBoundingClientRect, which includes the reveal transform */
+      if (el.classList.contains('pm-reveal')) el.classList.add('is-in');
+      el.querySelectorAll('.pm-reveal').forEach((n) => n.classList.add('is-in'));
+      const start = scrollY, t0 = performance.now(), dur = 700;
+      const ease = (x) => x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+      const step = (now) => { const p = Math.min(1, (now - t0) / dur); scrollTo(0, start + (target - start) * ease(p)); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    };
+  }
+  renderVals() {
+    return { loaderRef: this.loaderRef, navLinksRef: this.navLinksRef, menuBtnRef: this.menuBtnRef, toggleMenu: this.toggleMenu, scrollToTop: this.smoothTo('top'), scrollToStory: this.smoothTo('story'), scrollToGame: this.smoothTo('game'), scrollToPress: this.smoothTo('press'), scrollToContact: this.smoothTo('contact'), heroVideo: this.heroVideo, railRef: this.railRef, railPrev: () => this.railStep(-1), railNext: () => this.railStep(1), skyRef: this.skyRef, layerClouds: this.layerClouds, layerHills: this.layerHills, layerMid: this.layerMid, layerClose: this.layerClose };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+/* 5Four: design system + self-hosted fonts, inlined (was 8 requests + an @import chain) */
+@font-face{font-family:'Climate Crisis';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/climate-crisis-normal-400-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Climate Crisis';font-style:normal;font-weight:400;font-display:swap;src:url('/assets/fonts/climate-crisis-normal-400-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Jost';font-style:italic;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-italic-300800-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Jost';font-style:italic;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-italic-300800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-normal-300800-latin-ext.woff2') format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF}
+@font-face{font-family:'Jost';font-style:normal;font-weight:300 800;font-display:swap;src:url('/assets/fonts/jost-normal-300800-latin.woff2') format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+:root{
+--pm-ink:#221636;
+--pm-navy:#282E6B;
+--pm-blue:#1C75BC;
+--pm-cyan:#00A7C9;
+--pm-red:#EE2D2B;
+--pm-maroon:#A52928;
+--pm-mint:#96D4C7;
+--pm-sky:#BBDCF4;
+--pm-blush:#FCD7D7;
+--pm-gold:#F5B72B;
+--pm-white:#FFFFFF;
+--pm-grad-blue:linear-gradient(180deg,#1C75BC 0%,#00A7C9 100%);
+--pm-grad-red:linear-gradient(180deg,#EE2D2B 0%,#A52928 100%);
+--surface-page:var(--pm-blush);
+--surface-dark:var(--pm-ink);
+--surface-card:var(--pm-white);
+--text-body:var(--pm-ink);
+--text-muted:#4C4066;
+--text-on-dark:var(--pm-blush);
+--text-link:var(--pm-blue);
+--action-fill:var(--pm-grad-red);
+--action-fill-pressed:var(--pm-maroon);
+--border-ink:var(--pm-ink);
+--border-keyline:var(--pm-mint);
+}
+:root{
+--font-display:"Climate Crisis",system-ui,sans-serif;
+--font-body:"Jost","Futura",system-ui,sans-serif;
+--display-xl-size:96px; --display-xl-size-sm:72px; --display-xl-track:-0.02em;
+--display-lg-size:64px; --display-lg-size-sm:48px; --display-lg-track:-0.01em;
+--display-md-size:40px; --display-md-size-sm:32px; --display-md-track:0em;
+--display-leading:1.0;
+--display-leading-loose:1.05;
+--heading-lg-size:32px; --heading-lg-size-sm:28px; --heading-lg-weight:700; --heading-lg-track:-0.01em;
+--heading-md-size:24px; --heading-md-size-sm:22px; --heading-md-weight:600; --heading-md-track:0em;
+--heading-sm-size:18px; --heading-sm-weight:600; --heading-sm-track:0.01em;
+--heading-leading:1.25;
+--body-lg-size:18px;
+--body-size:16px;
+--body-sm-size:14px; --body-sm-track:0.01em;
+--body-weight:400;
+--body-leading:1.5;
+--label-size:12px; --label-weight:600; --label-track:0.08em; --label-transform:uppercase;
+}
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-5:24px;
+--space-6:32px;
+--space-7:48px;
+--space-8:64px;
+--space-9:96px;
+--space-10:128px;
+--radius-sm:4px;
+--radius-md:16px;
+--radius-pill:999px;
+--grid-columns:12;
+--grid-gutter:24px;
+--content-max:1280px;
+--container-max:1440px;
+--store-grid-columns:4;
+--store-gutter:24px;
+}
+:root{
+--border-width:3px;
+--border-width-thick:4px;
+--shadow-hard-sm:2px 2px 0 var(--pm-ink);
+--shadow-hard:4px 4px 0 var(--pm-ink);
+--shadow-hard-lg:8px 8px 0 var(--pm-ink);
+}
+:root{
+--ease-out:cubic-bezier(0.22,0.61,0.36,1);
+--ease-bounce:cubic-bezier(0.34,1.56,0.64,1);
+--dur-hover:150ms;
+--dur-press:90ms;
+--dur-reveal:250ms;
+--dur-hero:1200ms;
+--hover-lift:-2px;
+--press-scale:0.97;
+}
+@media (prefers-reduced-motion:reduce){
+:root{--dur-hover:0ms;  --dur-press:0ms;  --dur-reveal:0ms;  --dur-hero:0ms }
+}
+body{margin:0;font-family:var(--font-body);font-size:var(--body-size);line-height:var(--body-leading);color:var(--text-body);background:var(--surface-page);-webkit-font-smoothing:antialiased;text-wrap:pretty}
+*,*::before,*::after{box-sizing:border-box}
+a{color:var(--text-link);text-decoration-thickness:2px;text-underline-offset:3px;transition:color var(--dur-hover) var(--ease-out)}
+a:hover{color:var(--pm-maroon)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pm-cyan);outline-offset:3px}
+img{image-rendering:auto}
+.pm-pixel{image-rendering:pixelated}

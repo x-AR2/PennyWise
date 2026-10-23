@@ -1,0 +1,125 @@
+
+    body{margin:0;background:#221636;font-family:"Jost",system-ui,sans-serif;color:#221636}
+    a{color:#BBDCF4;text-decoration:none}a:hover{color:#FFFFFF}
+    @keyframes pm-run{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+    @keyframes pm-drift-lg{from{background-position-x:0}to{background-position-x:-3456px}}
+    .pm-nav{position:relative;display:inline-block}
+    .pm-nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#F5B72B 0 8px,transparent 8px 12px) 0 0/12px 6px repeat-x;clip-path:inset(0 100% 0 0);transition:clip-path 220ms steps(6,end)}
+    .pm-nav:hover::after{clip-path:inset(0 0 0 0)}
+    .pm-nav:hover{text-shadow:3px 3px 0 #221636;transform:translate(-1px,-1px)}
+        @keyframes pm-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+    @keyframes pm-bar{from{width:0}to{width:100%}}
+    .pm-loader{position:fixed;inset:0;z-index:9999;background:#221636;display:flex;align-items:center;justify-content:center;transition:transform 900ms cubic-bezier(0.76,0,0.24,1);will-change:transform}
+    .pm-loader-inner{transition:opacity 350ms ease-out,transform 500ms cubic-bezier(0.76,0,0.24,1)}
+    .pm-loader.is-out .pm-loader-inner{opacity:0;transform:translateY(-40px)}
+    .pm-loader.is-out{transform:translateY(-100%)}
+    .pm-loader.is-gone{display:none}
+    .pm-loader::after{content:"";position:absolute;left:0;right:0;bottom:-32px;height:32px;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'64'%20height%3D'32'%20viewBox%3D'0%200%2064%2032'%20shape-rendering%3D'crispEdges'%3E%3Crect%20x%3D'0'%20y%3D'0'%20width%3D'64'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3Crect%20x%3D'8'%20y%3D'8'%20width%3D'48'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3Crect%20x%3D'16'%20y%3D'16'%20width%3D'32'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3Crect%20x%3D'24'%20y%3D'24'%20width%3D'16'%20height%3D'8'%20fill%3D'%23221636'%2F%3E%3C%2Fsvg%3E") repeat-x 0 0/64px 32px}
+    @keyframes pm-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    .pm-reveal{opacity:0;transform:translateY(32px);transition:opacity 600ms ease-out,transform 600ms ease-out}
+    .pm-reveal.is-in{opacity:1;transform:none}
+    @media (prefers-reduced-motion:reduce){.pm-reveal{opacity:1;transform:none;transition:none}}
+    @keyframes pm-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+        @keyframes pm-drift{from{background-position-x:0}to{background-position-x:-2880px}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+    @media (max-width:1024px){
+      [data-bp="menubtn"]{display:flex!important}
+      [data-bp="navlinks"]{display:flex!important;position:absolute;left:auto;right:32px;width:min(300px,calc(100vw - 64px));top:calc(100% - 8px);flex-direction:column;align-items:stretch;gap:0!important;background:#221636;border:3px solid #221636;border-radius:16px;box-shadow:6px 6px 0 #F5B72B;padding:8px 20px 20px;z-index:60;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-12px) scale(0.98);transform-origin:top right;transition:opacity 180ms ease-out,transform 220ms cubic-bezier(0.34,1.4,0.64,1),visibility 0s linear 220ms}
+      [data-bp="navlinks"].is-open{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity 180ms ease-out,transform 260ms cubic-bezier(0.34,1.4,0.64,1),visibility 0s}
+      [data-bp="navlinks"] a{opacity:0;transform:translateY(-6px);transition:opacity 180ms ease-out,transform 180ms ease-out}
+      [data-bp="navlinks"].is-open a{opacity:1;transform:none}
+      [data-bp="navlinks"].is-open a:nth-child(1){transition-delay:40ms}[data-bp="navlinks"].is-open a:nth-child(2){transition-delay:80ms}[data-bp="navlinks"].is-open a:nth-child(3){transition-delay:120ms}[data-bp="navlinks"].is-open a:nth-child(4){transition-delay:160ms}[data-bp="navlinks"].is-open a:nth-child(5){transition-delay:200ms}
+      [data-bp="menubtn"]{transition:transform 150ms ease-out,box-shadow 150ms ease-out}
+      [data-bp="menubtn"].is-open{transform:translate(3px,3px);box-shadow:1px 1px 0 #221636!important}
+      [data-bp="menubtn"] svg{transition:transform 220ms ease-out}
+      [data-bp="menubtn"].is-open svg{transform:rotate(90deg)}
+      [data-bp="navlinks"] a{font-size:17px!important;padding:16px 4px!important;text-align:left!important;justify-content:flex-start!important;align-self:stretch;display:flex;border-bottom:1px solid rgba(150,212,199,0.25)!important;border-radius:0!important}
+      [data-bp="navlinks"] a:last-child{margin-top:16px;justify-content:center!important;text-align:center!important;padding:14px 20px!important;border-bottom:0!important;border-radius:999px!important}
+      [data-bp="section"]{padding-left:32px!important;padding-right:32px!important;padding-top:120px!important;padding-bottom:104px!important}
+      [data-bp="cta"]{padding:176px 32px 48px!important}
+      [data-bp="herocopy"]{padding-left:32px!important;padding-right:32px!important}
+      [data-bp="herobar"]{padding-left:32px!important;padding-right:32px!important;padding-bottom:80px!important}
+      [data-bp="nav"]{padding:20px 32px!important}
+      [data-bp="card"]{flex-basis:440px!important}
+      [data-bp="footwrap"]{padding:72px 32px 64px!important}
+      [data-bp="footcard"]{padding:32px!important}
+      [data-bp="accolades"],[data-bp="contact"]{padding:36px 32px!important}
+      [data-bp="facts"]{padding:24px 24px 8px!important}
+      [data-bp="section"] h2{font-size:clamp(26px,5.2vw,56px)!important}
+      [data-bp="herocopy"] h1{font-size:clamp(26px,5.6vw,60px)!important}
+    }
+    @media (max-width:720px){
+      [data-bp="navlinks"]{right:20px!important;width:min(280px,calc(100vw - 40px))!important}
+      [data-bp="nav"]{padding:16px 20px!important}
+      [data-bp="nav"] img{width:160px!important}
+      [data-bp="section"]{padding-left:20px!important;padding-right:20px!important;padding-top:96px!important;padding-bottom:88px!important;gap:56px!important}
+      #game[data-bp="section"]{gap:104px!important}
+      #game[data-bp="section"] > [style*="margin:-52px auto"]{margin:-28px auto!important}
+      [data-bp="cta"]{padding:140px 20px 40px!important}
+      [data-bp="herocopy"]{padding-left:20px!important;padding-right:20px!important;padding-top:6vh!important}
+      [data-bp="herocopy"] h1{font-size:clamp(26px,8vw,40px)!important;letter-spacing:0.06em!important}
+      [data-bp="herocopy"] a{font-size:15px!important;padding:12px 20px!important}
+      [data-bp="herobar"]{padding:0 20px 56px!important}
+      [data-bp="herobar"] span:last-child{font-size:16px!important}
+      [data-bp="section"] h2{font-size:clamp(22px,6vw,32px)!important;letter-spacing:0.05em!important}
+      [data-bp="section"] p,[data-bp="section"] [style*="font-size: 21px"],[data-bp="section"] [style*="font-size:21px"]{font-size:16px!important;line-height:1.55!important}
+      [data-bp="section"] [style*="font-size: 19px"],[data-bp="section"] [style*="font-size:19px"]{font-size:15px!important;line-height:1.5!important}
+      [data-bp="section"]{padding-top:80px!important;padding-bottom:72px!important}
+      #game[data-bp="section"]{gap:88px!important}
+      [data-bp="badges"]{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;justify-items:center}
+      [data-bp="badges"] > img{width:100%!important;max-width:none!important;flex:none!important}
+      [data-bp="accolades"]{gap:28px!important}
+      [data-bp="contact"]{gap:20px!important}
+      [data-bp="section"] > [style*="margin:-52px auto"]{margin:-24px auto!important}
+      [data-bp="facts"]{gap:0!important}
+      [data-bp="footcard"]{gap:24px!important}
+      [data-bp="footwrap"]{padding:40px 20px 40px!important}
+      [data-bp="cta"]{padding:120px 20px 24px!important}
+      [data-bp="sky"]{height:400px!important}
+      [data-bp="archie"]{width:min(360px,80vw)!important;top:calc(418px - 0.684 * min(360px,80vw))!important}
+      [data-bp="card"]{flex-basis:min(78vw,340px)!important}
+      [data-bp="card"] [style*="font-size: 22px"],[data-bp="card"] [style*="font-size:22px"]{font-size:18px!important}
+      [data-bp="footwrap"]{padding:56px 20px 48px!important}
+      [data-bp="footcard"]{padding:24px!important;gap:32px!important}
+      [data-bp="footgrid"]{grid-template-columns:1fr!important;gap:32px!important}
+      [data-bp="accolades"],[data-bp="contact"]{padding:28px 20px!important}
+      [data-bp="contact"] a{white-space:normal!important;font-size:15px!important;padding:14px 20px!important;word-break:break-all}
+      [data-bp="facts"]{padding:20px 20px 4px!important}
+      [data-bp="cta"] a{font-size:15px!important;padding:14px 24px!important}
+    }
+  
+    /* 5Four: skip link (checklist §10) */
+    .pm-skip{position:absolute;left:-9999px;top:0;z-index:10000;padding:14px 20px;background:#F5B72B;color:#221636;font-weight:700;border:3px solid #221636;border-radius:0 0 12px 0}
+    .pm-skip:focus{left:0}
+    /* 5Four: the footer card is only ~262px wide inside on a 390px phone, so
+       the badges cannot sit four-across at this size. At 96px they pair up
+       two to a row, including the two wider Davey marks, which keeps the
+       block to three tidy rows instead of four ragged ones. */
+    @media (max-width:720px){
+      [data-bp="awards"] img{height:96px!important;width:auto!important}
+      [data-bp="awards"] > div:last-child{gap:16px!important}
+      /* the footer card's own gap drops from 56px to 32px here, so the
+         two-row badge block needs more of its own room above the divider */
+      [data-bp="awards"]{padding-bottom:40px!important}
+    }
+    /* 5Four: on phones the sketchbook cards were clipped at both screen edges.
+       The rail had 20px of left padding and none on the right, and the cards
+       were wide enough (317px in a 390px viewport) that one never sat fully in
+       view. Narrower cards plus symmetric padding mean a whole card always
+       fits, with the next one peeking. */
+    @media (max-width:720px){
+      [data-bp="card"]{flex-basis:min(68vw,290px)!important}
+      div:has(> [data-bp="card"]){padding-left:24px!important;padding-right:24px!important}
+    }
+    /* 5Four: the last Quick Facts row carried a border-bottom like the others,
+       so the card ended on a rule with nothing beneath it. */
+    [data-bp="facts"] > div:last-child{border-bottom:0!important}
+    /* 5Four: visible focus ring (checklist §10) */
+    a:focus-visible,button:focus-visible{outline:3px solid #F5B72B;outline-offset:3px;border-radius:4px}
+    /* 5Four: 44px minimum tap target (checklist §2). position:relative is set
+       unconditionally — never gated on [style*="position"], because Safari
+       expands the font shorthand and the test then matches every link. */
+    @media (max-width:1024px){
+      [data-bp="navlinks"] a,footer a{position:relative}
+      [data-bp="navlinks"] a::after,footer a::after{content:"";position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);height:44px;min-height:100%}
+    }
