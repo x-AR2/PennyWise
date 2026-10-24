@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About PennyWise | Web Technologies Specification</title>
+  <title>About PennyWise | Project Overview & Specification</title>
   <!-- Google Fonts: Climate Crisis & Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="favicon-192.png">
   <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,7 +20,7 @@
 
   <!-- Top Announcement Bar -->
   <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
-    <span class="text-[#96D4C7]">Course: Web Technologies</span>
+    <span class="text-[#96D4C7]">Smart Price Comparison</span>
     <span class="text-[#F5B72B]">•</span>
     <span class="bg-[#F5B72B] text-[#221636] px-2.5 py-0.5 rounded-full font-black text-[11px] border border-[#221636] shadow-[2px_2px_0px_#221636]">
       Project Specification
@@ -50,7 +48,7 @@
         <!-- Navigation Links with Stepped Underlines -->
         <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
           <a href="index.html" class="pm-nav">Home</a>
-          <a href="results.html?q=iPhone+15" class="pm-nav">Live Crawler</a>
+          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
           <a href="about.html" class="pm-nav active">About</a>
           <a href="404.html" class="pm-nav text-[#4C4066] hover:text-[#96D4C7]">404</a>
         </nav>
@@ -72,7 +70,7 @@
     <div class="pm-card p-8 bg-[#F5B72B] border-3 border-[#221636] relative shadow-[6px_6px_0px_#221636]">
       <div class="pm-washi" style="background:#FFFFFF;"></div>
       <div class="inline-flex gap-2 mb-3">
-        <span class="pm-tag pm-tag-white text-xs">Course: Web Technologies</span>
+        <span class="pm-tag pm-tag-white text-xs">Price Comparison Engine</span>
         <span class="pm-tag pm-tag-mint text-xs">Specification v0.1</span>
       </div>
       <h1 class="font-display text-4xl sm:text-5xl text-[#221636] uppercase mb-4">
@@ -88,7 +86,11 @@
       
       <!-- Goals -->
       <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(-1deg);">
-        <div class="pm-sticker-number" style="background:#96D4C7;">✓</div>
+        <div class="pm-sticker-number flex items-center justify-center" style="background:#96D4C7;">
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
         <div class="pm-washi"></div>
         <div>
           <h2 class="font-display text-2xl text-[#221636] uppercase mb-4 pt-2">PROTOTYPE GOALS</h2>
@@ -115,7 +117,11 @@
 
       <!-- Non-Goals -->
       <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(1deg);">
-        <div class="pm-sticker-number" style="background:#FCD7D7;">✕</div>
+        <div class="pm-sticker-number flex items-center justify-center" style="background:#FCD7D7;">
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </div>
         <div class="pm-washi pm-washi-gold"></div>
         <div>
           <h2 class="font-display text-2xl text-[#221636] uppercase mb-4 pt-2">NON-GOALS (PROTOTYPE)</h2>
@@ -142,14 +148,14 @@
 
     </div>
 
-    <!-- Zero-Hallucination Philosophy -->
+    <!-- Data Accuracy Philosophy -->
     <div class="pm-card p-6 bg-[#BBDCF4] border-3 border-[#221636] shadow-[6px_6px_0px_#221636]">
       <div class="inline-flex items-center gap-2 mb-2">
-        <span class="pm-tag pm-tag-white text-xs">Section 7 Compliance</span>
+        <span class="pm-tag pm-tag-white text-xs">Data Integrity</span>
         <span class="pm-tag pm-tag-mint text-xs">Strict Rule</span>
       </div>
       <h2 class="font-display text-2xl sm:text-3xl text-[#221636] uppercase mb-3">
-        THE ZERO-HALLUCINATION POLICY
+        THE DATA ACCURACY POLICY
       </h2>
       <p class="text-sm sm:text-base font-bold text-[#221636] leading-relaxed mb-4">
         The application must never display information that was not collected from a real store page. 
@@ -172,9 +178,9 @@
           <p class="text-[11px] font-normal text-[#4C4066] mt-1">Retro arcade aesthetic with Pigeon's Mission tokens.</p>
         </div>
         <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
-          <span class="text-[#4C4066] uppercase block mb-1">Interactive 3D</span>
-          <span class="text-sm font-display text-[#221636] uppercase">SPLINE 3D VIEWER</span>
-          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Lazy-loaded interactive 3D coin mascot in hero.</p>
+          <span class="text-[#4C4066] uppercase block mb-1">Animation</span>
+          <span class="text-sm font-display text-[#221636] uppercase">DOTLOTTIE ANIMATION</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Lightweight vector coin mascot and scraping loading spinner.</p>
         </div>
         <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
           <span class="text-[#4C4066] uppercase block mb-1">Backend</span>
@@ -231,7 +237,7 @@
 
       <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
         <a href="index.html" class="pm-nav">Home</a>
-        <a href="results.html?q=iPhone+15" class="pm-nav">Live Crawler</a>
+        <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
         <a href="about.html" class="pm-nav active">About</a>
         <a href="404.html" class="pm-nav">404</a>
       </div>

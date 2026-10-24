@@ -9,6 +9,12 @@ venv/
 env/
 ENV/
 
+# Environment & Secret files
+.env
+*.env
+.env.*
+!.env.example
+
 # Operating System files
 .DS_Store
 Thumbs.db
@@ -24,3 +30,7 @@ Thumbs.db
 *.log
 *.tmp
 .cache/
+
+# Planning & Suggested Pages
+Suggested Pages.md
+Suggested Pages

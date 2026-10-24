@@ -1,17 +1,25 @@
 """
 PennyWise: Prototype Web Server & Crawler API
-Course: Web Technologies - Version 0.1 (Prototype)
+Version 0.1 (Prototype)
 """
 
 import os
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 
 from app.cache import search_cache
 from app.crawler import crawl_and_extract_products
+from app.ai_helper import (
+    generate_shopping_insights,
+    is_ai_enabled,
+    is_gemini_vision_enabled,
+    identify_product_from_image,
+    OPENROUTER_MODEL,
+    GEMINI_API_KEY
+)
 
 # App Initialization
 app = FastAPI(
@@ -66,6 +74,23 @@ class SearchResponse(BaseModel):
     cached: bool = False
     results: List[ProductResult]
     crawler_metrics: Optional[CrawlerMetrics] = None
+    ai_insights: Optional[str] = None
+
+
+class VisionIdentifyRequest(BaseModel):
+    image: str = Field(..., description="Base64 encoded image string or Data URL")
+    mime_type: Optional[str] = Field("image/jpeg", description="MIME type of the image")
+
+
+class VisionIdentifyResponse(BaseModel):
+    success: bool
+    name: Optional[str] = None
+    brand: Optional[str] = None
+    category: Optional[str] = None
+    model_or_variant: Optional[str] = None
+    confidence: Optional[str] = None
+    search_query: Optional[str] = None
+    error: Optional[str] = None
 
 
 # Page Routes (Section 8)
@@ -97,13 +122,9 @@ async def serve_favicon():
 async def serve_favicon_svg():
     return FileResponse(os.path.join(BASE_DIR, "favicon.svg"), media_type="image/svg+xml")
 
-@app.get("/favicon-32.png", include_in_schema=False)
-async def serve_favicon_32():
-    return FileResponse(os.path.join(BASE_DIR, "favicon-32.png"), media_type="image/png")
-
-@app.get("/favicon-192.png", include_in_schema=False)
-async def serve_favicon_192():
-    return FileResponse(os.path.join(BASE_DIR, "favicon-192.png"), media_type="image/png")
+@app.get("/coin.lottie", include_in_schema=False)
+async def serve_coin_lottie():
+    return FileResponse(os.path.join(BASE_DIR, "coin.lottie"), media_type="application/zip")
 
 
 # Backend Search & Crawler API (Section 6.2 & 6.5)
@@ -125,17 +146,21 @@ async def search_products(
 
     # Step 2: Execute Live Real-Time Multi-Strategy Crawler
     try:
-        crawl_payload = await crawl_and_extract_products(query_clean, max_candidates=12)
+        crawl_payload = await crawl_and_extract_products(query_clean, max_candidates=30)
         crawl_payload["cached"] = False
 
-        # Step 3: Cache if successful extractions occurred
+        # Step 3: AI Shopping Insights (OpenRouter)
+        if crawl_payload["count"] > 0:
+            ai_verdict = await generate_shopping_insights(query_clean, crawl_payload["results"])
+            crawl_payload["ai_insights"] = ai_verdict
+
+        # Step 4: Cache if successful extractions occurred
         if crawl_payload["count"] > 0:
             search_cache.set(query_clean, crawl_payload, ttl=300)
 
         return crawl_payload
     except Exception as e:
-        # In accordance with Section 6.5 & Section 7 (Zero-Hallucination):
-        # On failure, return error information and empty results list, never placeholder data.
+        # Strict Data Accuracy: On failure, return error information and empty results list, never placeholder data.
         return JSONResponse(
             status_code=500,
             content={
@@ -158,6 +183,29 @@ async def search_products(
 async def clear_cache():
     search_cache.clear()
     return {"status": "success", "message": "Crawler cache cleared successfully"}
+
+
+@app.post("/api/vision/identify", response_model=VisionIdentifyResponse)
+async def vision_identify_endpoint(payload: VisionIdentifyRequest):
+    """
+    Multimodal visual product identification using Google Gemini Vision API.
+    Accepts base64 or Data URL image and returns extracted product name, brand, and search query.
+    """
+    result = await identify_product_from_image(payload.image, payload.mime_type)
+    return result
+
+
+@app.get("/api/ai/status")
+async def ai_status():
+    has_gemini = bool(GEMINI_API_KEY and len(GEMINI_API_KEY.strip()) > 5)
+    return {
+        "ai_enabled": is_ai_enabled(),
+        "gemini_vision_enabled": is_gemini_vision_enabled(),
+        "has_gemini_key": has_gemini,
+        "vision_provider": "Google Gemini" if has_gemini else "OpenRouter",
+        "provider": "Google Gemini" if has_gemini else "OpenRouter",
+        "model": "gemini-2.5-flash" if has_gemini else OPENROUTER_MODEL
+    }
 
 
 if __name__ == "__main__":

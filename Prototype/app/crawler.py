@@ -1,7 +1,7 @@
 """
 PennyWise - Automated Product Crawler & Price Extraction Engine
-Zero-Hallucination Real-Time Scraper for Pakistani Online Stores
-Course: Web Technologies - Version 0.1 (Prototype)
+Real-Time Scraper for Pakistani Online Stores
+Version 0.1 (Prototype)
 """
 
 import asyncio
@@ -9,7 +9,7 @@ import re
 import json
 import time
 from typing import List, Dict, Any, Optional, Tuple
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 import httpx
 from bs4 import BeautifulSoup
 
@@ -17,6 +17,8 @@ try:
     from ddgs import DDGS
 except ImportError:
     from duckduckgo_search import DDGS
+
+from app.ai_helper import extract_product_with_ai
 
 # Well-known Pakistani E-Commerce & Tech Portals
 STORE_NAME_MAP = {
@@ -52,7 +54,28 @@ STORE_NAME_MAP = {
     "audionic.co": "Audionic",
     "dany.com.pk": "Dany Technologies",
     "applepakistan.com.pk": "Apple Pakistan",
-    "powerhouseexpress.com.pk": "Powerhouse Express"
+    "powerhouseexpress.com.pk": "Powerhouse Express",
+    "outfitters.com.pk": "Outfitters",
+    "diners.com.pk": "Diners",
+    "charcoal.com.pk": "Charcoal",
+    "uniworthshop.com": "Uniworth",
+    "pk.khaadi.com": "Khaadi",
+    "khaadi.com": "Khaadi",
+    "junaidjamshed.com": "Junaid Jamshed",
+    "pk.sapphireonline.com.pk": "Sapphire",
+    "sapphireonline.pk": "Sapphire",
+    "gulahmedshop.com": "Gul Ahmed",
+    "alkaramstudio.com": "Alkaram Studio",
+    "breakout.com.pk": "Breakout",
+    "edenrobe.com": "Edenrobe",
+    "engine.com.pk": "Engine",
+    "focuspk.com": "Focus Clothing",
+    "monark.com.pk": "Monark",
+    "elo.shopping": "Export Leftovers (ELO)",
+    "exportleftovers.com": "Export Leftovers (ELO)",
+    "cougar.com.pk": "Cougar",
+    "furorjeans.com": "Furor",
+    "cambridge.com.pk": "Cambridge"
 }
 
 # Domains to skip (social media, search engines, encyclopedia, blogs)
@@ -77,8 +100,10 @@ HTTP_HEADERS = {
 }
 
 METHOD_WEIGHT = {
-    "JSON-LD": 4,
-    "OpenGraph": 3,
+    "JSON-LD": 5,
+    "OpenGraph": 4,
+    "Catalog Extraction": 4,
+    "AI Extraction": 3,
     "CSS Selector": 2,
     "Regex Fallback": 1
 }
@@ -137,6 +162,257 @@ def is_likely_category_url(url: str) -> bool:
     return any(p in u_lower for p in CATEGORY_PATTERNS)
 
 
+def is_valid_product_image(url: Optional[str]) -> bool:
+    """
+    Validates whether an image URL is a genuine product photo.
+    Rejects brand logos, store headers, icons, favicons, payment badges, and placeholders.
+    """
+    if not url:
+        return False
+    u = str(url).strip()
+    if not u:
+        return False
+
+    if u.startswith("//"):
+        u = "https:" + u
+
+    u_lower = u.lower()
+    if not (u_lower.startswith("http://") or u_lower.startswith("https://")):
+        return False
+
+    # Block data URIs or vector SVGs (which are almost exclusively store logos or icons)
+    if u_lower.startswith("data:") or ".svg" in u_lower:
+        return False
+
+    # Blocked keywords for brand logos, favicons, banners, payment icons, and trust badges
+    blocked_patterns = [
+        "logo", "favicon", "header", "footer", "banner", "brand",
+        "icon", "badge", "avatar", "placeholder", "no-image",
+        "default-image", "spinner", "loader", "cart", "trust-badge",
+        "payment", "visa", "mastercard", "easypaisa", "jazzcash",
+        "otr-logo", "diners-logo", "site-logo", "store-logo",
+        "app-store", "google-play", "share", "social", "og_img",
+        "og-image", "og_image", "ogimage", "branding", "watermark",
+        "stamp", "symbol"
+    ]
+    for pattern in blocked_patterns:
+        if pattern in u_lower:
+            return False
+
+    # Acceptable extensions and e-commerce image paths
+    valid_indicators = [
+        ".jpg", ".jpeg", ".png", ".webp", ".avif",
+        "/products/", "/product/", "/catalog/", "/media/",
+        "/cdn/shop/files/", "/cdn/shop/products/", "images.priceoye.pk",
+        "static-01.daraz.pk", "daraz.pk/p/", "cloudinary"
+    ]
+    return any(ind in u_lower for ind in valid_indicators)
+
+
+def extract_product_image_from_soup(soup: BeautifulSoup, page_url: str) -> Optional[str]:
+    """
+    Scans HTML for an actual product photo if meta tags contain logos or are missing.
+    Prioritizes product gallery, featured image containers, and high-resolution sources.
+    """
+    gallery_selectors = [
+        ".product-single__media img",
+        ".product__media img",
+        ".product-gallery img",
+        ".woocommerce-product-gallery img",
+        "[itemprop='image']",
+        ".product-image img",
+        ".pdp-image img",
+        ".product-photo img",
+        ".featured-image img",
+        "img.product-featured-image",
+        "img.wp-post-image",
+        "img[src*='/products/']",
+        "img[src*='/product/']",
+        "img[src*='/media/catalog/']"
+    ]
+
+    for sel in gallery_selectors:
+        imgs = soup.select(sel)
+        for img in imgs:
+            for attr in ["data-src", "data-original", "data-zoom-src", "src"]:
+                raw_src = img.get(attr)
+                if raw_src:
+                    full_src = urljoin(page_url, raw_src.strip())
+                    if is_valid_product_image(full_src):
+                        return full_src
+            srcset = img.get("srcset") or img.get("data-srcset")
+            if srcset:
+                parts = [p.strip().split(" ")[0] for p in srcset.split(",") if p.strip()]
+                for part in reversed(parts):
+                    full_src = urljoin(page_url, part)
+                    if is_valid_product_image(full_src):
+                        return full_src
+
+    # General fallback: check any img tag that matches product paths and is not a tiny icon
+    for img in soup.find_all("img"):
+        for attr in ["data-src", "data-original", "src"]:
+            raw_src = img.get(attr)
+            if raw_src:
+                full_src = urljoin(page_url, raw_src.strip())
+                if is_valid_product_image(full_src):
+                    w = img.get("width")
+                    h = img.get("height")
+                    if w and str(w).isdigit() and int(w) < 60:
+                        continue
+                    if h and str(h).isdigit() and int(h) < 60:
+                        continue
+                    return full_src
+
+    return None
+
+
+def extract_products_from_listing_page(
+    soup: BeautifulSoup,
+    page_url: str,
+    query_tokens: List[str]
+) -> List[Dict[str, Any]]:
+    """
+    Extracts individual product cards from collection, category, and listing pages.
+    Supports Shopify, WooCommerce, Magento, Daraz, and custom Pakistani store layouts.
+    """
+    store_name = get_store_name(page_url)
+    products: List[Dict[str, Any]] = []
+
+    card_selectors = [
+        ".product-card",
+        ".card-wrapper",
+        ".grid__item .product-item",
+        ".product-item",
+        "li.product",
+        ".grid-product",
+        ".product-block",
+        ".product-item-info",
+        ".catalog-item",
+        ".pdp-card",
+        "article.product",
+        "[data-qa-locator='product-item']",
+        ".gridItem--Yd0sa",
+        ".product-wrap",
+        ".item.product",
+        ".special-product-item"
+    ]
+
+    card_elements = []
+    for sel in card_selectors:
+        found = soup.select(sel)
+        if len(found) >= 2:
+            card_elements = found
+            break
+
+    if not card_elements:
+        possible = soup.select("div[class*='product-card'], div[class*='ProductCard'], div[class*='product-item'], li[class*='product']")
+        if len(possible) >= 2:
+            card_elements = possible
+
+    if not card_elements:
+        return []
+
+    for card in card_elements[:8]:
+        try:
+            link_el = (
+                card.select_one("a.card__heading")
+                or card.select_one(".product-title a")
+                or card.select_one(".product-name a")
+                or card.select_one("h2 a")
+                or card.select_one("h3 a")
+                or card.select_one("a[href*='/products/']")
+                or card.select_one("a[href*='/product/']")
+                or card.select_one("a")
+            )
+            if not link_el:
+                continue
+
+            card_title = link_el.get_text(strip=True)
+            if not card_title or len(card_title) < 3:
+                heading = card.find(["h2", "h3", "h4", "p"])
+                if heading:
+                    card_title = heading.get_text(strip=True)
+
+            href = link_el.get("href")
+            if not href or href == "#":
+                continue
+            card_url = urljoin(page_url, href)
+
+            card_title = re.sub(
+                r'\s*[-|–]\s*(PriceOye|Daraz|Telemart|Shophive|WhatMobile|Mega\.pk|Outfitters|Diners|Charcoal|Uniworth).*$',
+                '',
+                card_title,
+                flags=re.IGNORECASE
+            ).strip()
+
+            if not card_title or len(card_title) < 3:
+                continue
+
+            card_price = None
+            price_el = (
+                card.select_one(".price-item--sale")
+                or card.select_one(".price-item")
+                or card.select_one(".price .money")
+                or card.select_one(".price")
+                or card.select_one(".woocommerce-Price-amount")
+                or card.select_one(".special-price")
+                or card.select_one(".product-price")
+            )
+            if price_el:
+                card_price = clean_price_value(price_el.get_text(strip=True))
+
+            if not card_price:
+                card_text = card.get_text(" ", strip=True)
+                p_match = re.search(r'(?:Rs\.?|PKR|₨)\s*([0-9]{1,3}(?:,[0-9]{3})+(?:\.[0-9]{2})?|[0-9]{3,7})', card_text, re.IGNORECASE)
+                if p_match:
+                    card_price = clean_price_value(p_match.group(0))
+
+            if not card_price or card_price < 50:
+                continue
+
+            # Product Image (Never store logos)
+            card_img = None
+            img_el = card.find("img")
+            if img_el:
+                for attr in ["data-src", "data-original", "src"]:
+                    raw_src = img_el.get(attr)
+                    if raw_src:
+                        cand_url = urljoin(page_url, raw_src.strip())
+                        if is_valid_product_image(cand_url):
+                            card_img = cand_url
+                            break
+                if not card_img:
+                    srcset = img_el.get("srcset") or img_el.get("data-srcset")
+                    if srcset:
+                        parts = [p.strip().split(" ")[0] for p in srcset.split(",") if p.strip()]
+                        for part in reversed(parts):
+                            cand_url = urljoin(page_url, part)
+                            if is_valid_product_image(cand_url):
+                                card_img = cand_url
+                                break
+
+            # Relevance check: query tokens match in title or url
+            lower_text = (card_title + " " + card_url).lower()
+            matching = [t for t in query_tokens if t in lower_text]
+            if query_tokens and not matching:
+                continue
+
+            products.append({
+                "title": card_title[:140],
+                "price": card_price,
+                "currency": "PKR",
+                "store": store_name,
+                "url": card_url,
+                "image": card_img,
+                "inStock": True,
+                "extraction_method": "Catalog Extraction"
+            })
+        except Exception:
+            continue
+
+    return products
+
+
 def extract_from_json_ld(soup: BeautifulSoup) -> Tuple[Optional[str], Optional[int], Optional[str], bool]:
     """
     Strategy 1: Schema.org Product in JSON-LD.
@@ -183,7 +459,14 @@ def extract_from_json_ld(soup: BeautifulSoup) -> Tuple[Optional[str], Optional[i
                             in_stock = False
 
                     if title and price:
-                        return str(title).strip(), price, str(image) if image else None, in_stock
+                        clean_img = None
+                        if image:
+                            clean_img = str(image).strip()
+                            if clean_img.startswith("//"):
+                                clean_img = "https:" + clean_img
+                            if not is_valid_product_image(clean_img):
+                                clean_img = None
+                        return str(title).strip(), price, clean_img, in_stock
         except Exception:
             continue
 
@@ -213,7 +496,11 @@ def extract_from_meta_tags(soup: BeautifulSoup) -> Tuple[Optional[str], Optional
 
     og_image = soup.find("meta", property="og:image") or soup.find("meta", attrs={"name": "twitter:image"})
     if og_image and og_image.get("content"):
-        image = og_image["content"].strip()
+        raw_img = og_image["content"].strip()
+        if raw_img.startswith("//"):
+            raw_img = "https:" + raw_img
+        if is_valid_product_image(raw_img):
+            image = raw_img
 
     return title, price, image
 
@@ -360,15 +647,33 @@ def parse_page_data(html: str, url: str, query_tokens: List[str]) -> Tuple[Optio
             if h1:
                 title = h1.get_text(strip=True)
 
+    # First, look for dedicated product gallery/featured images in page DOM
+    if not image:
+        image = extract_product_image_from_soup(soup, url)
+
+    # Fall back to og:image / twitter:image if no dedicated gallery image was identified
     if not image:
         og_img = soup.find("meta", property="og:image") or soup.find("meta", attrs={"name": "twitter:image"})
         if og_img and og_img.get("content"):
-            image = og_img["content"].strip()
+            cand_img = og_img["content"].strip()
+            if cand_img.startswith("//"):
+                cand_img = "https:" + cand_img
+            if is_valid_product_image(cand_img):
+                image = cand_img
+
+    # Clean image: ensure absolute URL and non-logo validity
+    if image:
+        if image.startswith("//"):
+            image = "https:" + image
+        elif image.startswith("/"):
+            image = urljoin(url, image)
+        if not is_valid_product_image(image):
+            image = None
 
     # Clean title: strip store suffixes
     if title:
         title = re.sub(
-            r'\s*[-|–]\s*(PriceOye|Daraz|Telemart|Shophive|WhatMobile|Mega\.pk|Laptop Square|Paklap|OLX|TechMobiles).*$',
+            r'\s*[-|–]\s*(PriceOye|Daraz|Telemart|Shophive|WhatMobile|Mega\.pk|Laptop Square|Paklap|OLX|TechMobiles|Outfitters|Diners|Charcoal|Uniworth).*$',
             '',
             title,
             flags=re.IGNORECASE
@@ -411,9 +716,10 @@ async def fetch_and_extract_url(
     url: str,
     query_tokens: List[str],
     semaphore: asyncio.Semaphore
-) -> Tuple[Optional[Dict[str, Any]], Dict[str, Any]]:
+) -> Tuple[List[Dict[str, Any]], Dict[str, Any]]:
     """
-    Fetches a single candidate URL with timeout and parses product details.
+    Fetches a candidate URL and parses product details.
+    Returns list of products (single or multiple if collection listing) and diagnostic log.
     """
     store_name = get_store_name(url)
     log_entry = {
@@ -435,47 +741,108 @@ async def fetch_and_extract_url(
 
             if resp.status_code != 200:
                 log_entry["error"] = f"HTTP {resp.status_code}"
-                return None, log_entry
+                return [], log_entry
 
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            # Check if this is a listing / collection page with multiple product cards
+            listing_products = []
+            if is_likely_category_url(str(resp.url)) or "/collections/" in str(resp.url) or "/category/" in str(resp.url):
+                listing_products = extract_products_from_listing_page(soup, str(resp.url), query_tokens)
+
+            if listing_products:
+                log_entry["extracted"] = True
+                log_entry["method"] = "Catalog Extraction"
+                log_entry["title"] = f"{len(listing_products)} products extracted from listing"
+                log_entry["price"] = listing_products[0]["price"]
+                return listing_products, log_entry
+
+            # Otherwise, single product extraction
             product, info = parse_page_data(resp.text, str(resp.url), query_tokens)
+
+            # Strategy 5: AI Fallback Extraction if standard methods fail
+            if not product:
+                try:
+                    clean_txt = soup.get_text(" ", strip=True)
+                    ai_res = await extract_product_with_ai(clean_txt, " ".join(query_tokens))
+                    if ai_res:
+                        ai_title, ai_price = ai_res
+                        store_name = get_store_name(str(resp.url))
+                        img_url = extract_product_image_from_soup(soup, str(resp.url))
+                        product = {
+                            "title": ai_title,
+                            "price": ai_price,
+                            "currency": "PKR",
+                            "store": store_name,
+                            "url": str(resp.url),
+                            "image": img_url,
+                            "inStock": True,
+                            "extraction_method": "AI Extraction"
+                        }
+                        info["method"] = "AI Extraction"
+                except Exception:
+                    pass
+
+            # Fallback listing check if single extraction produced no item
+            if not product:
+                listing_products = extract_products_from_listing_page(soup, str(resp.url), query_tokens)
+                if listing_products:
+                    log_entry["extracted"] = True
+                    log_entry["method"] = "Catalog Extraction"
+                    log_entry["title"] = f"{len(listing_products)} products extracted from listing"
+                    log_entry["price"] = listing_products[0]["price"]
+                    return listing_products, log_entry
+
             if product:
                 log_entry["extracted"] = True
                 log_entry["method"] = info.get("method")
                 log_entry["title"] = product["title"]
                 log_entry["price"] = product["price"]
-                return product, log_entry
+                return [product], log_entry
             else:
                 log_entry["error"] = info.get("reason", "Extraction returned empty")
-                return None, log_entry
+                return [], log_entry
 
         except httpx.TimeoutException:
             log_entry["duration_ms"] = int((time.time() - start_time) * 1000)
             log_entry["error"] = "Connection timed out (7s)"
-            return None, log_entry
+            return [], log_entry
         except Exception as e:
             log_entry["duration_ms"] = int((time.time() - start_time) * 1000)
             log_entry["error"] = str(e)
-            return None, log_entry
+            return [], log_entry
 
 
-def search_candidate_urls(query: str, max_results: int = 14) -> List[Dict[str, str]]:
+def search_candidate_urls(query: str, max_results: int = 30) -> List[Dict[str, str]]:
     """
     Queries DuckDuckGo Search for Pakistani stores matching the query.
-    Prioritizes specific product pages over generic category pages.
+    Searches multiple commercial query angles to discover more verified stores.
     """
-    search_query = f"{query} price in pakistan"
+    clean_query = query.strip()
+    search_queries = [
+        f"{clean_query} price in pakistan",
+        f"{clean_query} online shopping pakistan"
+    ]
     candidates = []
 
     try:
         ddgs = DDGS()
-        raw_results = list(ddgs.text(search_query, max_results=max_results))
+        raw_results = []
+        for sq in search_queries:
+            try:
+                res = list(ddgs.text(sq, max_results=max_results // 2 + 5))
+                raw_results.extend(res)
+            except Exception:
+                pass
+
+        seen_urls = set()
         for r in raw_results:
             url = r.get("href") or r.get("url")
-            if not url:
+            if not url or url in seen_urls:
                 continue
+            seen_urls.add(url)
             try:
                 domain = urlparse(url).netloc.lower().replace("www.", "")
-                # Skip excluded social / non-commercial domains
                 if any(excluded in domain for excluded in EXCLUDED_DOMAINS):
                     continue
 
@@ -497,12 +864,12 @@ def search_candidate_urls(query: str, max_results: int = 14) -> List[Dict[str, s
     return candidates
 
 
-async def crawl_and_extract_products(query: str, max_candidates: int = 12) -> Dict[str, Any]:
+async def crawl_and_extract_products(query: str, max_candidates: int = 30) -> Dict[str, Any]:
     """
     Full crawler pipeline:
-    1. Query DuckDuckGo for candidate store URLs
+    1. Query DuckDuckGo for candidate store URLs across Pakistan
     2. Concurrently fetch and extract product prices in parallel
-    3. Filter, validate, deduplicate by store with method weighting, and sort lowest-price-first
+    3. Filter, validate, deduplicate by store with multi-item support (up to 4 per store), and sort lowest-price-first
     4. Return structured products along with diagnostic crawler logs
     """
     start_total = time.time()
@@ -514,9 +881,11 @@ async def crawl_and_extract_products(query: str, max_candidates: int = 12) -> Di
     urls = [c["url"] for c in candidates]
 
     # Step 2: Parallel Crawling
-    semaphore = asyncio.Semaphore(6)  # 6 concurrent requests
+    semaphore = asyncio.Semaphore(8)  # 8 concurrent requests
     products: List[Dict[str, Any]] = []
     crawl_logs: List[Dict[str, Any]] = []
+    store_counts: Dict[str, int] = {}
+    seen_urls = set()
 
     if urls:
         async with httpx.AsyncClient(headers=HTTP_HEADERS, follow_redirects=True) as client:
@@ -526,25 +895,18 @@ async def crawl_and_extract_products(query: str, max_candidates: int = 12) -> Di
             ]
             results_and_logs = await asyncio.gather(*tasks, return_exceptions=False)
 
-            for product, log_item in results_and_logs:
+            for products_found, log_item in results_and_logs:
                 crawl_logs.append(log_item)
-                if product:
+                for product in products_found:
                     store = product["store"]
-                    existing_idx = next((i for i, p in enumerate(products) if p["store"] == store), None)
+                    p_url = product["url"].lower().rstrip("/")
+                    if p_url in seen_urls:
+                        continue
 
-                    if existing_idx is not None:
-                        existing = products[existing_idx]
-                        existing_weight = METHOD_WEIGHT.get(existing.get("extraction_method"), 1)
-                        current_weight = METHOD_WEIGHT.get(product.get("extraction_method"), 1)
-
-                        # Prefer higher confidence extraction method
-                        if current_weight > existing_weight:
-                            products[existing_idx] = product
-                        elif current_weight == existing_weight:
-                            # If same confidence, keep lowest valid price
-                            if product["price"] < existing["price"]:
-                                products[existing_idx] = product
-                    else:
+                    current_store_count = store_counts.get(store, 0)
+                    if current_store_count < 4:
+                        seen_urls.add(p_url)
+                        store_counts[store] = current_store_count + 1
                         products.append(product)
 
     # Step 3: Sort ascending by price (Section 6.2 Lowest First)

@@ -11,7 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardsContainer = document.getElementById("cards-container");
   const sortSelect = document.getElementById("sort-select");
   const resultsSearchForm = document.getElementById("results-search-form");
-  const resultsSearchInput = document.getElementById("results-search-input");
+  const resultsSearchInput = document.getElementById("results-search-name") || document.getElementById("results-search-input");
+  const resultsSearchBrand = document.getElementById("results-search-brand");
   const btnSearchSubmit = document.getElementById("btn-search-submit");
 
   // State Containers
@@ -21,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const stateError = document.getElementById("state-error");
   const errorMessageText = document.getElementById("error-message-text");
   const bestDealSummary = document.getElementById("best-deal-summary");
-  const savingsTag = document.getElementById("savings-tag");
 
   // Crawler Status & Metrics Elements
   const crawlerStatusDot = document.getElementById("crawler-status-dot");
@@ -63,10 +63,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Parse Initial Query String from URL
   const urlParams = new URLSearchParams(window.location.search);
-  currentQuery = (urlParams.get("q") || "iPhone 15").trim();
+  const paramName = (urlParams.get("name") || "").trim();
+  const paramBrand = (urlParams.get("brand") || "").trim();
+  const paramQ = (urlParams.get("q") || "").trim();
+
+  // Determine active query
+  if (paramQ) {
+    currentQuery = paramQ;
+  } else if (paramName) {
+    if (paramBrand && !paramName.toLowerCase().includes(paramBrand.toLowerCase())) {
+      currentQuery = `${paramBrand} ${paramName}`.trim();
+    } else {
+      currentQuery = paramName;
+    }
+  } else {
+    currentQuery = "Men Casual Shirt";
+  }
 
   if (resultsSearchInput) {
-    resultsSearchInput.value = currentQuery;
+    resultsSearchInput.value = paramName || currentQuery;
+  }
+  if (resultsSearchBrand && paramBrand) {
+    resultsSearchBrand.value = paramBrand;
+  }
+
+  // Dynamic Multi-Category Rotating Placeholders for Product Name
+  if (resultsSearchInput) {
+    const rotatingPlaceholders = [
+      "Enter product (e.g. Cotton Linen Shirt)...",
+      "Enter product (e.g. Dawlance Air Fryer)...",
+      "Enter product (e.g. Nike Running Shoes)...",
+      "Enter product (e.g. iPhone 15 Pro Max)...",
+      "Enter product (e.g. Summer Lawn Dress)...",
+      "Enter product (e.g. 1.5 Ton Inverter AC)..."
+    ];
+    let placeholderIdx = 0;
+    setInterval(() => {
+      if (document.activeElement !== resultsSearchInput && !resultsSearchInput.value) {
+        placeholderIdx = (placeholderIdx + 1) % rotatingPlaceholders.length;
+        resultsSearchInput.placeholder = rotatingPlaceholders[placeholderIdx];
+      }
+    }, 3200);
   }
 
   // UI State Switcher
@@ -102,23 +139,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // Update Metrics Bar
   function updateMetrics(payload) {
     if (!payload || !payload.crawler_metrics) {
-      chipDuration.textContent = "⏱ --";
-      chipCrawled.textContent = "🌐 0 Pages";
-      chipCache.textContent = payload && payload.cached ? "⚡ Memory Cached" : "⚡ Fresh Crawl";
+      chipDuration.textContent = "--";
+      chipCrawled.textContent = "0 Pages";
+      chipCache.textContent = payload && payload.cached ? "Memory Cached" : "Fresh Crawl";
       return;
     }
 
     const metrics = payload.crawler_metrics;
     const durSec = (metrics.total_duration_ms / 1000).toFixed(1);
-    chipDuration.textContent = `⏱ ${durSec}s (${metrics.total_duration_ms}ms)`;
-    chipCrawled.textContent = `🌐 ${metrics.successful_extractions}/${metrics.pages_crawled} Extracted`;
+    chipDuration.textContent = `${durSec}s (${metrics.total_duration_ms}ms)`;
+    chipCrawled.textContent = `${metrics.successful_extractions}/${metrics.pages_crawled} Extracted`;
     
     if (payload.cached) {
       chipCache.className = "pm-tag pm-tag-white py-1 px-3 text-[11px]";
-      chipCache.textContent = "💾 Memory Cached";
+      chipCache.textContent = "Memory Cached";
     } else {
       chipCache.className = "pm-tag pm-tag-sky py-1 px-3 text-[11px]";
-      chipCache.textContent = "⚡ Fresh Live Crawl";
+      chipCache.textContent = "Fresh Live Crawl";
     }
   }
 
@@ -163,13 +200,47 @@ document.addEventListener("DOMContentLoaded", () => {
         <td class="p-3 text-[#BBDCF4]">${log.duration_ms || 0}ms</td>
         <td class="p-3">
           <a href="${escapeHtml(log.url)}" target="_blank" rel="noopener noreferrer" class="text-[#BBDCF4] hover:text-white hover:underline flex items-center gap-1 font-bold" title="${escapeHtml(log.url)}">
-            <span>Link ↗</span>
+            <span>View Link</span>
+            <svg class="w-3.5 h-3.5 inline ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </td>
       `;
       crawlerLogsTbody.appendChild(tr);
     });
   }
+
+  // Themed Neo-Brutalist Fallback Artwork when product photo cannot be fetched or is hotlink-blocked
+  function getProductFallbackHtml() {
+    return `
+      <div class="product-fallback-box w-full h-44 bg-[#FFFDF5] border-2 border-[#221636] rounded-lg mb-3.5 flex flex-col items-center justify-center text-center p-3 relative overflow-hidden select-none shadow-[inset_0_2px_4px_rgba(34,22,54,0.04)]">
+        <!-- Washi corner tag accent -->
+        <div class="absolute top-1.5 right-1.5 w-6 h-2 bg-[#F5B72B] border border-[#221636] rotate-12 opacity-80 pointer-events-none"></div>
+
+        <!-- Bespoke Neo-Brutalist Offline Camera SVG -->
+        <svg class="w-12 h-12 mb-1.5 flex-shrink-0" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="14" width="46" height="38" rx="6" fill="#221636" />
+          <rect x="8" y="12" width="46" height="38" rx="6" fill="#BBDCF4" stroke="#221636" stroke-width="2.5" />
+          <rect x="16" y="7" width="14" height="6" rx="2" fill="#F5B72B" stroke="#221636" stroke-width="2.5" />
+          <circle cx="31" cy="31" r="13" fill="#FFFDF5" stroke="#221636" stroke-width="2.5" />
+          <circle cx="31" cy="31" r="8" fill="#96D4C7" stroke="#221636" stroke-width="2" />
+          <line x1="22" y1="40" x2="40" y2="22" stroke="#EE2D2B" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="45" cy="20" r="2.5" fill="#EE2D2B" />
+        </svg>
+
+        <!-- Themed Badge & Store Notice -->
+        <span class="inline-block px-2.5 py-0.5 rounded bg-[#FCD7D7] text-[#EE2D2B] border-2 border-[#221636] shadow-[2px_2px_0px_#221636] font-display text-[10px] font-black uppercase tracking-wider">
+          PHOTO UNAVAILABLE
+        </span>
+        <span class="text-[10px] font-bold text-[#4C4066] mt-1.5 leading-tight">
+          Store blocks live image previews
+          <span class="block text-[9px] font-bold text-[#96D4C7] bg-[#221636] px-1.5 py-0.5 rounded mt-1">
+            OPEN STORE BELOW TO VIEW
+          </span>
+        </span>
+      </div>
+    `.trim();
+  }
+  window.getProductFallbackHtml = getProductFallbackHtml;
 
   // Render Product Cards as Tactile Polaroid Sketchbook Cards
   function renderCards(items) {
@@ -193,13 +264,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update Deal Banner
     if (cheapestItem) {
       bestDealSummary.textContent = `Lowest price is ${formatPKR(lowestPrice)} at ${cheapestItem.store}`;
-      const diff = highestPrice - lowestPrice;
-      if (diff > 0) {
-        savingsTag.textContent = `Save up to ${formatPKR(diff)}`;
-        savingsTag.classList.remove("hidden");
-      } else {
-        savingsTag.classList.add("hidden");
-      }
     }
 
     // Render Cards
@@ -216,8 +280,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Sticker ranking badge
       const stickerHtml = `
-        <div class="pm-sticker-number" style="background:${isLowest ? '#F5B72B' : '#FFFFFF'};">
-          ${isLowest ? '★' : index + 1}
+        <div class="pm-sticker-number text-xs font-black uppercase" style="background:${isLowest ? '#F5B72B' : '#FFFFFF'};">
+          ${isLowest ? 'TOP' : index + 1}
         </div>
       `;
 
@@ -228,19 +292,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Badge logic
       const dealBadge = isLowest 
-        ? `<span class="pm-tag pm-tag-gold font-display text-[10px]">★ #1 LOWEST DEAL</span>`
+        ? `<span class="pm-tag pm-tag-gold font-display text-[10px]">#1 LOWEST DEAL</span>`
         : `<span class="pm-tag pm-tag-white text-[10px]">VERIFIED STORE</span>`;
 
-      // Extraction strategy tag
-      const methodText = item.extraction_method || "JSON-LD";
+      // Extraction strategy tag (strictly omit third-party service provider names)
+      let methodText = item.extraction_method || "JSON-LD";
+      if (methodText.includes("OpenRouter")) {
+        methodText = "AI Extraction";
+      }
       const methodBadge = `<span class="pm-tag pm-tag-sky text-[10px]" title="Extracted via ${escapeHtml(methodText)}">${escapeHtml(methodText)}</span>`;
 
-      // Framed Image HTML
+      // Framed Image HTML with robust fallback and hotlink protection
       const imageHtml = item.image 
-        ? `<div class="w-full h-44 bg-[#F8F7FA] border-2 border-[#221636] rounded-lg mb-3.5 flex items-center justify-center overflow-hidden p-3 relative">
-             <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" class="max-h-full max-w-full object-contain" onerror="this.parentElement.style.display='none'">
+        ? `<div class="product-img-wrapper w-full h-44 bg-[#F8F7FA] border-2 border-[#221636] rounded-lg mb-3.5 flex items-center justify-center overflow-hidden p-2.5 relative">
+             <img 
+               src="${escapeHtml(item.image)}" 
+               alt="${escapeHtml(item.title)}" 
+               referrerpolicy="no-referrer"
+               loading="lazy"
+               class="product-real-img max-h-full max-w-full object-contain transition-transform duration-200 hover:scale-105" 
+               onerror="this.onerror=null; if(window.getProductFallbackHtml){this.closest('.product-img-wrapper').outerHTML=window.getProductFallbackHtml();}"
+             >
            </div>`
-        : "";
+        : getProductFallbackHtml();
 
       card.innerHTML = `
         ${stickerHtml}
@@ -264,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${methodBadge}
             <span>•</span>
             <span class="${item.inStock ? "text-[#1C75BC]" : "text-[#EE2D2B]"} font-bold">
-              ${item.inStock ? "✓ In Stock" : "Limited / Unknown"}
+              ${item.inStock ? "In Stock" : "Limited / Unknown"}
             </span>
           </div>
         </div>
@@ -289,6 +363,23 @@ document.addEventListener("DOMContentLoaded", () => {
           </a>
         </div>
       `;
+
+      // Safe JS-level image error handler
+      if (item.image) {
+        const img = card.querySelector(".product-real-img");
+        if (img) {
+          const handleImgError = function() {
+            const wrapper = img.closest(".product-img-wrapper");
+            if (wrapper) {
+              wrapper.outerHTML = getProductFallbackHtml();
+            }
+          };
+          img.addEventListener("error", handleImgError);
+          if (img.complete && img.naturalWidth === 0) {
+            handleImgError();
+          }
+        }
+      }
 
       cardsContainer.appendChild(card);
     });
@@ -327,6 +418,18 @@ document.addEventListener("DOMContentLoaded", () => {
       updateMetrics(data);
       updateInspector(data);
 
+      // Render AI Shopping Insights
+      const aiBox = document.getElementById("ai-insights-box");
+      const aiText = document.getElementById("ai-insights-text");
+      if (aiBox && aiText) {
+        if (data.ai_insights) {
+          aiText.textContent = data.ai_insights;
+          aiBox.classList.remove("hidden");
+        } else {
+          aiBox.classList.add("hidden");
+        }
+      }
+
       if (currentResults.length === 0) {
         showState("empty");
         countText.textContent = "Found 0 verified store listings";
@@ -339,17 +442,33 @@ document.addEventListener("DOMContentLoaded", () => {
       showState("error");
     }
   }
+  window.executeLiveSearch = executeLiveSearch;
 
-  // Search Form Submit
+  // 2-Field Search Form Submit (Product Name + Optional Brand/Store)
   if (resultsSearchForm && resultsSearchInput) {
     resultsSearchForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const q = resultsSearchInput.value.trim();
-      if (q.length >= 2) {
-        const newUrl = `${window.location.pathname}?q=${encodeURIComponent(q)}`;
-        window.history.pushState({ path: newUrl }, "", newUrl);
-        executeLiveSearch(q, false);
+      const name = resultsSearchInput.value.trim();
+      const brand = resultsSearchBrand ? resultsSearchBrand.value.trim() : "";
+
+      if (name.length < 2) {
+        resultsSearchInput.focus();
+        return;
       }
+
+      let combinedQuery = name;
+      if (brand && !name.toLowerCase().includes(brand.toLowerCase())) {
+        combinedQuery = `${brand} ${name}`.trim();
+      }
+
+      const params = new URLSearchParams();
+      params.set("name", name);
+      if (brand) params.set("brand", brand);
+      params.set("q", combinedQuery);
+
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.pushState({ path: newUrl }, "", newUrl);
+      executeLiveSearch(combinedQuery, false);
     });
   }
 
@@ -375,17 +494,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Quick Search Tags
+  // Quick Search Tags (Multi-Category)
   quickTags.forEach((btn) => {
     btn.addEventListener("click", () => {
       const q = btn.getAttribute("data-q");
       if (q) {
         if (resultsSearchInput) resultsSearchInput.value = q;
-        const newUrl = `${window.location.pathname}?q=${encodeURIComponent(q)}`;
+        if (resultsSearchBrand) resultsSearchBrand.value = "";
+        const params = new URLSearchParams();
+        params.set("name", q);
+        params.set("q", q);
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
         window.history.pushState({ path: newUrl }, "", newUrl);
         executeLiveSearch(q, false);
       }
     });
+  });
+
+  // Handle Browser Back / Forward History Navigation
+  window.addEventListener("popstate", () => {
+    const params = new URLSearchParams(window.location.search);
+    const pName = (params.get("name") || "").trim();
+    const pBrand = (params.get("brand") || "").trim();
+    const pQ = (params.get("q") || "").trim();
+    let q = pQ;
+    if (!q) {
+      if (pName) {
+        q = (pBrand && !pName.toLowerCase().includes(pBrand.toLowerCase())) ? `${pBrand} ${pName}`.trim() : pName;
+      } else {
+        q = "Men Casual Shirt";
+      }
+    }
+    if (resultsSearchInput) resultsSearchInput.value = pName || q;
+    if (resultsSearchBrand) resultsSearchBrand.value = pBrand;
+    executeLiveSearch(q, false);
   });
 
   // Sorting Control Change
@@ -437,9 +579,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!currentPayload) return;
       try {
         await navigator.clipboard.writeText(JSON.stringify(currentPayload, null, 2));
-        btnCopyJson.innerHTML = "<span>✓ COPIED JSON!</span>";
+        btnCopyJson.innerHTML = `<span>COPIED JSON!</span>`;
         setTimeout(() => {
-          btnCopyJson.innerHTML = "<span>📋 COPY RAW JSON</span>";
+          btnCopyJson.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg><span>COPY RAW JSON</span>`;
         }, 2000);
       } catch (err) {
         console.error("Clipboard error:", err);

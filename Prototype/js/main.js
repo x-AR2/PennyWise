@@ -4,37 +4,69 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.getElementById("search-form");
-  const searchInput = document.getElementById("search-input");
+  const searchNameInput = document.getElementById("search-name") || document.getElementById("search-input");
+  const searchBrandInput = document.getElementById("search-brand");
   const searchError = document.getElementById("search-error");
   const quickPills = document.querySelectorAll(".quick-pill");
 
-  // Handle Form Submission
-  if (searchForm && searchInput) {
+  // Handle Streamlined 2-Field Search Submission (Product Name + Optional Brand/Store)
+  if (searchForm && searchNameInput) {
     searchForm.addEventListener("submit", (e) => {
-      const query = searchInput.value.trim();
+      const name = searchNameInput.value.trim();
+      const brand = searchBrandInput ? searchBrandInput.value.trim() : "";
 
-      // Check Section 6.1: Empty or under 2 characters rejected with clear message
-      if (query.length < 2) {
+      // Section 6.1: Reject under 2 characters
+      if (name.length < 2) {
         e.preventDefault();
         if (searchError) {
-          searchError.textContent = "Please enter at least 2 characters to search.";
+          searchError.textContent = "Please enter at least 2 characters for the product name.";
           searchError.classList.remove("hidden");
         }
-        searchInput.focus();
+        searchNameInput.focus();
         return false;
       }
 
       if (searchError) {
         searchError.classList.add("hidden");
       }
+
+      // Combine brand + name for crawler query 'q'
+      let combinedQuery = name;
+      if (brand && !name.toLowerCase().includes(brand.toLowerCase())) {
+        combinedQuery = `${brand} ${name}`.trim();
+      }
+
+      const hiddenQ = document.getElementById("combined-query");
+      if (hiddenQ) {
+        hiddenQ.value = combinedQuery;
+      }
     });
 
     // Real-time input listener to clear error
-    searchInput.addEventListener("input", () => {
-      if (searchInput.value.trim().length >= 2 && searchError) {
+    searchNameInput.addEventListener("input", () => {
+      if (searchNameInput.value.trim().length >= 2 && searchError) {
         searchError.classList.add("hidden");
       }
     });
+  }
+
+  // Dynamic Multi-Category Rotating Placeholders for Product Name
+  if (searchNameInput) {
+    const rotatingPlaceholders = [
+      "Enter product (e.g. Cotton Linen Shirt)...",
+      "Enter product (e.g. Dawlance Air Fryer)...",
+      "Enter product (e.g. Nike Running Shoes)...",
+      "Enter product (e.g. iPhone 15 Pro Max)...",
+      "Enter product (e.g. Summer Lawn Dress)...",
+      "Enter product (e.g. 1.5 Ton Inverter AC)..."
+    ];
+    let placeholderIdx = 0;
+    setInterval(() => {
+      if (document.activeElement !== searchNameInput && !searchNameInput.value) {
+        placeholderIdx = (placeholderIdx + 1) % rotatingPlaceholders.length;
+        searchNameInput.placeholder = rotatingPlaceholders[placeholderIdx];
+      }
+    }, 3200);
   }
 
   // Handle Quick Search Pills
@@ -42,32 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     pill.addEventListener("click", () => {
       const q = pill.getAttribute("data-query");
       if (q) {
-        window.location.href = `results.html?q=${encodeURIComponent(q)}`;
+        window.location.href = `results.html?q=${encodeURIComponent(q)}&name=${encodeURIComponent(q)}`;
       }
     });
   });
-
-  // Spline 3D Fallback Monitor
-  const splineViewer = document.getElementById("spline-viewer-hero");
-  const splineFallback = document.getElementById("spline-fallback");
-
-  if (splineViewer && splineFallback) {
-    // Hide fallback once spline loaded event fires
-    splineViewer.addEventListener("load", () => {
-      splineFallback.style.display = "none";
-    });
-
-    // If spline takes longer than 4 seconds or fails, keep fallback visible
-    setTimeout(() => {
-      try {
-        // If spline canvas is not present, fallback remains visible
-        const shadowRoot = splineViewer.shadowRoot;
-        if (!shadowRoot || !shadowRoot.querySelector("canvas")) {
-          splineFallback.style.display = "flex";
-        }
-      } catch (err) {
-        splineFallback.style.display = "flex";
-      }
-    }, 4000);
-  }
 });

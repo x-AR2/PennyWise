@@ -10,11 +10,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- DotLottie Web Player -->
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="favicon-192.png">
   <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,13 +22,13 @@
 
   <!-- Top Announcement Bar (Arcade Night Theme) -->
   <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
-    <span class="text-[#96D4C7]">Course: Web Technologies</span>
+    <span class="text-[#96D4C7]">Smart Price Comparison</span>
     <span class="text-[#F5B72B]">•</span>
     <span class="bg-[#F5B72B] text-[#221636] px-2.5 py-0.5 rounded-full font-black text-[11px] border border-[#221636] shadow-[2px_2px_0px_#221636]">
       Arcade Crawler v0.1
     </span>
     <span class="text-[#F5B72B]">•</span>
-    <span class="text-[#BBDCF4]">Zero-Hallucination Verified Store Scraper</span>
+    <span class="text-[#BBDCF4]">Live Verified Store Scraper</span>
   </div>
 
   <!-- Header Section with Sawtooth Border -->
@@ -50,47 +50,145 @@
         <!-- Navigation Links with Stepped Underlines -->
         <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
           <a href="index.html" class="pm-nav">Home</a>
-          <a href="results.html?q=iPhone+15" class="pm-nav active">Live Crawler</a>
+          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav active">Live Crawler</a>
           <a href="about.html" class="pm-nav">About</a>
           <a href="404.html" class="pm-nav text-[#4C4066] hover:text-[#96D4C7]">404</a>
         </nav>
       </div>
 
-      <!-- Main Search Box (Arcade Pill Console) -->
-      <div class="mt-8 max-w-4xl mx-auto">
-        <form id="results-search-form" class="flex flex-col sm:flex-row gap-3 items-stretch">
-          <div class="relative flex-grow">
-            <input 
-              type="text" 
-              id="results-search-input" 
-              name="q" 
-              placeholder="Search product (e.g. iPhone 15, Redragon K552, MacBook Air)..." 
-              class="pm-input text-base sm:text-lg font-bold"
-              required
-              minlength="2"
-              autocomplete="off"
-            >
-          </div>
-          <button 
-            type="submit" 
-            id="btn-search-submit"
-            class="pm-btn pm-btn-primary px-8 py-4 whitespace-nowrap text-base flex items-center justify-center gap-2"
-          >
-            <span>CRAWL & COMPARE</span>
-            <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-            </svg>
-          </button>
-        </form>
+      <!-- Main Search Box (Arcade 2-Field Console) -->
+      <div class="mt-8 max-w-5xl mx-auto">
+        <div class="pm-card p-5 bg-[#221636] border-3 border-[#96D4C7] shadow-[5px_5px_0px_#96D4C7]">
+          <form id="results-search-form" class="space-y-3">
+            <!-- 1. Primary Product Name (Required) -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label for="results-search-name" class="text-xs font-black uppercase tracking-wider text-[#FCD7D7]">
+                  1. Product Name <span class="text-[#EE2D2B]">*</span>
+                </label>
+                <div class="flex items-center gap-2">
+                  <span class="text-[11px] font-bold text-[#96D4C7] hidden sm:inline">Primary search term</span>
+                  <button 
+                    type="button" 
+                    class="btn-trigger-vision pm-tag pm-tag-gold cursor-pointer hover:opacity-90 flex items-center gap-1.5 py-0.5 px-2 text-[10px] font-black border-2 border-[#221636] shadow-[2px_2px_0px_#96D4C7] transition-transform active:translate-y-0.5"
+                    title="Upload or take photo to identify with Gemini AI"
+                  >
+                    <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>PHOTO SEARCH</span>
+                  </button>
+                </div>
+              </div>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#4C4066]">
+                  <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                  </svg>
+                </div>
+                <input 
+                  type="text" 
+                  id="results-search-name" 
+                  name="name" 
+                  placeholder="Enter product (e.g. Cotton Shirt, Air Fryer, Running Shoes, iPhone)..." 
+                  class="pm-input pl-12 pr-14 text-base font-bold w-full bg-white text-[#221636]"
+                  required
+                  minlength="2"
+                  autocomplete="off"
+                >
+                <!-- In-Input Camera Action Button -->
+                <button 
+                  type="button" 
+                  class="btn-trigger-vision absolute inset-y-0 right-0 pr-3 flex items-center text-[#4C4066] hover:text-[#221636] transition-colors cursor-pointer"
+                  title="Upload or take photo (Gemini AI Vision)"
+                >
+                  <div class="w-8 h-8 rounded-md bg-[#BBDCF4] hover:bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center shadow-[1px_1px_0px_#221636] active:translate-y-0.5 transition-all">
+                    <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                </button>
+              </div>
+            </div>
 
-        <!-- Category Sticker Quick-Tags -->
-        <div class="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs">
-          <span class="font-bold text-[#96D4C7] uppercase tracking-wider text-[11px]">Popular Searches:</span>
-          <button type="button" class="quick-tag pm-tag cursor-pointer hover:opacity-90" data-q="iPhone 15">iPhone 15</button>
-          <button type="button" class="quick-tag pm-tag pm-tag-mint cursor-pointer hover:opacity-90" data-q="Redragon K552">Redragon K552</button>
-          <button type="button" class="quick-tag pm-tag pm-tag-white cursor-pointer hover:opacity-90" data-q="MacBook Air M2">MacBook Air M2</button>
-          <button type="button" class="quick-tag pm-tag pm-tag-sky cursor-pointer hover:opacity-90" data-q="AirPods Pro">AirPods Pro</button>
-          <button type="button" class="quick-tag pm-tag pm-tag-blush cursor-pointer hover:opacity-90" data-q="Samsung Galaxy S24">Samsung S24</button>
+            <!-- 2. Brand or Store (Optional) + Submit Button -->
+            <div class="flex flex-col sm:flex-row items-end gap-3 pt-0.5">
+              <div class="flex-grow w-full">
+                <div class="flex items-center justify-between mb-1">
+                  <label for="results-search-brand" class="text-xs font-black uppercase tracking-wider text-[#BBDCF4]">
+                    2. Brand or Store <span class="text-[11px] font-bold text-gray-400">(Optional)</span>
+                  </label>
+                  <span class="text-[11px] font-bold text-[#96D4C7]">Defaults to all stores & brands</span>
+                </div>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#4C4066]">
+                    <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                    </svg>
+                  </div>
+                  <input 
+                    type="text" 
+                    id="results-search-brand" 
+                    name="brand" 
+                    list="results-brand-suggestions"
+                    placeholder="e.g. Outfitters, Dawlance, Daraz, Nike, Apple (or leave blank)..." 
+                    class="pm-input pl-10 text-sm font-bold w-full bg-white text-[#221636]"
+                    autocomplete="off"
+                  >
+                  <datalist id="results-brand-suggestions">
+                    <option value="Outfitters">
+                    <option value="Diners">
+                    <option value="Khaadi">
+                    <option value="J. Junaid Jamshed">
+                    <option value="Sapphire">
+                    <option value="Charcoal">
+                    <option value="Uniworth">
+                    <option value="Breakout">
+                    <option value="Edenrobe">
+                    <option value="Dawlance">
+                    <option value="Haier">
+                    <option value="PEL">
+                    <option value="Gree">
+                    <option value="Philips">
+                    <option value="Daraz">
+                    <option value="PriceOye">
+                    <option value="Telemart">
+                    <option value="Nike">
+                    <option value="Adidas">
+                    <option value="Bata">
+                    <option value="Apple">
+                    <option value="Samsung">
+                    <option value="Xiaomi">
+                  </datalist>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button 
+                type="submit" 
+                id="btn-search-submit" 
+                class="w-full sm:w-auto pm-btn pm-btn-primary px-8 py-3 text-sm whitespace-nowrap flex items-center justify-center gap-2 shadow-[3px_3px_0px_#96D4C7]"
+              >
+                <span>CRAWL & COMPARE</span>
+                <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+
+          <!-- Category Sticker Quick-Tags (Multi-Category) -->
+          <div class="mt-3.5 pt-2.5 border-t border-[rgba(255,255,255,0.1)] flex flex-wrap items-center justify-center sm:justify-start gap-2 text-xs">
+            <span class="font-bold text-[#96D4C7] uppercase tracking-wider text-[11px]">Quick Picks:</span>
+            <button type="button" class="quick-tag pm-tag pm-tag-gold cursor-pointer hover:opacity-90" data-q="Men Casual Shirt">Men Casual Shirt</button>
+            <button type="button" class="quick-tag pm-tag pm-tag-mint cursor-pointer hover:opacity-90" data-q="Air Fryer">Air Fryer</button>
+            <button type="button" class="quick-tag pm-tag pm-tag-white cursor-pointer hover:opacity-90" data-q="iPhone 15">iPhone 15</button>
+            <button type="button" class="quick-tag pm-tag pm-tag-sky cursor-pointer hover:opacity-90" data-q="Running Shoes">Running Shoes</button>
+            <button type="button" class="quick-tag pm-tag pm-tag-blush cursor-pointer hover:opacity-90" data-q="Summer Lawn Dress">Summer Lawn Dress</button>
+            <button type="button" class="quick-tag pm-tag cursor-pointer hover:opacity-90" data-q="Dawlance Microwave">Dawlance Microwave</button>
+          </div>
         </div>
       </div>
     </div>
@@ -114,9 +212,9 @@
         </div>
         <div class="h-4 w-px bg-gray-300 hidden sm:block"></div>
         <div id="metrics-chips" class="flex flex-wrap items-center gap-2 font-bold">
-          <span id="chip-duration" class="pm-tag pm-tag-white py-1 px-3 text-[11px]">⏱ 0ms</span>
-          <span id="chip-crawled" class="pm-tag pm-tag-mint py-1 px-3 text-[11px]">🌐 0 Pages Checked</span>
-          <span id="chip-cache" class="pm-tag pm-tag-sky py-1 px-3 text-[11px]">⚡ Fresh Crawl</span>
+          <span id="chip-duration" class="pm-tag pm-tag-white py-1 px-3 text-[11px]">0ms</span>
+          <span id="chip-crawled" class="pm-tag pm-tag-mint py-1 px-3 text-[11px]">0 Pages Checked</span>
+          <span id="chip-cache" class="pm-tag pm-tag-sky py-1 px-3 text-[11px]">Fresh Crawl</span>
         </div>
       </div>
       
@@ -150,11 +248,12 @@
           </p>
         </div>
         <div class="flex items-center gap-2">
-          <button id="btn-copy-json" class="pm-btn pm-btn-white pm-btn-sm text-xs">
-            <span>📋 COPY RAW JSON</span>
+          <button id="btn-copy-json" class="pm-btn pm-btn-white pm-btn-sm text-xs flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span>COPY RAW JSON</span>
           </button>
-          <button id="btn-close-inspector" class="w-8 h-8 rounded-full bg-[#4C4066] text-white font-bold flex items-center justify-center hover:bg-gray-600 transition-colors">
-            ✕
+          <button id="btn-close-inspector" aria-label="Close" class="w-8 h-8 rounded-full bg-[#4C4066] text-white font-bold flex items-center justify-center hover:bg-gray-600 transition-colors">
+            <svg class="w-3.5 h-3.5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
@@ -220,32 +319,46 @@
       </div>
     </div>
 
-    <!-- 1. LOADING STATE (Retro Arcade Bouncing Token) -->
+    <!-- 1. LOADING STATE (Animated Lottie Coin Spinner) -->
     <div id="state-loading" class="flex flex-col items-center justify-center py-12 px-4">
       <div class="pm-card p-8 max-w-lg w-full bg-white text-center flex flex-col items-center relative">
         <!-- Washi Tape -->
         <div class="pm-washi pm-washi-gold"></div>
 
-        <div class="w-20 h-20 rounded-full bg-[#F5B72B] border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-3xl text-[#221636] pm-bounce mb-6 mt-2">
-          ₨
+        <!-- Animated Coin Lottie Spinner -->
+        <div class="w-32 h-32 flex items-center justify-center mb-4 mt-1">
+          <dotlottie-player
+            id="coin-lottie-spinner"
+            src="/coin.lottie"
+            background="transparent"
+            speed="1"
+            loop
+            autoplay
+            style="width: 120px; height: 120px;"
+          >
+            <!-- Fallback if player component is loading -->
+            <div class="w-20 h-20 rounded-full bg-[#F5B72B] border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-3xl text-[#221636] pm-bounce">
+              ₨
+            </div>
+          </dotlottie-player>
         </div>
         <h3 class="font-display text-2xl text-[#221636] mb-2 uppercase">CRAWLING STORES...</h3>
         <p class="text-sm font-medium text-[#4C4066] mb-6">
-          Fetching live listings and extracting real prices from PriceOye, Daraz, Telemart, Shophive, Mega.pk & more.
+          Fetching live listings and extracting real prices from Daraz, PriceOye, Outfitters, Diners, Telemart, Charcoal, Shophive & more.
         </p>
         
         <!-- Retro Arcade Progress Steps -->
         <div class="w-full space-y-2.5 text-left text-xs font-bold">
           <div class="flex items-center justify-between p-3 rounded-lg border-2 border-[#221636] bg-[#96D4C7] shadow-[2px_2px_0px_#221636]">
             <span>1. Discovering Stores via DuckDuckGo</span>
-            <span class="text-[#221636]">✓ COMPLETE</span>
+            <span class="text-[#221636]">COMPLETE</span>
           </div>
           <div class="flex items-center justify-between p-3 rounded-lg border-2 border-[#221636] bg-[#F5B72B] shadow-[2px_2px_0px_#221636] animate-pulse">
             <span>2. Concurrently Fetching Store Pages</span>
             <span>FETCHING...</span>
           </div>
           <div class="flex items-center justify-between p-3 rounded-lg border-2 border-[#221636] bg-gray-100 text-gray-400 shadow-[2px_2px_0px_#221636]">
-            <span>3. Zero-Hallucination JSON-LD & Regex Price Extraction</span>
+            <span>3. Live JSON-LD & Regex Price Extraction</span>
             <span>WAITING...</span>
           </div>
         </div>
@@ -256,12 +369,12 @@
     <div id="state-empty" class="hidden flex-col items-center justify-center py-16 px-4">
       <div class="pm-card p-8 max-w-lg w-full bg-white text-center flex flex-col items-center relative">
         <div class="pm-washi"></div>
-        <div class="w-16 h-16 rounded-full bg-[#FCD7D7] border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-2xl text-[#221636] mb-4 mt-2">
-          ∅
+        <div class="w-16 h-16 rounded-full bg-[#FCD7D7] border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center text-[#221636] mb-4 mt-2">
+          <svg class="w-8 h-8 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
         <h3 class="font-display text-2xl text-[#221636] mb-2 uppercase">NO RESULTS FOUND</h3>
         <p class="text-sm text-[#4C4066] mb-6 leading-relaxed">
-          The crawler could not find verified store pages matching this product. In accordance with our <strong class="text-[#221636]">Zero-Hallucination Policy</strong>, we never invent or simulate product data.
+          The crawler could not find verified store pages matching this product. In accordance with our strict data accuracy policy, we only present verified prices directly from live store pages.
         </p>
         <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FCD7D7] w-full text-left mb-6 shadow-[3px_3px_0px_#221636]">
           <span class="text-xs font-black uppercase tracking-wider text-[#221636] block mb-2">Search Suggestions:</span>
@@ -278,8 +391,8 @@
     <!-- 3. ERROR STATE -->
     <div id="state-error" class="hidden flex-col items-center justify-center py-16 px-4">
       <div class="pm-card p-8 max-w-lg w-full bg-white text-center flex flex-col items-center relative border-[#EE2D2B]">
-        <div class="w-16 h-16 rounded-full bg-[#EE2D2B] text-white border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center font-display text-2xl mb-4">
-          ⚠
+        <div class="w-16 h-16 rounded-full bg-[#EE2D2B] text-white border-3 border-[#221636] shadow-[4px_4px_0px_#221636] flex items-center justify-center mb-4">
+          <svg class="w-8 h-8 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
         </div>
         <h3 class="font-display text-2xl text-[#221636] mb-2 uppercase">CRAWLER ERROR</h3>
         <p id="error-message-text" class="text-sm text-[#4C4066] mb-6 leading-relaxed">
@@ -295,20 +408,28 @@
     <div id="state-results" class="hidden">
       
       <!-- Best Price Callout Banner (Arcade Gold Box) -->
-      <div id="best-price-banner" class="pm-card p-5 bg-[#F5B72B] border-3 border-[#221636] mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[6px_6px_0px_#221636]">
-        <div class="flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-full bg-white border-3 border-[#221636] flex items-center justify-center font-display text-xl text-[#221636] shadow-[2px_2px_0px_#221636] flex-shrink-0">
-            ★
-          </div>
-          <div>
-            <span class="text-xs font-bold uppercase tracking-widest text-[#221636] block">BEST AVAILABLE DEAL</span>
-            <span id="best-deal-summary" class="font-display text-xl sm:text-2xl text-[#221636]">
-              Cheapest option is Rs. 0 at Store Name
-            </span>
-          </div>
+      <div id="best-price-banner" class="pm-card p-5 bg-[#F5B72B] border-3 border-[#221636] mb-6 flex items-center gap-3.5 shadow-[6px_6px_0px_#221636]">
+        <div class="w-12 h-12 rounded-full bg-white border-3 border-[#221636] flex items-center justify-center font-display text-xs font-black text-[#221636] shadow-[2px_2px_0px_#221636] flex-shrink-0 uppercase">
+          BEST
         </div>
-        <div id="savings-tag" class="pm-tag pm-tag-white text-xs font-black">
-          Save Money
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#221636] block">BEST AVAILABLE DEAL</span>
+          <span id="best-deal-summary" class="font-display text-xl sm:text-2xl text-[#221636]">
+            Cheapest option is Rs. 0 at Store Name
+          </span>
+        </div>
+      </div>
+
+      <!-- AI Shopping Insights Callout -->
+      <div id="ai-insights-box" class="hidden pm-card p-4 bg-[#BBDCF4] border-3 border-[#221636] mb-8 flex items-start gap-3.5 shadow-[4px_4px_0px_#221636]">
+        <div class="w-9 h-9 rounded-full bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center font-display text-xs font-black text-[#221636] flex-shrink-0 shadow-[1px_1px_0px_#221636] uppercase">
+          AI
+        </div>
+        <div class="flex-grow">
+          <div class="flex items-center gap-2 mb-1.5">
+            <span class="text-xs font-black uppercase tracking-wider text-[#221636]">AI Shopping Verdict</span>
+          </div>
+          <p id="ai-insights-text" class="text-xs sm:text-sm font-bold text-[#221636] leading-relaxed"></p>
         </div>
       </div>
 
@@ -320,7 +441,7 @@
       <!-- Pricing Disclaimer Note -->
       <div class="mt-14 pm-card p-5 bg-white border-3 border-[#221636] text-xs font-medium text-[#4C4066] shadow-[4px_4px_0px_#221636]">
         <div class="flex items-center gap-2 mb-1.5">
-          <span class="pm-tag pm-tag-mint text-[10px]">Zero-Hallucination Guarantee</span>
+          <span class="pm-tag pm-tag-mint text-[10px]">Verified Store Prices</span>
         </div>
         All prices shown are crawled live directly from Pakistani e-commerce merchants via Schema.org JSON-LD, OpenGraph tags, or confirmed HTML price containers. Listed prices reflect the merchant's current page data. Always verify final checkout totals on the merchant's official site.
       </div>
@@ -348,7 +469,7 @@
 
       <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
         <a href="index.html" class="pm-nav">Home</a>
-        <a href="results.html?q=iPhone+15" class="pm-nav">Live Crawler</a>
+        <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
         <a href="about.html" class="pm-nav">About</a>
         <a href="404.html" class="pm-nav">404</a>
       </div>
@@ -359,7 +480,148 @@
     </div>
   </footer>
 
+  <!-- Hidden Vision Camera / File Input -->
+  <input type="file" id="vision-file-input" accept="image/*" capture="environment" class="hidden">
+
+  <!-- Gemini Visual Search Modal (Arcade / Neo-Brutalist) -->
+  <div id="vision-modal" class="hidden fixed inset-0 z-50 bg-[#221636]/65 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="pm-card p-6 bg-[#FFFDF5] max-w-lg w-full relative shadow-[8px_8px_0px_#221636] border-3 border-[#221636]">
+      <!-- Washi tape at top -->
+      <div class="pm-washi bg-[#F5B72B]"></div>
+
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-3.5 mb-4 border-b-2 border-[#221636]">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-[#96D4C7] border-2 border-[#221636] flex items-center justify-center shadow-[1px_1px_0px_#221636] flex-shrink-0">
+            <svg class="w-4 h-4 stroke-[2.5] text-[#221636]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-display text-base sm:text-lg text-[#221636] uppercase tracking-wide">
+              GEMINI VISUAL SEARCH
+            </h3>
+            <span class="text-[10px] font-bold text-[#4C4066] uppercase tracking-wider block -mt-0.5">
+              Instant AI Product Identification
+            </span>
+          </div>
+        </div>
+        <button 
+          type="button" 
+          id="btn-close-vision-modal" 
+          class="w-7 h-7 rounded-full bg-white hover:bg-[#FCD7D7] border-2 border-[#221636] flex items-center justify-center text-[#221636] shadow-[1px_1px_0px_#221636] transition-all cursor-pointer"
+          title="Close"
+        >
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- State 1: Drop / Select Screen -->
+      <div id="vision-state-drop" class="space-y-4">
+        <div 
+          id="vision-dropzone" 
+          class="border-3 border-dashed border-[#221636] rounded-xl p-6 sm:p-8 bg-white text-center cursor-pointer hover:bg-[#BBDCF4]/15 transition-all flex flex-col items-center justify-center gap-3"
+        >
+          <div class="w-14 h-14 rounded-2xl bg-[#BBDCF4] border-2 border-[#221636] shadow-[3px_3px_0px_#221636] flex items-center justify-center text-[#221636]">
+            <svg class="w-7 h-7 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-display text-sm sm:text-base text-[#221636] uppercase">
+              Upload or Take a Photo
+            </div>
+            <p class="text-xs font-semibold text-[#4C4066] mt-1 max-w-xs mx-auto">
+              Drag and drop an image, snap with camera, or click to browse files
+            </p>
+          </div>
+          <span class="pm-tag pm-tag-gold text-[10px] font-black uppercase">
+            SUPPORTS ALL PRODUCT TYPES
+          </span>
+        </div>
+
+        <div class="flex items-center justify-between text-[11px] font-bold text-[#4C4066] px-1">
+          <span>Works with apparel, appliances, shoes & phones</span>
+          <span class="text-gray-400">Max 10MB</span>
+        </div>
+      </div>
+
+      <!-- State 2: Scanning / Loading Screen -->
+      <div id="vision-state-scanning" class="hidden flex flex-col items-center text-center py-4 space-y-4">
+        <div class="relative w-44 h-44 rounded-xl border-3 border-[#221636] bg-white overflow-hidden shadow-[4px_4px_0px_#221636]">
+          <img id="vision-preview-img" src="" alt="Product Preview" class="w-full h-full object-cover">
+          <!-- Laser Scan Line Effect -->
+          <div class="absolute inset-x-0 h-1 bg-[#EE2D2B] shadow-[0_0_8px_#EE2D2B] animate-bounce"></div>
+          <div class="absolute inset-0 bg-[#221636]/10 pointer-events-none"></div>
+        </div>
+
+        <div>
+          <span class="pm-tag pm-tag-gold animate-pulse text-xs font-black uppercase">
+            SCANNING WITH GEMINI VISION...
+          </span>
+          <p class="text-xs font-bold text-[#4C4066] mt-2">
+            Analyzing brand marks, silhouette, and model specs...
+          </p>
+        </div>
+      </div>
+
+      <!-- State 3: Identified / Success Screen -->
+      <div id="vision-state-success" class="hidden space-y-4">
+        <div class="flex items-center gap-3 p-3 bg-white border-2 border-[#221636] rounded-xl shadow-[3px_3px_0px_#221636]">
+          <img id="vision-success-thumb" src="" alt="Thumbnail" class="w-16 h-16 rounded-lg object-cover border border-[#221636] flex-shrink-0">
+          <div class="flex-grow min-w-0">
+            <span class="pm-tag pm-tag-mint text-[9px] font-black uppercase">IDENTIFIED</span>
+            <h4 id="vision-identified-title" class="font-bold text-sm text-[#221636] truncate mt-1">Product Title</h4>
+            <div class="flex items-center gap-2 text-xs font-semibold text-[#4C4066] mt-0.5">
+              <span id="vision-identified-brand" class="pm-tag pm-tag-sky text-[10px] py-0 px-1.5 font-bold">Brand</span>
+              <span id="vision-identified-category" class="text-[11px] text-gray-500">Category</span>
+            </div>
+          </div>
+        </div>
+
+        <button 
+          type="button" 
+          id="btn-apply-vision-result" 
+          class="w-full pm-btn pm-btn-primary py-3 text-sm flex items-center justify-center gap-2 shadow-[4px_4px_0px_#221636]"
+        >
+          <span>APPLY TO SEARCH & COMPARE</span>
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- State 4: Error Screen -->
+      <div id="vision-state-error" class="hidden text-center py-4 space-y-3">
+        <div class="w-12 h-12 rounded-full bg-[#FCD7D7] border-2 border-[#221636] flex items-center justify-center text-[#EE2D2B] mx-auto shadow-[2px_2px_0px_#221636]">
+          <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="pm-tag pm-tag-white text-xs font-black uppercase text-[#EE2D2B]">
+            IDENTIFICATION FAILED
+          </span>
+          <p id="vision-error-msg" class="text-xs font-bold text-[#4C4066] mt-2 max-w-xs mx-auto">
+            Unable to recognize product.
+          </p>
+        </div>
+        <button 
+          type="button" 
+          id="btn-vision-retry" 
+          class="pm-btn pm-btn-gold py-2 px-6 text-xs mx-auto font-black flex items-center gap-1.5 shadow-[2px_2px_0px_#221636]"
+        >
+          TRY ANOTHER PHOTO
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="js/results.js"></script>
+  <script src="js/vision-search.js"></script>
 </body>
 </html>
