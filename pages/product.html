@@ -212,6 +212,23 @@
       document.getElementById("product-best-store").textContent = `Best verified price at ${store}`;
       document.getElementById("btn-main-outlink").href = url;
       document.getElementById("link-view-history").href = `price-history.html?q=${encodeURIComponent(query)}`;
+
+      const tbody = document.getElementById("store-comparison-tbody");
+      tbody.innerHTML = `
+        <tr>
+          <td class="p-3 font-semibold text-white flex items-center gap-2">
+            <span>${store}</span>
+            <span class="pm-tag pm-tag-gold text-[8px]">BEST PRICE</span>
+          </td>
+          <td class="p-3 font-display text-white text-sm">${price > 0 ? "Rs. " + Number(price).toLocaleString("en-PK") : "CHECK STORE"}</td>
+          <td class="p-3 text-[10px] text-[#4a9e6e] font-semibold">IN STOCK</td>
+          <td class="p-3 text-right">
+            <a href="${url}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-white pm-btn-sm text-[9px] py-1 px-3">
+              GO TO STORE →
+            </a>
+          </td>
+        </tr>
+      `;
       
       const mainImg = document.getElementById("product-main-img");
       if (image && image.startsWith("http")) {
@@ -261,8 +278,8 @@
       btnCompare.addEventListener("click", () => {
         let cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
         if (!cmp.some(i => i.title === title)) {
-          if (cmp.length >= 4) {
-            alert("You can compare up to 4 items simultaneously. Remove an item first.");
+          if (cmp.length >= 3) {
+            alert("You can compare up to 3 items simultaneously. Remove an item first.");
             return;
           }
           cmp.push({ title, store, price, url, image });
@@ -280,7 +297,6 @@
         if (res.ok) {
           const data = await res.json();
           const items = data.results || [];
-          const tbody = document.getElementById("store-comparison-tbody");
           if (items.length > 0) {
             tbody.innerHTML = "";
             items.forEach((it, idx) => {
@@ -311,4 +327,3 @@
   </script>
 </body>
 </html>
-

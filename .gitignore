@@ -1,39 +1,97 @@
-# Python cache & bytecode
+# ==============================================================================
+# PennyWise .gitignore
+# ==============================================================================
+
+# Python bytecode & cache
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# Virtual environments
+# Virtual Environments
 venv/
 .venv/
 env/
 ENV/
+env.bak/
+venv.bak/
 
-# Environment & Secret files
+# Environment, secrets & local configs
 .env
-*.env
 .env.*
+*.env
 !.env.example
 
-# Operating System files
+# SQLite & local databases
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+*.sqlite
+*.sqlite3
+Prototype/pennywise.db
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 
 # IDE & Editor files
-.idea/
 .vscode/
+.idea/
 *.swp
 *.swo
 *~
+*.sublime-project
+*.sublime-workspace
 
-# Logs & temp files
+# Archive & temporary bundles
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Logs & cache
 *.log
+*-debug.log*
 *.tmp
+*.tmp-*
 .cache/
+logs/
 
-# Planning & Suggested Pages
+# Node & frontend build tool artifacts (if generated)
+node_modules/
+dist/
+build/
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Tool & agent platform scaffolding
+.figma/
+/.plugins/
+/.opencode-skills/
+.claude-replay.*
+
+# Temporary / planning documentation (Keep README.md)
 Suggested Pages.md
-Suggested Pages
-
-
-Prototype/pennywise.db
+Suggested Pages/
+CLAUDE.md
+AGENTS.md
+TODO.md
+NOTES.md
+TEMP.md
+!README.md
+!Prototype/README.md

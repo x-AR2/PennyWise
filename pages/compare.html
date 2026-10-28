@@ -136,28 +136,7 @@
       updateNavCounts();
 
       function loadCompareItems() {
-        let items = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
-        if (items.length === 0) {
-          // Provide 2 default demo items if none present
-          items = [
-            {
-              title: "Men Casual Cotton Linen Shirt",
-              price: 3490,
-              store: "Outfitters",
-              url: "https://outfitters.com.pk",
-              image: ""
-            },
-            {
-              title: "Premium Classic Button-Down Shirt",
-              price: 4950,
-              store: "Diners",
-              url: "https://diners.com.pk",
-              image: ""
-            }
-          ];
-          localStorage.setItem("pennywise_compare", JSON.stringify(items));
-        }
-
+        const items = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
         renderComparison(items);
       }
 
@@ -265,4 +244,3 @@
   </script>
 </body>
 </html>
-

@@ -261,7 +261,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
-      const query = params.get("q") || "Men Casual Shirt";
+      let currentQuery = params.get("q") || "Men Casual Shirt";
       
       const titleDisplay = document.getElementById("history-title-display");
       const statLowest = document.getElementById("stat-lowest-price");
@@ -272,7 +272,7 @@
       const alertForm = document.getElementById("alert-form");
       const alertFeedback = document.getElementById("alert-feedback");
 
-      if (queryInput) queryInput.value = query;
+      if (queryInput) queryInput.value = currentQuery;
 
       function updateNavCounts() {
         try {
@@ -342,6 +342,7 @@
         e.preventDefault();
         const q = queryInput.value.trim();
         if (q) {
+          currentQuery = q;
           const url = new URL(window.location);
           url.searchParams.set("q", q);
           window.history.pushState({}, "", url);
@@ -361,16 +362,16 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              query: query,
+              query: currentQuery,
               target_price: targetPrice,
               email: email,
               phone: phone,
-              title: query
+              title: currentQuery
             })
           });
 
           if (res.ok) {
-            alertFeedback.textContent = `✓ Alert confirmed! We will notify ${email} when ${query} drops below Rs. ${Number(targetPrice).toLocaleString("en-PK")}.`;
+            alertFeedback.textContent = `Alert confirmed. We will notify ${email} when ${currentQuery} drops below Rs. ${Number(targetPrice).toLocaleString("en-PK")}.`;
             alertFeedback.classList.remove("hidden");
             alertForm.reset();
             loadAlerts();
@@ -402,10 +403,9 @@
         } catch(e){}
       }
 
-      fetchHistory(query);
+      fetchHistory(currentQuery);
       loadAlerts();
     });
   </script>
 </body>
 </html>
-

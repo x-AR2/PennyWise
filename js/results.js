@@ -440,8 +440,8 @@ document.addEventListener("DOMContentLoaded", () => {
             cmpBtn.className = "btn-card-compare text-[9px] font-semibold uppercase px-2 py-0.5 rounded border border-[rgba(255,255,255,0.15)] text-[#aaa] hover:border-[#c8a96e]";
             cmpBtn.textContent = "+ COMPARE";
           } else {
-            if (list.length >= 4) {
-              alert("You can compare up to 4 items simultaneously. Open Compare to manage.");
+            if (list.length >= 3) {
+              alert("You can compare up to 3 items simultaneously. Open Compare to manage.");
               return;
             }
             list.push({ title: item.title, store: item.store, price: item.price, url: item.url, image: item.image });
