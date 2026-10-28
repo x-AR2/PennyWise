@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PennyWise | Search History &amp; Crawl Activity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">Search Activity &amp; Crawl History</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#888]">Stored Locally On Your Device</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#c8a96e]">Pakistan</span>
+  </div>
+
+  <!-- Header -->
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+        <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
+          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
+          <div>
+            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PENNYWISE</span>
+            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
+          </div>
+        </a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav active">History</a>
+          <a href="about.html" class="pm-nav">About</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 my-6">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-8">
+
+    <!-- Hero Header -->
+    <div class="pm-card p-6 sm:p-8 bg-[#141414] border border-[rgba(200,169,110,0.18)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div class="space-y-2">
+        <div class="inline-flex items-center gap-2">
+          <span class="pm-tag pm-tag-gold text-[9px]">Activity Log</span>
+          <span class="text-xs text-[#888]">Client Encrypted Storage</span>
+        </div>
+        <h1 class="font-display text-3xl text-white uppercase font-black">
+          Your Search History
+        </h1>
+        <p class="text-xs sm:text-sm font-light text-[#888] max-w-xl leading-relaxed">
+          Review previous price queries and instantly relaunch live crawls across Pakistani stores with one click.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="btn-clear-history" class="pm-btn pm-btn-white pm-btn-sm text-[10px] flex items-center gap-1.5 text-[#cc3333] border-[#cc3333]/30 hover:border-[#cc3333]">
+          <i class="bi bi-trash3-fill"></i>
+          <span>Clear History</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <div class="pm-card p-4 bg-[#111] border border-[rgba(255,255,255,0.06)]">
+        <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666] block">Searches Logged</span>
+        <div id="stat-count" class="font-display text-2xl text-white mt-1">5 Queries</div>
+        <span class="text-[10px] text-[#4a9e6e] mt-1 block">Live cached locally</span>
+      </div>
+      <div class="pm-card p-4 bg-[#111] border border-[rgba(255,255,255,0.06)]">
+        <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666] block">Top Category</span>
+        <div class="font-display text-2xl text-[#c8a96e] mt-1">Consumer Audio</div>
+        <span class="text-[10px] text-[#777] mt-1 block">High price variance</span>
+      </div>
+      <div class="pm-card p-4 bg-[#111] border border-[rgba(255,255,255,0.06)]">
+        <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666] block">Avg. Price Difference</span>
+        <div class="font-display text-2xl text-white mt-1">Rs. 8,450</div>
+        <span class="text-[10px] text-[#4a9e6e] mt-1 block">Found between top stores</span>
+      </div>
+    </div>
+
+    <!-- History Items Container -->
+    <div class="space-y-3">
+      <div class="flex items-center justify-between pb-2 border-b border-[rgba(255,255,255,0.06)]">
+        <h3 class="font-display text-sm text-white uppercase tracking-[0.05em]">Recent Queries</h3>
+        <span class="text-[11px] text-[#666]">Click any entry to rerun live comparison</span>
+      </div>
+
+      <div id="history-list" class="space-y-3">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
+      </div>
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
+        <a href="../index.html" class="pm-nav">Home</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav active">History</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="login.html" class="pm-nav">Login</a>
+      </div>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise. History is saved locally in your browser.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("history-list");
+      const statCount = document.getElementById("stat-count");
+      const btnClear = document.getElementById("btn-clear-history");
+
+      const DEFAULT_HISTORY = [
+        { query: "Sony WH-1000XM5", title: "Sony WH-1000XM5 Wireless Headphones", count: 6, date: "Today, 02:40 AM" },
+        { query: "iPhone 15 Pro Max", title: "Apple iPhone 15 Pro Max 256GB", count: 5, date: "Yesterday, 11:15 PM" },
+        { query: "PlayStation 5 Console", title: "Sony PlayStation 5 Slim 1TB Console", count: 5, date: "Oct 27, 2026" },
+        { query: "MacBook Air M2", title: "Apple MacBook Air 13-inch M2", count: 5, date: "Oct 25, 2026" },
+        { query: "Dawlance Inverter AC", title: "Dawlance 1.5 Ton Inverter AC Mega T-Pro", count: 4, date: "Oct 24, 2026" }
+      ];
+
+      function getHistory() {
+        try {
+          const stored = localStorage.getItem("pennywise_history");
+          if (!stored) {
+            localStorage.setItem("pennywise_history", JSON.stringify(DEFAULT_HISTORY));
+            return DEFAULT_HISTORY;
+          }
+          return JSON.parse(stored);
+        } catch(e) {
+          return DEFAULT_HISTORY;
+        }
+      }
+
+      function render() {
+        const list = getHistory();
+        statCount.textContent = `${list.length} Queries`;
+
+        if (list.length === 0) {
+          container.innerHTML = `
+            <div class="pm-card p-8 bg-[#111] text-center text-[#777]">
+              <i class="bi bi-clock-history text-3xl text-[#555] mb-2 block"></i>
+              <div class="text-sm font-medium text-[#aaa]">No search history found</div>
+              <p class="text-xs text-[#666] mt-1">Queries you perform on the Live Crawler will be logged here.</p>
+              <a href="results.html" class="pm-btn pm-btn-gold pm-btn-sm mt-4 inline-flex items-center gap-2">
+                <i class="bi bi-search"></i>
+                <span>Explore Live Crawler</span>
+              </a>
+            </div>
+          `;
+          return;
+        }
+
+        container.innerHTML = "";
+        list.forEach((item, index) => {
+          const row = document.createElement("div");
+          row.className = "pm-card p-4 bg-[#141414] border border-[rgba(255,255,255,0.06)] hover:border-[#c8a96e]/40 transition-colors flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4";
+
+          row.innerHTML = `
+            <div class="flex items-center gap-3.5">
+              <div class="w-8 h-8 rounded-full border border-[rgba(255,255,255,0.1)] bg-[#1a1a1a] flex items-center justify-center text-[#c8a96e] text-xs flex-shrink-0">
+                <i class="bi bi-search"></i>
+              </div>
+              <div>
+                <a href="results.html?q=${encodeURIComponent(item.query)}" class="font-medium text-sm text-white hover:text-[#c8a96e] transition-colors">
+                  ${item.title || item.query}
+                </a>
+                <div class="flex items-center gap-2 text-[10px] text-[#666] mt-0.5">
+                  <span class="text-[#c8a96e]">${item.count || 5} Stores Verified</span>
+                  <span>·</span>
+                  <span>${item.date || "Recent"}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 self-end sm:self-center">
+              <a href="results.html?q=${encodeURIComponent(item.query)}" class="pm-btn pm-btn-white py-1.5 px-3 text-[10px] flex items-center gap-1.5">
+                <i class="bi bi-arrow-repeat text-[#c8a96e]"></i>
+                <span>Crawl Again</span>
+              </a>
+              <button type="button" class="btn-del-item w-7 h-7 rounded border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#777] hover:text-[#cc3333] hover:border-[#cc3333] transition-colors" title="Delete">
+                <i class="bi bi-x-lg text-xs"></i>
+              </button>
+            </div>
+          `;
+
+          row.querySelector(".btn-del-item").addEventListener("click", () => {
+            let cur = getHistory();
+            cur.splice(index, 1);
+            localStorage.setItem("pennywise_history", JSON.stringify(cur));
+            render();
+          });
+
+          container.appendChild(row);
+        });
+      }
+
+      btnClear.addEventListener("click", () => {
+        if (confirm("Clear all recorded search history?")) {
+          localStorage.setItem("pennywise_history", JSON.stringify([]));
+          render();
+        }
+      });
+
+      render();
+    });
+  </script>
+</body>
+</html>

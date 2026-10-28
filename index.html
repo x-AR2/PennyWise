@@ -1,36 +1,33 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PennyWise | Smart Price Comparison for Pakistan</title>
+  <title>PennyWise | Smart Price Comparison & Live Crawler for Pakistan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Tailwind CSS CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Favicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-  <!-- Dark Luxury CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
   <!-- Top Announcement Bar -->
   <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#c8a96e]">Smart Price Comparison</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><i class="bi bi-shield-check"></i> Smart Price Comparison</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#666]">Real-Time Verification</span>
+    <span class="text-[#888] flex items-center gap-1.5"><i class="bi bi-cpu"></i> Live Store Crawler</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#666]">Pakistan</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><i class="bi bi-geo-alt-fill"></i> Pakistan</span>
   </div>
 
   <!-- Header Section -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-8 pb-14 border-b border-[rgba(255,255,255,0.06)] relative">
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         
         <!-- Brand Logo -->
         <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
@@ -41,255 +38,325 @@
           </div>
         </a>
 
-        <!-- Navigation -->
-        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
-          <a href="index.html" class="pm-nav active">HOME</a>
-          <a href="pages/results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
-          <a href="pages/stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
-          <a href="pages/compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
-          <a href="pages/wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
-          <a href="pages/price-history.html" class="pm-nav">PRICE HISTORY</a>
-          <a href="pages/about.html" class="pm-nav">ABOUT</a>
+        <!-- Navigation Links -->
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="index.html" class="pm-nav active">Home</a>
+          <a href="pages/results.html" class="pm-nav">Live Crawler</a>
+          <a href="pages/deals.html" class="pm-nav">Trending Deals</a>
+          <a href="pages/tickets.html" class="pm-nav">Tickets</a>
+          <a href="pages/stores-categories.html" class="pm-nav">Stores</a>
+          <a href="pages/compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="pages/wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="pages/history.html" class="pm-nav">History</a>
+          <a href="pages/about.html" class="pm-nav">About</a>
         </nav>
+
+        <!-- Auth Button -->
+        <div class="flex items-center gap-3">
+          <a href="pages/login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- Divider -->
-  <div class="pm-coin-divider px-4 my-8">
+  <div class="pm-coin-divider px-4 my-6">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
 
   <!-- Hero Section -->
-  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex-grow">
-    <div class="max-w-4xl mx-auto flex flex-col gap-8">
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] uppercase" style="animation: pw-fade-up 1s ease both 0.2s;">
-        FIND THE <span class="text-[#c8a96e]">CHEAPEST</span> STORE IN PAKISTAN.
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow space-y-20">
+
+    <!-- Hero Callout -->
+    <section class="max-w-4xl mx-auto text-center flex flex-col items-center gap-6 pt-4 sm:pt-8">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[rgba(200,169,110,0.3)] bg-[rgba(200,169,110,0.06)] text-[#c8a96e] text-[11px] font-medium tracking-[0.15em] uppercase">
+        <i class="bi bi-lightning-charge-fill"></i>
+        <span>Pakistan's Dedicated Price Comparison Engine</span>
+      </div>
+
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.12] uppercase font-black">
+        Find The <span class="text-[#c8a96e]">Cheapest</span> Store In Pakistan.
       </h1>
 
-      <p class="text-base sm:text-lg font-light text-[#888] max-w-2xl leading-relaxed" style="animation: pw-fade-up 1s ease both 0.4s;">
-        Search any product, fashion item, home appliance, or gadget. We crawl real online stores across Pakistan, collect live prices in PKR, and show them sorted lowest to highest.
+      <p class="text-base sm:text-lg font-light text-[#999] max-w-2xl leading-relaxed">
+        Stop checking twenty different websites manually. PennyWise crawls top Pakistani retailers in real time, collects actual verified prices in PKR, and ranks the lowest offer first.
       </p>
 
-        <!-- Search Box -->
-        <div class="pm-card p-6 bg-[#1a1a1a]" style="animation: pw-fade-up 1s ease both 0.5s;">
-          <form id="search-form" action="pages/results.html" method="GET" class="space-y-4">
-            <!-- Product Name -->
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <label for="search-name" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888]">
-                  Product Name <span class="text-[#cc3333]">*</span>
-                </label>
-              </div>
-              <div class="relative">
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#666]">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                  </svg>
-                </div>
-                <input 
-                  type="text" 
-                  id="search-name" 
-                  name="name" 
-                  placeholder="Search any product..." 
-                  class="pm-input pl-11 text-base w-full"
-                  autocomplete="off"
-                  required
-                  minlength="2"
-                >
-                <div id="search-error" class="hidden text-[11px] font-medium text-[#cc3333] mt-2 pl-3">
-                  Please enter at least 2 characters for the product name.
-                </div>
-              </div>
-            </div>
+      <!-- Primary Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full max-w-md">
+        <a href="pages/results.html" class="w-full sm:w-auto pm-btn pm-btn-primary px-8 py-4 text-xs font-bold tracking-[0.15em] flex items-center justify-center gap-2.5">
+          <i class="bi bi-search text-base"></i>
+          <span>Search Product</span>
+        </a>
+        <a href="pages/deals.html" class="w-full sm:w-auto pm-btn pm-btn-gold px-8 py-4 text-xs font-bold tracking-[0.15em] flex items-center justify-center gap-2.5">
+          <i class="bi bi-fire text-base"></i>
+          <span>Trending Deals</span>
+        </a>
+      </div>
 
-            <!-- Brand or Store + Submit -->
-            <div class="flex flex-col sm:flex-row items-end gap-3 pt-1">
-              <div class="flex-grow w-full">
-                <div class="flex items-center justify-between mb-2">
-                  <label for="search-brand" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666]">
-                    Brand or Store <span class="text-[10px] font-normal text-[#555]">(Optional)</span>
-                  </label>
-                </div>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#666]">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-                    </svg>
-                  </div>
-                  <input 
-                    type="text" 
-                    id="search-brand" 
-                    name="brand" 
-                    list="brand-store-suggestions"
-                    placeholder="Brand or store name..." 
-                    class="pm-input pl-9 text-sm w-full"
-                    autocomplete="off"
-                  >
-                  <datalist id="brand-store-suggestions">
-                    <option value="Outfitters">
-                    <option value="Diners">
-                    <option value="Khaadi">
-                    <option value="J. Junaid Jamshed">
-                    <option value="Sapphire">
-                    <option value="Charcoal">
-                    <option value="Uniworth">
-                    <option value="Breakout">
-                    <option value="Edenrobe">
-                    <option value="Dawlance">
-                    <option value="Haier">
-                    <option value="PEL">
-                    <option value="Gree">
-                    <option value="Philips">
-                    <option value="Daraz">
-                    <option value="PriceOye">
-                    <option value="Telemart">
-                    <option value="Nike">
-                    <option value="Adidas">
-                    <option value="Bata">
-                    <option value="Apple">
-                    <option value="Samsung">
-                    <option value="Xiaomi">
-                  </datalist>
-                </div>
-              </div>
+      <!-- Quick Popular Search Shortcuts -->
+      <div class="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs">
+        <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666] mr-1">Popular:</span>
+        <a href="pages/results.html?q=Sony+WH-1000XM5" class="pm-tag pm-tag-gold hover:opacity-80 transition-opacity">Sony WH-1000XM5</a>
+        <a href="pages/results.html?q=iPhone+15+Pro+Max" class="pm-tag pm-tag-mint hover:opacity-80 transition-opacity">iPhone 15 Pro Max</a>
+        <a href="pages/results.html?q=PlayStation+5+Console" class="pm-tag hover:opacity-80 transition-opacity">PlayStation 5</a>
+        <a href="pages/results.html?q=MacBook+Air+M2" class="pm-tag hover:opacity-80 transition-opacity">MacBook Air M2</a>
+        <a href="pages/results.html?q=Dawlance+1.5+Ton+Inverter" class="pm-tag hover:opacity-80 transition-opacity">Dawlance Inverter AC</a>
+      </div>
+    </section>
 
-              <!-- Submit Button -->
-              <button 
-                type="submit" 
-                class="w-full sm:w-auto pm-btn pm-btn-primary px-10 py-3.5 text-xs whitespace-nowrap flex items-center justify-center gap-2"
-              >
-                <span>Compare Stores</span>
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                </svg>
-              </button>
-            </div>
+    <!-- Project Idea & Why It's Unique -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6">
+      
+      <!-- Card 1: The Idea -->
+      <div class="pm-polaroid flex flex-col justify-between">
+        <div class="pm-sticker-number"><i class="bi bi-lightbulb-fill text-sm"></i></div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="pt-4 pb-2">
+            <span class="pm-tag pm-tag-gold text-[9px] mb-3 inline-block">The Problem & The Idea</span>
+            <h2 class="font-display text-2xl text-white mb-3 uppercase">Why Pakistani Shoppers Overpay</h2>
+            <p class="text-sm font-light text-[#aaa] leading-relaxed mb-4">
+              E-commerce in Pakistan is fragmented across hundreds of isolated store websites. The same gadget, shirt, or appliance often sells with price differences of Rs. 3,000 to Rs. 25,000 between stores like PriceOye, Daraz Mall, Telemart, and Mega.pk.
+            </p>
+            <p class="text-sm font-light text-[#aaa] leading-relaxed">
+              PennyWise solves this by deploying autonomous web extraction that indexes live merchant pages, extracts the actual checkout PKR price, and highlights the cheapest verified store without sponsored bias.
+            </p>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between text-[11px] text-[#777]">
+          <span>Single Search Gateway</span>
+          <span class="text-[#c8a96e]">Instant PKR Comparison</span>
+        </div>
+      </div>
 
-            <!-- Hidden field for combined query 'q' -->
-            <input type="hidden" id="combined-query" name="q" value="">
-          </form>
+      <!-- Card 2: What Makes It Unique -->
+      <div class="pm-polaroid flex flex-col justify-between">
+        <div class="pm-sticker-number" style="background:#444; color:#fff;"><i class="bi bi-gem text-sm"></i></div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="pt-4 pb-2">
+            <span class="pm-tag pm-tag-mint text-[9px] mb-3 inline-block">Architecture & Integrity</span>
+            <h2 class="font-display text-2xl text-white mb-3 uppercase">What Makes PennyWise Unique</h2>
+            <ul class="space-y-3 text-sm font-light text-[#aaa]">
+              <li class="flex items-start gap-2.5">
+                <i class="bi bi-check-circle-fill text-[#c8a96e] mt-1 flex-shrink-0 text-xs"></i>
+                <span><strong>No Paid Sponsorships:</strong> Stores cannot buy the top spot. The genuine lowest price always receives the #1 Lowest Badge.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="bi bi-check-circle-fill text-[#c8a96e] mt-1 flex-shrink-0 text-xs"></i>
+                <span><strong>Zero Synthetic Data:</strong> We reject estimated numbers. Every displayed price comes from a verified store page in Pakistan.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <i class="bi bi-check-circle-fill text-[#c8a96e] mt-1 flex-shrink-0 text-xs"></i>
+                <span><strong>Direct Checkout Links:</strong> Click straight through to the verified merchant item page with no hidden intermediaries.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between text-[11px] text-[#777]">
+          <span>Verified Schema.org Extraction</span>
+          <span class="text-[#4a9e6e]">Strict Integrity Standard</span>
+        </div>
+      </div>
 
-          <!-- Quick Picks -->
-          <div class="mt-4 pt-4 border-t border-[rgba(255,255,255,0.06)] flex flex-wrap items-center gap-2">
-            <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666]">Quick Picks:</span>
-            <button type="button" class="quick-pill pm-tag pm-tag-gold cursor-pointer hover:opacity-80 transition-opacity" data-query="Men Casual Shirt">Men Casual Shirt</button>
-            <button type="button" class="quick-pill pm-tag pm-tag-mint cursor-pointer hover:opacity-80 transition-opacity" data-query="Air Fryer">Air Fryer</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="iPhone 15">iPhone 15</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="Running Shoes">Running Shoes</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="Summer Lawn Dress">Summer Lawn Dress</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="Dawlance Microwave">Dawlance Microwave</button>
+    </section>
+
+    <!-- Live Crawler Showcase Banner -->
+    <section class="pm-card p-6 sm:p-8 bg-[#141414] border border-[rgba(200,169,110,0.25)] relative overflow-hidden">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-xl">
+          <div class="inline-flex items-center gap-2">
+            <span class="pm-tag pm-tag-mint text-[9px]">Live Demonstration</span>
+            <span class="pm-tag text-[9px]">Featured Product</span>
+          </div>
+          <h2 class="font-display text-2xl sm:text-3xl text-white uppercase">
+            Sony WH-1000XM5 Wireless Headphones
+          </h2>
+          <p class="text-sm font-light text-[#888] leading-relaxed">
+            See how the crawler gathers real rates from four distinct Pakistani online stores and exposes an instant Rs. 9,901 price gap on the exact same product.
+          </p>
+          <div class="pt-2">
+            <a href="pages/results.html?q=Sony+WH-1000XM5" class="pm-btn pm-btn-gold pm-btn-sm inline-flex items-center gap-2">
+              <i class="bi bi-arrow-right-circle"></i>
+              <span>Launch Live Crawler Simulation</span>
+            </a>
           </div>
         </div>
 
-        <!-- Accuracy Guarantee -->
-        <div class="pm-card p-4 bg-[#1a1a1a] flex items-center gap-4" style="animation: pw-fade-up 1s ease both 0.6s;">
-          <div class="w-8 h-8 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] flex-shrink-0">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
+        <!-- Mini Comparison Table Preview -->
+        <div class="w-full lg:max-w-md bg-[#0c0c0c] border border-[rgba(255,255,255,0.08)] rounded-lg p-4 space-y-2.5 text-xs font-mono">
+          <div class="flex items-center justify-between pb-2 border-b border-[rgba(255,255,255,0.06)] text-[10px] text-[#888] uppercase tracking-[0.1em]">
+            <span>Store</span>
+            <span>Status</span>
+            <span>Price (PKR)</span>
           </div>
-          <div class="text-[11px] font-medium text-[#888]">
-            <strong class="text-[#aaa] uppercase tracking-[0.1em]">Live Verified Pricing:</strong> Every price shown links directly to a real Pakistani store page. No estimates.
+          <div class="flex items-center justify-between p-2 rounded bg-[rgba(200,169,110,0.08)] border border-[rgba(200,169,110,0.3)]">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-white font-sans">PriceOye</span>
+              <span class="pm-tag pm-tag-gold text-[8px] py-0 px-1.5 font-sans">#1 LOWEST</span>
+            </div>
+            <span class="text-[#4a9e6e] text-[10px] font-sans">In Stock</span>
+            <span class="font-bold text-white font-display text-sm">Rs. 94,999</span>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded bg-[#111] border border-[rgba(255,255,255,0.04)]">
+            <span class="font-medium text-[#ccc] font-sans">Telemart</span>
+            <span class="text-[#4a9e6e] text-[10px] font-sans">In Stock</span>
+            <span class="text-[#bbb] font-display">Rs. 99,499</span>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded bg-[#111] border border-[rgba(255,255,255,0.04)]">
+            <span class="font-medium text-[#ccc] font-sans">Shophive</span>
+            <span class="text-[#4a9e6e] text-[10px] font-sans">In Stock</span>
+            <span class="text-[#bbb] font-display">Rs. 102,500</span>
+          </div>
+          <div class="flex items-center justify-between p-2 rounded bg-[#111] border border-[rgba(255,255,255,0.04)]">
+            <span class="font-medium text-[#ccc] font-sans">Daraz Mall</span>
+            <span class="text-[#4a9e6e] text-[10px] font-sans">In Stock</span>
+            <span class="text-[#888] font-display">Rs. 104,900</span>
+          </div>
+          <div class="pt-1 text-[11px] text-[#c8a96e] text-right font-sans font-medium">
+            <i class="bi bi-cash-stack"></i> Potential Savings: Rs. 9,901
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- How It Works Section -->
-    <div class="mt-24 sm:mt-32">
-      <div class="text-center mb-14">
-        <span class="pm-tag pm-tag-mint mb-3 inline-block">How It Works</span>
-        <h2 class="font-display text-3xl sm:text-4xl text-white mt-3 uppercase">
-          SIMPLE. ACCURATE. ZERO GUESSWORK.
+    <!-- Core Pillars / How It Works -->
+    <section class="space-y-10">
+      <div class="text-center max-w-xl mx-auto">
+        <span class="pm-tag pm-tag-mint mb-2 inline-block">Workflow</span>
+        <h2 class="font-display text-3xl sm:text-4xl text-white uppercase font-black">
+          How PennyWise Works
         </h2>
+        <p class="text-sm font-light text-[#888] mt-2">
+          From query entry to lowest-price ranking in three clear steps.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <!-- Feature 1 -->
+        <!-- Step 1 -->
         <div class="pm-polaroid flex flex-col justify-between">
           <div class="pm-sticker-number">1</div>
           <div class="pm-washi"></div>
           <div>
             <div class="pt-4 pb-2">
-              <span class="pm-tag pm-tag-mint text-[9px] mb-3 inline-block">Discovery</span>
-              <h3 class="font-display text-xl text-white mb-3 uppercase">SEARCH PRODUCT</h3>
+              <div class="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#c8a96e] mb-4">
+                <i class="bi bi-search text-lg"></i>
+              </div>
+              <h3 class="font-display text-lg text-white mb-2 uppercase">1. Product Query</h3>
               <p class="text-sm font-light text-[#888] leading-relaxed">
-                Type any product name. Our backend queries top Pakistani e-commerce listings and discovers merchant store URLs.
+                Enter any gadget, appliance, apparel, or brand name. We dispatch requests to pinpoint relevant retail listings across Pakistani e-commerce domains.
               </p>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center gap-3 text-[10px] font-medium text-[#666]">
-            <span>DuckDuckGo Engine</span>
-            <span class="text-[#333]">·</span>
-            <span>Concurrent Crawls</span>
+          <div class="mt-4 pt-3 border-t border-[rgba(255,255,255,0.06)] text-[10px] text-[#666]">
+            Keyword &amp; Brand Matching
           </div>
         </div>
 
-        <!-- Feature 2 -->
+        <!-- Step 2 -->
         <div class="pm-polaroid flex flex-col justify-between">
           <div class="pm-sticker-number" style="background:#c8a96e;">2</div>
           <div class="pm-washi"></div>
           <div>
             <div class="pt-4 pb-2">
-              <span class="pm-tag text-[9px] mb-3 inline-block">Extraction</span>
-              <h3 class="font-display text-xl text-white mb-3 uppercase">LIVE PRICE EXTRACTION</h3>
+              <div class="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#c8a96e] mb-4">
+                <i class="bi bi-code-slash text-lg"></i>
+              </div>
+              <h3 class="font-display text-lg text-white mb-2 uppercase">2. Raw Price Extraction</h3>
               <p class="text-sm font-light text-[#888] leading-relaxed">
-                We parse Schema.org JSON-LD, OpenGraph tags, and HTML price selectors from store pages. Unverified numbers are dropped.
+                The crawler parses Schema.org JSON-LD microdata, OpenGraph tags, and verified DOM selectors from the actual merchant product pages.
               </p>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center gap-3 text-[10px] font-medium text-[#666]">
-            <span>Verified Stores</span>
-            <span class="text-[#333]">·</span>
-            <span>PKR Standardized</span>
+          <div class="mt-4 pt-3 border-t border-[rgba(255,255,255,0.06)] text-[10px] text-[#666]">
+            Strict PKR Normalization
           </div>
         </div>
 
-        <!-- Feature 3 -->
+        <!-- Step 3 -->
         <div class="pm-polaroid flex flex-col justify-between">
           <div class="pm-sticker-number" style="background:#444;">3</div>
           <div class="pm-washi"></div>
           <div>
             <div class="pt-4 pb-2">
-              <span class="pm-tag text-[9px] mb-3 inline-block">Ranking</span>
-              <h3 class="font-display text-xl text-white mb-3 uppercase">LOWEST PRICE FIRST</h3>
+              <div class="w-10 h-10 rounded-full border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#c8a96e] mb-4">
+                <i class="bi bi-award-fill text-lg"></i>
+              </div>
+              <h3 class="font-display text-lg text-white mb-2 uppercase">3. Ascending Deal Rank</h3>
               <p class="text-sm font-light text-[#888] leading-relaxed">
-                Results are sorted from lowest to highest. The cheapest verified store gets the #1 badge so you always get the best deal.
+                All discovered store listings are ordered lowest to highest. You get direct store outlinks, stock status, and full comparison specs instantly.
               </p>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center gap-3 text-[10px] font-medium text-[#666]">
-            <span>Lowest Price Badge</span>
-            <span class="text-[#333]">·</span>
-            <span>Direct Store Links</span>
+          <div class="mt-4 pt-3 border-t border-[rgba(255,255,255,0.06)] text-[10px] text-[#666]">
+            Lowest Price Guaranteed #1
           </div>
         </div>
 
       </div>
-    </div>
+    </section>
 
-    <!-- Supported Stores -->
-    <div class="mt-20 pm-card p-6 bg-[#1a1a1a]">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <h4 class="font-display text-lg text-white uppercase">SUPPORTED PAKISTANI STORES</h4>
-          <p class="text-[11px] font-medium text-[#666] mt-1">Crawls and verifies listed prices from top retail domains</p>
+    <!-- Tickets & Travel Teaser Section -->
+    <section class="pm-card p-6 sm:p-8 bg-[#141414] border border-[rgba(255,255,255,0.08)]">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-2 max-w-xl">
+          <div class="inline-flex items-center gap-2">
+            <span class="pm-tag pm-tag-gold text-[9px]"><i class="bi bi-ticket-detailed-fill"></i> New Feature</span>
+            <span class="text-xs text-[#888]">Transit &amp; Travel</span>
+          </div>
+          <h3 class="font-display text-xl sm:text-2xl text-white uppercase">
+            Intercity Bus, Train &amp; Domestic Flight Fare Comparison
+          </h3>
+          <p class="text-xs sm:text-sm font-light text-[#888] leading-relaxed">
+            Planning travel across Pakistan? Compare bus fares from Faisal Movers and Daewoo Express with domestic flights and Pakistan Railways Green Line schedules.
+          </p>
         </div>
-        <div class="flex flex-wrap gap-2">
-          <span class="pm-tag pm-tag-mint">PriceOye</span>
-          <span class="pm-tag pm-tag-gold">Daraz Mall</span>
-          <span class="pm-tag">Telemart</span>
-          <span class="pm-tag">Shophive</span>
-          <span class="pm-tag">Mega.pk</span>
-          <span class="pm-tag pm-tag-mint">Paklap</span>
-          <span class="pm-tag">Computer Zone</span>
+        <div class="flex-shrink-0">
+          <a href="pages/tickets.html" class="pm-btn pm-btn-white text-xs flex items-center gap-2">
+            <i class="bi bi-airplane-fill text-[#c8a96e]"></i>
+            <i class="bi bi-bus-front-fill text-[#c8a96e]"></i>
+            <span>Explore Ticket Comparison</span>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Supported Stores Grid -->
+    <section class="pm-card p-6 sm:p-8 bg-[#111] space-y-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-[rgba(255,255,255,0.06)]">
+        <div>
+          <h3 class="font-display text-lg text-white uppercase">Supported Pakistani Merchants</h3>
+          <p class="text-[11px] text-[#777] mt-0.5">Automated price indexing across certified retailers</p>
+        </div>
+        <a href="pages/stores-categories.html" class="text-xs text-[#c8a96e] hover:underline flex items-center gap-1">
+          <span>View All Stores &amp; Categories</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 text-center">
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">PriceOye</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Daraz Mall</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Telemart</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Shophive</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Mega.pk</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Paklap</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Computer Zone</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Dawlance</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Haier</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Outfitters</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Khaadi</div>
+        <div class="p-3 rounded border border-[rgba(255,255,255,0.06)] bg-[#161616] font-medium text-xs text-white">Diners</div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Divider -->
@@ -306,24 +373,26 @@
         <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">
           ₨
         </div>
-        <span class="font-display text-lg text-white">PennyWise</span>
-        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Smart Price Comparison</span>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
 
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
         <a href="index.html" class="pm-nav active">Home</a>
-        <a href="pages/results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
+        <a href="pages/results.html" class="pm-nav">Live Crawler</a>
+        <a href="pages/deals.html" class="pm-nav">Deals</a>
+        <a href="pages/tickets.html" class="pm-nav">Tickets</a>
+        <a href="pages/history.html" class="pm-nav">Search History</a>
         <a href="pages/about.html" class="pm-nav">About</a>
-        <a href="pages/404.html" class="pm-nav">404</a>
+        <a href="pages/login.html" class="pm-nav">Login</a>
       </div>
 
       <p class="text-[10px] font-medium text-[#555]">
-        © 2026 PennyWise Prototype. All store names and prices belong to their respective merchants.
+        (c) 2026 PennyWise. All store names, trademarks, and logos belong to their respective merchants.
       </p>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
 </html>

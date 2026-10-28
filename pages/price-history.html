@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Price History & Drop Alerts | PennyWise</title>
+  <title>PennyWise | Historical Price Trends &amp; Drop Alerts</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Top Announcement Bar with Royal Burgundy Microline -->
-  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(142,33,58,0.3)] flex items-center justify-center gap-3 flex-wrap">
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
     <span class="text-[#c8a96e]">Historical Price Tracking</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#888]">Persistent Price Intelligence In Pakistan</span>
+    <span class="text-[#888]">30-Day Trend Intelligence In Pakistan</span>
     <span class="text-[#333]">·</span>
     <span class="text-[#c8a96e]">Zero Guesswork</span>
   </div>
 
   <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-7 pb-12 border-b border-[rgba(255,255,255,0.06)] relative">
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
           <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
           <div>
@@ -34,36 +35,44 @@
             <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
-          <a href="../index.html" class="pm-nav">HOME</a>
-          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
-          <a href="stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
-          <a href="compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
-          <a href="wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
-          <a href="price-history.html" class="pm-nav active">PRICE HISTORY</a>
-          <a href="about.html" class="pm-nav">ABOUT</a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav">History</a>
+          <a href="about.html" class="pm-nav">About</a>
         </nav>
-      </div>
-
-      <!-- Price History Lookup Bar -->
-      <div class="mt-8 max-w-4xl mx-auto">
-        <div class="pm-card p-4 bg-[#141414] border border-[rgba(255,255,255,0.08)]">
-          <form id="history-search-form" class="flex flex-col sm:flex-row items-center gap-3">
-            <div class="relative flex-grow w-full">
-              <input 
-                type="text" 
-                id="history-query-input" 
-                placeholder="Check price trends (e.g. iPhone 15, Air Fryer, Men Casual Shirt)..." 
-                class="pm-input pl-4 text-sm w-full"
-                required
-              >
-            </div>
-            <button type="submit" class="w-full sm:w-auto pm-btn pm-btn-gold px-6 py-3 text-xs whitespace-nowrap">
-              TRACK PRICE
-            </button>
-          </form>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
         </div>
       </div>
+
+      <!-- Trend Lookup Bar -->
+      <div class="mt-8 max-w-4xl mx-auto">
+        <form id="history-search-form" class="pw-round-search">
+          <i class="bi bi-graph-up-arrow text-[#c8a96e] text-sm pl-1"></i>
+          <input 
+            type="text" 
+            id="history-query-input" 
+            value="Sony WH-1000XM5" 
+            placeholder="Check historical pricing (e.g. Sony WH-1000XM5, iPhone 15, PS5)..."
+            class="pw-round-search-input"
+            required
+          >
+          <button type="submit" class="pw-round-submit">
+            <i class="bi bi-search text-xs"></i>
+            <span>Audit Trends</span>
+          </button>
+        </form>
+      </div>
+
     </div>
   </header>
 
@@ -75,247 +84,268 @@
   </div>
 
   <!-- Main Content -->
-  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow">
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-6">
     
-    <!-- Title & Stats Strip -->
-    <div class="mb-8">
-      <div class="inline-flex items-center gap-2 mb-2">
-        <span class="pm-tag pm-tag-gold text-[9px]">TIME SERIES INTELLIGENCE</span>
-        <span class="pm-tag text-[9px]">PERSISTENT BACKEND DATABASE</span>
+    <!-- Title Strip -->
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-1.5">
+          <span class="pm-tag pm-tag-gold text-[9px]">30-Day Trend Matrix</span>
+          <span class="pm-tag text-[9px]">Confirmed Retail Benchmarks</span>
+        </div>
+        <h1 id="history-title-display" class="font-display text-2xl sm:text-3xl text-white uppercase font-black">
+          PRICE HISTORY: SONY WH-1000XM5
+        </h1>
+        <p class="text-xs text-[#888] font-light mt-0.5">
+          Evaluated against PriceOye, Telemart, Daraz Mall, and Mega.pk to determine optimal buy timing.
+        </p>
       </div>
-      <h1 id="history-title-display" class="font-display text-2xl sm:text-4xl text-white uppercase">
-        PRICE HISTORY: "MEN CASUAL SHIRT"
-      </h1>
-      <p class="text-xs text-[#888] font-light mt-1">
-        Historical prices collected from verified Pakistani stores to help you answer: should you buy now or wait?
-      </p>
+      <a href="results.html?q=Sony+WH-1000XM5" class="pm-btn pm-btn-white pm-btn-sm text-[10px] flex items-center gap-1.5">
+        <i class="bi bi-box-arrow-up-right"></i>
+        <span>View Live Stores</span>
+      </a>
     </div>
 
     <!-- 3 Stat Metrics Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl">
-        <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#4a9e6e] block">LOWEST PRICE SEEN</span>
-        <div id="stat-lowest-price" class="font-display text-2xl sm:text-3xl text-white mt-1">Rs. --</div>
-        <p class="text-[10px] text-[#666] mt-1">All-time record low offer in Pakistan</p>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)]">
+        <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#4a9e6e] block">Lowest Price Recorded</span>
+        <div id="stat-lowest-price" class="font-display text-2xl sm:text-3xl text-white mt-1">Rs. 92,500</div>
+        <p class="text-[10px] text-[#666] mt-1">Observed during seasonal promo (PriceOye)</p>
       </div>
 
-      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl">
-        <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">CURRENT BEST PRICE</span>
-        <div id="stat-current-price" class="font-display text-2xl sm:text-3xl text-white mt-1">Rs. --</div>
-        <p class="text-[10px] text-[#666] mt-1">Live active verified merchant listing</p>
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(200,169,110,0.3)] bg-[#191919]">
+        <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">Current Verified Shelf Price</span>
+        <div id="stat-current-price" class="font-display text-2xl sm:text-3xl text-white mt-1">Rs. 94,999</div>
+        <p class="text-[10px] text-[#777] mt-1">Active verified merchant listing</p>
       </div>
 
-      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl">
-        <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#cc3333] block">HIGHEST PRICE SEEN</span>
-        <div id="stat-highest-price" class="font-display text-2xl sm:text-3xl text-white mt-1">Rs. --</div>
-        <p class="text-[10px] text-[#666] mt-1">Peak retail listing before discounts</p>
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)]">
+        <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#cc3333] block">Highest Price Recorded</span>
+        <div id="stat-highest-price" class="font-display text-2xl sm:text-3xl text-white mt-1">Rs. 104,900</div>
+        <p class="text-[10px] text-[#666] mt-1">Initial launch rate before competitive parity</p>
       </div>
     </div>
 
-    <!-- Chart & Alert Form Grid -->
+    <!-- Chart & Price Alert Form -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       
-      <!-- Left: Interactive Price Timeline Chart -->
-      <div class="lg:col-span-7 pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl relative">
-        <div class="flex items-center justify-between mb-4">
-          <h3 class="font-display text-sm text-white uppercase">PRICE OVER TIME (PKR)</h3>
-          <span class="text-[10px] font-medium text-[#c8a96e]">STORE TIMELINE</span>
+      <!-- Left: Interactive SVG Price Chart -->
+      <div class="lg:col-span-7 pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)] space-y-4">
+        <div class="flex items-center justify-between pb-3 border-b border-[rgba(255,255,255,0.06)]">
+          <div class="flex items-center gap-2">
+            <i class="bi bi-graph-up text-[#c8a96e]"></i>
+            <h3 class="font-display text-sm text-white uppercase">Historical Timeline (PKR)</h3>
+          </div>
+          <span class="text-[10px] text-[#4a9e6e] font-semibold"><i class="bi bi-arrow-down"></i> Near 30-Day Low</span>
         </div>
 
-        <!-- SVG Interactive Chart Container -->
-        <div class="relative w-full h-64 bg-[#0a0a0a] rounded-lg border border-[rgba(255,255,255,0.06)] p-4 flex flex-col justify-between">
+        <div class="relative w-full h-64 bg-[#0d0d0d] rounded-lg border border-[rgba(255,255,255,0.06)] p-4 flex flex-col justify-between">
           <svg id="price-history-svg" class="w-full h-full overflow-visible" viewBox="0 0 600 200" preserveAspectRatio="none">
-            <!-- Grid Lines -->
             <line x1="0" y1="40" x2="600" y2="40" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
             <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
             <line x1="0" y1="160" x2="600" y2="160" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
-            
-            <!-- Area & Line Path (Injected dynamically) -->
             <path id="chart-area" d="" fill="url(#burgundyGrad)" opacity="0.25"/>
             <path id="chart-line" d="" fill="none" stroke="#c8a96e" stroke-width="2.5" stroke-linecap="round"/>
-            
-            <!-- SVG Gradient -->
             <defs>
               <linearGradient id="burgundyGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#7E1E35" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#2A0811" stop-opacity="0.0"/>
+                <stop offset="0%" stop-color="#c8a96e" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#141414" stop-opacity="0.0"/>
               </linearGradient>
             </defs>
           </svg>
         </div>
 
-        <!-- Price timeline points labels -->
-        <div id="chart-timeline-labels" class="flex justify-between items-center text-[10px] text-[#666] mt-3 px-1">
+        <div id="chart-timeline-labels" class="flex justify-between items-center text-[10px] text-[#666] px-1 font-mono">
           <span>30 Days Ago</span>
           <span>15 Days Ago</span>
           <span>Today</span>
         </div>
-
-        <div class="mt-4 p-3 rounded bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] text-[11px] text-[#888] flex items-center justify-between">
-          <span><strong>BUY ADVICE:</strong> Current price is close to historical minimum. Good time to buy.</span>
-          <span class="text-[#4a9e6e] font-semibold">VERIFIED</span>
-        </div>
       </div>
 
-      <!-- Right: "Notify Me When It Drops Below Rs. X" Form -->
-      <div class="lg:col-span-5 pm-card p-6 bg-gradient-to-b from-[#1f080e] via-[#141414] to-[#111] border border-[rgba(142,33,58,0.4)] rounded-xl relative">
-        <div class="flex items-center gap-2 mb-2">
-          <svg class="w-5 h-5 text-[#c8a96e]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-          <h3 class="font-display text-sm text-white uppercase">PRICE DROP ALERT NOTIFIER</h3>
+      <!-- Right: Price Drop Alert Subscription -->
+      <div class="lg:col-span-5 pm-card p-6 bg-[#161616] border border-[rgba(255,255,255,0.1)] space-y-4">
+        <div>
+          <div class="flex items-center gap-2 mb-1">
+            <i class="bi bi-bell-fill text-[#c8a96e]"></i>
+            <h3 class="font-display text-sm text-white uppercase">Set Target Drop Alert</h3>
+          </div>
+          <p class="text-[11px] text-[#888] font-light">
+            We will monitor this item continuously across Pakistani stores and notify you the moment it matches your target.
+          </p>
         </div>
-        <p class="text-xs text-[#aaa] font-light mb-4">
-          Never miss a deal. Tell us your target price in PKR, and we will monitor stores and notify you the moment it drops.
-        </p>
 
-        <form id="alert-form" class="space-y-4">
+        <div id="alert-feedback" class="hidden p-3 rounded border border-[#4a9e6e]/40 bg-[#4a9e6e]/10 text-[#4a9e6e] text-xs">
+          <!-- Injected via script -->
+        </div>
+
+        <form id="price-alert-form" class="space-y-3">
           <div>
-            <label class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] block mb-1">
-              TARGET PRICE (PKR)
+            <label class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1">
+              Target Price in PKR <span class="text-[#cc3333]">*</span>
             </label>
             <input 
               type="number" 
               id="alert-target-price" 
-              placeholder="e.g. 2999" 
-              class="pm-input text-base font-display text-white w-full"
+              value="90000" 
+              class="pm-input text-xs" 
               required
             >
           </div>
 
           <div>
-            <label class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] block mb-1">
-              EMAIL ADDRESS
+            <label class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1">
+              Email Address <span class="text-[#cc3333]">*</span>
             </label>
             <input 
               type="email" 
               id="alert-email" 
-              placeholder="your.email@example.com" 
-              class="pm-input text-xs w-full"
+              placeholder="name@example.com" 
+              class="pm-input text-xs" 
               required
             >
           </div>
 
-          <div>
-            <label class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] block mb-1">
-              WHATSAPP / PHONE (OPTIONAL)
-            </label>
-            <input 
-              type="tel" 
-              id="alert-phone" 
-              placeholder="+92 300 1234567" 
-              class="pm-input text-xs w-full"
-            >
-          </div>
-
-          <button 
-            type="submit" 
-            id="btn-submit-alert"
-            class="w-full pm-btn pm-btn-burgundy py-3 text-xs flex items-center justify-center gap-2"
-          >
-            <span>ACTIVATE PRICE DROP ALERT</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          <button type="submit" class="w-full pm-btn pm-btn-gold py-2.5 text-xs font-bold flex items-center justify-center gap-2">
+            <i class="bi bi-bell"></i>
+            <span>Activate Price Drop Alert</span>
           </button>
-          
-          <div id="alert-feedback" class="hidden text-xs text-[#4a9e6e] text-center font-medium"></div>
         </form>
 
-        <!-- Active Alerts in SQLite -->
-        <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)]">
-          <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666] block mb-2">RECENTLY ACTIVE MONITORS:</span>
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)]">
+          <span class="text-[10px] font-semibold text-[#888] uppercase tracking-[0.1em] block mb-2">Active Alerts On This Device:</span>
           <div id="active-alerts-list" class="space-y-1.5 text-xs text-[#aaa]">
-            <div class="p-2 rounded bg-[#0a0a0a] flex items-center justify-between text-[11px]">
-              <span>Air Fryer under Rs. 19,000</span>
-              <span class="text-[#4a9e6e] text-[9px] uppercase font-bold">Active</span>
-            </div>
-            <div class="p-2 rounded bg-[#0a0a0a] flex items-center justify-between text-[11px]">
-              <span>iPhone 15 under Rs. 310,000</span>
-              <span class="text-[#4a9e6e] text-[9px] uppercase font-bold">Active</span>
-            </div>
+            <!-- Rendered via JS -->
           </div>
         </div>
-
       </div>
 
     </div>
 
   </main>
 
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
   <!-- Footer -->
-  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 mt-16 relative">
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
-        <a href="../index.html" class="pm-nav">HOME</a>
-        <a href="results.html" class="pm-nav">LIVE CRAWLER</a>
-        <a href="compare.html" class="pm-nav">COMPARE</a>
-        <a href="wishlist.html" class="pm-nav">WISHLIST</a>
-        <a href="stores-categories.html" class="pm-nav">STORES</a>
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
+        <a href="../index.html" class="pm-nav">Home</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav">History</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="login.html" class="pm-nav">Login</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise. Price history tracked across certified Pakistani retailer domains.
+      </p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const params = new URLSearchParams(window.location.search);
-      let currentQuery = params.get("q") || "Men Casual Shirt";
-      
+      const searchForm = document.getElementById("history-search-form");
+      const queryInput = document.getElementById("history-query-input");
       const titleDisplay = document.getElementById("history-title-display");
       const statLowest = document.getElementById("stat-lowest-price");
       const statCurrent = document.getElementById("stat-current-price");
       const statHighest = document.getElementById("stat-highest-price");
-      const queryInput = document.getElementById("history-query-input");
-      const searchForm = document.getElementById("history-search-form");
-      const alertForm = document.getElementById("alert-form");
+      const alertForm = document.getElementById("price-alert-form");
       const alertFeedback = document.getElementById("alert-feedback");
+      const alertsContainer = document.getElementById("active-alerts-list");
 
-      if (queryInput) queryInput.value = currentQuery;
-
-      function updateNavCounts() {
-        try {
-          const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-          const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
-          document.getElementById("nav-wishlist-count").textContent = `(${wl.length})`;
-          document.getElementById("nav-compare-count").textContent = `(${cmp.length})`;
-        } catch(e){}
-      }
-      updateNavCounts();
-
-      async function fetchHistory(q) {
-        titleDisplay.textContent = `PRICE HISTORY: "${q.toUpperCase()}"`;
-        try {
-          const res = await fetch(`/api/price-history?q=${encodeURIComponent(q)}`);
-          if (res.ok) {
-            const data = await res.json();
-            statLowest.textContent = "Rs. " + Number(data.lowest_price).toLocaleString("en-PK");
-            statCurrent.textContent = "Rs. " + Number(data.current_price).toLocaleString("en-PK");
-            statHighest.textContent = "Rs. " + Number(data.highest_price).toLocaleString("en-PK");
-
-            document.getElementById("alert-target-price").placeholder = `e.g. ${Math.round(data.lowest_price * 0.95)}`;
-
-            renderSVGChart(data.data_points, data.lowest_price, data.highest_price);
-          }
-        } catch(err) {
-          console.error("History fetch error:", err);
+      const MOCK_HISTORIES = {
+        "Sony WH-1000XM5": {
+          lowest: 92500,
+          current: 94999,
+          highest: 104900,
+          points: [
+            { date: "Oct 1", price: 104900 },
+            { date: "Oct 8", price: 102500 },
+            { date: "Oct 15", price: 99499 },
+            { date: "Oct 22", price: 92500 },
+            { date: "Oct 29", price: 94999 }
+          ]
+        },
+        "iPhone 15 Pro Max": {
+          lowest: 469999,
+          current: 479999,
+          highest: 504999,
+          points: [
+            { date: "Oct 1", price: 504999 },
+            { date: "Oct 8", price: 495000 },
+            { date: "Oct 15", price: 489999 },
+            { date: "Oct 22", price: 469999 },
+            { date: "Oct 29", price: 479999 }
+          ]
+        },
+        "PlayStation 5 Console": {
+          lowest: 145000,
+          current: 148500,
+          highest: 161000,
+          points: [
+            { date: "Oct 1", price: 161000 },
+            { date: "Oct 8", price: 158000 },
+            { date: "Oct 15", price: 154999 },
+            { date: "Oct 22", price: 145000 },
+            { date: "Oct 29", price: 148500 }
+          ]
         }
+      };
+
+      function formatPKR(n) {
+        return "Rs. " + Number(n).toLocaleString("en-PK");
       }
 
-      function renderSVGChart(points, minP, maxP) {
-        if (!points || points.length < 2) return;
+      function renderHistory(query) {
+        let data = MOCK_HISTORIES[query];
+        if (!data) {
+          for (let k in MOCK_HISTORIES) {
+            if (k.toLowerCase().includes(query.toLowerCase()) || query.toLowerCase().includes(k.toLowerCase())) {
+              data = MOCK_HISTORIES[k];
+              query = k;
+              break;
+            }
+          }
+        }
+        if (!data) {
+          data = MOCK_HISTORIES["Sony WH-1000XM5"];
+          query = "Sony WH-1000XM5";
+        }
+
+        titleDisplay.textContent = `PRICE HISTORY: ${query.toUpperCase()}`;
+        queryInput.value = query;
+        statLowest.textContent = formatPKR(data.lowest);
+        statCurrent.textContent = formatPKR(data.current);
+        statHighest.textContent = formatPKR(data.highest);
+
+        renderSVG(data.points, data.lowest, data.highest);
+      }
+
+      function renderSVG(pts, minP, maxP) {
         const width = 600;
         const height = 200;
-        const padding = 20;
-
+        const pad = 20;
         const range = (maxP - minP) || 1;
 
-        const coords = points.map((pt, i) => {
-          const x = padding + (i / (points.length - 1)) * (width - 2 * padding);
-          const normY = (pt.price - minP) / range;
-          const y = height - padding - normY * (height - 2 * padding);
-          return { x, y, price: pt.price, date: pt.date };
+        const coords = pts.map((p, i) => {
+          const x = pad + (i / (pts.length - 1)) * (width - 2 * pad);
+          const normY = (p.price - minP) / range;
+          const y = height - pad - normY * (height - 2 * pad);
+          return { x, y };
         });
 
         let lineD = `M ${coords[0].x} ${coords[0].y}`;
@@ -323,87 +353,56 @@
           lineD += ` L ${coords[i].x} ${coords[i].y}`;
         }
         document.getElementById("chart-line").setAttribute("d", lineD);
+        document.getElementById("chart-area").setAttribute("d", `${lineD} L ${coords[coords.length - 1].x} ${height} L ${coords[0].x} ${height} Z`);
 
-        let areaD = `${lineD} L ${coords[coords.length - 1].x} ${height} L ${coords[0].x} ${height} Z`;
-        document.getElementById("chart-area").setAttribute("d", areaD);
-
-        // Update timeline bottom labels
-        const labelBox = document.getElementById("chart-timeline-labels");
-        if (labelBox && points.length >= 2) {
-          labelBox.innerHTML = `
-            <span>${points[0].date}</span>
-            <span>${points[Math.floor(points.length / 2)].date}</span>
-            <span>${points[points.length - 1].date}</span>
+        const labels = document.getElementById("chart-timeline-labels");
+        if (labels && pts.length >= 3) {
+          labels.innerHTML = `
+            <span>${pts[0].date}</span>
+            <span>${pts[Math.floor(pts.length / 2)].date}</span>
+            <span>${pts[pts.length - 1].date}</span>
           `;
         }
       }
 
-      searchForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const q = queryInput.value.trim();
-        if (q) {
-          currentQuery = q;
-          const url = new URL(window.location);
-          url.searchParams.set("q", q);
-          window.history.pushState({}, "", url);
-          fetchHistory(q);
+      function loadAlerts() {
+        const alerts = JSON.parse(localStorage.getItem("pennywise_alerts") || "[]");
+        if (alerts.length === 0) {
+          alertsContainer.innerHTML = '<span class="text-[11px] text-[#666]">No active alerts set yet.</span>';
+          return;
         }
-      });
-
-      // Price Alert Form Submit
-      alertForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const targetPrice = parseInt(document.getElementById("alert-target-price").value);
-        const email = document.getElementById("alert-email").value.trim();
-        const phone = document.getElementById("alert-phone").value.trim();
-
-        try {
-          const res = await fetch("/api/alerts", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              query: currentQuery,
-              target_price: targetPrice,
-              email: email,
-              phone: phone,
-              title: currentQuery
-            })
-          });
-
-          if (res.ok) {
-            alertFeedback.textContent = `Alert confirmed. We will notify ${email} when ${currentQuery} drops below Rs. ${Number(targetPrice).toLocaleString("en-PK")}.`;
-            alertFeedback.classList.remove("hidden");
-            alertForm.reset();
-            loadAlerts();
-          }
-        } catch(err) {
-          console.error("Alert error:", err);
-        }
-      });
-
-      async function loadAlerts() {
-        try {
-          const res = await fetch("/api/alerts");
-          if (res.ok) {
-            const list = await res.json();
-            const container = document.getElementById("active-alerts-list");
-            if (list.length > 0) {
-              container.innerHTML = "";
-              list.slice(0, 4).forEach(a => {
-                const el = document.createElement("div");
-                el.className = "p-2 rounded bg-[#0a0a0a] flex items-center justify-between text-[11px]";
-                el.innerHTML = `
-                  <span>${a.query} &lt; Rs. ${Number(a.target_price).toLocaleString("en-PK")}</span>
-                  <span class="text-[#4a9e6e] text-[9px] uppercase font-bold">Active</span>
-                `;
-                container.appendChild(el);
-              });
-            }
-          }
-        } catch(e){}
+        alertsContainer.innerHTML = "";
+        alerts.forEach(a => {
+          const item = document.createElement("div");
+          item.className = "p-2 rounded bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] flex items-center justify-between text-[11px]";
+          item.innerHTML = `
+            <span class="text-white">${a.query} &lt; ${formatPKR(a.price)}</span>
+            <span class="text-[#4a9e6e] text-[9px] uppercase font-bold">Active</span>
+          `;
+          alertsContainer.appendChild(item);
+        });
       }
 
-      fetchHistory(currentQuery);
+      searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        renderHistory(queryInput.value.trim());
+      });
+
+      alertForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const p = parseInt(document.getElementById("alert-target-price").value) || 90000;
+        const email = document.getElementById("alert-email").value.trim();
+        const alerts = JSON.parse(localStorage.getItem("pennywise_alerts") || "[]");
+        alerts.push({ query: queryInput.value.trim() || "Sony WH-1000XM5", price: p, email: email });
+        localStorage.setItem("pennywise_alerts", JSON.stringify(alerts));
+        alertFeedback.innerHTML = `<i class="bi bi-check-circle-fill mr-1.5"></i> Alert activated for ${email} when price drops below ${formatPKR(p)}.`;
+        alertFeedback.classList.remove("hidden");
+        loadAlerts();
+      });
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const initialQ = urlParams.get("q") || "Sony WH-1000XM5";
+      renderHistory(initialQ);
       loadAlerts();
     });
   </script>

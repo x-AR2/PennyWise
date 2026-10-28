@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wishlist & Saved Items | PennyWise</title>
+  <title>PennyWise | Wishlist &amp; Saved Products</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Top Announcement Bar with Royal Burgundy Microline -->
-  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(142,33,58,0.3)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#c8a96e]">Your Saved Items</span>
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">Saved Watchlist</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#888]">Track Prices Without An Account</span>
+    <span class="text-[#888]">Track Prices Without Compulsory Login</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#c8a96e]">PennyWise</span>
+    <span class="text-[#c8a96e]">Pakistan</span>
   </div>
 
   <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-7 pb-12 border-b border-[rgba(255,255,255,0.06)] relative">
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
           <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
           <div>
@@ -34,15 +35,23 @@
             <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
-          <a href="../index.html" class="pm-nav">HOME</a>
-          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
-          <a href="stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
-          <a href="compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
-          <a href="wishlist.html" class="pm-nav active">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
-          <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
-          <a href="about.html" class="pm-nav">ABOUT</a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav active">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav">History</a>
+          <a href="about.html" class="pm-nav">About</a>
         </nav>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -55,75 +64,115 @@
   </div>
 
   <!-- Main Content -->
-  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow">
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-6">
     
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
-          <span class="pm-tag pm-tag-gold text-[9px]">LOCAL STORAGE ENABLED</span>
-          <span class="pm-tag pm-tag-mint text-[9px]">NO LOGIN REQUIRED</span>
+          <span class="pm-tag pm-tag-gold text-[9px]">Local Storage</span>
+          <span class="pm-tag pm-tag-mint text-[9px]">Persistent Watchlist</span>
         </div>
-        <h1 class="font-display text-3xl sm:text-4xl text-white uppercase">
-          SAVED ITEMS & WISHLIST
+        <h1 class="font-display text-3xl sm:text-4xl text-white uppercase font-black">
+          Saved Products &amp; Wishlist
         </h1>
         <p class="text-xs text-[#888] font-light mt-1">
-          Everything you bookmarked with its latest verified Pakistani price and direct merchant outlinks.
+          Items bookmarked for quick price checks, stock tracking, and direct merchant checkout in Pakistan.
         </p>
       </div>
       <div class="flex items-center gap-2">
-        <a href="compare.html" class="pm-btn pm-btn-white pm-btn-sm text-[10px]">
-          COMPARE SAVED ITEMS
+        <a href="compare.html" class="pm-btn pm-btn-white pm-btn-sm text-[10px] flex items-center gap-1.5">
+          <i class="bi bi-columns-gap"></i>
+          <span>Compare Items</span>
         </a>
-        <button id="btn-clear-wishlist" class="pm-btn pm-btn-gold pm-btn-sm text-[10px]">
-          CLEAR WISHLIST
+        <button id="btn-clear-wishlist" class="pm-btn pm-btn-gold pm-btn-sm text-[10px] flex items-center gap-1.5">
+          <i class="bi bi-trash3"></i>
+          <span>Clear Wishlist</span>
         </button>
       </div>
     </div>
 
     <!-- Empty State -->
-    <div id="wishlist-empty" class="hidden pm-card p-12 bg-[#141414] text-center max-w-xl mx-auto border border-[rgba(255,255,255,0.08)] rounded-xl">
+    <div id="wishlist-empty" class="hidden pm-card p-12 bg-[#141414] text-center max-w-xl mx-auto border border-[rgba(255,255,255,0.08)]">
       <div class="w-14 h-14 rounded-full border border-[rgba(255,71,103,0.3)] flex items-center justify-center text-[#ff4767] mx-auto mb-4">
-        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <i class="bi bi-heart text-2xl"></i>
       </div>
-      <h2 class="font-display text-xl text-white uppercase mb-2">YOUR WISHLIST IS EMPTY</h2>
+      <h2 class="font-display text-xl text-white uppercase mb-2">Your Wishlist is Empty</h2>
       <p class="text-xs text-[#888] font-light mb-6 leading-relaxed">
-        Click the heart icon on any product card across search results to save it for quick price checks and drop alerts.
+        Click the heart icon on any product card across search results to save it for immediate monitoring.
       </p>
-      <a href="results.html?q=Men+Casual+Shirt" class="pm-btn pm-btn-primary px-8 py-3 text-xs">
-        DISCOVER PRODUCTS
+      <a href="results.html" class="pm-btn pm-btn-primary px-8 py-3 text-xs flex items-center justify-center gap-2 max-w-xs mx-auto">
+        <i class="bi bi-search"></i>
+        <span>Discover Products</span>
       </a>
     </div>
 
     <!-- Cards Container -->
     <div id="wishlist-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Items dynamically populated via JS -->
+      <!-- Dynamically populated via JS -->
     </div>
 
   </main>
 
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
   <!-- Footer -->
-  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 mt-16 relative">
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
-        <a href="../index.html" class="pm-nav">HOME</a>
-        <a href="results.html" class="pm-nav">LIVE CRAWLER</a>
-        <a href="compare.html" class="pm-nav">COMPARE</a>
-        <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
+        <a href="../index.html" class="pm-nav">Home</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav">History</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="login.html" class="pm-nav">Login</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise. Saved items remain in your browser cache.
+      </p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const emptyBox = document.getElementById("wishlist-empty");
       const gridBox = document.getElementById("wishlist-grid");
       const clearBtn = document.getElementById("btn-clear-wishlist");
+
+      const DEFAULT_WISHLIST = [
+        {
+          title: "Sony WH-1000XM5 Wireless Headphones",
+          store: "PriceOye",
+          price: 94999,
+          url: "https://priceoye.pk",
+          image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Apple iPhone 15 Pro Max 256GB Titanium",
+          store: "PriceOye",
+          price: 479999,
+          url: "https://priceoye.pk",
+          image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80"
+        },
+        {
+          title: "Sony PlayStation 5 Slim 1TB Console",
+          store: "Mega.pk",
+          price: 148500,
+          url: "https://mega.pk",
+          image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80"
+        }
+      ];
 
       function updateNavCounts() {
         try {
@@ -135,8 +184,21 @@
       }
       updateNavCounts();
 
+      function getWishlist() {
+        try {
+          const stored = localStorage.getItem("pennywise_wishlist");
+          if (!stored) {
+            localStorage.setItem("pennywise_wishlist", JSON.stringify(DEFAULT_WISHLIST));
+            return DEFAULT_WISHLIST;
+          }
+          return JSON.parse(stored);
+        } catch(e) {
+          return DEFAULT_WISHLIST;
+        }
+      }
+
       function loadWishlist() {
-        let items = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+        let items = getWishlist();
         if (items.length === 0) {
           emptyBox.classList.remove("hidden");
           gridBox.innerHTML = "";
@@ -148,19 +210,19 @@
 
         items.forEach((it, idx) => {
           const card = document.createElement("div");
-          card.className = "pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between relative hover:border-[rgba(200,169,110,0.3)] transition-all";
+          card.className = "pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] flex flex-col justify-between relative hover:border-[rgba(200,169,110,0.4)] transition-all";
           
           card.innerHTML = `
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="pm-tag pm-tag-mint text-[8px]">${it.store || 'Verified Store'}</span>
                 <button onclick="removeWishlistItem(${idx})" class="text-[#ff3355] hover:opacity-80 p-1" title="Remove">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                  <i class="bi bi-heart-fill text-sm"></i>
                 </button>
               </div>
 
               <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3">
-                <img src="${it.image || '../assets/icons/favicon.svg'}" alt="${it.title}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='../assets/icons/favicon.svg';">
+                <img src="${it.image || '../assets/icons/favicon.svg'}" alt="${it.title}" class="max-h-full max-w-full object-contain" onerror="this.src='../assets/icons/favicon.svg'">
               </div>
 
               <h3 class="font-display text-xs text-white uppercase leading-snug line-clamp-2 mb-2" title="${it.title}">
@@ -169,17 +231,18 @@
             </div>
 
             <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
-              <div class="text-[9px] uppercase tracking-wider text-[#666]">Saved Price</div>
+              <div class="text-[9px] uppercase tracking-wider text-[#666]">Saved Rate</div>
               <div class="font-display text-xl text-white mb-3">
                 Rs. ${Number(it.price).toLocaleString("en-PK")}
               </div>
 
               <div class="flex items-center gap-2">
-                <a href="${it.url || '#'}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary flex-1 py-2.5 text-[10px] text-center">
-                  GO TO STORE
+                <a href="${it.url || '#'}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary flex-1 py-2 text-[10px] text-center flex items-center justify-center gap-1">
+                  <span>Go To Store</span>
+                  <i class="bi bi-box-arrow-up-right text-[9px]"></i>
                 </a>
-                <a href="product.html?title=${encodeURIComponent(it.title)}&price=${it.price}&store=${encodeURIComponent(it.store || '')}&url=${encodeURIComponent(it.url || '')}&image=${encodeURIComponent(it.image || '')}" class="pm-btn pm-btn-white py-2.5 px-3 text-[10px]" title="Full Details">
-                  DETAILS
+                <a href="product.html?title=${encodeURIComponent(it.title)}&price=${it.price}&store=${encodeURIComponent(it.store || '')}&url=${encodeURIComponent(it.url || '')}&image=${encodeURIComponent(it.image || '')}" class="pm-btn pm-btn-white py-2 px-3 text-[10px]" title="Full Details">
+                  Details
                 </a>
               </div>
             </div>
@@ -189,7 +252,7 @@
       }
 
       window.removeWishlistItem = function(idx) {
-        let items = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+        let items = getWishlist();
         items.splice(idx, 1);
         localStorage.setItem("pennywise_wishlist", JSON.stringify(items));
         loadWishlist();
@@ -197,7 +260,7 @@
       };
 
       clearBtn.addEventListener("click", () => {
-        localStorage.removeItem("pennywise_wishlist");
+        localStorage.setItem("pennywise_wishlist", JSON.stringify([]));
         loadWishlist();
         updateNavCounts();
       });

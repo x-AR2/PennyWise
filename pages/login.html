@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PennyWise | Account Login &amp; Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">PennyWise Account Access</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#888]">Price Tracking &amp; Alerts</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#c8a96e]">Pakistan</span>
+  </div>
+
+  <!-- Header -->
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+        <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
+          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
+          <div>
+            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PENNYWISE</span>
+            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
+          </div>
+        </a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav">History</a>
+          <a href="about.html" class="pm-nav">About</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-fill"></i>
+            <span>Sign In</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 my-6">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Main Auth Section -->
+  <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-6 flex-grow">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Left: Value Proposition Card -->
+      <div class="lg:col-span-5 pm-card p-8 bg-[#141414] border border-[rgba(200,169,110,0.2)] flex flex-col justify-between">
+        <div class="space-y-6">
+          <div class="inline-flex items-center gap-2">
+            <span class="pm-tag pm-tag-gold text-[9px]">Member Features</span>
+          </div>
+          <h1 class="font-display text-2xl sm:text-3xl text-white uppercase leading-tight font-black">
+            Never Miss A Price Drop Again.
+          </h1>
+          <p class="text-xs sm:text-sm font-light text-[#888] leading-relaxed">
+            Create an account to unlock persistent price monitoring, multi-store comparison trays, and personalized alerts across Pakistani retail sites.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full border border-[rgba(200,169,110,0.3)] bg-[rgba(200,169,110,0.1)] flex items-center justify-center text-[#c8a96e] text-xs flex-shrink-0">
+                <i class="bi bi-bell-fill"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-white uppercase tracking-[0.05em]">Custom Price Alerts</h4>
+                <p class="text-[11px] text-[#777] mt-0.5">Set target PKR rates and get notified the moment a store matches your budget.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full border border-[rgba(200,169,110,0.3)] bg-[rgba(200,169,110,0.1)] flex items-center justify-center text-[#c8a96e] text-xs flex-shrink-0">
+                <i class="bi bi-heart-fill text-[#ff3355]"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-white uppercase tracking-[0.05em]">Cross-Device Wishlists</h4>
+                <p class="text-[11px] text-[#777] mt-0.5">Keep tracked products synchronized whether browsing on phone or desktop.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-full border border-[rgba(200,169,110,0.3)] bg-[rgba(200,169,110,0.1)] flex items-center justify-center text-[#c8a96e] text-xs flex-shrink-0">
+                <i class="bi bi-clock-history"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-semibold text-white uppercase tracking-[0.05em]">Complete Search History</h4>
+                <p class="text-[11px] text-[#777] mt-0.5">Revisit previous crawls, comparison matrices, and historic merchant prices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-4 border-t border-[rgba(255,255,255,0.06)] text-[10px] text-[#666] flex items-center justify-between">
+          <span>Zero Spam Policy</span>
+          <span class="text-[#c8a96e]">Free Forever</span>
+        </div>
+      </div>
+
+      <!-- Right: Auth Form Container -->
+      <div class="lg:col-span-7 pm-card p-6 sm:p-8 bg-[#161616] border border-[rgba(255,255,255,0.1)] flex flex-col justify-between">
+        <div>
+          <!-- Tab Navigation -->
+          <div class="flex items-center gap-3 mb-6 pb-3 border-b border-[rgba(255,255,255,0.08)]">
+            <button type="button" id="tab-btn-login" class="pm-btn pm-btn-gold pm-btn-sm font-bold">
+              <i class="bi bi-box-arrow-in-right"></i>
+              <span>Sign In</span>
+            </button>
+            <button type="button" id="tab-btn-signup" class="pm-btn pm-btn-dark pm-btn-sm text-[#aaa]">
+              <i class="bi bi-person-plus-fill"></i>
+              <span>Create Account</span>
+            </button>
+          </div>
+
+          <!-- Alert message box -->
+          <div id="auth-alert" class="hidden p-3 rounded border border-[#4a9e6e]/40 bg-[#4a9e6e]/10 text-[#4a9e6e] text-xs mb-4">
+            <i class="bi bi-check-circle-fill mr-1.5"></i>
+            <span id="auth-alert-text">Authentication successful.</span>
+          </div>
+
+          <!-- Login Form View -->
+          <form id="form-login" class="space-y-4">
+            <div>
+              <label for="login-email" class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1.5">
+                Email Address or Mobile Number <span class="text-[#cc3333]">*</span>
+              </label>
+              <div class="relative">
+                <i class="bi bi-envelope absolute left-3.5 top-3.5 text-[#666]"></i>
+                <input 
+                  type="text" 
+                  id="login-email" 
+                  class="pm-input pl-10 text-sm" 
+                  placeholder="name@example.com or 03001234567"
+                  required
+                >
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between mb-1.5">
+                <label for="login-password" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888]">
+                  Password <span class="text-[#cc3333]">*</span>
+                </label>
+                <a href="#" class="text-[10px] text-[#c8a96e] hover:underline">Forgot Password?</a>
+              </div>
+              <div class="relative">
+                <i class="bi bi-lock absolute left-3.5 top-3.5 text-[#666]"></i>
+                <input 
+                  type="password" 
+                  id="login-password" 
+                  class="pm-input pl-10 text-sm" 
+                  placeholder="Enter your password"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-xs pt-1">
+              <label class="flex items-center gap-2 cursor-pointer text-[#888]">
+                <input type="checkbox" class="rounded bg-[#1a1a1a] border-[rgba(255,255,255,0.2)] text-[#c8a96e] focus:ring-0" checked>
+                <span>Remember this device</span>
+              </label>
+            </div>
+
+            <button type="submit" class="w-full pm-btn pm-btn-primary py-3.5 text-xs font-bold tracking-[0.15em] flex items-center justify-center gap-2">
+              <i class="bi bi-shield-lock-fill"></i>
+              <span>Sign In To PennyWise</span>
+            </button>
+          </form>
+
+          <!-- Signup Form View (Initially Hidden) -->
+          <form id="form-signup" class="hidden space-y-4">
+            <div>
+              <label for="signup-name" class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1.5">
+                Full Name <span class="text-[#cc3333]">*</span>
+              </label>
+              <div class="relative">
+                <i class="bi bi-person absolute left-3.5 top-3.5 text-[#666]"></i>
+                <input 
+                  type="text" 
+                  id="signup-name" 
+                  class="pm-input pl-10 text-sm" 
+                  placeholder="e.g. Don"
+                  required
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="signup-email" class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1.5">
+                Email Address <span class="text-[#cc3333]">*</span>
+              </label>
+              <div class="relative">
+                <i class="bi bi-envelope absolute left-3.5 top-3.5 text-[#666]"></i>
+                <input 
+                  type="email" 
+                  id="signup-email" 
+                  class="pm-input pl-10 text-sm" 
+                  placeholder="name@example.com"
+                  required
+                >
+              </div>
+            </div>
+
+            <div>
+              <label for="signup-city" class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1.5">
+                City (for local store availability)
+              </label>
+              <select id="signup-city" class="pm-input text-sm">
+                <option value="Karachi">Karachi</option>
+                <option value="Lahore" selected>Lahore</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Rawalpindi">Rawalpindi</option>
+                <option value="Faisalabad">Faisalabad</option>
+                <option value="Multan">Multan</option>
+                <option value="Peshawar">Peshawar</option>
+                <option value="Other">Other City</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="signup-password" class="block text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888] mb-1.5">
+                Password <span class="text-[#cc3333]">*</span>
+              </label>
+              <div class="relative">
+                <i class="bi bi-lock absolute left-3.5 top-3.5 text-[#666]"></i>
+                <input 
+                  type="password" 
+                  id="signup-password" 
+                  class="pm-input pl-10 text-sm" 
+                  placeholder="Create a secure password"
+                  required
+                >
+              </div>
+            </div>
+
+            <button type="submit" class="w-full pm-btn pm-btn-gold py-3.5 text-xs font-bold tracking-[0.15em] flex items-center justify-center gap-2">
+              <i class="bi bi-person-check-fill"></i>
+              <span>Create Free Account</span>
+            </button>
+          </form>
+
+          <!-- Social Quick Login Divider -->
+          <div class="mt-6 pt-5 border-t border-[rgba(255,255,255,0.06)] text-center space-y-3">
+            <span class="text-[10px] uppercase tracking-[0.15em] text-[#666] block">Or continue with</span>
+            <div class="grid grid-cols-2 gap-3">
+              <button type="button" class="social-login-btn pm-btn pm-btn-white py-2.5 text-[11px] flex items-center justify-center gap-2">
+                <i class="bi bi-google text-[#c8a96e]"></i>
+                <span>Google</span>
+              </button>
+              <button type="button" class="social-login-btn pm-btn pm-btn-white py-2.5 text-[11px] flex items-center justify-center gap-2">
+                <i class="bi bi-phone text-[#c8a96e]"></i>
+                <span>OTP Login</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 text-center text-[10px] text-[#555]">
+          By continuing, you agree to PennyWise Terms of Service and Privacy Policy.
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
+      </div>
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
+        <a href="../index.html" class="pm-nav">Home</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav">History</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="login.html" class="pm-nav active">Login</a>
+      </div>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise. Secure Authentication Gateway.
+      </p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabLogin = document.getElementById("tab-btn-login");
+      const tabSignup = document.getElementById("tab-btn-signup");
+      const formLogin = document.getElementById("form-login");
+      const formSignup = document.getElementById("form-signup");
+      const alertBox = document.getElementById("auth-alert");
+      const alertText = document.getElementById("auth-alert-text");
+
+      tabLogin.addEventListener("click", () => {
+        tabLogin.className = "pm-btn pm-btn-gold pm-btn-sm font-bold";
+        tabSignup.className = "pm-btn pm-btn-dark pm-btn-sm text-[#aaa]";
+        formLogin.classList.remove("hidden");
+        formSignup.classList.add("hidden");
+      });
+
+      tabSignup.addEventListener("click", () => {
+        tabSignup.className = "pm-btn pm-btn-gold pm-btn-sm font-bold";
+        tabLogin.className = "pm-btn pm-btn-dark pm-btn-sm text-[#aaa]";
+        formSignup.classList.remove("hidden");
+        formLogin.classList.add("hidden");
+      });
+
+      function handleAuth(msg) {
+        alertText.textContent = msg;
+        alertBox.classList.remove("hidden");
+        setTimeout(() => {
+          window.location.href = "../index.html";
+        }, 1200);
+      }
+
+      formLogin.addEventListener("submit", (e) => {
+        e.preventDefault();
+        handleAuth("Signed in successfully. Redirecting to PennyWise Home...");
+      });
+
+      formSignup.addEventListener("submit", (e) => {
+        e.preventDefault();
+        handleAuth("Account created successfully. Welcome to PennyWise!");
+      });
+
+      document.querySelectorAll(".social-login-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          handleAuth("Connected via social identity provider. Redirecting...");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

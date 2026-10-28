@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found | PennyWise</title>
+  <title>PennyWise | 404 Page Not Found</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
@@ -18,13 +19,13 @@
   <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
     <span class="text-[#cc3333]">Error 404</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#666]">Page Not Found</span>
+    <span class="text-[#666]">Store Shelf Item Not Found</span>
   </div>
 
   <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-8 pb-14 border-b border-[rgba(255,255,255,0.06)] relative">
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
           <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
           <div>
@@ -32,16 +33,23 @@
             <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
-          <a href="../index.html" class="pm-nav">HOME</a>
-          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
-          <a href="stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
-          <a href="compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
-          <a href="wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
-          <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
-          <a href="about.html" class="pm-nav">ABOUT</a>
-          <a href="404.html" class="pm-nav active" style="color:#cc3333;">404</a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav">History</a>
+          <a href="about.html" class="pm-nav">About</a>
         </nav>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -55,30 +63,29 @@
 
   <!-- 404 Content -->
   <main class="w-full max-w-2xl mx-auto px-4 sm:px-6 py-12 flex-grow flex items-center justify-center">
-    <div class="pm-polaroid p-8 sm:p-12 bg-[#1a1a1a] text-center w-full relative" style="animation: pw-scale-in 0.6s ease both;">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#cc3333] to-transparent"></div>
+    <div class="pm-polaroid p-8 sm:p-12 bg-[#161616] text-center w-full relative">
+      <div class="pm-washi"></div>
 
-      <!-- 404 Number -->
-      <div class="inline-block px-8 py-4 border border-[rgba(204,51,51,0.3)] text-[#cc3333] rounded-lg mb-6 mt-4" style="animation: pw-float 3s ease-in-out infinite;">
-        <span class="font-display text-6xl sm:text-8xl tracking-tight">404</span>
+      <div class="inline-block px-8 py-3 border border-[rgba(204,51,51,0.3)] bg-[#2a0811]/40 text-[#cc3333] rounded-lg mb-6 mt-2 font-display text-5xl sm:text-7xl font-black">
+        404
       </div>
 
-      <h1 class="font-display text-3xl sm:text-4xl text-white mb-3">
-        Lost in the Aisle
+      <h1 class="font-display text-2xl sm:text-3xl text-white mb-2 uppercase">
+        Item Not Found On Shelf
       </h1>
 
-      <p class="text-base font-light text-[#888] max-w-md mx-auto mb-8 leading-relaxed">
-        The page you are looking for has vanished like an expired flash sale discount, or was never stocked in the first place.
+      <p class="text-xs sm:text-sm font-light text-[#888] max-w-md mx-auto mb-8 leading-relaxed">
+        The link you requested is no longer available or was moved. Launch a fresh crawl to find live product prices across Pakistani stores.
       </p>
 
-      <!-- Buttons -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="../index.html" class="pm-btn pm-btn-primary px-8 py-4 text-xs flex items-center justify-center gap-2 w-full sm:w-auto">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          <span>Back to Home</span>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a href="../index.html" class="pm-btn pm-btn-primary px-8 py-3.5 text-xs flex items-center justify-center gap-2 w-full sm:w-auto">
+          <i class="bi bi-house-door-fill"></i>
+          <span>Return To Home</span>
         </a>
-        <a href="results.html?q=Men+Casual+Shirt" class="pm-btn pm-btn-gold px-8 py-4 text-xs w-full sm:w-auto">
-          Test Live Crawler
+        <a href="results.html" class="pm-btn pm-btn-gold px-8 py-3.5 text-xs flex items-center justify-center gap-2 w-full sm:w-auto">
+          <i class="bi bi-search"></i>
+          <span>Live Crawler</span>
         </a>
       </div>
     </div>
@@ -96,18 +103,24 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
-        <span class="font-display text-lg text-white">PennyWise</span>
-        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison</span>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
         <a href="../index.html" class="pm-nav">Home</a>
-        <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav">History</a>
         <a href="about.html" class="pm-nav">About</a>
-        <a href="404.html" class="pm-nav active" style="color:#cc3333;">404</a>
+        <a href="login.html" class="pm-nav">Login</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise Prototype. All trademarks belong to their respective merchants.
+      </p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
 </body>
 </html>

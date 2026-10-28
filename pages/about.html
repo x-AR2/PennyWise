@@ -3,28 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About PennyWise | Project Overview & Specification</title>
+  <title>PennyWise | Project Architecture &amp; Methodology</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Top Bar -->
+  <!-- Top Announcement Bar -->
   <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#c8a96e]">Smart Price Comparison</span>
+    <span class="text-[#c8a96e]">PennyWise Architecture</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#666]">Project Specification</span>
+    <span class="text-[#888]">Autonomous Price Verification</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#c8a96e]">Pakistan</span>
   </div>
 
   <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-8 pb-14 border-b border-[rgba(255,255,255,0.06)] relative">
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
           <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
           <div>
@@ -32,15 +35,23 @@
             <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
-          <a href="../index.html" class="pm-nav">HOME</a>
-          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
-          <a href="stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
-          <a href="compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
-          <a href="wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
-          <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
-          <a href="about.html" class="pm-nav active">ABOUT</a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav">History</a>
+          <a href="about.html" class="pm-nav active">About</a>
         </nav>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -56,147 +67,114 @@
   <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-10">
     
     <!-- Hero Box -->
-    <div class="pm-card p-8 bg-[#1a1a1a] border border-[rgba(200,169,110,0.15)] relative overflow-hidden" style="animation: pw-fade-up 0.8s ease both;">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent"></div>
-      <div class="inline-flex gap-2 mb-4">
-        <span class="pm-tag text-[9px]">Price Comparison Engine</span>
-        <span class="pm-tag pm-tag-mint text-[9px]">Specification v0.1</span>
+    <div class="pm-card p-8 bg-[#141414] border border-[rgba(200,169,110,0.2)] relative overflow-hidden">
+      <div class="pm-washi"></div>
+      <div class="inline-flex gap-2 mb-3">
+        <span class="pm-tag pm-tag-gold text-[9px]">Price Comparison Engine</span>
+        <span class="pm-tag pm-tag-mint text-[9px]">Pakistan Focus</span>
       </div>
-      <h1 class="font-display text-4xl sm:text-5xl text-white mb-4">
+      <h1 class="font-display text-3xl sm:text-4xl text-white mb-3 uppercase font-black">
         About PennyWise
       </h1>
-      <p class="text-base font-light text-[#aaa] max-w-3xl leading-relaxed">
-        PennyWise helps shoppers in Pakistan find the cheapest available price for any product. We crawl real online stores, extract actual listed prices in PKR, and show them sorted lowest to highest with direct source links.
+      <p class="text-sm font-light text-[#aaa] max-w-3xl leading-relaxed">
+        PennyWise addresses the fragmentation in Pakistani e-commerce by indexing live prices directly from store checkout pages. We eliminate synthetic estimates, rank verified lowest prices first, and connect users straight to the merchant.
       </p>
     </div>
 
     <!-- Goals Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="animation: pw-fade-up 0.8s ease both 0.2s;">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       
-      <!-- Goals -->
+      <!-- Core Principles -->
       <div class="pm-polaroid flex flex-col justify-between">
-        <div class="pm-sticker-number" style="background:#c8a96e;">
-          <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-        </div>
+        <div class="pm-sticker-number"><i class="bi bi-bullseye text-sm"></i></div>
         <div class="pm-washi"></div>
         <div>
-          <h2 class="font-display text-2xl text-white mb-5 pt-2">Prototype Goals</h2>
-          <ul class="space-y-4 text-sm font-light text-[#aaa]">
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
-              <span>Let users search any product and see real prices from Pakistani online stores.</span>
+          <h2 class="font-display text-xl text-white mb-4 pt-2 uppercase">Core Principles</h2>
+          <ul class="space-y-3.5 text-sm font-light text-[#aaa]">
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-lg text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Directly extract live product prices in PKR across certified Pakistani merchants.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
-              <span>Sort results by price ascending so the cheapest option is obvious.</span>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-lg text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Ascending deal ranking: the lowest verified price always receives the #1 badge.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
-              <span>Strict data accuracy: Show only data actually collected from a real store page.</span>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-lg text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Strict accuracy policy: drop listings that lack confirmed retail numbers.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
-              <span>Keep the interface simple, consistent, and easy to build.</span>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-check-lg text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Maintain a fast, accessible, lightweight frontend interface.</span>
             </li>
           </ul>
+        </div>
+        <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] text-[10px] text-[#777]">
+          Verified Pakistan Store Index
         </div>
       </div>
 
-      <!-- Non-Goals -->
+      <!-- Scope Boundaries -->
       <div class="pm-polaroid flex flex-col justify-between">
-        <div class="pm-sticker-number" style="background:#333;">
-          <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-        </div>
+        <div class="pm-sticker-number" style="background:#444;"><i class="bi bi-shield-check text-sm"></i></div>
         <div class="pm-washi"></div>
         <div>
-          <h2 class="font-display text-2xl text-white mb-5 pt-2">Non-Goals (Prototype)</h2>
-          <ul class="space-y-4 text-sm font-light text-[#aaa]">
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
-              <span>Ticket search (events, cinema, bus, flights) — planned for later.</span>
+          <h2 class="font-display text-xl text-white mb-4 pt-2 uppercase">Integrity Standards</h2>
+          <ul class="space-y-3.5 text-sm font-light text-[#aaa]">
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-shield-fill text-[#c8a96e] mt-1 text-xs"></i>
+              <span>No paid ranking positions: commercial placement cannot alter price-based sorting.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
-              <span>Side-by-side product specification comparison.</span>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-shield-fill text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Zero synthetic data: no machine-generated or estimated prices.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
-              <span>Price history, alerts, or wishlists.</span>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-shield-fill text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Transparent outlinks: all links point directly to the merchant product URL.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
-              <span>User accounts, logins, and database admin panels.</span>
+            <li class="flex items-start gap-2.5">
+              <i class="bi bi-shield-fill text-[#c8a96e] mt-1 text-xs"></i>
+              <span>Multi-sector indexing: gadgets, home appliances, apparel, and transit tickets.</span>
             </li>
           </ul>
+        </div>
+        <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] text-[10px] text-[#777]">
+          Uncompromised User Loyalty
         </div>
       </div>
     </div>
 
-    <!-- Data Accuracy -->
-    <div class="pm-card p-6 bg-[#1a1a1a] border border-[rgba(200,169,110,0.15)] relative" style="animation: pw-fade-up 0.8s ease both 0.3s;">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent"></div>
-      <div class="inline-flex items-center gap-2 mb-3">
-        <span class="pm-tag text-[9px]">Data Integrity</span>
-        <span class="pm-tag pm-tag-mint text-[9px]">Strict Rule</span>
-      </div>
-      <h2 class="font-display text-2xl sm:text-3xl text-white mb-3">
-        The Data Accuracy Policy
-      </h2>
-      <p class="text-sm font-light text-[#aaa] leading-relaxed mb-4">
-        The application must never display information that was not collected from a real store page. 
-        Prices are extracted via structured Schema JSON-LD, OpenGraph tags, or confirmed HTML price blocks. Items with missing data are permanently dropped.
-      </p>
-      <div class="flex flex-wrap gap-2 text-[9px]">
-        <span class="pm-tag">No Synthetic Data</span>
-        <span class="pm-tag">Live Scrapes</span>
-        <span class="pm-tag">Direct URL Required</span>
-      </div>
-    </div>
-
-    <!-- Tech Stack -->
-    <div class="pm-card p-6 bg-[#1a1a1a]" style="animation: pw-fade-up 0.8s ease both 0.4s;">
-      <h2 class="font-display text-2xl text-white mb-6">Prototype Tech Stack</h2>
+    <!-- Tech Stack Grid -->
+    <div class="pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)]">
+      <h2 class="font-display text-xl text-white mb-5 uppercase">System Architecture</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
         <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Frontend</span>
-          <span class="text-sm font-display text-white">HTML5 + Tailwind</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Dark luxury aesthetic with custom design tokens.</p>
+          <span class="text-[9px] font-semibold text-[#888] uppercase tracking-[0.15em] block mb-1">Frontend Interface</span>
+          <span class="text-sm font-bold text-white">Semantic HTML5 &amp; Tailwind</span>
+          <p class="text-[10px] text-[#666] mt-1">Dark luxury design system with bespoke typography and Bootstrap Icons.</p>
         </div>
         <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Animation</span>
-          <span class="text-sm font-display text-white">DotLottie</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Lightweight vector animations and loading spinners.</p>
+          <span class="text-[9px] font-semibold text-[#888] uppercase tracking-[0.15em] block mb-1">Visual Search</span>
+          <span class="text-sm font-bold text-white">AI Image Feature Vectoring</span>
+          <p class="text-[10px] text-[#666] mt-1">Identifies products from uploaded photos and triggers merchant crawls.</p>
         </div>
         <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Backend</span>
-          <span class="text-sm font-display text-white">Python & FastAPI</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Asynchronous API endpoints with OpenAPI docs.</p>
-        </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Search Engine</span>
-          <span class="text-sm font-display text-white">DuckDuckGo</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Queries top Pakistani retail and e-commerce URLs.</p>
-        </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Crawler</span>
-          <span class="text-sm font-display text-white">Async HTTPX & BS4</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Parallel page fetching with JSON-LD & regex.</p>
-        </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Storage</span>
-          <span class="text-sm font-display text-white">In-Memory TTL Cache</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Thread-safe cache per query to prevent repeat crawls.</p>
+          <span class="text-[9px] font-semibold text-[#888] uppercase tracking-[0.15em] block mb-1">Data Model</span>
+          <span class="text-sm font-bold text-white">PKR Currency Normalizer</span>
+          <p class="text-[10px] text-[#666] mt-1">Strips sales tax ambiguities and standardizes all listings in Pakistani Rupees.</p>
         </div>
       </div>
     </div>
 
-    <!-- Back Button -->
-    <div class="flex justify-center pt-4">
-      <a href="../index.html" class="pm-btn pm-btn-gold px-8 py-4 text-xs flex items-center gap-2">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-        <span>Back to Search</span>
+    <!-- CTA -->
+    <div class="flex justify-center pt-2">
+      <a href="results.html" class="pm-btn pm-btn-gold px-8 py-3.5 text-xs flex items-center gap-2">
+        <i class="bi bi-search"></i>
+        <span>Try The Live Crawler</span>
       </a>
     </div>
+
   </main>
 
   <!-- Divider -->
@@ -211,18 +189,24 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
-        <span class="font-display text-lg text-white">PennyWise</span>
-        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison</span>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
         <a href="../index.html" class="pm-nav">Home</a>
-        <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav">History</a>
         <a href="about.html" class="pm-nav active">About</a>
-        <a href="404.html" class="pm-nav">404</a>
+        <a href="login.html" class="pm-nav">Login</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise. Engineered for Pakistani e-commerce transparency.
+      </p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
 </body>
 </html>

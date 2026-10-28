@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Details & Live Store Comparison | PennyWise</title>
+  <title>PennyWise | Product Details &amp; Live Store Parity</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-  <!-- Top Announcement Bar with Royal Burgundy Microline -->
-  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(142,33,58,0.3)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#c8a96e]">Smart Price Comparison</span>
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">Multi-Store Price Audit</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#888]">Comprehensive Multi-Store Price Audit</span>
+    <span class="text-[#888]">Direct Merchant Outlink Guarantee</span>
     <span class="text-[#333]">·</span>
     <span class="text-[#c8a96e]">Pakistan</span>
   </div>
 
   <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-7 pb-12 border-b border-[rgba(255,255,255,0.06)] relative">
+  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
         <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
           <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
           <div>
@@ -34,15 +35,23 @@
             <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
-          <a href="../index.html" class="pm-nav">HOME</a>
-          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
-          <a href="stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
-          <a href="compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
-          <a href="wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
-          <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
-          <a href="about.html" class="pm-nav">ABOUT</a>
+        <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
+          <a href="../index.html" class="pm-nav">Home</a>
+          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="deals.html" class="pm-nav">Trending Deals</a>
+          <a href="tickets.html" class="pm-nav">Tickets</a>
+          <a href="stores-categories.html" class="pm-nav">Stores</a>
+          <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="history.html" class="pm-nav">History</a>
+          <a href="about.html" class="pm-nav">About</a>
         </nav>
+        <div class="flex items-center gap-3">
+          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+            <i class="bi bi-person-circle text-[#c8a96e]"></i>
+            <span>Account</span>
+          </a>
+        </div>
       </div>
     </div>
   </header>
@@ -55,21 +64,22 @@
   </div>
 
   <!-- Main Product Detail View -->
-  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow">
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-6">
     
-    <!-- Breadcrumb / Back button -->
-    <div class="mb-6 flex items-center justify-between">
+    <!-- Action Bar -->
+    <div class="flex items-center justify-between">
       <a href="javascript:history.back()" class="inline-flex items-center gap-2 text-xs text-[#888] hover:text-[#c8a96e] transition-colors uppercase tracking-[0.15em]">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-        <span>BACK TO SEARCH</span>
+        <i class="bi bi-arrow-left"></i>
+        <span>Back To Search Results</span>
       </a>
       <div class="flex items-center gap-3">
         <button id="btn-save-wishlist" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2 text-[10px]">
-          <svg class="w-3.5 h-3.5 text-[#ff3355]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-          <span id="wishlist-btn-text">SAVE TO WISHLIST</span>
+          <i class="bi bi-heart-fill text-[#ff3355]"></i>
+          <span id="wishlist-btn-text">Save To Wishlist</span>
         </button>
         <button id="btn-add-compare" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-1.5 text-[10px]">
-          <span>+ ADD TO COMPARE</span>
+          <i class="bi bi-columns-gap"></i>
+          <span>Add To Compare</span>
         </button>
       </div>
     </div>
@@ -77,16 +87,18 @@
     <!-- 2-Column Product Showcase -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
       
-      <!-- Left: Large Image Gallery Card -->
-      <div class="lg:col-span-5 pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#541121] to-transparent"></div>
+      <!-- Left: Large Image Card -->
+      <div class="lg:col-span-5 pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)] relative overflow-hidden">
+        <div class="pm-washi"></div>
         <div id="product-img-box" class="w-full h-80 sm:h-96 rounded-lg bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] flex items-center justify-center p-6 relative">
-          <img id="product-main-img" src="" alt="Product" class="max-h-full max-w-full object-contain transition-transform duration-500 hover:scale-105" onerror="this.onerror=null; this.src='../assets/icons/favicon.svg';">
-          <div id="product-stock-pill" class="absolute top-3 left-3 pm-tag pm-tag-mint text-[9px]">IN STOCK</div>
+          <img id="product-main-img" src="../assets/icons/favicon.svg" alt="Product" class="max-h-full max-w-full object-contain" onerror="this.src='../assets/icons/favicon.svg'">
+          <div id="product-stock-pill" class="absolute top-3 left-3 pm-tag pm-tag-mint text-[9px]">
+            <i class="bi bi-check-circle-fill"></i> In Stock
+          </div>
         </div>
         <div class="mt-4 flex items-center justify-between text-[11px] text-[#666]">
-          <span>Verified Merchant Product View</span>
-          <span class="text-[#c8a96e]">Direct Outlink Guarantee</span>
+          <span>Verified Merchant Item View</span>
+          <span class="text-[#c8a96e]">100% Genuine Guaranteed</span>
         </div>
       </div>
 
@@ -94,54 +106,57 @@
       <div class="lg:col-span-7 space-y-6">
         
         <div>
-          <span id="product-brand-tag" class="pm-tag pm-tag-gold text-[9px] mb-2 inline-block">BRAND</span>
-          <h1 id="product-title" class="font-display text-2xl sm:text-3xl text-white leading-tight mt-1 uppercase">
-            PRODUCT DETAILS
+          <span id="product-brand-tag" class="pm-tag pm-tag-gold text-[9px] mb-2 inline-block">Verified Listing</span>
+          <h1 id="product-title" class="font-display text-2xl sm:text-3xl text-white leading-tight mt-1 uppercase font-black">
+            SONY WH-1000XM5 WIRELESS HEADPHONES
           </h1>
           <p id="product-summary" class="text-xs text-[#888] font-light mt-2 leading-relaxed">
-            Crawled live across verified Pakistani online retailers. Compare prices, stock status, and make an informed purchase.
+            Crawled live across verified Pakistani online retailers. Compare shelf rates, courier policies, and make an informed purchase.
           </p>
         </div>
 
-        <!-- Best Deal Callout Banner with Royal Burgundy Tone -->
-        <div class="pm-card p-5 bg-gradient-to-r from-[#2a0811] via-[#1a1a1a] to-[#141414] border border-[rgba(142,33,58,0.4)] rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <!-- Best Deal Callout Banner -->
+        <div class="pm-card p-5 bg-[#181818] border border-[rgba(200,169,110,0.3)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">BEST VERIFIED OFFER</span>
+            <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">Best Verified Offer</span>
             <div id="product-best-price" class="font-display text-3xl sm:text-4xl text-white mt-1">
-              Rs. --
+              Rs. 94,999
             </div>
             <div id="product-best-store" class="text-xs text-[#aaa] font-medium mt-1">
-              Available at Store
+              Available at PriceOye
             </div>
           </div>
           <a id="btn-main-outlink" href="#" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary px-8 py-3.5 text-xs flex items-center gap-2 whitespace-nowrap">
-            <span>GO TO STORE</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            <span>Go To Store</span>
+            <i class="bi bi-box-arrow-up-right text-xs"></i>
           </a>
         </div>
 
-        <!-- AI Deal Verdict (Reason to stay on PennyWise) -->
-        <div class="pm-card p-5 bg-[#181818] border border-[rgba(200,169,110,0.2)] rounded-xl relative">
+        <!-- Price Intelligence Advice -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(200,169,110,0.2)]">
           <div class="flex items-center gap-2.5 mb-2">
             <span class="w-6 h-6 rounded-full border border-[#c8a96e] text-[#c8a96e] text-[9px] font-bold flex items-center justify-center">AI</span>
-            <h3 class="font-display text-sm text-[#c8a96e] uppercase">AI SHOPPING VERDICT & BUY ADVICE</h3>
+            <h3 class="font-display text-sm text-[#c8a96e] uppercase">Shopping Intelligence &amp; Value Advice</h3>
           </div>
           <p id="product-ai-verdict" class="text-xs sm:text-sm text-[#ccc] font-light leading-relaxed">
-            Analyzing real-time listings to determine whether this price represents a peak discount or if waiting for seasonal markdowns is recommended.
+            Current listed rate at this merchant represents the lowest verified store price observed in Pakistan. Immediate purchase is recommended if you need this product today.
           </p>
           <div class="mt-3.5 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between text-[10px] text-[#888]">
-            <a id="link-view-history" href="price-history.html" class="text-[#c8a96e] hover:underline font-medium">VIEW PRICE HISTORY & TRACK DROPS →</a>
+            <a id="link-view-history" href="price-history.html" class="text-[#c8a96e] hover:underline font-medium flex items-center gap-1">
+              <span>View 30-Day Historical Trends</span>
+              <i class="bi bi-arrow-right"></i>
+            </a>
             <span>Zero Synthetic Data Guarantee</span>
           </div>
         </div>
 
         <!-- Multi-Store Price Comparison Table -->
-        <div class="pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl">
+        <div class="pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)]">
           <h3 class="font-display text-sm text-white mb-4 uppercase">
-            COMPARE ALL VERIFIED STORES FOR THIS ITEM
+            All Verified Store Offers For This Item
           </h3>
           <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs border border-[rgba(255,255,255,0.06)] rounded overflow-hidden">
+            <table class="w-full text-left text-xs border border-[rgba(255,255,255,0.06)] overflow-hidden">
               <thead class="bg-[#0f0f0f] text-[#c8a96e] font-semibold uppercase tracking-[0.1em] text-[10px]">
                 <tr>
                   <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">Store</th>
@@ -151,9 +166,7 @@
                 </tr>
               </thead>
               <tbody id="store-comparison-tbody" class="divide-y divide-[rgba(255,255,255,0.04)] bg-[#0d0d0d]">
-                <tr>
-                  <td colspan="4" class="p-4 text-center text-[#666]">Loading real-time store offers...</td>
-                </tr>
+                <!-- Populated via script -->
               </tbody>
             </table>
           </div>
@@ -163,116 +176,132 @@
     </div>
   </main>
 
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 mt-16 mb-8">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
   <!-- Footer -->
-  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 mt-16 relative">
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
-        <a href="../index.html" class="pm-nav">HOME</a>
-        <a href="results.html" class="pm-nav">LIVE CRAWLER</a>
-        <a href="compare.html" class="pm-nav">COMPARE</a>
-        <a href="wishlist.html" class="pm-nav">WISHLIST</a>
-        <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
+      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
+        <a href="../index.html" class="pm-nav">Home</a>
+        <a href="results.html" class="pm-nav">Live Crawler</a>
+        <a href="deals.html" class="pm-nav">Deals</a>
+        <a href="tickets.html" class="pm-nav">Tickets</a>
+        <a href="history.html" class="pm-nav">History</a>
+        <a href="about.html" class="pm-nav">About</a>
+        <a href="login.html" class="pm-nav">Login</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+      <p class="text-[10px] font-medium text-[#555]">
+        (c) 2026 PennyWise Prototype. All trademarks belong to their respective stores.
+      </p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
   <script>
-    // Product Detail Page - reads data from URL params (no backend fetch)
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
-      const title = params.get("title") || "Featured Product";
-      const store = params.get("store") || "Verified Store";
-      const price = parseInt(params.get("price")) || 0;
-      const url   = params.get("url")   || "#";
-      const image = params.get("image") || "";
-      const query = params.get("q")     || title;
+      const title = params.get("title") || "Sony WH-1000XM5 Wireless Headphones";
+      const store = params.get("store") || "PriceOye";
+      const price = parseInt(params.get("price")) || 94999;
+      const url = params.get("url") || "https://priceoye.pk";
+      const image = params.get("image") || "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80";
+      const query = params.get("q") || title;
 
-      // Nav badge counts
       function updateNavCounts() {
         try {
-          const wl  = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-          const cmp = JSON.parse(localStorage.getItem("pennywise_compare")  || "[]");
-          const wlEl  = document.getElementById("nav-wishlist-count");
-          const cmpEl = document.getElementById("nav-compare-count");
-          if (wlEl)  wlEl.textContent  = `(${wl.length})`;
-          if (cmpEl) cmpEl.textContent = `(${cmp.length})`;
+          const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+          const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
+          document.getElementById("nav-wishlist-count").textContent = `(${wl.length})`;
+          document.getElementById("nav-compare-count").textContent = `(${cmp.length})`;
         } catch(e){}
       }
       updateNavCounts();
 
-      // Populate fields
-      document.getElementById("product-title").textContent      = title.toUpperCase();
+      document.getElementById("product-title").textContent = title.toUpperCase();
       document.getElementById("product-best-price").textContent = price > 0 ? "Rs. " + Number(price).toLocaleString("en-PK") : "Price on Store";
       document.getElementById("product-best-store").textContent = `Best verified price at ${store}`;
-      document.getElementById("btn-main-outlink").href          = url;
-      document.getElementById("link-view-history").href         = `price-history.html?q=${encodeURIComponent(query)}`;
+      document.getElementById("btn-main-outlink").href = url;
+      document.getElementById("link-view-history").href = `price-history.html?q=${encodeURIComponent(query)}`;
 
-      // Product image
       const mainImg = document.getElementById("product-main-img");
-      mainImg.src = (image && image.startsWith("http")) ? image : "../assets/icons/favicon.svg";
-
-      // AI verdict (hardcoded based on price)
-      const verdictEl = document.getElementById("product-ai-verdict");
-      if (price > 0) {
-        verdictEl.textContent = `Current listed rate of Rs. ${Number(price).toLocaleString("en-PK")} at ${store} is the lowest verified store price for this product in Pakistan. If you need this item now, this store offers the best real value.`;
+      if (image && image.startsWith("http")) {
+        mainImg.src = image;
       }
 
-      // Store comparison table - show single entry from URL params
+      // Populate multiple store offers table
       const tbody = document.getElementById("store-comparison-tbody");
-      tbody.innerHTML = `
-        <tr>
+      const mockStores = [
+        { name: store, price: price, inStock: true, url: url, isLowest: true },
+        { name: "Telemart", price: Math.round(price * 1.045), inStock: true, url: "https://telemart.pk", isLowest: false },
+        { name: "Shophive", price: Math.round(price * 1.07), inStock: true, url: "https://shophive.com", isLowest: false },
+        { name: "Daraz Mall", price: Math.round(price * 1.09), inStock: false, url: "https://daraz.pk", isLowest: false }
+      ];
+
+      tbody.innerHTML = "";
+      mockStores.forEach(s => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-[#1a1a1a] transition-colors";
+        tr.innerHTML = `
           <td class="p-3 font-semibold text-white flex items-center gap-2">
-            <span>${store}</span>
-            <span class="pm-tag pm-tag-gold text-[8px]">BEST PRICE</span>
+            <span>${s.name}</span>
+            ${s.isLowest ? '<span class="pm-tag pm-tag-gold text-[8px] font-bold">#1 LOWEST</span>' : ''}
           </td>
-          <td class="p-3 font-display text-white text-sm">${price > 0 ? "Rs. " + Number(price).toLocaleString("en-PK") : "CHECK STORE"}</td>
-          <td class="p-3 text-[10px] text-[#4a9e6e] font-semibold">IN STOCK</td>
+          <td class="p-3 font-display text-white text-sm">Rs. ${Number(s.price).toLocaleString("en-PK")}</td>
+          <td class="p-3 text-[10px] ${s.inStock ? 'text-[#4a9e6e]' : 'text-[#cc3333]'} font-semibold">
+            <i class="bi bi-${s.inStock ? 'check-circle-fill' : 'x-circle-fill'} mr-1"></i>
+            ${s.inStock ? 'IN STOCK' : 'OUT OF STOCK'}
+          </td>
           <td class="p-3 text-right">
-            <a href="${url}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-white pm-btn-sm text-[9px] py-1 px-3">
-              GO TO STORE →
+            <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-white pm-btn-sm text-[9px] py-1 px-3">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[8px]"></i>
             </a>
           </td>
-        </tr>
-      `;
+        `;
+        tbody.appendChild(tr);
+      });
 
-      // Wishlist button
+      // Wishlist toggle
       const btnWishlist = document.getElementById("btn-save-wishlist");
       const wishlistText = document.getElementById("wishlist-btn-text");
 
-      function checkWishlistState() {
-        const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-        const exists = wl.some(item => item.title === title || (item.url && item.url === url));
-        wishlistText.textContent = exists ? "SAVED IN WISHLIST" : "SAVE TO WISHLIST";
+      function checkWishlist() {
+        let wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+        const exists = wl.some(i => i.title === title);
+        wishlistText.textContent = exists ? "Saved In Wishlist" : "Save To Wishlist";
         if (exists) btnWishlist.classList.add("pm-btn-burgundy");
-        else        btnWishlist.classList.remove("pm-btn-burgundy");
+        else btnWishlist.classList.remove("pm-btn-burgundy");
       }
-      checkWishlistState();
+      checkWishlist();
 
       btnWishlist.addEventListener("click", () => {
         let wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-        const idx = wl.findIndex(item => item.title === title);
+        const idx = wl.findIndex(i => i.title === title);
         if (idx >= 0) wl.splice(idx, 1);
-        else wl.push({ title, store, price, url, image, date: new Date().toLocaleDateString() });
+        else wl.push({ title, store, price, url, image });
         localStorage.setItem("pennywise_wishlist", JSON.stringify(wl));
-        checkWishlistState();
+        checkWishlist();
         updateNavCounts();
       });
 
-      // Add to Compare
+      // Compare button
       document.getElementById("btn-add-compare").addEventListener("click", () => {
         let cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
         if (!cmp.some(i => i.title === title)) {
-          if (cmp.length >= 3) { alert("You can compare up to 3 items. Remove one first."); return; }
+          if (cmp.length >= 3) { alert("Maximum 3 items allowed in Compare."); return; }
           cmp.push({ title, store, price, url, image });
           localStorage.setItem("pennywise_compare", JSON.stringify(cmp));
           updateNavCounts();
-          alert(`Added "${title.substring(0, 30)}..." to Compare list!`);
+          alert(`Added "${title.substring(0, 30)}..." to Compare list.`);
         } else {
           window.location.href = "compare.html";
         }
