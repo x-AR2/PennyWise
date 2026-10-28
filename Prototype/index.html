@@ -5,60 +5,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PennyWise | Smart Price Comparison for Pakistan</title>
-  <!-- Google Fonts: Climate Crisis & Jost -->
+  <!-- Google Fonts: Playfair Display & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
+  <!-- Dark Luxury CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between selection:bg-[#F5B72B] selection:text-[#221636]">
+<body class="min-h-screen flex flex-col justify-between">
 
   <!-- Top Announcement Bar -->
-  <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
-    <span class="text-[#96D4C7]">Smart Price Comparison</span>
-    <span class="text-[#F5B72B]">•</span>
-    <span class="bg-[#F5B72B] text-[#221636] px-2.5 py-0.5 rounded-full font-black text-[11px] border border-[#221636] shadow-[2px_2px_0px_#221636]">
-      Arcade Crawler v0.1
-    </span>
-    <span class="text-[#F5B72B]">•</span>
-    <span class="text-[#BBDCF4]">Real-Time Store Price Verification</span>
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">Smart Price Comparison</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#666]">Real-Time Verification</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#666]">Pakistan</span>
   </div>
 
-  <!-- Header Section with Sawtooth Border -->
-  <header class="w-full bg-[#221636] text-white pt-6 pb-12 border-b-4 border-[#96D4C7] relative pm-sawtooth-bottom-blush">
+  <!-- Header Section -->
+  <header class="w-full bg-[#0a0a0a] text-white pt-8 pb-14 border-b border-[rgba(255,255,255,0.06)] relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(150,212,199,0.25)]">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
         
         <!-- Brand Logo -->
-        <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
-          <div class="w-12 h-12 rounded-full bg-[#F5B72B] border-3 border-[#221636] flex items-center justify-center font-display text-2xl text-[#221636] shadow-[3px_3px_0px_#FFFFFF] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">
             ₨
           </div>
           <div>
-            <span class="font-display text-3xl tracking-tight text-white group-hover:text-[#F5B72B] transition-colors">PennyWise</span>
-            <span class="text-xs font-bold text-[#96D4C7] uppercase tracking-widest ml-1">.pk</span>
+            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PennyWise</span>
+            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
 
-        <!-- Navigation Links with Stepped Underlines -->
-        <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
+        <!-- Navigation -->
+        <nav class="flex items-center gap-8 text-xs tracking-[0.15em]">
           <a href="index.html" class="pm-nav active">Home</a>
           <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
           <a href="about.html" class="pm-nav">About</a>
-          <a href="404.html" class="pm-nav text-[#4C4066] hover:text-[#96D4C7]">404</a>
+          <a href="404.html" class="pm-nav">404</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- Arcade Coin Token Section Rule -->
-  <div class="pm-coin-divider px-4 my-6">
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 my-8">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
@@ -66,92 +64,90 @@
 
   <!-- Hero Section -->
   <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 flex-grow">
-    <div class="max-w-4xl mx-auto flex flex-col gap-6">
-      <div class="inline-flex items-center gap-2 self-start flex-wrap">
-        <span class="pm-tag pm-tag-mint">Live Prototype v0.2</span>
-        <span class="pm-tag pm-tag-gold">Pakistan E-Commerce</span>
+    <div class="max-w-4xl mx-auto flex flex-col gap-8">
+      <div class="inline-flex items-center gap-3 self-start flex-wrap">
+        <span class="pm-tag pm-tag-mint">Live Prototype</span>
+        <span class="pm-tag">Pakistan E-Commerce</span>
       </div>
 
-      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-[#221636] leading-[1.1] uppercase">
-        FIND THE <span class="bg-[#F5B72B] px-3 py-1 border-3 border-[#221636] inline-block shadow-[4px_4px_0px_#221636] rounded-lg">CHEAPEST</span> STORE IN PAKISTAN.
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.15] uppercase" style="animation: pw-fade-up 1s ease both 0.2s;">
+        FIND THE <span class="text-[#c8a96e]">CHEAPEST</span> STORE IN PAKISTAN.
       </h1>
 
-      <p class="text-lg sm:text-xl font-medium text-[#4C4066] max-w-2xl leading-relaxed">
-        Search any product, fashion item, home appliance, or gadget. We crawl real online stores across Pakistan, collect live prices in PKR, and show them sorted lowest to highest with direct store links.
+      <p class="text-base sm:text-lg font-light text-[#888] max-w-2xl leading-relaxed" style="animation: pw-fade-up 1s ease both 0.4s;">
+        Search any product, fashion item, home appliance, or gadget. We crawl real online stores across Pakistan, collect live prices in PKR, and show them sorted lowest to highest.
       </p>
 
-        <!-- Search Box (Arcade Console - 2-Field Search) -->
-        <div class="pm-card p-6 bg-white mt-2">
+        <!-- Search Box -->
+        <div class="pm-card p-6 bg-[#1a1a1a]" style="animation: pw-fade-up 1s ease both 0.5s;">
           <form id="search-form" action="results.html" method="GET" class="space-y-4">
-            <!-- 1. Primary Product Name (Required) -->
+            <!-- Product Name -->
             <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <label for="search-name" class="text-xs font-black uppercase tracking-wider text-[#221636]">
-                  1. Product Name <span class="text-[#EE2D2B]">*</span>
+              <div class="flex items-center justify-between mb-2">
+                <label for="search-name" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888]">
+                  Product Name <span class="text-[#cc3333]">*</span>
                 </label>
                 <div class="flex items-center gap-2">
-                  <span class="text-[11px] font-bold text-[#4C4066] hidden sm:inline">What are you looking for?</span>
                   <button 
                     type="button" 
-                    class="btn-trigger-vision pm-tag pm-tag-gold cursor-pointer hover:opacity-90 flex items-center gap-1.5 py-0.5 px-2 text-[10px] font-black border-2 border-[#221636] shadow-[2px_2px_0px_#221636] transition-transform active:translate-y-0.5"
-                    title="Upload or take photo to identify with it AI"
+                    class="btn-trigger-vision pm-tag pm-tag-gold cursor-pointer hover:opacity-90 flex items-center gap-1.5 py-1 px-2.5 text-[9px] font-semibold transition-all active:scale-95"
+                    title="Upload or take photo to identify with AI"
                   >
-                    <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <span>PHOTO SEARCH</span>
                   </button>
                 </div>
               </div>
               <div class="relative">
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#4C4066]">
-                  <svg class="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#666]">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                   </svg>
                 </div>
                 <input 
                   type="text" 
                   id="search-name" 
                   name="name" 
-                  placeholder="Enter product (e.g. Cotton Shirt, Air Fryer, Running Shoes, iPhone)..." 
-                  class="pm-input pl-12 pr-14 text-base sm:text-lg font-bold w-full"
+                  placeholder="Search any product..." 
+                  class="pm-input pl-11 pr-14 text-base w-full"
                   autocomplete="off"
                   required
                   minlength="2"
                 >
-                <!-- In-Input Camera Action Button -->
+                <!-- Camera Button -->
                 <button 
                   type="button" 
-                  class="btn-trigger-vision absolute inset-y-0 right-0 pr-3 flex items-center text-[#4C4066] hover:text-[#221636] transition-colors cursor-pointer"
+                  class="btn-trigger-vision absolute inset-y-0 right-0 pr-3 flex items-center text-[#666] hover:text-[#c8a96e] transition-colors cursor-pointer"
                   title="Upload or take photo (AI Vision)"
                 >
-                  <div class="w-8 h-8 rounded-md bg-[#BBDCF4] hover:bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center shadow-[1px_1px_0px_#221636] active:translate-y-0.5 transition-all">
-                    <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <div class="w-7 h-7 rounded border border-[rgba(255,255,255,0.15)] flex items-center justify-center hover:border-[#c8a96e] active:scale-95 transition-all">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
                 </button>
-                <div id="search-error" class="hidden text-xs font-bold text-[#EE2D2B] mt-2 pl-3">
+                <div id="search-error" class="hidden text-[11px] font-medium text-[#cc3333] mt-2 pl-3">
                   Please enter at least 2 characters for the product name.
                 </div>
               </div>
             </div>
 
-            <!-- 2. Brand or Store (Optional) + Submit Button -->
+            <!-- Brand or Store + Submit -->
             <div class="flex flex-col sm:flex-row items-end gap-3 pt-1">
               <div class="flex-grow w-full">
-                <div class="flex items-center justify-between mb-1.5">
-                  <label for="search-brand" class="text-xs font-black uppercase tracking-wider text-[#4C4066]">
-                    2. Brand or Store <span class="text-[11px] font-bold text-gray-500">(Optional)</span>
+                <div class="flex items-center justify-between mb-2">
+                  <label for="search-brand" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666]">
+                    Brand or Store <span class="text-[10px] font-normal text-[#555]">(Optional)</span>
                   </label>
-                  <span class="text-[11px] font-bold text-[#4C4066]">Defaults to all stores & brands</span>
                 </div>
                 <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#4C4066]">
-                    <svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-[#666]">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
                     </svg>
                   </div>
                   <input 
@@ -159,8 +155,8 @@
                     id="search-brand" 
                     name="brand" 
                     list="brand-store-suggestions"
-                    placeholder="e.g. Outfitters, Dawlance, Daraz, Nike, Apple (or leave blank)..." 
-                    class="pm-input pl-10 text-sm font-bold w-full bg-[#FFFDF5]"
+                    placeholder="Brand or store name..." 
+                    class="pm-input pl-9 text-sm w-full"
                     autocomplete="off"
                   >
                   <datalist id="brand-store-suggestions">
@@ -194,11 +190,11 @@
               <!-- Submit Button -->
               <button 
                 type="submit" 
-                class="w-full sm:w-auto pm-btn pm-btn-primary px-8 py-3 text-base whitespace-nowrap flex items-center justify-center gap-2 shadow-[4px_4px_0px_#221636]"
+                class="w-full sm:w-auto pm-btn pm-btn-primary px-10 py-3.5 text-xs whitespace-nowrap flex items-center justify-center gap-2"
               >
-                <span>COMPARE STORES</span>
-                <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                <span>Compare Stores</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                 </svg>
               </button>
             </div>
@@ -207,149 +203,152 @@
             <input type="hidden" id="combined-query" name="q" value="">
           </form>
 
-          <!-- Popular Category Quick-Picks -->
-          <div class="mt-4 pt-3.5 border-t border-[#E8E6ED] flex flex-wrap items-center gap-2">
-            <span class="text-xs font-black uppercase tracking-wider text-[#4C4066]">Quick Picks:</span>
-            <button type="button" class="quick-pill pm-tag pm-tag-gold cursor-pointer hover:opacity-90" data-query="Men Casual Shirt">Men Casual Shirt</button>
-            <button type="button" class="quick-pill pm-tag pm-tag-mint cursor-pointer hover:opacity-90" data-query="Air Fryer">Air Fryer</button>
-            <button type="button" class="quick-pill pm-tag pm-tag-white cursor-pointer hover:opacity-90" data-query="iPhone 15">iPhone 15</button>
-            <button type="button" class="quick-pill pm-tag pm-tag-sky cursor-pointer hover:opacity-90" data-query="Running Shoes">Running Shoes</button>
-            <button type="button" class="quick-pill pm-tag pm-tag-blush cursor-pointer hover:opacity-90" data-query="Summer Lawn Dress">Summer Lawn Dress</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-90" data-query="Dawlance Microwave">Dawlance Microwave</button>
+          <!-- Quick Picks -->
+          <div class="mt-4 pt-4 border-t border-[rgba(255,255,255,0.06)] flex flex-wrap items-center gap-2">
+            <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#666]">Quick Picks:</span>
+            <button type="button" class="quick-pill pm-tag pm-tag-gold cursor-pointer hover:opacity-80 transition-opacity" data-query="Men Casual Shirt">Men Casual Shirt</button>
+            <button type="button" class="quick-pill pm-tag pm-tag-mint cursor-pointer hover:opacity-80 transition-opacity" data-query="Air Fryer">Air Fryer</button>
+            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="iPhone 15">iPhone 15</button>
+            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="Running Shoes">Running Shoes</button>
+            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="Summer Lawn Dress">Summer Lawn Dress</button>
+            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80 transition-opacity" data-query="Dawlance Microwave">Dawlance Microwave</button>
           </div>
         </div>
 
-        <!-- Strict Accuracy Guarantee Banner -->
-        <div class="pm-card p-4 bg-[#FCD7D7] border-3 border-[#221636] flex items-center gap-3.5 shadow-[4px_4px_0px_#221636]">
-          <div class="w-8 h-8 rounded-full bg-[#96D4C7] border-2 border-[#221636] flex items-center justify-center text-[#221636] flex-shrink-0 shadow-[2px_2px_0px_#221636]">
-            <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        <!-- Accuracy Guarantee -->
+        <div class="pm-card p-4 bg-[#1a1a1a] flex items-center gap-4" style="animation: pw-fade-up 1s ease both 0.6s;">
+          <div class="w-8 h-8 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] flex-shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <div class="text-xs font-bold text-[#221636]">
-            <strong class="uppercase tracking-wider">Live Verified Pricing Guarantee:</strong> We never estimate, generate, or simulate prices. Every single rupee shown links directly to a real Pakistani store page.
+          <div class="text-[11px] font-medium text-[#888]">
+            <strong class="text-[#aaa] uppercase tracking-[0.1em]">Live Verified Pricing:</strong> Every price shown links directly to a real Pakistani store page. No estimates.
           </div>
         </div>
       </div>
     </div>
 
-    <!-- 3 Core Feature Cards Section (Polaroid Sketchbook Cards) -->
-    <div class="mt-20 sm:mt-28">
-      <div class="text-center mb-12">
-        <span class="pm-tag pm-tag-mint mb-2">How It Works</span>
-        <h2 class="font-display text-3xl sm:text-4xl text-[#221636] uppercase mt-2">
+    <!-- How It Works Section -->
+    <div class="mt-24 sm:mt-32">
+      <div class="text-center mb-14">
+        <span class="pm-tag pm-tag-mint mb-3 inline-block">How It Works</span>
+        <h2 class="font-display text-3xl sm:text-4xl text-white mt-3 uppercase">
           SIMPLE. ACCURATE. ZERO GUESSWORK.
         </h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- Feature 1: Polaroid Card -->
-        <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(-1deg);">
+        <!-- Feature 1 -->
+        <div class="pm-polaroid flex flex-col justify-between">
           <div class="pm-sticker-number">1</div>
           <div class="pm-washi"></div>
           <div>
             <div class="pt-4 pb-2">
-              <span class="pm-tag pm-tag-mint text-[10px] mb-2">Discovery Phase</span>
-              <h3 class="font-display text-xl text-[#221636] uppercase mb-2">Search Product</h3>
-              <p class="text-sm font-medium text-[#4C4066] leading-relaxed">
-                Type any product name. Our backend automatically queries DuckDuckGo for Pakistani e-commerce listings and discovers top merchant store URLs.
+              <span class="pm-tag pm-tag-mint text-[9px] mb-3 inline-block">Discovery</span>
+              <h3 class="font-display text-xl text-white mb-3 uppercase">SEARCH PRODUCT</h3>
+              <p class="text-sm font-light text-[#888] leading-relaxed">
+                Type any product name. Our backend queries top Pakistani e-commerce listings and discovers merchant store URLs.
               </p>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t-2 border-[#221636] flex items-center gap-2 text-xs font-bold text-[#4C4066]">
-            <span>• DuckDuckGo Engine</span>
-            <span>• Concurrency Semaphores</span>
+          <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center gap-3 text-[10px] font-medium text-[#666]">
+            <span>DuckDuckGo Engine</span>
+            <span class="text-[#333]">·</span>
+            <span>Concurrent Crawls</span>
           </div>
         </div>
 
-        <!-- Feature 2: Polaroid Card -->
-        <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(1deg);">
-          <div class="pm-sticker-number" style="background:#96D4C7;">2</div>
-          <div class="pm-washi pm-washi-gold"></div>
-          <div>
-            <div class="pt-4 pb-2">
-              <span class="pm-tag pm-tag-gold text-[10px] mb-2">Extraction Phase</span>
-              <h3 class="font-display text-xl text-[#221636] uppercase mb-2">Live Price Extraction</h3>
-              <p class="text-sm font-medium text-[#4C4066] leading-relaxed">
-                We parse Schema.org JSON-LD, OpenGraph tags, and HTML price selectors directly from store pages. Unverified numbers are dropped immediately.
-              </p>
-            </div>
-          </div>
-          <div class="mt-6 pt-4 border-t-2 border-[#221636] flex items-center gap-2 text-xs font-bold text-[#4C4066]">
-            <span>• Verified Stores</span>
-            <span>• PKR Standardized</span>
-          </div>
-        </div>
-
-        <!-- Feature 3: Polaroid Card -->
-        <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(-1deg);">
-          <div class="pm-sticker-number" style="background:#FCD7D7;">3</div>
+        <!-- Feature 2 -->
+        <div class="pm-polaroid flex flex-col justify-between">
+          <div class="pm-sticker-number" style="background:#c8a96e;">2</div>
           <div class="pm-washi"></div>
           <div>
             <div class="pt-4 pb-2">
-              <span class="pm-tag pm-tag-sky text-[10px] mb-2">Ranking Phase</span>
-              <h3 class="font-display text-xl text-[#221636] uppercase mb-2">Lowest Price First</h3>
-              <p class="text-sm font-medium text-[#4C4066] leading-relaxed">
-                Results are sorted from lowest to highest. The cheapest verified store is awarded the #1 lowest price badge so you always get the best deal.
+              <span class="pm-tag text-[9px] mb-3 inline-block">Extraction</span>
+              <h3 class="font-display text-xl text-white mb-3 uppercase">LIVE PRICE EXTRACTION</h3>
+              <p class="text-sm font-light text-[#888] leading-relaxed">
+                We parse Schema.org JSON-LD, OpenGraph tags, and HTML price selectors from store pages. Unverified numbers are dropped.
               </p>
             </div>
           </div>
-          <div class="mt-6 pt-4 border-t-2 border-[#221636] flex items-center gap-2 text-xs font-bold text-[#4C4066]">
-            <span>• Lowest Price Badge</span>
-            <span>• Direct Store Outlinks</span>
+          <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center gap-3 text-[10px] font-medium text-[#666]">
+            <span>Verified Stores</span>
+            <span class="text-[#333]">·</span>
+            <span>PKR Standardized</span>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="pm-polaroid flex flex-col justify-between">
+          <div class="pm-sticker-number" style="background:#444;">3</div>
+          <div class="pm-washi"></div>
+          <div>
+            <div class="pt-4 pb-2">
+              <span class="pm-tag text-[9px] mb-3 inline-block">Ranking</span>
+              <h3 class="font-display text-xl text-white mb-3 uppercase">LOWEST PRICE FIRST</h3>
+              <p class="text-sm font-light text-[#888] leading-relaxed">
+                Results are sorted from lowest to highest. The cheapest verified store gets the #1 badge so you always get the best deal.
+              </p>
+            </div>
+          </div>
+          <div class="mt-6 pt-4 border-t border-[rgba(255,255,255,0.06)] flex items-center gap-3 text-[10px] font-medium text-[#666]">
+            <span>Lowest Price Badge</span>
+            <span class="text-[#333]">·</span>
+            <span>Direct Store Links</span>
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- Supported Stores Strip -->
-    <div class="mt-16 pm-card p-6 bg-[#FFFFFF]">
+    <!-- Supported Stores -->
+    <div class="mt-20 pm-card p-6 bg-[#1a1a1a]">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div>
-          <h4 class="font-display text-lg text-[#221636] uppercase">SUPPORTED PAKISTANI STORES (PROTOTYPE)</h4>
-          <p class="text-xs font-bold text-[#4C4066]">Crawls and verifies listed prices from top retail domains across Pakistan</p>
+          <h4 class="font-display text-lg text-white uppercase">SUPPORTED PAKISTANI STORES</h4>
+          <p class="text-[11px] font-medium text-[#666] mt-1">Crawls and verifies listed prices from top retail domains</p>
         </div>
         <div class="flex flex-wrap gap-2">
           <span class="pm-tag pm-tag-mint">PriceOye</span>
           <span class="pm-tag pm-tag-gold">Daraz Mall</span>
-          <span class="pm-tag pm-tag-white">Telemart</span>
-          <span class="pm-tag pm-tag-sky">Shophive</span>
-          <span class="pm-tag pm-tag-blush">Mega.pk</span>
+          <span class="pm-tag">Telemart</span>
+          <span class="pm-tag">Shophive</span>
+          <span class="pm-tag">Mega.pk</span>
           <span class="pm-tag pm-tag-mint">Paklap</span>
-          <span class="pm-tag pm-tag-gold">Computer Zone</span>
+          <span class="pm-tag">Computer Zone</span>
         </div>
       </div>
     </div>
   </main>
 
-  <!-- Arcade Coin Token Divider before Footer -->
+  <!-- Divider -->
   <div class="pm-coin-divider px-4 mt-16 mb-8">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
 
-  <!-- Footer (Deep Night Purple Theme) -->
-  <footer class="w-full bg-[#221636] text-[#FCD7D7] border-t-4 border-[#96D4C7] py-10 relative">
+  <!-- Footer -->
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center font-display text-sm text-[#221636] shadow-[2px_2px_0px_#FFFFFF]">
+        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">
           ₨
         </div>
-        <span class="font-display text-xl text-white">PennyWise</span>
-        <span class="text-xs font-bold text-[#96D4C7]">| Smart Price Comparison for Pakistan</span>
+        <span class="font-display text-lg text-white">PennyWise</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Smart Price Comparison</span>
       </div>
 
-      <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
         <a href="index.html" class="pm-nav active">Home</a>
         <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
         <a href="about.html" class="pm-nav">About</a>
         <a href="404.html" class="pm-nav">404</a>
       </div>
 
-      <p class="text-xs font-medium text-[#BBDCF4]">
+      <p class="text-[10px] font-medium text-[#555]">
         © 2026 PennyWise Prototype. All store names and prices belong to their respective merchants.
       </p>
     </div>
@@ -358,101 +357,89 @@
   <!-- Hidden Vision Camera / File Input -->
   <input type="file" id="vision-file-input" accept="image/*" capture="environment" class="hidden">
 
-  <!-- Gemini Visual Search Modal (Arcade / Neo-Brutalist) -->
-  <div id="vision-modal" class="hidden fixed inset-0 z-50 bg-[#221636]/65 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="pm-card p-6 bg-[#FFFDF5] max-w-lg w-full relative shadow-[8px_8px_0px_#221636] border-3 border-[#221636]">
-      <!-- Washi tape at top -->
-      <div class="pm-washi bg-[#F5B72B]"></div>
+  <!-- Vision Search Modal -->
+  <div id="vision-modal" class="hidden fixed inset-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="pm-card p-6 bg-[#1a1a1a] max-w-lg w-full relative border border-[rgba(255,255,255,0.1)]" style="animation: pw-scale-in 0.3s ease both;">
+      <!-- Accent line -->
+      <div class="pm-washi"></div>
 
       <!-- Modal Header -->
-      <div class="flex items-center justify-between pb-3.5 mb-4 border-b-2 border-[#221636]">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-[#96D4C7] border-2 border-[#221636] flex items-center justify-center shadow-[1px_1px_0px_#221636] flex-shrink-0">
-            <svg class="w-4 h-4 stroke-[2.5] text-[#221636]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+      <div class="flex items-center justify-between pb-4 mb-4 border-b border-[rgba(255,255,255,0.08)]">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full border border-[#c8a96e] flex items-center justify-center flex-shrink-0">
+            <svg class="w-4 h-4 text-[#c8a96e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
           <div>
-            <h3 class="font-display text-base sm:text-lg text-[#221636] uppercase tracking-wide">
-              AI VISUAL SEARCH
+            <h3 class="font-display text-lg text-white uppercase">
+              VISUAL SEARCH
             </h3>
-            <span class="text-[10px] font-bold text-[#4C4066] uppercase tracking-wider block -mt-0.5">
-              Instant AI Product Identification
+            <span class="text-[9px] font-medium text-[#666] uppercase tracking-[0.15em] block">
+              AI Product Identification
             </span>
           </div>
         </div>
         <button 
           type="button" 
           id="btn-close-vision-modal" 
-          class="w-7 h-7 rounded-full bg-white hover:bg-[#FCD7D7] border-2 border-[#221636] flex items-center justify-center text-[#221636] shadow-[1px_1px_0px_#221636] transition-all cursor-pointer"
+          class="w-7 h-7 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#888] hover:text-white hover:border-white transition-all cursor-pointer"
           title="Close"
         >
-          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <!-- State 1: Drop / Select Screen -->
+      <!-- State 1: Drop -->
       <div id="vision-state-drop" class="space-y-4">
         <div 
           id="vision-dropzone" 
-          class="border-3 border-dashed border-[#221636] rounded-xl p-6 sm:p-8 bg-white text-center cursor-pointer hover:bg-[#BBDCF4]/15 transition-all flex flex-col items-center justify-center gap-3"
+          class="border border-dashed border-[rgba(255,255,255,0.15)] rounded-lg p-8 bg-[#111] text-center cursor-pointer hover:border-[#c8a96e] transition-all flex flex-col items-center justify-center gap-3"
         >
-          <div class="w-14 h-14 rounded-2xl bg-[#BBDCF4] border-2 border-[#221636] shadow-[3px_3px_0px_#221636] flex items-center justify-center text-[#221636]">
-            <svg class="w-7 h-7 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#c8a96e]">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
           </div>
           <div>
-            <div class="font-display text-sm sm:text-base text-[#221636] uppercase">
+            <div class="text-sm font-medium text-white">
               Upload or Take a Photo
             </div>
-            <p class="text-xs font-semibold text-[#4C4066] mt-1 max-w-xs mx-auto">
-              Drag and drop an image, snap with camera, or click to browse files
+            <p class="text-[11px] text-[#666] mt-1 max-w-xs mx-auto">
+              Drag and drop, snap with camera, or click to browse
             </p>
           </div>
-          <span class="pm-tag pm-tag-gold text-[10px] font-black uppercase">
-            SUPPORTS ALL PRODUCT TYPES
-          </span>
-        </div>
-
-        <div class="flex items-center justify-between text-[11px] font-bold text-[#4C4066] px-1">
-          <span>Works with apparel, appliances, shoes & phones</span>
-          <span class="text-gray-400">Max 10MB</span>
         </div>
       </div>
 
-      <!-- State 2: Scanning / Loading Screen -->
-      <div id="vision-state-scanning" class="hidden flex flex-col items-center text-center py-4 space-y-4">
-        <div class="relative w-44 h-44 rounded-xl border-3 border-[#221636] bg-white overflow-hidden shadow-[4px_4px_0px_#221636]">
+      <!-- State 2: Scanning -->
+      <div id="vision-state-scanning" class="hidden flex flex-col items-center text-center py-6 space-y-4">
+        <div class="relative w-40 h-40 rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#111] overflow-hidden">
           <img id="vision-preview-img" src="" alt="Product Preview" class="w-full h-full object-cover">
-          <!-- Laser Scan Line Effect -->
-          <div class="absolute inset-x-0 h-1 bg-[#EE2D2B] shadow-[0_0_8px_#EE2D2B] animate-bounce"></div>
-          <div class="absolute inset-0 bg-[#221636]/10 pointer-events-none"></div>
+          <div class="absolute inset-x-0 h-0.5 bg-[#c8a96e] shadow-[0_0_12px_#c8a96e] animate-bounce"></div>
+          <div class="absolute inset-0 bg-[#0a0a0a]/20 pointer-events-none"></div>
         </div>
-
         <div>
-          <span class="pm-tag pm-tag-gold animate-pulse text-xs font-black uppercase">
-            SCANNING WITH AI VISION...
-          </span>
-          <p class="text-xs font-bold text-[#4C4066] mt-2">
-            Analyzing brand marks, silhouette, and model specs...
+          <div class="pw-loading-bar w-48 mx-auto mb-3"></div>
+          <p class="text-[11px] font-medium text-[#888]">
+            Analyzing product...
           </p>
         </div>
       </div>
 
-      <!-- State 3: Identified / Success Screen -->
+      <!-- State 3: Success -->
       <div id="vision-state-success" class="hidden space-y-4">
-        <div class="flex items-center gap-3 p-3 bg-white border-2 border-[#221636] rounded-xl shadow-[3px_3px_0px_#221636]">
-          <img id="vision-success-thumb" src="" alt="Thumbnail" class="w-16 h-16 rounded-lg object-cover border border-[#221636] flex-shrink-0">
+        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[rgba(255,255,255,0.08)] rounded-lg">
+          <img id="vision-success-thumb" src="" alt="Thumbnail" class="w-14 h-14 rounded object-cover border border-[rgba(255,255,255,0.08)] flex-shrink-0">
           <div class="flex-grow min-w-0">
-            <span class="pm-tag pm-tag-mint text-[9px] font-black uppercase">IDENTIFIED</span>
-            <h4 id="vision-identified-title" class="font-bold text-sm text-[#221636] truncate mt-1">Product Title</h4>
-            <div class="flex items-center gap-2 text-xs font-semibold text-[#4C4066] mt-0.5">
-              <span id="vision-identified-brand" class="pm-tag pm-tag-sky text-[10px] py-0 px-1.5 font-bold">Brand</span>
-              <span id="vision-identified-category" class="text-[11px] text-gray-500">Category</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">IDENTIFIED</span>
+            <h4 id="vision-identified-title" class="font-medium text-sm text-white truncate mt-1">Product Title</h4>
+            <div class="flex items-center gap-2 text-[11px] text-[#888] mt-0.5">
+              <span id="vision-identified-brand" class="text-[#c8a96e]">Brand</span>
+              <span id="vision-identified-category" class="text-[#666]">Category</span>
             </div>
           </div>
         </div>
@@ -460,36 +447,34 @@
         <button 
           type="button" 
           id="btn-apply-vision-result" 
-          class="w-full pm-btn pm-btn-primary py-3 text-sm flex items-center justify-center gap-2 shadow-[4px_4px_0px_#221636]"
+          class="w-full pm-btn pm-btn-primary py-3 text-xs flex items-center justify-center gap-2"
         >
-          <span>APPLY TO SEARCH & COMPARE</span>
-          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          <span>Apply to Search</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
           </svg>
         </button>
       </div>
 
-      <!-- State 4: Error Screen -->
-      <div id="vision-state-error" class="hidden text-center py-4 space-y-3">
-        <div class="w-12 h-12 rounded-full bg-[#FCD7D7] border-2 border-[#221636] flex items-center justify-center text-[#EE2D2B] mx-auto shadow-[2px_2px_0px_#221636]">
-          <svg class="w-6 h-6 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+      <!-- State 4: Error -->
+      <div id="vision-state-error" class="hidden text-center py-6 space-y-4">
+        <div class="w-10 h-10 rounded-full border border-[#cc3333] flex items-center justify-center text-[#cc3333] mx-auto">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
           </svg>
         </div>
         <div>
-          <span class="pm-tag pm-tag-white text-xs font-black uppercase text-[#EE2D2B]">
-            IDENTIFICATION FAILED
-          </span>
-          <p id="vision-error-msg" class="text-xs font-bold text-[#4C4066] mt-2 max-w-xs mx-auto">
+          <p class="text-sm font-medium text-[#cc3333] uppercase tracking-[0.1em]">Identification Failed</p>
+          <p id="vision-error-msg" class="text-[11px] text-[#888] mt-2 max-w-xs mx-auto">
             Unable to recognize product.
           </p>
         </div>
         <button 
           type="button" 
           id="btn-vision-retry" 
-          class="pm-btn pm-btn-gold py-2 px-6 text-xs mx-auto font-black flex items-center gap-1.5 shadow-[2px_2px_0px_#221636]"
+          class="pm-btn pm-btn-gold py-2 px-6 text-[10px] mx-auto"
         >
-          TRY ANOTHER PHOTO
+          Try Another Photo
         </button>
       </div>
     </div>
@@ -498,5 +483,39 @@
   <!-- Scripts -->
   <script src="js/main.js"></script>
   <script src="js/vision-search.js"></script>
+
+  <!-- Scroll Reveal -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -10% 0px' });
+      
+      document.querySelectorAll('.pw-reveal').forEach(el => observer.observe(el));
+
+      // Add reveal class to polaroid cards
+      document.querySelectorAll('.pm-polaroid').forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(40px)';
+        card.style.transition = `opacity 0.8s ease ${i * 0.15}s, transform 0.8s ease ${i * 0.15}s`;
+        
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -5% 0px' });
+        obs.observe(card);
+      });
+    });
+  </script>
 </body>
 </html>
