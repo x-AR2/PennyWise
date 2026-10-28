@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Hard Retro Drop Shadow (Zero blur) -->
+  <circle cx="35" cy="35" r="27" fill="#221636" />
+  
+  <!-- Arcade Coin Body -->
+  <circle cx="31" cy="31" r="27" fill="#F5B72B" stroke="#221636" stroke-width="3.5" />
+  
+  <!-- Inner Stitched Coin Keyline -->
+  <circle cx="31" cy="31" r="22.5" fill="none" stroke="#221636" stroke-width="2" stroke-dasharray="3.5 2.5" />
+  
+  <!-- Currency Symbol ₨ -->
+  <text x="31" y="41.5" font-family="system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" font-weight="900" font-size="28" fill="#221636" text-anchor="middle" letter-spacing="-1">₨</text>
+</svg>

@@ -4,45 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About PennyWise | Project Overview & Specification</title>
+  <!-- Google Fonts: Climate Crisis & Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#F5B72B] selection:text-[#221636]">
 
-  <!-- Top Bar -->
-  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#c8a96e]">Smart Price Comparison</span>
-    <span class="text-[#333]">·</span>
-    <span class="text-[#666]">Project Specification</span>
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
+    <span class="text-[#96D4C7]">Smart Price Comparison</span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="bg-[#F5B72B] text-[#221636] px-2.5 py-0.5 rounded-full font-black text-[11px] border border-[#221636] shadow-[2px_2px_0px_#221636]">
+      Project Specification
+    </span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="text-[#BBDCF4]">Version 0.1 (Prototype)</span>
   </div>
 
-  <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-8 pb-14 border-b border-[rgba(255,255,255,0.06)] relative">
+  <!-- Header Section with Sawtooth Border -->
+  <header class="w-full bg-[#221636] text-white pt-6 pb-12 border-b-4 border-[#96D4C7] relative pm-sawtooth-bottom-blush">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
-        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
-          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(150,212,199,0.25)]">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#F5B72B] border-3 border-[#221636] flex items-center justify-center font-display text-2xl text-[#221636] shadow-[3px_3px_0px_#FFFFFF] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+            ₨
+          </div>
           <div>
-            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PennyWise</span>
-            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
+            <span class="font-display text-3xl tracking-tight text-white group-hover:text-[#F5B72B] transition-colors">PennyWise</span>
+            <span class="text-xs font-bold text-[#96D4C7] uppercase tracking-widest ml-1">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-8 text-xs tracking-[0.15em]">
+
+        <!-- Navigation Links with Stepped Underlines -->
+        <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
           <a href="index.html" class="pm-nav">Home</a>
           <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
           <a href="about.html" class="pm-nav active">About</a>
-          <a href="404.html" class="pm-nav">404</a>
+          <a href="404.html" class="pm-nav text-[#4C4066] hover:text-[#96D4C7]">404</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- Divider -->
+  <!-- Arcade Coin Token Section Rule -->
   <div class="pm-coin-divider px-4 my-6">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
@@ -52,172 +66,185 @@
   <!-- Main Content -->
   <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-10">
     
-    <!-- Hero Box -->
-    <div class="pm-card p-8 bg-[#1a1a1a] border border-[rgba(200,169,110,0.15)] relative overflow-hidden" style="animation: pw-fade-up 0.8s ease both;">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent"></div>
-      <div class="inline-flex gap-2 mb-4">
-        <span class="pm-tag text-[9px]">Price Comparison Engine</span>
-        <span class="pm-tag pm-tag-mint text-[9px]">Specification v0.1</span>
+    <!-- Hero Box (Polaroid / Banner with Washi) -->
+    <div class="pm-card p-8 bg-[#F5B72B] border-3 border-[#221636] relative shadow-[6px_6px_0px_#221636]">
+      <div class="pm-washi" style="background:#FFFFFF;"></div>
+      <div class="inline-flex gap-2 mb-3">
+        <span class="pm-tag pm-tag-white text-xs">Price Comparison Engine</span>
+        <span class="pm-tag pm-tag-mint text-xs">Specification v0.1</span>
       </div>
-      <h1 class="font-display text-4xl sm:text-5xl text-white mb-4">
-        About PennyWise
+      <h1 class="font-display text-4xl sm:text-5xl text-[#221636] uppercase mb-4">
+        ABOUT PENNYWISE
       </h1>
-      <p class="text-base font-light text-[#aaa] max-w-3xl leading-relaxed">
-        PennyWise helps shoppers in Pakistan find the cheapest available price for any product. We crawl real online stores, extract actual listed prices in PKR, and show them sorted lowest to highest with direct source links.
+      <p class="text-lg font-bold text-[#221636] max-w-3xl leading-relaxed">
+        PennyWise is a web application that helps shoppers in Pakistan find the cheapest available price for any product. We crawl real online stores, extract actual listed prices in PKR, and show them sorted lowest to highest with direct source links.
       </p>
     </div>
 
-    <!-- Goals Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="animation: pw-fade-up 0.8s ease both 0.2s;">
+    <!-- Core Goals & Non-Goals Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       <!-- Goals -->
-      <div class="pm-polaroid flex flex-col justify-between">
-        <div class="pm-sticker-number" style="background:#c8a96e;">
-          <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+      <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(-1deg);">
+        <div class="pm-sticker-number flex items-center justify-center" style="background:#96D4C7;">
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
         </div>
         <div class="pm-washi"></div>
         <div>
-          <h2 class="font-display text-2xl text-white mb-5 pt-2">Prototype Goals</h2>
-          <ul class="space-y-4 text-sm font-light text-[#aaa]">
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
+          <h2 class="font-display text-2xl text-[#221636] uppercase mb-4 pt-2">PROTOTYPE GOALS</h2>
+          <ul class="space-y-3.5 text-sm font-semibold text-[#4C4066]">
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#F5B72B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
               <span>Let users search any product and see real prices from Pakistani online stores.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#F5B72B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
               <span>Sort results by price ascending so the cheapest option is obvious.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#F5B72B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
               <span>Strict data accuracy: Show only data actually collected from a real store page.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#c8a96e] mt-2 flex-shrink-0"></span>
-              <span>Keep the interface simple, consistent, and easy to build.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#F5B72B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
+              <span>Keep the interface simple, consistent, and easy to build for a beginner team.</span>
             </li>
           </ul>
         </div>
       </div>
 
       <!-- Non-Goals -->
-      <div class="pm-polaroid flex flex-col justify-between">
-        <div class="pm-sticker-number" style="background:#333;">
-          <svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      <div class="pm-polaroid flex flex-col justify-between" style="transform: rotate(1deg);">
+        <div class="pm-sticker-number flex items-center justify-center" style="background:#FCD7D7;">
+          <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </div>
-        <div class="pm-washi"></div>
+        <div class="pm-washi pm-washi-gold"></div>
         <div>
-          <h2 class="font-display text-2xl text-white mb-5 pt-2">Non-Goals (Prototype)</h2>
-          <ul class="space-y-4 text-sm font-light text-[#aaa]">
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
-              <span>Ticket search (events, cinema, bus, flights) — planned for later.</span>
+          <h2 class="font-display text-2xl text-[#221636] uppercase mb-4 pt-2">NON-GOALS (PROTOTYPE)</h2>
+          <ul class="space-y-3.5 text-sm font-semibold text-[#4C4066]">
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#EE2D2B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
+              <span>Ticket search (events, cinema, bus, flights) — planned for subsequent phases.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#EE2D2B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
               <span>Side-by-side product specification comparison.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
-              <span>Price history, alerts, or wishlists.</span>
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#EE2D2B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
+              <span>Price history time-series, alerts, or wishlists.</span>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#cc3333] mt-2 flex-shrink-0"></span>
+            <li class="flex items-start gap-2.5">
+              <span class="w-2 h-2 rounded-full bg-[#EE2D2B] border border-[#221636] mt-1.5 flex-shrink-0"></span>
               <span>User accounts, logins, and database admin panels.</span>
             </li>
           </ul>
         </div>
       </div>
+
     </div>
 
-    <!-- Data Accuracy -->
-    <div class="pm-card p-6 bg-[#1a1a1a] border border-[rgba(200,169,110,0.15)] relative" style="animation: pw-fade-up 0.8s ease both 0.3s;">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent"></div>
-      <div class="inline-flex items-center gap-2 mb-3">
-        <span class="pm-tag text-[9px]">Data Integrity</span>
-        <span class="pm-tag pm-tag-mint text-[9px]">Strict Rule</span>
+    <!-- Data Accuracy Philosophy -->
+    <div class="pm-card p-6 bg-[#BBDCF4] border-3 border-[#221636] shadow-[6px_6px_0px_#221636]">
+      <div class="inline-flex items-center gap-2 mb-2">
+        <span class="pm-tag pm-tag-white text-xs">Data Integrity</span>
+        <span class="pm-tag pm-tag-mint text-xs">Strict Rule</span>
       </div>
-      <h2 class="font-display text-2xl sm:text-3xl text-white mb-3">
-        The Data Accuracy Policy
+      <h2 class="font-display text-2xl sm:text-3xl text-[#221636] uppercase mb-3">
+        THE DATA ACCURACY POLICY
       </h2>
-      <p class="text-sm font-light text-[#aaa] leading-relaxed mb-4">
+      <p class="text-sm sm:text-base font-bold text-[#221636] leading-relaxed mb-4">
         The application must never display information that was not collected from a real store page. 
-        Prices are extracted via structured Schema JSON-LD, OpenGraph tags, or confirmed HTML price blocks. Items with missing data are permanently dropped.
+        Prices are extracted via structured Schema JSON-LD, OpenGraph tags, or confirmed HTML price blocks and verified against store pages. Items with missing titles, missing prices, or missing URLs are permanently dropped, never repaired with placeholder data.
       </p>
-      <div class="flex flex-wrap gap-2 text-[9px]">
-        <span class="pm-tag">No Synthetic Data</span>
-        <span class="pm-tag">Live Scrapes</span>
-        <span class="pm-tag">Direct URL Required</span>
+      <div class="flex flex-wrap gap-2 text-xs font-black">
+        <span class="pm-tag pm-tag-white">No Synthetic Data</span>
+        <span class="pm-tag pm-tag-white">Live Real-Time Scrapes</span>
+        <span class="pm-tag pm-tag-white">Direct URL Required</span>
       </div>
     </div>
 
-    <!-- Tech Stack -->
-    <div class="pm-card p-6 bg-[#1a1a1a]" style="animation: pw-fade-up 0.8s ease both 0.4s;">
-      <h2 class="font-display text-2xl text-white mb-6">Prototype Tech Stack</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs">
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Frontend</span>
-          <span class="text-sm font-display text-white">HTML5 + Tailwind</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Dark luxury aesthetic with custom design tokens.</p>
+    <!-- Tech Stack Box -->
+    <div class="pm-card p-6 bg-white border-3 border-[#221636]">
+      <h2 class="font-display text-2xl text-[#221636] uppercase mb-6">PROTOTYPE TECH STACK</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 text-xs font-bold">
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
+          <span class="text-[#4C4066] uppercase block mb-1">Frontend</span>
+          <span class="text-sm font-display text-[#221636] uppercase">HTML5 + TAILWIND</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Retro arcade aesthetic with Pigeon's Mission tokens.</p>
         </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Animation</span>
-          <span class="text-sm font-display text-white">DotLottie</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Lightweight vector animations and loading spinners.</p>
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
+          <span class="text-[#4C4066] uppercase block mb-1">Animation</span>
+          <span class="text-sm font-display text-[#221636] uppercase">DOTLOTTIE ANIMATION</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Lightweight vector coin mascot and scraping loading spinner.</p>
         </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Backend</span>
-          <span class="text-sm font-display text-white">Python & FastAPI</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Asynchronous API endpoints with OpenAPI docs.</p>
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
+          <span class="text-[#4C4066] uppercase block mb-1">Backend</span>
+          <span class="text-sm font-display text-[#221636] uppercase">PYTHON & FASTAPI</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Asynchronous API endpoints with OpenAPI docs.</p>
         </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Search Engine</span>
-          <span class="text-sm font-display text-white">DuckDuckGo</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Queries top Pakistani retail and e-commerce URLs.</p>
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
+          <span class="text-[#4C4066] uppercase block mb-1">Search Engine</span>
+          <span class="text-sm font-display text-[#221636] uppercase">DUCKDUCKGO (DDGS)</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Queries top Pakistani retail and e-commerce URLs.</p>
         </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Crawler</span>
-          <span class="text-sm font-display text-white">Async HTTPX & BS4</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Parallel page fetching with JSON-LD & regex.</p>
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
+          <span class="text-[#4C4066] uppercase block mb-1">Crawler & Extractor</span>
+          <span class="text-sm font-display text-[#221636] uppercase">ASYNC HTTPX & BS4</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Parallel page fetching with JSON-LD & regex waterfall.</p>
         </div>
-        <div class="p-4 rounded border border-[rgba(255,255,255,0.06)] bg-[#111]">
-          <span class="text-[9px] font-semibold text-[#666] uppercase tracking-[0.15em] block mb-1">Storage</span>
-          <span class="text-sm font-display text-white">In-Memory TTL Cache</span>
-          <p class="text-[10px] font-light text-[#666] mt-1">Thread-safe cache per query to prevent repeat crawls.</p>
+        <div class="p-4 rounded-xl border-2 border-[#221636] bg-[#FFFDF5] shadow-[3px_3px_0px_#221636]">
+          <span class="text-[#4C4066] uppercase block mb-1">Storage</span>
+          <span class="text-sm font-display text-[#221636] uppercase">IN-MEMORY TTL CACHE</span>
+          <p class="text-[11px] font-normal text-[#4C4066] mt-1">Thread-safe cache per query to prevent repeat crawls.</p>
         </div>
       </div>
     </div>
 
-    <!-- Back Button -->
+    <!-- Back to Action Button -->
     <div class="flex justify-center pt-4">
-      <a href="index.html" class="pm-btn pm-btn-gold px-8 py-4 text-xs flex items-center gap-2">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-        <span>Back to Search</span>
+      <a href="index.html" class="pm-btn pm-btn-gold px-8 py-4 text-base flex items-center gap-2">
+        <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+        </svg>
+        <span>Back to Search Homepage</span>
       </a>
     </div>
+
   </main>
 
-  <!-- Divider -->
+  <!-- Arcade Coin Token Divider before Footer -->
   <div class="pm-coin-divider px-4 mt-16 mb-8">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
 
-  <!-- Footer -->
-  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
+  <!-- Footer (Deep Night Purple Theme) -->
+  <footer class="w-full bg-[#221636] text-[#FCD7D7] border-t-4 border-[#96D4C7] py-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
-        <span class="font-display text-lg text-white">PennyWise</span>
-        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison</span>
+        <div class="w-8 h-8 rounded-full bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center font-display text-sm text-[#221636] shadow-[2px_2px_0px_#FFFFFF]">
+          ₨
+        </div>
+        <span class="font-display text-xl text-white">PennyWise</span>
+        <span class="text-xs font-bold text-[#96D4C7]">| Smart Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+
+      <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
         <a href="index.html" class="pm-nav">Home</a>
         <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
         <a href="about.html" class="pm-nav active">About</a>
         <a href="404.html" class="pm-nav">404</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+
+      <p class="text-xs font-medium text-[#BBDCF4]">
+        © 2026 PennyWise Prototype.
+      </p>
     </div>
   </footer>
 

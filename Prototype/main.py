@@ -12,12 +12,6 @@ from typing import List, Optional, Dict, Any
 
 from app.cache import search_cache
 from app.crawler import crawl_and_extract_products
-from app.db import (
-    record_search_prices,
-    get_price_history_data,
-    create_price_alert,
-    get_active_alerts
-)
 from app.ai_helper import (
     generate_shopping_insights,
     is_ai_enabled,
@@ -99,14 +93,6 @@ class VisionIdentifyResponse(BaseModel):
     error: Optional[str] = None
 
 
-class AlertCreateRequest(BaseModel):
-    query: str
-    target_price: int
-    email: str
-    phone: Optional[str] = None
-    title: Optional[str] = None
-
-
 # Page Routes (Section 8)
 @app.get("/", response_class=FileResponse)
 async def serve_home():
@@ -119,31 +105,6 @@ async def serve_index():
 @app.get("/results.html", response_class=FileResponse)
 async def serve_results():
     return FileResponse(os.path.join(BASE_DIR, "results.html"))
-
-@app.get("/product.html", response_class=FileResponse)
-@app.get("/product", response_class=FileResponse)
-async def serve_product():
-    return FileResponse(os.path.join(BASE_DIR, "product.html"))
-
-@app.get("/compare.html", response_class=FileResponse)
-@app.get("/compare", response_class=FileResponse)
-async def serve_compare():
-    return FileResponse(os.path.join(BASE_DIR, "compare.html"))
-
-@app.get("/wishlist.html", response_class=FileResponse)
-@app.get("/wishlist", response_class=FileResponse)
-async def serve_wishlist():
-    return FileResponse(os.path.join(BASE_DIR, "wishlist.html"))
-
-@app.get("/price-history.html", response_class=FileResponse)
-@app.get("/price-history", response_class=FileResponse)
-async def serve_price_history():
-    return FileResponse(os.path.join(BASE_DIR, "price-history.html"))
-
-@app.get("/stores-categories.html", response_class=FileResponse)
-@app.get("/stores-categories", response_class=FileResponse)
-async def serve_stores_categories():
-    return FileResponse(os.path.join(BASE_DIR, "stores-categories.html"))
 
 @app.get("/about.html", response_class=FileResponse)
 async def serve_about():

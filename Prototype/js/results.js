@@ -115,22 +115,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (state === "loading") {
       stateLoading.classList.remove("hidden");
-      crawlerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-[#c8a96e] border border-[rgba(255,255,255,0.1)] animate-ping";
+      crawlerStatusDot.className = "w-3 h-3 rounded-full bg-[#F5B72B] border-2 border-[#221636] animate-ping";
       crawlerStatusLabel.textContent = "CRAWLING STORES...";
       if (btnSearchSubmit) btnSearchSubmit.disabled = true;
     } else if (state === "empty") {
       stateEmpty.classList.remove("hidden");
-      crawlerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-[#555] border border-[rgba(255,255,255,0.1)]";
+      crawlerStatusDot.className = "w-3 h-3 rounded-full bg-gray-400 border-2 border-[#221636]";
       crawlerStatusLabel.textContent = "COMPLETED (0 FOUND)";
       if (btnSearchSubmit) btnSearchSubmit.disabled = false;
     } else if (state === "error") {
       stateError.classList.remove("hidden");
-      crawlerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-[#cc3333] border border-[rgba(255,255,255,0.1)]";
+      crawlerStatusDot.className = "w-3 h-3 rounded-full bg-[#EE2D2B] border-2 border-[#221636]";
       crawlerStatusLabel.textContent = "ERROR";
       if (btnSearchSubmit) btnSearchSubmit.disabled = false;
     } else {
       stateResults.classList.remove("hidden");
-      crawlerStatusDot.className = "w-2.5 h-2.5 rounded-full bg-[#4a9e6e] border border-[rgba(255,255,255,0.1)]";
+      crawlerStatusDot.className = "w-3 h-3 rounded-full bg-[#96D4C7] border-2 border-[#221636]";
       crawlerStatusLabel.textContent = "CRAWL COMPLETE";
       if (btnSearchSubmit) btnSearchSubmit.disabled = false;
     }
@@ -176,32 +176,32 @@ document.addEventListener("DOMContentLoaded", () => {
     crawlerLogsTbody.innerHTML = "";
     logs.forEach((log) => {
       const tr = document.createElement("tr");
-      tr.className = "hover:bg-[#111] border-b border-[rgba(255,255,255,0.04)] transition-colors";
+      tr.className = "hover:bg-[#221636] border-b border-[#4C4066] transition-colors";
 
       const statusBadge = log.http_status === 200
-        ? `<span class="text-[#4a9e6e] font-medium">200 OK</span>`
-        : `<span class="text-[#cc3333] font-medium">${log.http_status || "Failed"}</span>`;
+        ? `<span class="text-[#96D4C7] font-bold">200 OK</span>`
+        : `<span class="text-[#EE2D2B] font-bold">${log.http_status || "Failed"}</span>`;
 
       const methodBadge = log.method
-        ? `<span class="bg-[#c8a96e] text-[#0a0a0a] px-2 py-0.5 font-medium rounded-sm text-[9px]">${escapeHtml(log.method)}</span>`
-        : `<span class="text-[#555] text-[9px]">None</span>`;
+        ? `<span class="bg-[#F5B72B] text-[#221636] px-2 py-0.5 font-bold rounded-sm text-[10px] border border-[#221636]">${escapeHtml(log.method)}</span>`
+        : `<span class="text-gray-500 text-[10px]">None</span>`;
 
-      const priceText = log.price ? formatPKR(log.price) : `<span class="text-[#555]">N/A</span>`;
-      const titleSnippet = log.title ? escapeHtml(log.title.substring(0, 45)) : `<span class="text-[#555]">${escapeHtml(log.error || "No match")}</span>`;
+      const priceText = log.price ? formatPKR(log.price) : `<span class="text-gray-500">N/A</span>`;
+      const titleSnippet = log.title ? escapeHtml(log.title.substring(0, 45)) : `<span class="text-gray-400">${escapeHtml(log.error || "No match")}</span>`;
 
       tr.innerHTML = `
-        <td class="p-3 font-medium text-white">${escapeHtml(log.store || "Unknown")}</td>
+        <td class="p-3 font-bold text-white">${escapeHtml(log.store || "Unknown")}</td>
         <td class="p-3">${statusBadge}</td>
         <td class="p-3">${methodBadge}</td>
-        <td class="p-3 text-[#aaa]">
-          <div class="font-medium text-white text-[10px]">${priceText}</div>
-          <div class="text-[9px] text-[#555] truncate max-w-xs">${titleSnippet}</div>
+        <td class="p-3 text-gray-200">
+          <div class="font-bold text-white text-xs">${priceText}</div>
+          <div class="text-[10px] text-gray-400 truncate max-w-xs">${titleSnippet}</div>
         </td>
-        <td class="p-3 text-[#888]">${log.duration_ms || 0}ms</td>
+        <td class="p-3 text-[#BBDCF4]">${log.duration_ms || 0}ms</td>
         <td class="p-3">
-          <a href="${escapeHtml(log.url)}" target="_blank" rel="noopener noreferrer" class="text-[#c8a96e] hover:text-white hover:underline flex items-center gap-1 font-medium" title="${escapeHtml(log.url)}">
-            <span>View</span>
-            <svg class="w-3 h-3 inline ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <a href="${escapeHtml(log.url)}" target="_blank" rel="noopener noreferrer" class="text-[#BBDCF4] hover:text-white hover:underline flex items-center gap-1 font-bold" title="${escapeHtml(log.url)}">
+            <span>View Link</span>
+            <svg class="w-3.5 h-3.5 inline ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
           </a>
         </td>
       `;
@@ -209,21 +209,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Dark luxury fallback when product image can't load
+  // Themed Neo-Brutalist Fallback Artwork when product photo cannot be fetched or is hotlink-blocked
   function getProductFallbackHtml() {
     return `
-      <div class="product-fallback-box w-full h-44 bg-[#111] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3.5 flex flex-col items-center justify-center text-center p-3 relative overflow-hidden select-none">
-        <svg class="w-10 h-10 mb-2 flex-shrink-0 text-[#444]" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="8" y="12" width="46" height="38" rx="6" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <rect x="16" y="7" width="14" height="6" rx="2" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <circle cx="31" cy="31" r="10" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <line x1="24" y1="38" x2="38" y2="24" stroke="#cc3333" stroke-width="1.5" stroke-linecap="round" />
+      <div class="product-fallback-box w-full h-44 bg-[#FFFDF5] border-2 border-[#221636] rounded-lg mb-3.5 flex flex-col items-center justify-center text-center p-3 relative overflow-hidden select-none shadow-[inset_0_2px_4px_rgba(34,22,54,0.04)]">
+        <!-- Washi corner tag accent -->
+        <div class="absolute top-1.5 right-1.5 w-6 h-2 bg-[#F5B72B] border border-[#221636] rotate-12 opacity-80 pointer-events-none"></div>
+
+        <!-- Bespoke Neo-Brutalist Offline Camera SVG -->
+        <svg class="w-12 h-12 mb-1.5 flex-shrink-0" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="14" width="46" height="38" rx="6" fill="#221636" />
+          <rect x="8" y="12" width="46" height="38" rx="6" fill="#BBDCF4" stroke="#221636" stroke-width="2.5" />
+          <rect x="16" y="7" width="14" height="6" rx="2" fill="#F5B72B" stroke="#221636" stroke-width="2.5" />
+          <circle cx="31" cy="31" r="13" fill="#FFFDF5" stroke="#221636" stroke-width="2.5" />
+          <circle cx="31" cy="31" r="8" fill="#96D4C7" stroke="#221636" stroke-width="2" />
+          <line x1="22" y1="40" x2="40" y2="22" stroke="#EE2D2B" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="45" cy="20" r="2.5" fill="#EE2D2B" />
         </svg>
-        <span class="text-[9px] font-medium text-[#666] uppercase tracking-[0.1em]">
-          Photo Unavailable
+
+        <!-- Themed Badge & Store Notice -->
+        <span class="inline-block px-2.5 py-0.5 rounded bg-[#FCD7D7] text-[#EE2D2B] border-2 border-[#221636] shadow-[2px_2px_0px_#221636] font-display text-[10px] font-black uppercase tracking-wider">
+          PHOTO UNAVAILABLE
         </span>
-        <span class="text-[9px] text-[#555] mt-1">
-          Open store link to view
+        <span class="text-[10px] font-bold text-[#4C4066] mt-1.5 leading-tight">
+          Store blocks live image previews
+          <span class="block text-[9px] font-bold text-[#96D4C7] bg-[#221636] px-1.5 py-0.5 rounded mt-1">
+            OPEN STORE BELOW TO VIEW
+          </span>
         </span>
       </div>
     `.trim();
@@ -262,43 +274,43 @@ document.addEventListener("DOMContentLoaded", () => {
       const rotation = index % 2 === 0 ? "-1deg" : "1deg";
       
       card.className = `pm-polaroid flex flex-col justify-between ${
-        isLowest ? "border-[rgba(200,169,110,0.4)] bg-[#1a1a1a]" : "bg-[#1a1a1a]"
+        isLowest ? "ring-4 ring-[#F5B72B] bg-[#FFFDF5]" : "bg-white"
       }`;
-      card.style.transform = `none`;
+      card.style.transform = `rotate(${rotation})`;
 
       // Sticker ranking badge
       const stickerHtml = `
-        <div class="pm-sticker-number text-[10px] font-semibold" style="background:${isLowest ? '#c8a96e' : '#333'};">
+        <div class="pm-sticker-number text-xs font-black uppercase" style="background:${isLowest ? '#F5B72B' : '#FFFFFF'};">
           ${isLowest ? 'TOP' : index + 1}
         </div>
       `;
 
-      // Accent line at top
+      // Washi tape at top center
       const washiHtml = `
-        <div class="pm-washi" style="background:linear-gradient(90deg, transparent, ${isLowest ? '#c8a96e' : 'rgba(255,255,255,0.1)'}, transparent);"></div>
+        <div class="pm-washi" style="background:${isLowest ? '#F5B72B' : '#96D4C7'};"></div>
       `;
 
       // Badge logic
       const dealBadge = isLowest 
-        ? `<span class="pm-tag pm-tag-gold text-[8px]">#1 LOWEST</span>`
-        : `<span class="pm-tag text-[8px]">VERIFIED</span>`;
+        ? `<span class="pm-tag pm-tag-gold font-display text-[10px]">#1 LOWEST DEAL</span>`
+        : `<span class="pm-tag pm-tag-white text-[10px]">VERIFIED STORE</span>`;
 
       // Extraction strategy tag (strictly omit third-party service provider names)
       let methodText = item.extraction_method || "JSON-LD";
       if (methodText.includes("OpenRouter")) {
         methodText = "AI Extraction";
       }
-      const methodBadge = `<span class="pm-tag text-[8px]" title="Extracted via ${escapeHtml(methodText)}">${escapeHtml(methodText)}</span>`;
+      const methodBadge = `<span class="pm-tag pm-tag-sky text-[10px]" title="Extracted via ${escapeHtml(methodText)}">${escapeHtml(methodText)}</span>`;
 
-      // Image HTML
+      // Framed Image HTML with robust fallback and hotlink protection
       const imageHtml = item.image 
-        ? `<div class="product-img-wrapper w-full h-44 bg-[#111] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3.5 flex items-center justify-center overflow-hidden p-2.5 relative">
+        ? `<div class="product-img-wrapper w-full h-44 bg-[#F8F7FA] border-2 border-[#221636] rounded-lg mb-3.5 flex items-center justify-center overflow-hidden p-2.5 relative">
              <img 
                src="${escapeHtml(item.image)}" 
                alt="${escapeHtml(item.title)}" 
                referrerpolicy="no-referrer"
                loading="lazy"
-               class="product-real-img max-h-full max-w-full object-contain transition-transform duration-300 hover:scale-105" 
+               class="product-real-img max-h-full max-w-full object-contain transition-transform duration-200 hover:scale-105" 
                onerror="this.onerror=null; if(window.getProductFallbackHtml){this.closest('.product-img-wrapper').outerHTML=window.getProductFallbackHtml();}"
              >
            </div>`
@@ -308,33 +320,33 @@ document.addEventListener("DOMContentLoaded", () => {
         ${stickerHtml}
         ${washiHtml}
         <div>
-          <!-- Header -->
+          <!-- Header: Store Badge & Lowest Price -->
           <div class="flex items-center justify-between gap-2 mb-3.5 pl-6 pt-1">
-            <span class="pm-tag pm-tag-mint text-[8px]">${escapeHtml(item.store)}</span>
+            <span class="pm-tag pm-tag-mint text-xs font-black">${escapeHtml(item.store)}</span>
             ${dealBadge}
           </div>
 
           ${imageHtml}
 
-          <!-- Title -->
-          <h3 class="font-medium text-sm text-white mb-2.5 line-clamp-2 leading-snug" title="${escapeHtml(item.title)}">
+          <!-- Product Title -->
+          <h3 class="font-bold text-lg text-[#221636] mb-2.5 line-clamp-2 leading-snug" title="${escapeHtml(item.title)}">
             ${escapeHtml(item.title)}
           </h3>
 
-          <!-- Details -->
-          <div class="text-[10px] text-[#888] mb-4 flex items-center gap-2">
+          <!-- Details & Stock -->
+          <div class="text-xs font-semibold text-[#4C4066] mb-4 flex items-center gap-2">
             ${methodBadge}
-            <span class="text-[#333]">·</span>
-            <span class="${item.inStock ? "text-[#4a9e6e]" : "text-[#cc3333]"} font-medium">
-              ${item.inStock ? "In Stock" : "Limited"}
+            <span>•</span>
+            <span class="${item.inStock ? "text-[#1C75BC]" : "text-[#EE2D2B]"} font-bold">
+              ${item.inStock ? "In Stock" : "Limited / Unknown"}
             </span>
           </div>
         </div>
 
-        <!-- Footer -->
-        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
-          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Price</div>
-          <div class="font-display text-2xl sm:text-3xl text-white mb-4">
+        <!-- Footer: Price & Direct Store Link -->
+        <div class="pt-4 border-t-3 border-[#221636] mt-2">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-[#4C4066] mb-0.5">Verified Price in Pakistan</div>
+          <div class="font-display text-2xl sm:text-3xl text-[#221636] mb-4">
             ${formatPKR(item.price)}
           </div>
 
@@ -342,11 +354,11 @@ document.addEventListener("DOMContentLoaded", () => {
             href="${escapeHtml(item.url)}" 
             target="_blank" 
             rel="noopener noreferrer" 
-            class="w-full pm-btn ${isLowest ? "pm-btn-primary" : "pm-btn-gold"} py-3 text-[10px] flex items-center justify-center gap-2"
+            class="w-full pm-btn ${isLowest ? "pm-btn-primary" : "pm-btn-gold"} py-3.5 text-sm flex items-center justify-center gap-2"
           >
-            <span>Open ${escapeHtml(item.store)}</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            <span>OPEN ${escapeHtml(item.store).toUpperCase()}</span>
+            <svg class="w-4 h-4 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
             </svg>
           </a>
         </div>

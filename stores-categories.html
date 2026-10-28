@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stores Directory & Browse Categories | PennyWise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Top Announcement Bar with Royal Burgundy Microline -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(142,33,58,0.3)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">Store Directory & Product Categories</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#888]">15+ Verified Online Retailers</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#c8a96e]">Pakistan</span>
+  </div>
+
+  <!-- Header -->
+  <header class="w-full bg-[#0a0a0a] text-white pt-7 pb-12 border-b border-[rgba(255,255,255,0.06)] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
+          <div>
+            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PENNYWISE</span>
+            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
+          </div>
+        </a>
+        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
+          <a href="index.html" class="pm-nav">HOME</a>
+          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
+          <a href="stores-categories.html" class="pm-nav active">STORES & CATEGORIES</a>
+          <a href="compare.html" class="pm-nav">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
+          <a href="about.html" class="pm-nav">ABOUT</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 my-6">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow space-y-16">
+    
+    <!-- Hero Header -->
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <span class="pm-tag pm-tag-gold text-[9px]">VERIFIED STORE NETWORK</span>
+        <span class="pm-tag pm-tag-mint text-[9px]">POPULAR CATEGORIES</span>
+      </div>
+      <h1 class="font-display text-3xl sm:text-5xl text-white uppercase leading-tight">
+        EXPLORE STORES & CATEGORIES
+      </h1>
+      <p class="text-xs sm:text-sm text-[#888] font-light mt-2 max-w-xl mx-auto leading-relaxed">
+        We crawl Pakistan’s most reliable retail merchants to find you the lowest verified price in PKR. Discover curated categories or browse store networks.
+      </p>
+    </div>
+
+    <!-- Section 1: Categories Tiles -->
+    <section>
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">DISCOVER BY DEPT</span>
+          <h2 class="font-display text-xl sm:text-2xl text-white uppercase">TOP PRODUCT CATEGORIES</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Category 1: Mobiles & Tablets -->
+        <a href="results.html?q=iPhone+15" class="pm-card p-6 bg-gradient-to-b from-[#181818] to-[#111] border border-[rgba(255,255,255,0.08)] rounded-xl group hover:border-[#c8a96e] transition-all">
+          <div class="w-12 h-12 rounded-lg bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#c8a96e] mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-display text-base text-white uppercase group-hover:text-[#c8a96e] transition-colors">MOBILES & TABLETS</h3>
+          <p class="text-xs text-[#888] font-light mt-1.5 leading-relaxed">
+            iPhone, Samsung Galaxy, Xiaomi, OnePlus, iPads & official PTA approved models.
+          </p>
+          <div class="mt-4 flex items-center gap-1.5 text-[10px] text-[#c8a96e] font-semibold">
+            <span>COMPARE MOBILES</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Category 2: Laptops & Computing -->
+        <a href="results.html?q=MacBook+Air" class="pm-card p-6 bg-gradient-to-b from-[#181818] to-[#111] border border-[rgba(255,255,255,0.08)] rounded-xl group hover:border-[#c8a96e] transition-all">
+          <div class="w-12 h-12 rounded-lg bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#c8a96e] mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="font-display text-base text-white uppercase group-hover:text-[#c8a96e] transition-colors">LAPTOPS & COMPUTING</h3>
+          <p class="text-xs text-[#888] font-light mt-1.5 leading-relaxed">
+            MacBooks, Gaming Laptops, ThinkPads, Dell, HP & Graphic Workstations.
+          </p>
+          <div class="mt-4 flex items-center gap-1.5 text-[10px] text-[#c8a96e] font-semibold">
+            <span>COMPARE LAPTOPS</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Category 3: Home & Kitchen Appliances -->
+        <a href="results.html?q=Air+Fryer" class="pm-card p-6 bg-gradient-to-b from-[#181818] to-[#111] border border-[rgba(255,255,255,0.08)] rounded-xl group hover:border-[#c8a96e] transition-all">
+          <div class="w-12 h-12 rounded-lg bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#c8a96e] mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+          </div>
+          <h3 class="font-display text-base text-white uppercase group-hover:text-[#c8a96e] transition-colors">HOME APPLIANCES</h3>
+          <p class="text-xs text-[#888] font-light mt-1.5 leading-relaxed">
+            Air Fryers, Microwave Ovens, Dawlance Inverter ACs, Washing Machines & Blenders.
+          </p>
+          <div class="mt-4 flex items-center gap-1.5 text-[10px] text-[#c8a96e] font-semibold">
+            <span>COMPARE APPLIANCES</span>
+            <span>→</span>
+          </div>
+        </a>
+
+        <!-- Category 4: Men & Women Fashion -->
+        <a href="results.html?q=Men+Casual+Shirt" class="pm-card p-6 bg-gradient-to-b from-[#181818] to-[#111] border border-[rgba(255,255,255,0.08)] rounded-xl group hover:border-[#c8a96e] transition-all">
+          <div class="w-12 h-12 rounded-lg bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[#c8a96e] mb-4 group-hover:scale-110 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+          </div>
+          <h3 class="font-display text-base text-white uppercase group-hover:text-[#c8a96e] transition-colors">MEN & WOMEN FASHION</h3>
+          <p class="text-xs text-[#888] font-light mt-1.5 leading-relaxed">
+            Cotton Casual Shirts, Summer Lawn Dresses, Diners, Outfitters, Khaadi & Sapphire.
+          </p>
+          <div class="mt-4 flex items-center gap-1.5 text-[10px] text-[#c8a96e] font-semibold">
+            <span>COMPARE APPAREL</span>
+            <span>→</span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Section 2: Crawled Stores Grid -->
+    <section>
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">LIVE COVERAGE</span>
+          <h2 class="font-display text-xl sm:text-2xl text-white uppercase">CRAWLED STORE DIRECTORY</h2>
+        </div>
+        <span class="text-xs text-[#888]">15+ Live Retailers</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Store 1: PriceOye -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between hover:border-[rgba(200,169,110,0.3)] transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="pm-tag pm-tag-mint text-[8px]">OFFICIAL CRAWL</span>
+              <span class="text-[10px] text-[#4a9e6e] font-semibold">JSON-LD VERIFIED</span>
+            </div>
+            <h3 class="font-display text-lg text-white uppercase">PRICEOYE</h3>
+            <p class="text-xs text-[#888] font-light mt-1 leading-relaxed">
+              Pakistan's leading certified electronics portal for smartphones, earplugs, smartwatches, and accessories with live daily prices.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+            <span class="text-[10px] text-[#666]">Phones & Gadgets</span>
+            <a href="results.html?q=PriceOye" class="text-xs text-[#c8a96e] hover:underline font-semibold">BROWSE OFFERS →</a>
+          </div>
+        </div>
+
+        <!-- Store 2: Daraz Mall -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between hover:border-[rgba(200,169,110,0.3)] transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="pm-tag pm-tag-gold text-[8px]">DARAZ MALL</span>
+              <span class="text-[10px] text-[#4a9e6e] font-semibold">AUTHENTIC SHOPS</span>
+            </div>
+            <h3 class="font-display text-lg text-white uppercase">DARAZ MALL</h3>
+            <p class="text-xs text-[#888] font-light mt-1 leading-relaxed">
+              Official brand flagship stores on Daraz with nationwide shipping, flash discounts, and 100% verified original merchandise.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+            <span class="text-[10px] text-[#666]">General E-Commerce</span>
+            <a href="results.html?q=Daraz" class="text-xs text-[#c8a96e] hover:underline font-semibold">BROWSE OFFERS →</a>
+          </div>
+        </div>
+
+        <!-- Store 3: Telemart -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between hover:border-[rgba(200,169,110,0.3)] transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="pm-tag pm-tag-mint text-[8px]">ELECTRONICS</span>
+              <span class="text-[10px] text-[#4a9e6e] font-semibold">LIVE EXTRACTION</span>
+            </div>
+            <h3 class="font-display text-lg text-white uppercase">TELEMART</h3>
+            <p class="text-xs text-[#888] font-light mt-1 leading-relaxed">
+              One of Pakistan's oldest and most prominent retail e-commerce stores for consumer appliances, Apple hardware, and gaming gear.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+            <span class="text-[10px] text-[#666]">Appliances & Tech</span>
+            <a href="results.html?q=Telemart" class="text-xs text-[#c8a96e] hover:underline font-semibold">BROWSE OFFERS →</a>
+          </div>
+        </div>
+
+        <!-- Store 4: Shophive -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between hover:border-[rgba(200,169,110,0.3)] transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="pm-tag text-[8px]">PREMIUM TECH</span>
+              <span class="text-[10px] text-[#4a9e6e] font-semibold">VERIFIED STORE</span>
+            </div>
+            <h3 class="font-display text-lg text-white uppercase">SHOPHIVE</h3>
+            <p class="text-xs text-[#888] font-light mt-1 leading-relaxed">
+              Premier computer, laptop, camera, and premium audio equipment retailer with direct physical showrooms in Lahore & Karachi.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+            <span class="text-[10px] text-[#666]">Computing & Audio</span>
+            <a href="results.html?q=Shophive" class="text-xs text-[#c8a96e] hover:underline font-semibold">BROWSE OFFERS →</a>
+          </div>
+        </div>
+
+        <!-- Store 5: Outfitters -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between hover:border-[rgba(200,169,110,0.3)] transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="pm-tag pm-tag-mint text-[8px]">FASHION BRAND</span>
+              <span class="text-[10px] text-[#4a9e6e] font-semibold">OFFICIAL SHOP</span>
+            </div>
+            <h3 class="font-display text-lg text-white uppercase">OUTFITTERS</h3>
+            <p class="text-xs text-[#888] font-light mt-1 leading-relaxed">
+              Modern streetwear, casual shirts, denim, shoes, and seasonal clothing collections for men, women, and juniors across Pakistan.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+            <span class="text-[10px] text-[#666]">Casual Apparel</span>
+            <a href="results.html?q=Outfitters" class="text-xs text-[#c8a96e] hover:underline font-semibold">BROWSE OFFERS →</a>
+          </div>
+        </div>
+
+        <!-- Store 6: Paklap & Computer Zone -->
+        <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.08)] rounded-xl flex flex-col justify-between hover:border-[rgba(200,169,110,0.3)] transition-all">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="pm-tag pm-tag-gold text-[8px]">PC SPECIALISTS</span>
+              <span class="text-[10px] text-[#4a9e6e] font-semibold">PKR PRICES</span>
+            </div>
+            <h3 class="font-display text-lg text-white uppercase">PAKLAP & CZ</h3>
+            <p class="text-xs text-[#888] font-light mt-1 leading-relaxed">
+              Specialist laptop and PC hardware merchants offering transparent market prices on Lenovo, HP, ASUS, Apple, and Dell systems.
+            </p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-[rgba(255,255,255,0.06)] flex items-center justify-between">
+            <span class="text-[10px] text-[#666]">Laptops & Parts</span>
+            <a href="results.html?q=Paklap" class="text-xs text-[#c8a96e] hover:underline font-semibold">BROWSE OFFERS →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 mt-16 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
+      </div>
+      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+        <a href="index.html" class="pm-nav">HOME</a>
+        <a href="results.html" class="pm-nav">LIVE CRAWLER</a>
+        <a href="compare.html" class="pm-nav">COMPARE</a>
+        <a href="wishlist.html" class="pm-nav">WISHLIST</a>
+        <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
+      </div>
+      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      try {
+        const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+        const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
+        document.getElementById("nav-wishlist-count").textContent = `(${wl.length})`;
+        document.getElementById("nav-compare-count").textContent = `(${cmp.length})`;
+      } catch(e){}
+    });
+  </script>
+</body>
+</html>
+

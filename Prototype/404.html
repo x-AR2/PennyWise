@@ -4,104 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Page Not Found | PennyWise</title>
+  <!-- Google Fonts: Climate Crisis & Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Jost:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Pigeon's Mission Retro Neo-Brutalist CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#F5B72B] selection:text-[#221636]">
 
-  <!-- Top Bar -->
-  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#cc3333]">Error 404</span>
-    <span class="text-[#333]">·</span>
-    <span class="text-[#666]">Page Not Found</span>
+  <!-- Top Announcement Bar -->
+  <div class="bg-[#221636] text-[#FCD7D7] text-center py-2.5 px-4 text-xs font-bold tracking-wider uppercase border-b-3 border-[#221636] flex items-center justify-center gap-2 flex-wrap">
+    <span class="text-[#EE2D2B]">Error 404</span>
+    <span class="text-[#F5B72B]">•</span>
+    <span class="text-[#BBDCF4]">Page Not Found</span>
   </div>
 
-  <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-8 pb-14 border-b border-[rgba(255,255,255,0.06)] relative">
+  <!-- Header Section with Sawtooth Border -->
+  <header class="w-full bg-[#221636] text-white pt-6 pb-12 border-b-4 border-[#96D4C7] relative pm-sawtooth-bottom-blush">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
-        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
-          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(150,212,199,0.25)]">
+        
+        <!-- Brand Logo -->
+        <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+          <div class="w-12 h-12 rounded-full bg-[#F5B72B] border-3 border-[#221636] flex items-center justify-center font-display text-2xl text-[#221636] shadow-[3px_3px_0px_#FFFFFF] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform">
+            ₨
+          </div>
           <div>
-            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PennyWise</span>
-            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
+            <span class="font-display text-3xl tracking-tight text-white group-hover:text-[#F5B72B] transition-colors">PennyWise</span>
+            <span class="text-xs font-bold text-[#96D4C7] uppercase tracking-widest ml-1">.pk</span>
           </div>
         </a>
-        <nav class="flex items-center gap-8 text-xs tracking-[0.15em]">
+
+        <!-- Navigation Links with Stepped Underlines -->
+        <nav class="flex items-center gap-6 text-sm font-bold tracking-wider">
           <a href="index.html" class="pm-nav">Home</a>
           <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
           <a href="about.html" class="pm-nav">About</a>
-          <a href="404.html" class="pm-nav active" style="color:#cc3333;">404</a>
+          <a href="404.html" class="pm-nav active text-[#EE2D2B]">404</a>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- Divider -->
+  <!-- Arcade Coin Token Section Rule -->
   <div class="pm-coin-divider px-4 my-6">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
 
-  <!-- 404 Content -->
+  <!-- Main 404 Error Card (Polaroid with Washi Tape) -->
   <main class="w-full max-w-2xl mx-auto px-4 sm:px-6 py-12 flex-grow flex items-center justify-center">
-    <div class="pm-polaroid p-8 sm:p-12 bg-[#1a1a1a] text-center w-full relative" style="animation: pw-scale-in 0.6s ease both;">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#cc3333] to-transparent"></div>
+    <div class="pm-polaroid p-8 sm:p-12 bg-white text-center w-full relative">
+      <div class="pm-washi" style="background:#EE2D2B; color:white;"></div>
+      <div class="pm-sticker-number" style="background:#F5B72B;">404</div>
 
-      <!-- 404 Number -->
-      <div class="inline-block px-8 py-4 border border-[rgba(204,51,51,0.3)] text-[#cc3333] rounded-lg mb-6 mt-4" style="animation: pw-float 3s ease-in-out infinite;">
+      <!-- Big 404 Graphic -->
+      <div class="inline-block px-6 py-4 bg-[#EE2D2B] border-4 border-[#221636] shadow-[6px_6px_0px_#221636] text-white rounded-2xl mb-6 mt-4">
         <span class="font-display text-6xl sm:text-8xl tracking-tight">404</span>
       </div>
 
-      <h1 class="font-display text-3xl sm:text-4xl text-white mb-3">
-        Lost in the Aisle
+      <h1 class="font-display text-3xl sm:text-4xl text-[#221636] uppercase mb-3">
+        LOST IN THE AISLE!
       </h1>
 
-      <p class="text-base font-light text-[#888] max-w-md mx-auto mb-8 leading-relaxed">
+      <p class="text-base font-medium text-[#4C4066] max-w-md mx-auto mb-8 leading-relaxed">
         The page you are looking for has vanished like an expired flash sale discount, or was never stocked in the first place.
       </p>
 
-      <!-- Buttons -->
+      <!-- Return Button -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="index.html" class="pm-btn pm-btn-primary px-8 py-4 text-xs flex items-center justify-center gap-2 w-full sm:w-auto">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <a href="index.html" class="pm-btn pm-btn-primary px-8 py-4 text-base flex items-center justify-center gap-2 w-full sm:w-auto">
+          <svg class="w-5 h-5 stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
           <span>Back to Home</span>
         </a>
-        <a href="results.html?q=Men+Casual+Shirt" class="pm-btn pm-btn-gold px-8 py-4 text-xs w-full sm:w-auto">
+        <a href="results.html?q=Men+Casual+Shirt" class="pm-btn pm-btn-gold px-8 py-4 text-base w-full sm:w-auto">
           Test Live Crawler
         </a>
       </div>
+
     </div>
   </main>
 
-  <!-- Divider -->
+  <!-- Arcade Coin Token Divider before Footer -->
   <div class="pm-coin-divider px-4 mt-16 mb-8">
     <div class="pm-coin-line"></div>
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
 
-  <!-- Footer -->
-  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 relative">
+  <!-- Footer (Deep Night Purple Theme) -->
+  <footer class="w-full bg-[#221636] text-[#FCD7D7] border-t-4 border-[#96D4C7] py-10 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
-        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
-        <span class="font-display text-lg text-white">PennyWise</span>
-        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison</span>
+        <div class="w-8 h-8 rounded-full bg-[#F5B72B] border-2 border-[#221636] flex items-center justify-center font-display text-sm text-[#221636] shadow-[2px_2px_0px_#FFFFFF]">
+          ₨
+        </div>
+        <span class="font-display text-xl text-white">PennyWise</span>
+        <span class="text-xs font-bold text-[#96D4C7]">| Smart Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+
+      <div class="flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
         <a href="index.html" class="pm-nav">Home</a>
         <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">Live Crawler</a>
         <a href="about.html" class="pm-nav">About</a>
-        <a href="404.html" class="pm-nav active" style="color:#cc3333;">404</a>
+        <a href="404.html" class="pm-nav active text-[#EE2D2B]">404</a>
       </div>
-      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+
+      <p class="text-xs font-medium text-[#BBDCF4]">
+        © 2026 PennyWise Prototype.
+      </p>
     </div>
   </footer>
 

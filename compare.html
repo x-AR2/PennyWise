@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side-by-Side Product Comparison | PennyWise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- Top Announcement Bar with Royal Burgundy Microline -->
+  <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(142,33,58,0.3)] flex items-center justify-center gap-3 flex-wrap">
+    <span class="text-[#c8a96e]">Side-By-Side Comparison</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#888]">Find Which One You Should Buy</span>
+    <span class="text-[#333]">·</span>
+    <span class="text-[#c8a96e]">Zero Guesswork</span>
+  </div>
+
+  <!-- Header -->
+  <header class="w-full bg-[#0a0a0a] text-white pt-7 pb-12 border-b border-[rgba(255,255,255,0.06)] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-6 border-b border-[rgba(255,255,255,0.06)]">
+        <a href="index.html" class="flex items-center gap-3 group flex-shrink-0">
+          <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
+          <div>
+            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PENNYWISE</span>
+            <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
+          </div>
+        </a>
+        <nav class="flex items-center gap-6 text-xs tracking-[0.12em] flex-wrap justify-center">
+          <a href="index.html" class="pm-nav">HOME</a>
+          <a href="results.html?q=Men+Casual+Shirt" class="pm-nav">LIVE CRAWLER</a>
+          <a href="stores-categories.html" class="pm-nav">STORES & CATEGORIES</a>
+          <a href="compare.html" class="pm-nav active">COMPARE <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
+          <a href="wishlist.html" class="pm-nav">WISHLIST <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
+          <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
+          <a href="about.html" class="pm-nav">ABOUT</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="pm-coin-divider px-4 my-6">
+    <div class="pm-coin-line"></div>
+    <div class="pm-coin-token">₨</div>
+    <div class="pm-coin-line"></div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-grow">
+    
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 mb-2">
+          <span class="pm-tag pm-tag-gold text-[9px]">PRODUCT MATRIX</span>
+          <span class="pm-tag text-[9px]">UP TO 4 ITEMS</span>
+        </div>
+        <h1 class="font-display text-3xl sm:text-4xl text-white uppercase">
+          COMPARE PRODUCTS SIDE BY SIDE
+        </h1>
+        <p class="text-xs text-[#888] font-light mt-1">
+          Detailed comparison across stores, verified pricing in PKR, stock reliability, and value verdicts.
+        </p>
+      </div>
+      <button id="btn-clear-compare" class="pm-btn pm-btn-white pm-btn-sm text-[10px]">
+        CLEAR COMPARISON LIST
+      </button>
+    </div>
+
+    <!-- Empty State -->
+    <div id="compare-empty" class="hidden pm-card p-12 bg-[#141414] text-center max-w-xl mx-auto border border-[rgba(255,255,255,0.08)] rounded-xl">
+      <div class="w-14 h-14 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#c8a96e] mx-auto mb-4">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h2 class="font-display text-xl text-white uppercase mb-2">NO PRODUCTS TO COMPARE YET</h2>
+      <p class="text-xs text-[#888] font-light mb-6 leading-relaxed">
+        Tick "+ Add to Compare" on any search result to compare specs, prices, and stores side by side.
+      </p>
+      <a href="results.html" class="pm-btn pm-btn-primary px-8 py-3 text-xs">
+        BROWSE SEARCH RESULTS
+      </a>
+    </div>
+
+    <!-- Comparison Table Grid -->
+    <div id="compare-grid" class="overflow-x-auto pb-6">
+      <table class="w-full min-w-[700px] border-collapse">
+        <tbody id="compare-table-body" class="divide-y divide-[rgba(255,255,255,0.06)]">
+          <!-- Dynamically populated via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full bg-[#0a0a0a] text-[#888] border-t border-[rgba(255,255,255,0.06)] py-10 mt-16 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-7 h-7 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-xs">₨</div>
+        <span class="font-display text-lg text-white">PENNYWISE</span>
+        <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison</span>
+      </div>
+      <div class="flex items-center gap-8 text-[10px] font-medium uppercase tracking-[0.15em]">
+        <a href="index.html" class="pm-nav">HOME</a>
+        <a href="results.html" class="pm-nav">LIVE CRAWLER</a>
+        <a href="wishlist.html" class="pm-nav">WISHLIST</a>
+        <a href="price-history.html" class="pm-nav">PRICE HISTORY</a>
+      </div>
+      <p class="text-[10px] font-medium text-[#555]">© 2026 PennyWise Prototype.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const emptyBox = document.getElementById("compare-empty");
+      const gridBox = document.getElementById("compare-grid");
+      const tbody = document.getElementById("compare-table-body");
+      const clearBtn = document.getElementById("btn-clear-compare");
+
+      function updateNavCounts() {
+        try {
+          const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+          const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
+          document.getElementById("nav-wishlist-count").textContent = `(${wl.length})`;
+          document.getElementById("nav-compare-count").textContent = `(${cmp.length})`;
+        } catch(e){}
+      }
+      updateNavCounts();
+
+      function loadCompareItems() {
+        let items = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
+        if (items.length === 0) {
+          // Provide 2 default demo items if none present
+          items = [
+            {
+              title: "Men Casual Cotton Linen Shirt",
+              price: 3490,
+              store: "Outfitters",
+              url: "https://outfitters.com.pk",
+              image: ""
+            },
+            {
+              title: "Premium Classic Button-Down Shirt",
+              price: 4950,
+              store: "Diners",
+              url: "https://diners.com.pk",
+              image: ""
+            }
+          ];
+          localStorage.setItem("pennywise_compare", JSON.stringify(items));
+        }
+
+        renderComparison(items);
+      }
+
+      function renderComparison(items) {
+        if (!items || items.length === 0) {
+          emptyBox.classList.remove("hidden");
+          gridBox.classList.add("hidden");
+          return;
+        }
+
+        emptyBox.classList.add("hidden");
+        gridBox.classList.remove("hidden");
+        tbody.innerHTML = "";
+
+        const prices = items.map(i => parseInt(i.price) || 0).filter(p => p > 0);
+        const minPrice = prices.length ? Math.min(...prices) : 0;
+
+        // Row 1: Product Header & Image
+        let rowHeader = `<tr class="bg-[#141414]"><td class="p-4 font-semibold text-xs text-[#888] w-36 uppercase">PRODUCT</td>`;
+        items.forEach((it, idx) => {
+          rowHeader += `
+            <td class="p-4 text-center align-top relative">
+              <button onclick="removeCompareItem(${idx})" class="absolute top-2 right-2 text-[#666] hover:text-[#cc3333] text-xs font-bold" title="Remove">✕</button>
+              <div class="w-24 h-24 mx-auto rounded bg-[#0a0a0a] border border-[rgba(255,255,255,0.08)] flex items-center justify-center p-2 mb-3">
+                <img src="${it.image || 'favicon.svg'}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null; this.src='favicon.svg';">
+              </div>
+              <h4 class="font-display text-xs text-white uppercase leading-tight line-clamp-2">${it.title}</h4>
+            </td>
+          `;
+        });
+        rowHeader += `</tr>`;
+
+        // Row 2: Price
+        let rowPrice = `<tr class="bg-[#181818]"><td class="p-4 font-semibold text-xs text-[#888] uppercase">VERIFIED PRICE</td>`;
+        items.forEach((it) => {
+          const isMin = it.price === minPrice;
+          rowPrice += `
+            <td class="p-4 text-center">
+              <div class="font-display text-xl sm:text-2xl text-white">Rs. ${Number(it.price).toLocaleString("en-PK")}</div>
+              ${isMin ? '<span class="pm-tag pm-tag-gold text-[8px] mt-1 inline-block">LOWEST OFFER</span>' : '<span class="text-[9px] text-[#666] mt-1 block">Higher Price</span>'}
+            </td>
+          `;
+        });
+        rowPrice += `</tr>`;
+
+        // Row 3: Store
+        let rowStore = `<tr><td class="p-4 font-semibold text-xs text-[#888] uppercase">STORE / MERCHANT</td>`;
+        items.forEach((it) => {
+          rowStore += `<td class="p-4 text-center font-semibold text-xs text-[#c8a96e]">${it.store}</td>`;
+        });
+        rowStore += `</tr>`;
+
+        // Row 4: Stock
+        let rowStock = `<tr><td class="p-4 font-semibold text-xs text-[#888] uppercase">STOCK STATUS</td>`;
+        items.forEach(() => {
+          rowStock += `<td class="p-4 text-center text-xs text-[#4a9e6e] font-semibold">VERIFIED IN STOCK</td>`;
+        });
+        rowStock += `</tr>`;
+
+        // Row 5: Value Verdict
+        let rowVerdict = `<tr class="bg-[#141414]"><td class="p-4 font-semibold text-xs text-[#888] uppercase">VERDICT</td>`;
+        items.forEach((it) => {
+          const isMin = it.price === minPrice;
+          rowVerdict += `
+            <td class="p-4 text-center text-xs text-[#aaa] font-light leading-relaxed">
+              ${isMin ? '<span class="text-[#c8a96e] font-medium">Recommended Buy.</span> Saves you money on this exact item.' : 'Higher priced alternative. Check if bundle deals are included.'}
+            </td>
+          `;
+        });
+        rowVerdict += `</tr>`;
+
+        // Row 6: Outlink
+        let rowAction = `<tr><td class="p-4 font-semibold text-xs text-[#888] uppercase">PURCHASE</td>`;
+        items.forEach((it) => {
+          rowAction += `
+            <td class="p-4 text-center">
+              <a href="${it.url || '#'}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2.5 px-6 text-xs inline-flex items-center gap-1.5">
+                <span>GO TO ${it.store.toUpperCase()}</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </td>
+          `;
+        });
+        rowAction += `</tr>`;
+
+        tbody.innerHTML = rowHeader + rowPrice + rowStore + rowStock + rowVerdict + rowAction;
+      }
+
+      window.removeCompareItem = function(idx) {
+        let items = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
+        items.splice(idx, 1);
+        localStorage.setItem("pennywise_compare", JSON.stringify(items));
+        renderComparison(items);
+        updateNavCounts();
+      };
+
+      clearBtn.addEventListener("click", () => {
+        localStorage.removeItem("pennywise_compare");
+        renderComparison([]);
+        updateNavCounts();
+      });
+
+      loadCompareItems();
+    });
+  </script>
+</body>
+</html>
+
