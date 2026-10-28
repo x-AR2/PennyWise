@@ -6,9 +6,8 @@
   <title>PennyWise | Live Price Crawler & Comparison</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
   <link rel="stylesheet" href="../css/style.css">
@@ -53,23 +52,12 @@
                 <label for="results-search-name" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888]">
                   Product Name <span class="text-[#cc3333]">*</span>
                 </label>
-                <div class="flex items-center gap-2">
-                  <button type="button" class="btn-trigger-vision pm-tag pm-tag-gold cursor-pointer hover:opacity-90 flex items-center gap-1.5 py-0.5 px-2 text-[9px] font-semibold transition-all active:scale-95" title="Photo Search">
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                    <span>PHOTO SEARCH</span>
-                  </button>
-                </div>
               </div>
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-[#666]">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                 </div>
-                <input type="text" id="results-search-name" name="name" placeholder="Search any product..." class="pm-input pl-11 pr-14 text-base w-full" required minlength="2" autocomplete="off">
-                <button type="button" class="btn-trigger-vision absolute inset-y-0 right-0 pr-3 flex items-center text-[#666] hover:text-[#c8a96e] transition-colors cursor-pointer" title="Photo Search">
-                  <div class="w-7 h-7 rounded border border-[rgba(255,255,255,0.15)] flex items-center justify-center hover:border-[#c8a96e] active:scale-95 transition-all">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                  </div>
-                </button>
+                <input type="text" id="results-search-name" name="name" placeholder="Search any product..." class="pm-input pl-11 text-base w-full" required minlength="2" autocomplete="off">
               </div>
             </div>
 
@@ -136,10 +124,6 @@
         </div>
       </div>
       <div class="flex items-center gap-2">
-        <button id="btn-toggle-inspector" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-          <span id="inspector-btn-text">Show Logs</span>
-        </button>
         <button id="btn-force-refresh" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-1.5" title="Re-crawl">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
           <span>Re-Crawl</span>
@@ -148,57 +132,6 @@
     </div>
   </div>
 
-  <!-- Inspector Panel -->
-  <section id="crawler-inspector-panel" class="hidden w-full max-w-7xl mx-auto px-4 sm:px-6 mb-8">
-    <div class="pm-card-dark p-6 border border-[rgba(255,255,255,0.06)] rounded-lg relative overflow-hidden">
-      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c8a96e] to-transparent"></div>
-      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[rgba(255,255,255,0.06)]">
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="w-2 h-2 rounded-full bg-[#c8a96e]"></span>
-            <h2 class="font-display text-lg text-[#c8a96e]">Crawler Logs</h2>
-          </div>
-          <p class="text-[10px] text-[#666] mt-1 font-medium">Live inspection of store discovery and extraction</p>
-        </div>
-        <div class="flex items-center gap-2">
-          <button id="btn-copy-json" class="pm-btn pm-btn-white pm-btn-sm text-[10px] flex items-center gap-1.5">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-            <span>Copy JSON</span>
-          </button>
-          <button id="btn-close-inspector" aria-label="Close" class="w-7 h-7 rounded-full border border-[rgba(255,255,255,0.15)] text-[#888] flex items-center justify-center hover:text-white transition-colors">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-
-      <div class="flex gap-2 mt-4 text-xs">
-        <button id="tab-btn-logs" class="pm-btn pm-btn-gold pm-btn-sm">Store Table</button>
-        <button id="tab-btn-json" class="pm-btn pm-btn-dark pm-btn-sm">Raw JSON</button>
-      </div>
-
-      <div id="tab-content-logs" class="mt-4 overflow-x-auto">
-        <table class="w-full text-left text-[10px] border border-[rgba(255,255,255,0.06)] rounded overflow-hidden">
-          <thead class="bg-[#111] text-[#c8a96e] font-semibold uppercase tracking-[0.1em] text-[10px]">
-            <tr>
-              <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">Store</th>
-              <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">HTTP</th>
-              <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">Strategy</th>
-              <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">Product & Price</th>
-              <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">Latency</th>
-              <th class="p-3 border-b border-[rgba(255,255,255,0.06)]">URL</th>
-            </tr>
-          </thead>
-          <tbody id="crawler-logs-tbody" class="divide-y divide-[rgba(255,255,255,0.04)] font-mono text-[10px] bg-[#0a0a0a]">
-            <tr><td colspan="6" class="p-4 text-center text-[#666]">No crawl executed yet.</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div id="tab-content-json" class="hidden mt-4">
-        <pre id="raw-json-viewer" class="bg-[#0a0a0a] text-[#c8a96e] p-4 border border-[rgba(255,255,255,0.06)] rounded text-[10px] font-mono max-h-96 overflow-auto whitespace-pre-wrap">{}</pre>
-      </div>
-    </div>
-  </section>
 
   <!-- Results -->
   <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-2 flex-grow">
@@ -361,81 +294,6 @@
     </div>
   </footer>
 
-  <!-- Vision Modal -->
-  <input type="file" id="vision-file-input" accept="image/*" capture="environment" class="hidden">
-  <div id="vision-modal" class="hidden fixed inset-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="pm-card p-6 bg-[#1a1a1a] max-w-lg w-full relative border border-[rgba(255,255,255,0.1)]" style="animation: pw-scale-in 0.3s ease both;">
-      <div class="pm-washi"></div>
-      <div class="flex items-center justify-between pb-4 mb-4 border-b border-[rgba(255,255,255,0.08)]">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full border border-[#c8a96e] flex items-center justify-center flex-shrink-0">
-            <svg class="w-4 h-4 text-[#c8a96e]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <div>
-            <h3 class="font-display text-lg text-white">Visual Search</h3>
-            <span class="text-[9px] font-medium text-[#666] uppercase tracking-[0.15em] block">AI Identification</span>
-          </div>
-        </div>
-        <button type="button" id="btn-close-vision-modal" class="w-7 h-7 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#888] hover:text-white hover:border-white transition-all cursor-pointer" title="Close">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-
-      <div id="vision-state-drop" class="space-y-4">
-        <div id="vision-dropzone" class="border border-dashed border-[rgba(255,255,255,0.15)] rounded-lg p-8 bg-[#111] text-center cursor-pointer hover:border-[#c8a96e] transition-all flex flex-col items-center justify-center gap-3">
-          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#c8a96e]">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <div>
-            <div class="text-sm font-medium text-white">Upload or Take a Photo</div>
-            <p class="text-[11px] text-[#666] mt-1 max-w-xs mx-auto">Drag and drop, snap with camera, or click to browse</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="vision-state-scanning" class="hidden flex flex-col items-center text-center py-6 space-y-4">
-        <div class="relative w-40 h-40 rounded-lg border border-[rgba(255,255,255,0.1)] bg-[#111] overflow-hidden">
-          <img id="vision-preview-img" src="" alt="Preview" class="w-full h-full object-cover">
-          <div class="absolute inset-x-0 h-0.5 bg-[#c8a96e] shadow-[0_0_12px_#c8a96e] animate-bounce"></div>
-        </div>
-        <div>
-          <div class="pw-loading-bar w-48 mx-auto mb-3"></div>
-          <p class="text-[11px] font-medium text-[#888]">Analyzing product...</p>
-        </div>
-      </div>
-
-      <div id="vision-state-success" class="hidden space-y-4">
-        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[rgba(255,255,255,0.08)] rounded-lg">
-          <img id="vision-success-thumb" src="" alt="Thumb" class="w-14 h-14 rounded object-cover border border-[rgba(255,255,255,0.08)] flex-shrink-0">
-          <div class="flex-grow min-w-0">
-            <span class="pm-tag pm-tag-mint text-[8px]">IDENTIFIED</span>
-            <h4 id="vision-identified-title" class="font-medium text-sm text-white truncate mt-1">Product Title</h4>
-            <div class="flex items-center gap-2 text-[11px] text-[#888] mt-0.5">
-              <span id="vision-identified-brand" class="text-[#c8a96e]">Brand</span>
-              <span id="vision-identified-category" class="text-[#666]">Category</span>
-            </div>
-          </div>
-        </div>
-        <button type="button" id="btn-apply-vision-result" class="w-full pm-btn pm-btn-primary py-3 text-xs flex items-center justify-center gap-2">
-          <span>Apply to Search</span>
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </button>
-      </div>
-
-      <div id="vision-state-error" class="hidden text-center py-6 space-y-4">
-        <div class="w-10 h-10 rounded-full border border-[#cc3333] flex items-center justify-center text-[#cc3333] mx-auto">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-        </div>
-        <div>
-          <p class="text-sm font-medium text-[#cc3333] uppercase tracking-[0.1em]">Failed</p>
-          <p id="vision-error-msg" class="text-[11px] text-[#888] mt-2 max-w-xs mx-auto">Unable to recognize product.</p>
-        </div>
-        <button type="button" id="btn-vision-retry" class="pm-btn pm-btn-gold py-2 px-6 text-[10px] mx-auto">Try Another Photo</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="../js/results.js"></script>
   <script src="../js/vision-search.js"></script>
 </body>
 </html>

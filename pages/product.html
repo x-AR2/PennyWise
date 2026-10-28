@@ -6,7 +6,7 @@
   <title>Product Details & Live Store Comparison | PennyWise</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
@@ -183,36 +183,47 @@
   </footer>
 
   <script>
-    // Product Detail Page Logic
-    document.addEventListener("DOMContentLoaded", async () => {
+    // Product Detail Page - reads data from URL params (no backend fetch)
+    document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
-      const title = params.get("title") || "Featured Pakistani Product";
+      const title = params.get("title") || "Featured Product";
       const store = params.get("store") || "Verified Store";
       const price = parseInt(params.get("price")) || 0;
-      const url = params.get("url") || "#";
+      const url   = params.get("url")   || "#";
       const image = params.get("image") || "";
-      const query = params.get("q") || title;
+      const query = params.get("q")     || title;
 
-      // Update Header counts
+      // Nav badge counts
       function updateNavCounts() {
         try {
-          const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-          const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
-          const wlEl = document.getElementById("nav-wishlist-count");
+          const wl  = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
+          const cmp = JSON.parse(localStorage.getItem("pennywise_compare")  || "[]");
+          const wlEl  = document.getElementById("nav-wishlist-count");
           const cmpEl = document.getElementById("nav-compare-count");
-          if (wlEl) wlEl.textContent = `(${wl.length})`;
+          if (wlEl)  wlEl.textContent  = `(${wl.length})`;
           if (cmpEl) cmpEl.textContent = `(${cmp.length})`;
         } catch(e){}
       }
       updateNavCounts();
 
-      // Set DOM elements
-      document.getElementById("product-title").textContent = title.toUpperCase();
+      // Populate fields
+      document.getElementById("product-title").textContent      = title.toUpperCase();
       document.getElementById("product-best-price").textContent = price > 0 ? "Rs. " + Number(price).toLocaleString("en-PK") : "Price on Store";
       document.getElementById("product-best-store").textContent = `Best verified price at ${store}`;
-      document.getElementById("btn-main-outlink").href = url;
-      document.getElementById("link-view-history").href = `price-history.html?q=${encodeURIComponent(query)}`;
+      document.getElementById("btn-main-outlink").href          = url;
+      document.getElementById("link-view-history").href         = `price-history.html?q=${encodeURIComponent(query)}`;
 
+      // Product image
+      const mainImg = document.getElementById("product-main-img");
+      mainImg.src = (image && image.startsWith("http")) ? image : "../assets/icons/favicon.svg";
+
+      // AI verdict (hardcoded based on price)
+      const verdictEl = document.getElementById("product-ai-verdict");
+      if (price > 0) {
+        verdictEl.textContent = `Current listed rate of Rs. ${Number(price).toLocaleString("en-PK")} at ${store} is the lowest verified store price for this product in Pakistan. If you need this item now, this store offers the best real value.`;
+      }
+
+      // Store comparison table - show single entry from URL params
       const tbody = document.getElementById("store-comparison-tbody");
       tbody.innerHTML = `
         <tr>
@@ -229,59 +240,35 @@
           </td>
         </tr>
       `;
-      
-      const mainImg = document.getElementById("product-main-img");
-      if (image && image.startsWith("http")) {
-        mainImg.src = image;
-      } else {
-        mainImg.src = "../assets/icons/favicon.svg";
-      }
 
-      // AI Verdict Generation
-      const verdictEl = document.getElementById("product-ai-verdict");
-      if (price > 0) {
-        verdictEl.textContent = `Current listed rate of Rs. ${Number(price).toLocaleString("en-PK")} at ${store} represents the lowest verified store price observed in Pakistan. If you need this item immediately, this store provides the best real value.`;
-      }
-
-      // Wishlist Button Handlers
+      // Wishlist button
       const btnWishlist = document.getElementById("btn-save-wishlist");
       const wishlistText = document.getElementById("wishlist-btn-text");
-      
+
       function checkWishlistState() {
         const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
         const exists = wl.some(item => item.title === title || (item.url && item.url === url));
-        if (exists) {
-          wishlistText.textContent = "SAVED IN WISHLIST";
-          btnWishlist.classList.add("pm-btn-burgundy");
-        } else {
-          wishlistText.textContent = "SAVE TO WISHLIST";
-          btnWishlist.classList.remove("pm-btn-burgundy");
-        }
+        wishlistText.textContent = exists ? "SAVED IN WISHLIST" : "SAVE TO WISHLIST";
+        if (exists) btnWishlist.classList.add("pm-btn-burgundy");
+        else        btnWishlist.classList.remove("pm-btn-burgundy");
       }
       checkWishlistState();
 
       btnWishlist.addEventListener("click", () => {
         let wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
         const idx = wl.findIndex(item => item.title === title);
-        if (idx >= 0) {
-          wl.splice(idx, 1);
-        } else {
-          wl.push({ title, store, price, url, image, date: new Date().toLocaleDateString() });
-        }
+        if (idx >= 0) wl.splice(idx, 1);
+        else wl.push({ title, store, price, url, image, date: new Date().toLocaleDateString() });
         localStorage.setItem("pennywise_wishlist", JSON.stringify(wl));
         checkWishlistState();
         updateNavCounts();
       });
 
       // Add to Compare
-      const btnCompare = document.getElementById("btn-add-compare");
-      btnCompare.addEventListener("click", () => {
+      document.getElementById("btn-add-compare").addEventListener("click", () => {
         let cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
         if (!cmp.some(i => i.title === title)) {
-          if (cmp.length >= 3) {
-            alert("You can compare up to 3 items simultaneously. Remove an item first.");
-            return;
-          }
+          if (cmp.length >= 3) { alert("You can compare up to 3 items. Remove one first."); return; }
           cmp.push({ title, store, price, url, image });
           localStorage.setItem("pennywise_compare", JSON.stringify(cmp));
           updateNavCounts();
@@ -290,39 +277,6 @@
           window.location.href = "compare.html";
         }
       });
-
-      // Fetch multiple store offers for this item
-      try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-        if (res.ok) {
-          const data = await res.json();
-          const items = data.results || [];
-          if (items.length > 0) {
-            tbody.innerHTML = "";
-            items.forEach((it, idx) => {
-              const tr = document.createElement("tr");
-              tr.className = "hover:bg-[#1a1a1a] transition-colors";
-              const isBest = idx === 0;
-              tr.innerHTML = `
-                <td class="p-3 font-semibold text-white flex items-center gap-2">
-                  <span>${it.store}</span>
-                  ${isBest ? '<span class="pm-tag pm-tag-gold text-[8px]">#1 LOWEST</span>' : ''}
-                </td>
-                <td class="p-3 font-display text-white text-sm">Rs. ${Number(it.price).toLocaleString("en-PK")}</td>
-                <td class="p-3 text-[10px] text-[#4a9e6e] font-semibold">${it.inStock ? 'IN STOCK' : 'CHECK'}</td>
-                <td class="p-3 text-right">
-                  <a href="${it.url}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-white pm-btn-sm text-[9px] py-1 px-3">
-                    GO TO STORE →
-                  </a>
-                </td>
-              `;
-              tbody.appendChild(tr);
-            });
-          }
-        }
-      } catch(e) {
-        console.error("Comparison load error:", e);
-      }
     });
   </script>
 </body>
