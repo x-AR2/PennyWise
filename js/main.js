@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pill.addEventListener("click", () => {
       const q = pill.getAttribute("data-query");
       if (q) {
-        window.location.href = `results.html?q=${encodeURIComponent(q)}&name=${encodeURIComponent(q)}`;
+        window.location.href = `pages/results.html?q=${encodeURIComponent(q)}&name=${encodeURIComponent(q)}`;
       }
     });
   });
