@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
@@ -21,7 +22,7 @@
     <span class="text-[#333]">·</span>
     <span class="text-[#888]">Bus, Flight &amp; Train Schedules</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#c8a96e]">Pakistan</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><img src="../assets/images/pakistan.svg" alt="Pakistan" class="w-3.5 h-3.5 object-contain inline-block"> Pakistan</span>
   </div>
 
   <!-- Header -->
@@ -37,17 +38,16 @@
         </a>
         <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
           <a href="../index.html" class="pm-nav">Home</a>
-          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="results.html" class="pm-nav">Live Search</a>
           <a href="deals.html" class="pm-nav">Trending Deals</a>
           <a href="tickets.html" class="pm-nav active">Tickets</a>
-          <a href="stores-categories.html" class="pm-nav">Stores</a>
           <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
           <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
           <a href="history.html" class="pm-nav">History</a>
           <a href="about.html" class="pm-nav">About</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+          <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-2">
             <i class="bi bi-person-circle text-[#c8a96e]"></i>
             <span>Account</span>
           </a>
@@ -62,6 +62,12 @@
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
+
+  <!-- Pure CSS Transit Radio Controls (Hidden) -->
+  <input type="radio" name="transit-mode" id="transit-bus" class="hidden" checked>
+  <input type="radio" name="transit-mode" id="transit-flight" class="hidden">
+  <input type="radio" name="transit-mode" id="transit-train" class="hidden">
+  <input type="radio" name="transit-mode" id="transit-cinema" class="hidden">
 
   <!-- Main Content -->
   <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-8">
@@ -87,27 +93,27 @@
       </div>
     </div>
 
-    <!-- Mode Selector Tabs with Bootstrap Icons -->
+    <!-- Mode Selector Tabs with Bootstrap Icons (Pure CSS Driven) -->
     <div class="flex flex-wrap items-center gap-3">
-      <button type="button" id="tab-bus" class="mode-tab pm-btn pm-btn-gold pm-btn-sm font-bold flex items-center gap-2">
+      <label for="transit-bus" class="transit-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-2">
         <i class="bi bi-bus-front-fill text-base"></i>
         <span>Intercity Bus (Faisal Movers / Daewoo)</span>
-      </button>
-      <button type="button" id="tab-flight" class="mode-tab pm-btn pm-btn-dark pm-btn-sm text-[#aaa] flex items-center gap-2">
+      </label>
+      <label for="transit-flight" class="transit-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-2">
         <i class="bi bi-airplane-fill text-base"></i>
         <span>Domestic Flights (PIA / AirSial)</span>
-      </button>
-      <button type="button" id="tab-train" class="mode-tab pm-btn pm-btn-dark pm-btn-sm text-[#aaa] flex items-center gap-2">
+      </label>
+      <label for="transit-train" class="transit-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-2">
         <i class="bi bi-train-front-fill text-base"></i>
         <span>Pakistan Railways (Green Line)</span>
-      </button>
-      <button type="button" id="tab-cinema" class="mode-tab pm-btn pm-btn-dark pm-btn-sm text-[#aaa] flex items-center gap-2">
+      </label>
+      <label for="transit-cinema" class="transit-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-2">
         <i class="bi bi-ticket-perforated-fill text-base"></i>
         <span>Cinema &amp; Events</span>
-      </button>
+      </label>
     </div>
 
-    <!-- Search / Filter Route Console -->
+    <!-- Search / Filter Route Console (HTML5 validation) -->
     <div class="pm-card p-5 bg-[#161616] border border-[rgba(255,255,255,0.08)]">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div>
@@ -116,7 +122,7 @@
           </label>
           <div class="relative">
             <i class="bi bi-geo-alt-fill absolute left-3 top-3 text-[#c8a96e] text-xs"></i>
-            <select id="select-origin" class="pm-input pl-8 text-xs">
+            <select class="pm-input pl-8 text-xs">
               <option value="Lahore" selected>Lahore (LHE)</option>
               <option value="Karachi">Karachi (KHI)</option>
               <option value="Islamabad">Islamabad / Rawalpindi (ISB)</option>
@@ -133,7 +139,7 @@
           </label>
           <div class="relative">
             <i class="bi bi-pin-map-fill absolute left-3 top-3 text-[#c8a96e] text-xs"></i>
-            <select id="select-dest" class="pm-input pl-8 text-xs">
+            <select class="pm-input pl-8 text-xs">
               <option value="Islamabad" selected>Islamabad / Rawalpindi (ISB)</option>
               <option value="Karachi">Karachi (KHI)</option>
               <option value="Lahore">Lahore (LHE)</option>
@@ -149,12 +155,12 @@
           </label>
           <div class="relative">
             <i class="bi bi-calendar-event absolute left-3 top-3 text-[#666] text-xs"></i>
-            <input type="date" id="select-date" class="pm-input pl-8 text-xs" value="2026-10-30">
+            <input type="date" class="pm-input pl-8 text-xs" value="2026-10-30">
           </div>
         </div>
 
         <div class="flex items-end">
-          <button type="button" id="btn-filter-routes" class="w-full pm-btn pm-btn-primary py-3 text-xs flex items-center justify-center gap-2">
+          <button type="button" class="w-full pm-btn pm-btn-primary py-3 text-xs flex items-center justify-center gap-2">
             <i class="bi bi-search"></i>
             <span>Check Fares</span>
           </button>
@@ -165,7 +171,7 @@
     <!-- Active Route Overview Bar -->
     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-2 border-b border-[rgba(255,255,255,0.06)]">
       <div>
-        <h3 id="route-header-title" class="font-display text-lg text-white uppercase">
+        <h3 class="font-display text-lg text-white uppercase">
           Lahore to Islamabad Intercity Fares
         </h3>
         <p class="text-[11px] text-[#777] mt-0.5">Ordered from lowest confirmed ticket price</p>
@@ -173,9 +179,622 @@
       <span class="pm-tag pm-tag-gold text-[9px]">Verified Operator Pricing</span>
     </div>
 
-    <!-- Ticket Cards List -->
-    <div id="tickets-list" class="space-y-4">
-      <!-- Populated via Script -->
+    <!-- PANEL 1: INTERCITY BUS (Pure CSS Display) -->
+    <div class="transit-panel transit-panel-bus space-y-4">
+
+      <!-- Bus Card 1 -->
+      <div class="pm-card p-5 bg-[#191919] border border-[rgba(200,169,110,0.35)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-bus-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Faisal Movers</span>
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">#1 LOWEST FARE</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Executive Plus (Luxury 2x1)</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Lahore Terminal to Rawalpindi Faizabad</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">08:00 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 15m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">8 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">12:15 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 2,450</div>
+          </div>
+          <a href="https://bookme.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bus Card 2 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-bus-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Daewoo Express</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">POPULAR</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Super Luxury Business</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Kalma Chowk LHR to Rawalpindi Terminal</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">09:30 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 20m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">14 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">01:50 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 2,850</div>
+          </div>
+          <a href="https://daewoo.com.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bus Card 3 -->
+      <div class="pm-card p-5 bg-[#191919] border border-[rgba(200,169,110,0.35)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-bus-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Bilal Travels</span>
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">BUDGET CHOICE</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Executive AC Sleeper</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Lahore Rahbar to Faizabad ISB</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">11:00 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 30m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">5 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">03:30 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 2,300</div>
+          </div>
+          <a href="https://bilaltravels.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Bus Card 4 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-bus-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Sania Express</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">ON-TIME GUARANTEE</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Business Class 2x2</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Lahore Thokar to Rawalpindi</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">02:00 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 25m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">12 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">06:25 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 2,500</div>
+          </div>
+          <a href="https://bookme.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANEL 2: DOMESTIC FLIGHTS (Pure CSS Display) -->
+    <div class="transit-panel transit-panel-flight space-y-4">
+
+      <!-- Flight 1 -->
+      <div class="pm-card p-5 bg-[#191919] border border-[rgba(200,169,110,0.35)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-airplane-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">AirSial</span>
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">#1 LOWEST FLIGHT</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Economy Saver (Airbus A320)</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Allama Iqbal Intl (LHE) to Islamabad Intl (ISB)</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">09:15 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">0h 55m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">6 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">10:10 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 18,450</div>
+          </div>
+          <a href="https://airsial.com" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Flight 2 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-airplane-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">PIA (Pakistan International Airlines)</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">FREE 20KG BAGGAGE</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Economy Regular (Boeing 777)</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Allama Iqbal Intl (LHE) to Islamabad Intl (ISB)</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">02:30 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">0h 55m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">9 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">03:25 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 19,800</div>
+          </div>
+          <a href="https://piac.com.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Flight 3 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-airplane-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Fly Jinnah</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">FAST TURNAROUND</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Value Fare (Airbus A320)</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Allama Iqbal Intl (LHE) to Islamabad Intl (ISB)</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">07:45 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">0h 55m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">4 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">08:40 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 18,900</div>
+          </div>
+          <a href="https://flyjinnah.com" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANEL 3: PAKISTAN RAILWAYS (Pure CSS Display) -->
+    <div class="transit-panel transit-panel-train space-y-4">
+
+      <!-- Train 1 -->
+      <div class="pm-card p-5 bg-[#191919] border border-[rgba(200,169,110,0.35)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-train-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Pakistan Railways Green Line</span>
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">#1 RAIL RECOMMENDATION</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">AC Business Sleeper</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Lahore Junction to Margalla Rawalpindi</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">06:30 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 30m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">18 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">11:00 AM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 2,950</div>
+          </div>
+          <a href="https://pakrail.gov.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Train 2 -->
+      <div class="pm-card p-5 bg-[#191919] border border-[rgba(200,169,110,0.35)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-train-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Tezgam Express</span>
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">MOST ECONOMICAL</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">AC Standard</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Lahore Cantt to Rawalpindi Junction</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">01:15 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 55m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">22 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">06:10 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 1,850</div>
+          </div>
+          <a href="https://pakrail.gov.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Train 3 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-train-front-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Subak Kharam Intercity</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">SCENIC RUN</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">AC Parlour Car</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Lahore Junction to Rawalpindi</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">04:30 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">4h 50m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">11 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">09:20 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 2,200</div>
+          </div>
+          <a href="https://pakrail.gov.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PANEL 4: CINEMA & ENTERTAINMENT (Pure CSS Display) -->
+    <div class="transit-panel transit-panel-cinema space-y-4">
+
+      <!-- Cinema 1 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-ticket-perforated-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Cinepax Cinemas</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">ATMOS SURROUND</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">CMAXX Dolby Atmos Experience</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Packages Mall Lahore</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">06:30 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Showtime</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">2h 45m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">34 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">09:15 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Ends</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 1,350</div>
+          </div>
+          <a href="https://cinepax.com" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Cinema 2 -->
+      <div class="pm-card p-5 bg-[#141414] border border-[rgba(255,255,255,0.06)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-ticket-perforated-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Universal Cinemas</span>
+              <span class="pm-tag pm-tag-mint text-[8px] font-bold">RECLINER VIP</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Gold Class Luxury Lounge</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Emporium Mall Lahore</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">08:15 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Showtime</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">2h 45m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">12 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">11:00 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Ends</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 1,800</div>
+          </div>
+          <a href="https://universalcinemas.com" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Cinema 3 -->
+      <div class="pm-card p-5 bg-[#191919] border border-[rgba(200,169,110,0.35)] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
+            <i class="bi bi-ticket-perforated-fill"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="font-bold text-white text-base">Cue Cinemas</span>
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">BEST VALUE</span>
+            </div>
+            <div class="text-xs text-[#aaa] font-light">Standard 4K Laser Projection</div>
+            <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> Gulberg III Lahore</div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-6 text-center self-center sm:self-auto">
+          <div>
+            <div class="font-display text-base text-white">05:00 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Showtime</div>
+          </div>
+          <div class="flex flex-col items-center">
+            <span class="text-[10px] text-[#c8a96e] font-mono">2h 45m</span>
+            <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
+              <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
+            </div>
+            <span class="text-[9px] text-[#4a9e6e]">28 Seats Left</span>
+          </div>
+          <div>
+            <div class="font-display text-base text-white">07:45 PM</div>
+            <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Ends</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
+          <div class="text-right">
+            <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
+            <div class="font-display text-2xl text-white">Rs. 1,100</div>
+          </div>
+          <a href="https://bookme.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
+            <span>Book Portal</span>
+            <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
 
   </main>
@@ -195,14 +814,16 @@
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
-        <a href="../index.html" class="pm-nav">Home</a>
-        <a href="results.html" class="pm-nav">Live Crawler</a>
-        <a href="deals.html" class="pm-nav">Deals</a>
-        <a href="tickets.html" class="pm-nav active">Tickets</a>
-        <a href="history.html" class="pm-nav">History</a>
-        <a href="about.html" class="pm-nav">About</a>
-        <a href="login.html" class="pm-nav">Login</a>
+      <div class="flex items-center gap-5 text-xs font-medium tracking-wider">
+        <a href="https://github.com/x-AR2" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>x-AR2</span>
+        </a>
+        <span class="text-[#444]">·</span>
+        <a href="https://github.com/0xGhost63/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>0xGhost63</span>
+        </a>
       </div>
       <p class="text-[10px] font-medium text-[#555]">
         (c) 2026 PennyWise. Fares subject to seat availability on respective operator booking portals.
@@ -211,304 +832,5 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script>
-    const TRANSIT_DATA = {
-      bus: [
-        {
-          operator: "Faisal Movers",
-          classType: "Executive Plus (Luxury 2x1)",
-          depart: "08:00 AM",
-          arrive: "12:15 PM",
-          duration: "4h 15m",
-          route: "Lahore Terminal to Rawalpindi Faizabad",
-          price: 2450,
-          seatsLeft: 8,
-          badge: "#1 LOWEST FARE",
-          isLowest: true,
-          icon: "bi-bus-front-fill",
-          url: "https://bookme.pk"
-        },
-        {
-          operator: "Daewoo Express",
-          classType: "Super Luxury Business",
-          depart: "09:30 AM",
-          arrive: "01:50 PM",
-          duration: "4h 20m",
-          route: "Kalma Chowk LHR to Rawalpindi Terminal",
-          price: 2850,
-          seatsLeft: 14,
-          badge: "POPULAR",
-          isLowest: false,
-          icon: "bi-bus-front-fill",
-          url: "https://daewoo.com.pk"
-        },
-        {
-          operator: "Bilal Travels",
-          classType: "Executive AC Sleeper",
-          depart: "11:00 AM",
-          arrive: "03:30 PM",
-          duration: "4h 30m",
-          route: "Lahore Rahbar to Faizabad ISB",
-          price: 2300,
-          seatsLeft: 5,
-          badge: "BUDGET CHOICE",
-          isLowest: true,
-          icon: "bi-bus-front-fill",
-          url: "https://bilaltravels.pk"
-        },
-        {
-          operator: "Sania Express",
-          classType: "Business Class 2x2",
-          depart: "02:00 PM",
-          arrive: "06:25 PM",
-          duration: "4h 25m",
-          route: "Lahore Thokar to Rawalpindi",
-          price: 2500,
-          seatsLeft: 12,
-          badge: "ON-TIME GUARANTEE",
-          isLowest: false,
-          icon: "bi-bus-front-fill",
-          url: "https://bookme.pk"
-        }
-      ],
-      flight: [
-        {
-          operator: "AirSial",
-          classType: "Economy Saver (Airbus A320)",
-          depart: "09:15 AM",
-          arrive: "10:10 AM",
-          duration: "0h 55m",
-          route: "Allama Iqbal Intl (LHE) to Islamabad Intl (ISB)",
-          price: 18450,
-          seatsLeft: 6,
-          badge: "#1 LOWEST FLIGHT",
-          isLowest: true,
-          icon: "bi-airplane-fill",
-          url: "https://airsial.com"
-        },
-        {
-          operator: "PIA (Pakistan International Airlines)",
-          classType: "Economy Regular (Boeing 777)",
-          depart: "02:30 PM",
-          arrive: "03:25 PM",
-          duration: "0h 55m",
-          route: "Allama Iqbal Intl (LHE) to Islamabad Intl (ISB)",
-          price: 19800,
-          seatsLeft: 9,
-          badge: "FREE 20KG BAGGAGE",
-          isLowest: false,
-          icon: "bi-airplane-fill",
-          url: "https://piac.com.pk"
-        },
-        {
-          operator: "Fly Jinnah",
-          classType: "Value Fare (Airbus A320)",
-          depart: "07:45 PM",
-          arrive: "08:40 PM",
-          duration: "0h 55m",
-          route: "Allama Iqbal Intl (LHE) to Islamabad Intl (ISB)",
-          price: 18900,
-          seatsLeft: 4,
-          badge: "FAST TURNAROUND",
-          isLowest: false,
-          icon: "bi-airplane-fill",
-          url: "https://flyjinnah.com"
-        }
-      ],
-      train: [
-        {
-          operator: "Pakistan Railways Green Line",
-          classType: "AC Business Sleeper",
-          depart: "06:30 AM",
-          arrive: "11:00 AM",
-          duration: "4h 30m",
-          route: "Lahore Junction to Margalla Rawalpindi",
-          price: 2950,
-          seatsLeft: 18,
-          badge: "#1 RAIL RECOMMENDATION",
-          isLowest: true,
-          icon: "bi-train-front-fill",
-          url: "https://pakrail.gov.pk"
-        },
-        {
-          operator: "Tezgam Express",
-          classType: "AC Standard",
-          depart: "01:15 PM",
-          arrive: "06:10 PM",
-          duration: "4h 55m",
-          route: "Lahore Cantt to Rawalpindi Junction",
-          price: 1850,
-          seatsLeft: 22,
-          badge: "MOST ECONOMICAL",
-          isLowest: true,
-          icon: "bi-train-front-fill",
-          url: "https://pakrail.gov.pk"
-        },
-        {
-          operator: "Subak Kharam Intercity",
-          classType: "AC Parlour Car",
-          depart: "04:30 PM",
-          arrive: "09:20 PM",
-          duration: "4h 50m",
-          route: "Lahore Junction to Rawalpindi",
-          price: 2200,
-          seatsLeft: 11,
-          badge: "SCENIC RUN",
-          isLowest: false,
-          icon: "bi-train-front-fill",
-          url: "https://pakrail.gov.pk"
-        }
-      ],
-      cinema: [
-        {
-          operator: "Cinepax Cinemas",
-          classType: "CMAXX Dolby Atmos Experience",
-          depart: "06:30 PM Show",
-          arrive: "09:15 PM",
-          duration: "2h 45m",
-          route: "Packages Mall Lahore",
-          price: 1350,
-          seatsLeft: 34,
-          badge: "ATMOS SURROUND",
-          isLowest: false,
-          icon: "bi-ticket-perforated-fill",
-          url: "https://cinepax.com"
-        },
-        {
-          operator: "Universal Cinemas",
-          classType: "Gold Class Luxury Lounge",
-          depart: "08:15 PM Show",
-          arrive: "11:00 PM",
-          duration: "2h 45m",
-          route: "Emporium Mall Lahore",
-          price: 1800,
-          seatsLeft: 12,
-          badge: "RECLINER VIP",
-          isLowest: false,
-          icon: "bi-ticket-perforated-fill",
-          url: "https://universalcinemas.com"
-        },
-        {
-          operator: "Cue Cinemas",
-          classType: "Standard 4K Laser Projection",
-          depart: "05:00 PM Show",
-          arrive: "07:45 PM",
-          duration: "2h 45m",
-          route: "Gulberg III Lahore",
-          price: 1100,
-          seatsLeft: 28,
-          badge: "BEST VALUE",
-          isLowest: true,
-          icon: "bi-ticket-perforated-fill",
-          url: "https://bookme.pk"
-        }
-      ]
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById("tickets-list");
-      const titleEl = document.getElementById("route-header-title");
-      let activeMode = "bus";
-
-      function formatPKR(n) {
-        return "Rs. " + Number(n).toLocaleString("en-PK");
-      }
-
-      function render(mode) {
-        activeMode = mode;
-        const items = TRANSIT_DATA[mode] || TRANSIT_DATA.bus;
-        container.innerHTML = "";
-
-        const modeNames = {
-          bus: "Intercity Bus Services",
-          flight: "Domestic Flight Schedules",
-          train: "Pakistan Railways Express Trains",
-          cinema: "Cinema & Theater Screening Tickets"
-        };
-        titleEl.textContent = `${modeNames[mode]} (Lahore to Islamabad)`;
-
-        items.forEach(item => {
-          const card = document.createElement("div");
-          card.className = `pm-card p-5 bg-[#141414] border ${item.isLowest ? 'border-[rgba(200,169,110,0.35)] bg-[#191919]' : 'border-[rgba(255,255,255,0.06)]'} flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 hover:border-[#c8a96e]/50 transition-colors`;
-
-          card.innerHTML = `
-            <div class="flex items-center gap-4">
-              <div class="w-12 h-12 rounded-lg border border-[rgba(255,255,255,0.12)] bg-[#111] flex items-center justify-center text-[#c8a96e] text-2xl flex-shrink-0">
-                <i class="bi ${item.icon}"></i>
-              </div>
-              <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="font-bold text-white text-base">${item.operator}</span>
-                  <span class="pm-tag ${item.isLowest ? 'pm-tag-gold' : 'pm-tag-mint'} text-[8px] font-bold">${item.badge}</span>
-                </div>
-                <div class="text-xs text-[#aaa] font-light">${item.classType}</div>
-                <div class="text-[11px] text-[#666] mt-0.5"><i class="bi bi-geo-alt"></i> ${item.route}</div>
-              </div>
-            </div>
-
-            <!-- Time and Duration -->
-            <div class="flex items-center gap-6 text-center self-center sm:self-auto">
-              <div>
-                <div class="font-display text-base text-white">${item.depart}</div>
-                <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Depart</div>
-              </div>
-              <div class="flex flex-col items-center">
-                <span class="text-[10px] text-[#c8a96e] font-mono">${item.duration}</span>
-                <div class="w-16 h-px bg-[rgba(255,255,255,0.2)] my-1 relative">
-                  <i class="bi bi-arrow-right absolute -top-2 right-0 text-[10px] text-[#888]"></i>
-                </div>
-                <span class="text-[9px] text-[#4a9e6e]">${item.seatsLeft} Seats Left</span>
-              </div>
-              <div>
-                <div class="font-display text-base text-white">${item.arrive}</div>
-                <div class="text-[10px] text-[#777] uppercase tracking-[0.1em]">Arrive</div>
-              </div>
-            </div>
-
-            <!-- Price and Booking -->
-            <div class="flex flex-col sm:flex-row lg:flex-col items-end justify-between gap-3 w-full lg:w-auto pt-3 lg:pt-0 border-t lg:border-t-0 border-[rgba(255,255,255,0.06)]">
-              <div class="text-right">
-                <div class="text-[9px] uppercase tracking-[0.15em] text-[#777]">Confirmed Fare</div>
-                <div class="font-display text-2xl text-white">${formatPKR(item.price)}</div>
-              </div>
-              <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="pm-btn ${item.isLowest ? 'pm-btn-primary' : 'pm-btn-gold'} py-2 px-5 text-xs flex items-center gap-1.5 whitespace-nowrap">
-                <span>Book Portal</span>
-                <i class="bi bi-box-arrow-up-right text-[10px]"></i>
-              </a>
-            </div>
-          `;
-
-          container.appendChild(card);
-        });
-      }
-
-      render("bus");
-
-      const tabs = [
-        { id: "tab-bus", mode: "bus" },
-        { id: "tab-flight", mode: "flight" },
-        { id: "tab-train", mode: "train" },
-        { id: "tab-cinema", mode: "cinema" }
-      ];
-
-      tabs.forEach(t => {
-        const btn = document.getElementById(t.id);
-        if (btn) {
-          btn.addEventListener("click", () => {
-            tabs.forEach(o => {
-              const b = document.getElementById(o.id);
-              if (b) b.className = "mode-tab pm-btn pm-btn-dark pm-btn-sm text-[#aaa] flex items-center gap-2";
-            });
-            btn.className = "mode-tab pm-btn pm-btn-gold pm-btn-sm font-bold flex items-center gap-2";
-            render(t.mode);
-          });
-        }
-      });
-
-      document.getElementById("btn-filter-routes").addEventListener("click", () => {
-        render(activeMode);
-      });
-    });
-  </script>
 </body>
 </html>

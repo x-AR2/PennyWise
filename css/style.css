@@ -77,6 +77,11 @@ body {
 
 *, *::before, *::after { box-sizing: border-box; }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 ::selection { background: var(--pw-accent); color: var(--pw-black); }
 
 /* ========== TYPOGRAPHY ========== */
@@ -134,19 +139,19 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 14px 32px;
+  padding: 12px 28px;
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  border-radius: 50rem !important; /* Bootstrap rounded-pill */
   cursor: pointer;
   user-select: none;
   text-decoration: none;
-  background: transparent;
-  color: var(--pw-pure);
+  background: #141414;
+  color: var(--pw-white);
   position: relative;
   overflow: hidden;
   transition: all var(--dur-normal) var(--ease-smooth);
@@ -156,38 +161,66 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--pw-pure);
+  background: var(--pw-accent);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.4s var(--ease-out);
+  transition: transform 0.35s var(--ease-out);
   z-index: 0;
 }
 
 .pm-btn:hover::before { transform: scaleX(1); }
-.pm-btn:hover { color: var(--pw-black); border-color: var(--pw-pure); }
-.pm-btn > * { position: relative; z-index: 1; }
+.pm-btn:hover { color: #0a0a0a !important; border-color: var(--pw-accent) !important; }
+.pm-btn:hover i { color: #0a0a0a !important; }
+.pm-btn > * { position: relative; z-index: 1; transition: color 0.25s ease; }
 .pm-btn:active { transform: scale(0.98); }
 
-.pm-btn-primary { background: var(--pw-pure); color: var(--pw-black); border-color: var(--pw-pure); }
+.pm-btn-primary {
+  background: #141414;
+  color: var(--pw-white);
+  border-color: rgba(200, 169, 110, 0.45);
+}
 .pm-btn-primary::before { background: var(--pw-accent); }
-.pm-btn-primary:hover { color: var(--pw-black); border-color: var(--pw-accent); }
+.pm-btn-primary:hover { color: #0a0a0a !important; border-color: var(--pw-accent) !important; }
+.pm-btn-primary:hover i { color: #0a0a0a !important; }
 
-.pm-btn-gold { background: transparent; color: var(--pw-accent); border-color: var(--pw-accent); }
+.pm-btn-gold {
+  background: rgba(200, 169, 110, 0.08);
+  color: var(--pw-accent);
+  border-color: var(--pw-accent);
+}
 .pm-btn-gold::before { background: var(--pw-accent); }
-.pm-btn-gold:hover { color: var(--pw-black); }
+.pm-btn-gold:hover { color: #0a0a0a !important; border-color: var(--pw-accent) !important; }
+.pm-btn-gold:hover i { color: #0a0a0a !important; }
 
-.pm-btn-white { background: transparent; color: var(--pw-pure); border-color: var(--border-medium); }
+.pm-btn-white {
+  background: #141414;
+  color: var(--pw-white);
+  border-color: rgba(200, 169, 110, 0.35);
+}
+.pm-btn-white::before { background: var(--pw-accent); }
+.pm-btn-white:hover { color: #0a0a0a !important; border-color: var(--pw-accent) !important; }
+.pm-btn-white:hover i { color: #0a0a0a !important; }
 
-.pm-btn-dark { background: var(--pw-charcoal); color: var(--pw-pearl); border-color: var(--border-subtle); }
+.pm-btn-dark {
+  background: #141414;
+  color: var(--pw-white);
+  border-color: rgba(255, 255, 255, 0.15);
+}
 .pm-btn-dark::before { background: var(--pw-accent); }
-.pm-btn-dark:hover { color: var(--pw-black); }
+.pm-btn-dark:hover { color: #0a0a0a !important; border-color: var(--pw-accent) !important; }
+.pm-btn-dark:hover i { color: #0a0a0a !important; }
 
 .pm-btn-sm { padding: 8px 18px; font-size: 11px; }
-.pm-btn-lg { padding: 18px 40px; font-size: 13px; }
+.pm-btn-lg { padding: 16px 36px; font-size: 12px; }
 
-.pm-btn-burgundy { background: var(--pw-burgundy); color: var(--pw-pure); border-color: var(--pw-burgundy-border); }
-.pm-btn-burgundy::before { background: var(--pw-burgundy-light); }
-.pm-btn-burgundy:hover { color: var(--pw-pure); border-color: var(--pw-accent); }
+.pm-btn-burgundy {
+  background: var(--pw-burgundy);
+  color: var(--pw-white);
+  border-color: var(--pw-burgundy-border);
+}
+.pm-btn-burgundy::before { background: var(--pw-accent); }
+.pm-btn-burgundy:hover { color: #0a0a0a !important; border-color: var(--pw-accent) !important; }
+.pm-btn-burgundy:hover i { color: #0a0a0a !important; }
 
 /* ========== CARDS ========== */
 .pm-card {
@@ -488,7 +521,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border-medium);
-  border-radius: 0;
+  border-radius: 50rem !important; /* Bootstrap rounded-pill */
   font-family: var(--font-body);
   font-weight: 600;
   text-transform: uppercase;
@@ -611,9 +644,9 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   letter-spacing: 0.1em;
   font-weight: 600;
   text-transform: uppercase;
-  background: var(--pw-pure);
-  color: var(--pw-black);
-  border: 1px solid var(--pw-pure);
+  background: #141414;
+  color: var(--pw-accent);
+  border: 1px solid rgba(200, 169, 110, 0.45);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -625,7 +658,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .pw-round-submit:hover {
   background: var(--pw-accent);
   border-color: var(--pw-accent);
-  color: var(--pw-black);
+  color: #0a0a0a;
 }
 
 /* ========== MODAL & DROPZONE ========== */
@@ -656,4 +689,102 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   border-color: var(--pw-accent);
   background: rgba(200, 169, 110, 0.05);
 }
+
+/* ========== PURE CSS TABS (DEALS & TRANSIT) ========== */
+.deal-filter-tab {
+  background: #191919;
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all var(--dur-fast) var(--ease-smooth);
+}
+.deal-filter-tab:hover {
+  background: #222;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+#deal-cat-all:checked ~ * label[for="deal-cat-all"],
+#deal-cat-smartphones:checked ~ * label[for="deal-cat-smartphones"],
+#deal-cat-laptops:checked ~ * label[for="deal-cat-laptops"],
+#deal-cat-audio:checked ~ * label[for="deal-cat-audio"],
+#deal-cat-appliances:checked ~ * label[for="deal-cat-appliances"] {
+  background: var(--pw-accent) !important;
+  color: var(--pw-black) !important;
+  border-color: var(--pw-accent) !important;
+  font-weight: 700 !important;
+}
+
+#deal-cat-smartphones:checked ~ * .deal-card:not([data-category="smartphones"]) {
+  display: none !important;
+}
+#deal-cat-laptops:checked ~ * .deal-card:not([data-category="laptops"]) {
+  display: none !important;
+}
+#deal-cat-audio:checked ~ * .deal-card:not([data-category="audio"]) {
+  display: none !important;
+}
+#deal-cat-appliances:checked ~ * .deal-card:not([data-category="appliances"]) {
+  display: none !important;
+}
+
+.transit-tab {
+  background: #191919;
+  color: #aaa;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all var(--dur-fast) var(--ease-smooth);
+}
+.transit-tab:hover {
+  background: #222;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+#transit-bus:checked ~ * label[for="transit-bus"],
+#transit-flight:checked ~ * label[for="transit-flight"],
+#transit-train:checked ~ * label[for="transit-train"],
+#transit-cinema:checked ~ * label[for="transit-cinema"] {
+  background: var(--pw-accent) !important;
+  color: var(--pw-black) !important;
+  border-color: var(--pw-accent) !important;
+  font-weight: 700 !important;
+}
+
+.transit-panel {
+  display: none;
+}
+#transit-bus:checked ~ * .transit-panel-bus {
+  display: block;
+}
+#transit-flight:checked ~ * .transit-panel-flight {
+  display: block;
+}
+#transit-train:checked ~ * .transit-panel-train {
+  display: block;
+}
+#transit-cinema:checked ~ * .transit-panel-cinema {
+  display: block;
+}
+
+/* ========== BOOTSTRAP ROUNDED BUTTONS SYSTEM ========== */
+:root {
+  --bs-border-radius-pill: 50rem;
+}
+
+.rounded-pill,
+.btn-rounded,
+.btn.rounded-pill {
+  border-radius: 50rem !important;
+}
+
+button,
+.btn,
+.pm-btn,
+.neo-btn,
+.pw-round-submit,
+.deal-filter-tab,
+.quick-pill,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  border-radius: 50rem !important;
+}
+
 

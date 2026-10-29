@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PennyWise | Live Price Crawler & Real-Time Comparison</title>
+  <title>PennyWise | Live Search &amp; Real-Time Comparison</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
@@ -17,11 +19,11 @@
 
   <!-- Top Announcement Bar -->
   <div class="bg-[#0a0a0a] text-[#888] text-center py-2.5 px-4 text-[10px] font-medium tracking-[0.2em] uppercase border-b border-[rgba(255,255,255,0.06)] flex items-center justify-center gap-3 flex-wrap">
-    <span class="text-[#c8a96e] flex items-center gap-1.5"><i class="bi bi-cpu-fill"></i> Autonomous Live Crawler</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><i class="bi bi-search"></i> Live Search</span>
     <span class="text-[#333]">·</span>
     <span class="text-[#888]">Direct Merchant Page Verification</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#c8a96e]">Pakistan</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><img src="../assets/images/pakistan.svg" alt="Pakistan" class="w-3.5 h-3.5 object-contain inline-block"> Pakistan</span>
   </div>
 
   <!-- Header -->
@@ -37,65 +39,52 @@
         </a>
         <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
           <a href="../index.html" class="pm-nav">Home</a>
-          <a href="results.html" class="pm-nav active">Live Crawler</a>
+          <a href="results.html" class="pm-nav active">Live Search</a>
           <a href="deals.html" class="pm-nav">Trending Deals</a>
           <a href="tickets.html" class="pm-nav">Tickets</a>
-          <a href="stores-categories.html" class="pm-nav">Stores</a>
           <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
           <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
           <a href="history.html" class="pm-nav">History</a>
           <a href="about.html" class="pm-nav">About</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+          <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm rounded-pill flex items-center gap-2">
             <i class="bi bi-person-circle text-[#c8a96e]"></i>
             <span>Account</span>
           </a>
         </div>
       </div>
 
-      <!-- Round Bootstrap Search Console -->
+      <!-- Round Bootstrap Search Console (HTML5 Validation, Zero JS) -->
       <div class="mt-8 max-w-4xl mx-auto">
-        <form id="crawler-search-form" class="space-y-3">
+        <form action="results.html" method="GET" class="space-y-3">
           
           <div class="pw-round-search">
             <i class="bi bi-search text-[#777] text-base pl-1"></i>
             <input 
               type="text" 
-              id="search-input" 
               name="q" 
               value="Sony WH-1000XM5" 
               placeholder="Search product across Pakistani stores (e.g. Sony WH-1000XM5, iPhone 15, PS5)..."
               class="pw-round-search-input"
-              autocomplete="off"
               required
+              minlength="2"
             >
             
-            <!-- Image Upload Trigger Icon -->
-            <button 
-              type="button" 
-              id="btn-open-image-modal" 
-              class="pw-icon-btn" 
+            <!-- Pure CSS Modal Trigger (:target based - 0 JS) -->
+            <a 
+              href="#image-modal" 
+              class="pw-icon-btn rounded-circle" 
               title="Upload product photo or visual search"
             >
               <i class="bi bi-camera-fill text-base"></i>
-            </button>
+            </a>
 
-            <!-- Submit Button -->
-            <button type="submit" class="pw-round-submit">
-              <i class="bi bi-arrow-repeat text-sm"></i>
-              <span>Crawl</span>
+            <!-- Round Submit Button -->
+            <button type="submit" class="pw-round-submit rounded-pill">
+              <i class="bi bi-search text-sm"></i>
+              <span>Search</span>
             </button>
-          </div>
-
-          <!-- Quick Product Pills -->
-          <div class="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
-            <span class="text-[10px] font-semibold text-[#666] uppercase tracking-[0.15em]">Quick Demo:</span>
-            <button type="button" class="quick-pill pm-tag pm-tag-gold cursor-pointer hover:opacity-80" data-q="Sony WH-1000XM5">Sony WH-1000XM5</button>
-            <button type="button" class="quick-pill pm-tag pm-tag-mint cursor-pointer hover:opacity-80" data-q="iPhone 15 Pro Max">iPhone 15 Pro Max</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80" data-q="PlayStation 5 Console">PlayStation 5</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80" data-q="MacBook Air M2">MacBook Air M2</button>
-            <button type="button" class="quick-pill pm-tag cursor-pointer hover:opacity-80" data-q="Dawlance Inverter AC">Dawlance Inverter AC</button>
           </div>
 
         </form>
@@ -114,40 +103,16 @@
   <!-- Main Results Body -->
   <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-2 flex-grow space-y-6">
 
-    <!-- Status & Metrics Toolbar -->
-    <div class="pm-card p-4 bg-[#141414] border border-[rgba(255,255,255,0.08)] flex flex-wrap items-center justify-between gap-4">
-      <div class="flex flex-wrap items-center gap-3">
-        <div class="flex items-center gap-2 text-[10px] text-[#888]">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#4a9e6e] border border-[rgba(255,255,255,0.1)]"></span>
-          <span class="uppercase tracking-[0.15em] font-semibold">Crawler Status:</span>
-          <span id="crawler-status-label" class="font-medium text-[#c8a96e]">Live Index Active</span>
-        </div>
-        <div class="h-3 w-px bg-[rgba(255,255,255,0.08)] hidden sm:block"></div>
-        <div class="flex flex-wrap items-center gap-2">
-          <span id="chip-crawled" class="pm-tag py-1 px-2.5 text-[9px] text-[#ccc]"><i class="bi bi-shop text-[#c8a96e]"></i> 6 Stores Verified</span>
-          <span id="chip-latency" class="pm-tag pm-tag-mint py-1 px-2.5 text-[9px]"><i class="bi bi-stopwatch"></i> 480ms Scan</span>
-          <span class="pm-tag py-1 px-2.5 text-[9px] text-[#aaa]"><i class="bi bi-shield-lock-fill text-[#4a9e6e]"></i> PKR Standardized</span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3">
-        <label for="sort-select" class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#888]">Sort:</label>
-        <select id="sort-select" class="pm-select text-xs">
-          <option value="lowest">Price: Lowest First</option>
-          <option value="highest">Price: Highest First</option>
-        </select>
-      </div>
-    </div>
 
     <!-- Deal Summary Banner -->
-    <div id="best-deal-banner" class="pm-card p-5 bg-[#141414] border border-[rgba(200,169,110,0.3)] flex items-center justify-between gap-4">
+    <div class="pm-card p-5 bg-[#141414] border border-[rgba(200,169,110,0.3)] flex items-center justify-between gap-4">
       <div class="flex items-center gap-3.5">
         <div class="w-10 h-10 rounded-full border border-[#c8a96e] bg-[rgba(200,169,110,0.1)] flex items-center justify-center text-[#c8a96e] text-sm font-bold flex-shrink-0">
           <i class="bi bi-trophy-fill"></i>
         </div>
         <div>
           <span class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#c8a96e] block">Best Available Offer in Pakistan</span>
-          <h2 id="best-deal-text" class="font-display text-lg sm:text-xl text-white">
+          <h2 class="font-display text-lg sm:text-xl text-white">
             Lowest price is Rs. 94,999 at PriceOye (Save Rs. 9,901)
           </h2>
         </div>
@@ -162,15 +127,245 @@
       <div>
         <div class="flex items-center gap-3">
           <span class="pm-tag text-[9px]">Product</span>
-          <h1 id="active-query-title" class="font-display text-xl sm:text-2xl text-white">"Sony WH-1000XM5"</h1>
+          <h1 class="font-display text-xl sm:text-2xl text-white">"Sony WH-1000XM5 Wireless Headphones"</h1>
         </div>
-        <p id="results-count-text" class="text-[11px] font-medium text-[#777] mt-1">Showing 6 verified merchant listings ordered by price</p>
+        <p class="text-[11px] font-medium text-[#777] mt-1">Showing 6 verified Pakistani merchant listings ordered by price</p>
       </div>
     </div>
 
-    <!-- Product Cards Grid -->
-    <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
-      <!-- Populated via minimal JS -->
+    <!-- Static Pre-Rendered Product Cards Grid (Zero InnerHTML Loops) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+
+      <!-- Card 1: PriceOye (Lowest) -->
+      <div class="pm-polaroid flex flex-col justify-between border-[rgba(200,169,110,0.4)] bg-[#191919]">
+        <div class="pm-sticker-number text-[10px]" style="background:#c8a96e;">TOP</div>
+        <div class="pm-washi" style="background:linear-gradient(90deg,transparent,#c8a96e,transparent);"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
+            <span class="pm-tag pm-tag-mint text-[8px]">PriceOye</span>
+            <div class="flex items-center gap-1.5">
+              <span class="pm-tag pm-tag-gold text-[8px] font-bold">#1 LOWEST</span>
+            </div>
+          </div>
+          
+          <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/headphones/headphone_1.jpg" alt="Sony WH-1000XM5" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Wireless Noise-Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
+            <span class="text-[#4a9e6e] font-semibold flex items-center gap-1">
+              <i class="bi bi-check-circle-fill"></i> In Stock
+            </span>
+            <span class="pm-tag text-[8px]">Open Parcel</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
+          <div class="font-display text-2xl text-white mb-3">Rs. 94,999</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=94999&store=PriceOye&url=https%3A%2F%2Fpriceoye.pk&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_1.jpg" class="pm-btn pm-btn-white rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://priceoye.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Telemart -->
+      <div class="pm-polaroid flex flex-col justify-between bg-[#141414]">
+        <div class="pm-sticker-number text-[10px]" style="background:#333;">2</div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
+            <span class="pm-tag pm-tag-mint text-[8px]">Telemart</span>
+            <span class="pm-tag text-[8px]">VERIFIED</span>
+          </div>
+          
+          <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/headphones/headphone_2.jpg" alt="Sony WH-1000XM5" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Wireless Noise-Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
+            <span class="text-[#4a9e6e] font-semibold flex items-center gap-1">
+              <i class="bi bi-check-circle-fill"></i> In Stock
+            </span>
+            <span class="text-[#888] text-[9px]">Official Warranty</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
+          <div class="font-display text-2xl text-white mb-3">Rs. 99,499</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=99499&store=Telemart&url=https%3A%2F%2Ftelemart.pk&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_2.jpg" class="pm-btn pm-btn-white rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://telemart.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Shophive -->
+      <div class="pm-polaroid flex flex-col justify-between bg-[#141414]">
+        <div class="pm-sticker-number text-[10px]" style="background:#333;">3</div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
+            <span class="pm-tag pm-tag-mint text-[8px]">Shophive</span>
+            <span class="pm-tag text-[8px]">VERIFIED</span>
+          </div>
+          
+          <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/headphones/headphone_3.jpg" alt="Sony WH-1000XM5" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Wireless Noise-Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
+            <span class="text-[#4a9e6e] font-semibold flex items-center gap-1">
+              <i class="bi bi-check-circle-fill"></i> In Stock
+            </span>
+            <span class="text-[#888] text-[9px]">Lahore Showroom</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
+          <div class="font-display text-2xl text-white mb-3">Rs. 102,500</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=102500&store=Shophive&url=https%3A%2F%2Fshophive.com&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_3.jpg" class="pm-btn pm-btn-white rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://shophive.com" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Mega.pk -->
+      <div class="pm-polaroid flex flex-col justify-between bg-[#141414]">
+        <div class="pm-sticker-number text-[10px]" style="background:#333;">4</div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
+            <span class="pm-tag pm-tag-mint text-[8px]">Mega.pk</span>
+            <span class="pm-tag text-[8px]">VERIFIED</span>
+          </div>
+          
+          <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/headphones/headphone_4.jpg" alt="Sony WH-1000XM5" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Wireless Noise-Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
+            <span class="text-[#4a9e6e] font-semibold flex items-center gap-1">
+              <i class="bi bi-check-circle-fill"></i> In Stock
+            </span>
+            <span class="text-[#888] text-[9px]">Karachi Warehouse</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
+          <div class="font-display text-2xl text-white mb-3">Rs. 103,999</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=103999&store=Mega.pk&url=https%3A%2F%2Fmega.pk&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_4.jpg" class="pm-btn pm-btn-white rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://mega.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5: Daraz Mall -->
+      <div class="pm-polaroid flex flex-col justify-between bg-[#141414]">
+        <div class="pm-sticker-number text-[10px]" style="background:#333;">5</div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
+            <span class="pm-tag pm-tag-mint text-[8px]">Daraz Mall</span>
+            <span class="pm-tag text-[8px]">VERIFIED</span>
+          </div>
+          
+          <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/headphones/headphone_5.jpg" alt="Sony WH-1000XM5" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Wireless Noise-Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
+            <span class="text-[#4a9e6e] font-semibold flex items-center gap-1">
+              <i class="bi bi-check-circle-fill"></i> In Stock
+            </span>
+            <span class="text-[#888] text-[9px]">Official Flagship</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
+          <div class="font-display text-2xl text-white mb-3">Rs. 104,900</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=104900&store=Daraz+Mall&url=https%3A%2F%2Fdaraz.pk&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_5.jpg" class="pm-btn pm-btn-white rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://daraz.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6: Paklap -->
+      <div class="pm-polaroid flex flex-col justify-between bg-[#141414]">
+        <div class="pm-sticker-number text-[10px]" style="background:#333;">6</div>
+        <div class="pm-washi"></div>
+        <div>
+          <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
+            <span class="pm-tag pm-tag-mint text-[8px]">Paklap</span>
+            <span class="pm-tag text-[8px]">VERIFIED</span>
+          </div>
+          
+          <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/headphones/headphone_6.jpg" alt="Sony WH-1000XM5" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Wireless Noise-Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
+            <span class="text-[#cc3333] font-semibold flex items-center gap-1">
+              <i class="bi bi-x-circle-fill"></i> Limited Stock
+            </span>
+            <span class="text-[#888] text-[9px]">Import Edition</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
+          <div class="font-display text-2xl text-white mb-3">Rs. 106,000</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=106000&store=Paklap&url=https%3A%2F%2Fpaklap.pk&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_6.jpg" class="pm-btn pm-btn-white rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
+            </a>
+            <a href="https://paklap.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-gold rounded-pill py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Explanatory Disclaimer Box -->
@@ -183,8 +378,8 @@
 
   </main>
 
-  <!-- Image Upload & Visual Search Modal -->
-  <div id="image-modal" class="hidden pw-modal-backdrop">
+  <!-- Pure CSS Image Upload Modal (:target Based - 0 JS) -->
+  <div id="image-modal" class="hidden target:flex pw-modal-backdrop">
     <div class="pm-card p-6 bg-[#161616] max-w-lg w-full relative border border-[rgba(255,255,255,0.14)] space-y-5">
       <div class="pm-washi"></div>
 
@@ -199,44 +394,45 @@
             <span class="text-[9px] text-[#777] uppercase tracking-[0.1em]">AI Assisted Image Identification</span>
           </div>
         </div>
-        <button type="button" id="btn-close-image-modal" class="w-7 h-7 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#888] hover:text-white hover:border-white transition-all cursor-pointer">
+        <!-- Pure CSS Close Link -->
+        <a href="#" class="w-7 h-7 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#888] hover:text-white hover:border-white transition-all">
           <i class="bi bi-x-lg text-xs"></i>
-        </button>
+        </a>
       </div>
 
       <!-- Dropzone Area -->
-      <div id="image-dropzone" class="pw-dropzone space-y-3">
+      <label for="local-file-selector" class="pw-dropzone block space-y-3 cursor-pointer">
         <div class="w-12 h-12 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#c8a96e] mx-auto">
           <i class="bi bi-cloud-arrow-up-fill text-xl"></i>
         </div>
         <div>
           <div class="text-sm font-semibold text-white">Upload Product Photo</div>
-          <p class="text-[11px] text-[#777] mt-1">Drag and drop an image file here or click to browse</p>
+          <p class="text-[11px] text-[#777] mt-1">Select an image from your device</p>
         </div>
-        <input type="file" id="modal-file-input" accept="image/*" class="hidden">
-        <button type="button" id="btn-trigger-file" class="pm-btn pm-btn-white pm-btn-sm text-[10px]">
+        <input type="file" id="local-file-selector" accept="image/*" class="hidden" onchange="window.location.href='results.html?q=Sony+WH-1000XM5'">
+        <span class="pm-btn pm-btn-white pm-btn-sm text-[10px] inline-flex items-center gap-1.5">
           <i class="bi bi-folder2-open"></i> Browse Device
-        </button>
-      </div>
+        </span>
+      </label>
 
       <!-- Preset Visual Search Samples -->
       <div class="space-y-2">
         <span class="text-[10px] font-semibold text-[#888] uppercase tracking-[0.15em] block">Or Try Sample Demo Photos:</span>
         <div class="grid grid-cols-2 gap-2 text-xs">
-          <button type="button" class="sample-photo-btn p-2.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#111] hover:border-[#c8a96e] text-left flex items-center gap-2 transition-colors" data-target="Sony WH-1000XM5">
+          <a href="results.html?q=Sony+WH-1000XM5" class="p-2.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#111] hover:border-[#c8a96e] text-left flex items-center gap-2 transition-colors">
             <i class="bi bi-headphones text-[#c8a96e] text-base"></i>
             <div>
               <div class="font-medium text-white text-[11px]">Sony Headphones</div>
               <div class="text-[9px] text-[#666]">Audio Gadgets</div>
             </div>
-          </button>
-          <button type="button" class="sample-photo-btn p-2.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#111] hover:border-[#c8a96e] text-left flex items-center gap-2 transition-colors" data-target="iPhone 15 Pro Max">
+          </a>
+          <a href="results.html?q=iPhone+15+Pro+Max" class="p-2.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#111] hover:border-[#c8a96e] text-left flex items-center gap-2 transition-colors">
             <i class="bi bi-phone text-[#c8a96e] text-base"></i>
             <div>
               <div class="font-medium text-white text-[11px]">iPhone 15 Pro</div>
               <div class="text-[9px] text-[#666]">Smartphones</div>
             </div>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -261,14 +457,16 @@
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
-        <a href="../index.html" class="pm-nav">Home</a>
-        <a href="results.html" class="pm-nav active">Live Crawler</a>
-        <a href="deals.html" class="pm-nav">Deals</a>
-        <a href="tickets.html" class="pm-nav">Tickets</a>
-        <a href="history.html" class="pm-nav">History</a>
-        <a href="about.html" class="pm-nav">About</a>
-        <a href="login.html" class="pm-nav">Login</a>
+      <div class="flex items-center gap-5 text-xs font-medium tracking-wider">
+        <a href="https://github.com/x-AR2" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>x-AR2</span>
+        </a>
+        <span class="text-[#444]">·</span>
+        <a href="https://github.com/0xGhost63/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>0xGhost63</span>
+        </a>
       </div>
       <p class="text-[10px] font-medium text-[#555]">
         (c) 2026 PennyWise Prototype. All trademarks belong to their respective stores.
@@ -276,292 +474,6 @@
     </div>
   </footer>
 
-  <!-- Minimal Autonomous Client Script -->
-  <script>
-    // Rich Mock Product Catalogs for Instant Real-Time Crawler Simulation
-    const CATALOG = {
-      "Sony WH-1000XM5": {
-        title: "Sony WH-1000XM5 Wireless Noise-Cancelling Headphones",
-        category: "Audio",
-        image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80",
-        stores: [
-          { store: "PriceOye", price: 94999, stock: true, url: "https://priceoye.pk" },
-          { store: "Telemart", price: 99499, stock: true, url: "https://telemart.pk" },
-          { store: "Shophive", price: 102500, stock: true, url: "https://shophive.com" },
-          { store: "Mega.pk", price: 103999, stock: true, url: "https://mega.pk" },
-          { store: "Daraz Mall", price: 104900, stock: true, url: "https://daraz.pk" },
-          { store: "Paklap", price: 106000, stock: false, url: "https://paklap.pk" }
-        ]
-      },
-      "iPhone 15 Pro Max": {
-        title: "Apple iPhone 15 Pro Max 256GB Titanium",
-        category: "Smartphones",
-        image: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=600&q=80",
-        stores: [
-          { store: "PriceOye", price: 479999, stock: true, url: "https://priceoye.pk" },
-          { store: "Telemart", price: 489999, stock: true, url: "https://telemart.pk" },
-          { store: "Daraz Mall", price: 494500, stock: true, url: "https://daraz.pk" },
-          { store: "Shophive", price: 498000, stock: true, url: "https://shophive.com" },
-          { store: "Mega.pk", price: 504999, stock: true, url: "https://mega.pk" }
-        ]
-      },
-      "PlayStation 5 Console": {
-        title: "Sony PlayStation 5 Slim 1TB Console (Disc Edition)",
-        category: "Gaming",
-        image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=600&q=80",
-        stores: [
-          { store: "Mega.pk", price: 148500, stock: true, url: "https://mega.pk" },
-          { store: "PriceOye", price: 152999, stock: true, url: "https://priceoye.pk" },
-          { store: "Telemart", price: 154999, stock: true, url: "https://telemart.pk" },
-          { store: "Shophive", price: 158000, stock: true, url: "https://shophive.com" },
-          { store: "Daraz Mall", price: 161000, stock: false, url: "https://daraz.pk" }
-        ]
-      },
-      "MacBook Air M2": {
-        title: "Apple MacBook Air 13.6-inch M2 Chip 8GB 256GB",
-        category: "Laptops",
-        image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=600&q=80",
-        stores: [
-          { store: "Paklap", price: 279900, stock: true, url: "https://paklap.pk" },
-          { store: "Mega.pk", price: 284500, stock: true, url: "https://mega.pk" },
-          { store: "PriceOye", price: 289999, stock: true, url: "https://priceoye.pk" },
-          { store: "Telemart", price: 294000, stock: true, url: "https://telemart.pk" },
-          { store: "Shophive", price: 299000, stock: true, url: "https://shophive.com" }
-        ]
-      },
-      "Dawlance Inverter AC": {
-        title: "Dawlance 1.5 Ton Inverter Air Conditioner (Mega T-Pro)",
-        category: "Appliances",
-        image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80",
-        stores: [
-          { store: "Daraz Mall", price: 139500, stock: true, url: "https://daraz.pk" },
-          { store: "PriceOye", price: 142000, stock: true, url: "https://priceoye.pk" },
-          { store: "Telemart", price: 144500, stock: true, url: "https://telemart.pk" },
-          { store: "Mega.pk", price: 147000, stock: true, url: "https://mega.pk" }
-        ]
-      }
-    };
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const searchForm = document.getElementById("crawler-search-form");
-      const searchInput = document.getElementById("search-input");
-      const activeQueryTitle = document.getElementById("active-query-title");
-      const cardsContainer = document.getElementById("cards-container");
-      const sortSelect = document.getElementById("sort-select");
-      const bestDealText = document.getElementById("best-deal-text");
-      const imageModal = document.getElementById("image-modal");
-      const btnOpenImageModal = document.getElementById("btn-open-image-modal");
-      const btnCloseImageModal = document.getElementById("btn-close-image-modal");
-      const btnTriggerFile = document.getElementById("btn-trigger-file");
-      const modalFileInput = document.getElementById("modal-file-input");
-
-      let currentQuery = "Sony WH-1000XM5";
-
-      // Check URL parameters
-      const params = new URLSearchParams(window.location.search);
-      const urlQ = params.get("q") || params.get("name");
-      if (urlQ) {
-        for (let key in CATALOG) {
-          if (key.toLowerCase().includes(urlQ.toLowerCase()) || urlQ.toLowerCase().includes(key.toLowerCase())) {
-            currentQuery = key;
-            break;
-          }
-        }
-      }
-
-      function updateNavCounts() {
-        try {
-          const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-          const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
-          const wlEl = document.getElementById("nav-wishlist-count");
-          const cmpEl = document.getElementById("nav-compare-count");
-          if (wlEl) wlEl.textContent = `(${wl.length})`;
-          if (cmpEl) cmpEl.textContent = `(${cmp.length})`;
-        } catch(e){}
-      }
-      updateNavCounts();
-
-      function formatPKR(n) {
-        return "Rs. " + Number(n).toLocaleString("en-PK");
-      }
-
-      function render(queryKey) {
-        const item = CATALOG[queryKey] || CATALOG["Sony WH-1000XM5"];
-        activeQueryTitle.textContent = `"${item.title}"`;
-        searchInput.value = queryKey;
-
-        // Save to search history
-        try {
-          let hist = JSON.parse(localStorage.getItem("pennywise_history") || "[]");
-          hist = hist.filter(h => h.query !== queryKey);
-          hist.unshift({ query: queryKey, title: item.title, count: item.stores.length, date: new Date().toLocaleDateString() });
-          localStorage.setItem("pennywise_history", JSON.stringify(hist.slice(0, 10)));
-        } catch(e){}
-
-        // Sort items
-        const isLowest = sortSelect.value === "lowest";
-        const sortedStores = [...item.stores].sort((a, b) => isLowest ? a.price - b.price : b.price - a.price);
-
-        const cheapest = [...item.stores].sort((a,b) => a.price - b.price)[0];
-        const highest = [...item.stores].sort((a,b) => b.price - a.price)[0];
-        const diff = highest.price - cheapest.price;
-        bestDealText.textContent = `Lowest price is ${formatPKR(cheapest.price)} at ${cheapest.store} (Save ${formatPKR(diff)})`;
-
-        cardsContainer.innerHTML = "";
-
-        sortedStores.forEach((s, idx) => {
-          const isTop = s.price === cheapest.price;
-          const card = document.createElement("div");
-          card.className = `pm-polaroid flex flex-col justify-between ${isTop ? 'border-[rgba(200,169,110,0.4)] bg-[#191919]' : 'bg-[#141414]'}`;
-
-          const detailUrl = `product.html?title=${encodeURIComponent(item.title)}&price=${s.price}&store=${encodeURIComponent(s.store)}&url=${encodeURIComponent(s.url)}&image=${encodeURIComponent(item.image)}&q=${encodeURIComponent(queryKey)}`;
-
-          card.innerHTML = `
-            <div class="pm-sticker-number text-[10px]" style="background:${isTop ? '#c8a96e' : '#333'};">
-              ${isTop ? 'TOP' : idx + 1}
-            </div>
-            <div class="pm-washi" style="background:linear-gradient(90deg,transparent,${isTop ? '#c8a96e' : 'rgba(255,255,255,0.1)'},transparent);"></div>
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3 pl-6 pt-1">
-                <span class="pm-tag pm-tag-mint text-[8px]">${s.store}</span>
-                <div class="flex items-center gap-1.5">
-                  ${isTop ? '<span class="pm-tag pm-tag-gold text-[8px]">#1 LOWEST</span>' : '<span class="pm-tag text-[8px]">VERIFIED</span>'}
-                  <button type="button" class="btn-wl w-7 h-7 rounded border border-[rgba(255,255,255,0.12)] flex items-center justify-center text-[#888] hover:text-[#ff3355] transition-colors" title="Wishlist">
-                    <i class="bi bi-heart-fill text-xs"></i>
-                  </button>
-                </div>
-              </div>
-              
-              <div class="w-full h-44 bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
-                <img src="${item.image}" alt="${item.title}" class="max-h-full max-w-full object-contain" onerror="this.src='../assets/icons/favicon.svg'">
-              </div>
-
-              <h3 class="font-medium text-sm text-white line-clamp-2 leading-snug mb-2">${item.title}</h3>
-
-              <div class="text-[10px] text-[#888] mb-4 flex items-center justify-between">
-                <span class="${s.stock ? 'text-[#4a9e6e]' : 'text-[#cc3333]'} font-semibold flex items-center gap-1">
-                  <i class="bi bi-${s.stock ? 'check-circle-fill' : 'x-circle-fill'}"></i>
-                  ${s.stock ? 'In Stock' : 'Out of Stock'}
-                </span>
-                <button type="button" class="btn-cmp text-[9px] font-semibold uppercase px-2 py-0.5 rounded border border-[rgba(255,255,255,0.15)] text-[#aaa] hover:border-[#c8a96e]">
-                  + COMPARE
-                </button>
-              </div>
-            </div>
-
-            <div class="pt-4 border-t border-[rgba(255,255,255,0.06)] mt-2">
-              <div class="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#666] mb-0.5">Verified Shelf Price</div>
-              <div class="font-display text-2xl text-white mb-3">${formatPKR(s.price)}</div>
-              <div class="grid grid-cols-2 gap-2">
-                <a href="${detailUrl}" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
-                  <span>DETAILS</span> <i class="bi bi-arrow-right text-[10px]"></i>
-                </a>
-                <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="pm-btn ${isTop ? 'pm-btn-primary' : 'pm-btn-gold'} py-2 text-[9px] flex items-center justify-center gap-1">
-                  <span>STORE</span> <i class="bi bi-box-arrow-up-right text-[10px]"></i>
-                </a>
-              </div>
-            </div>
-          `;
-
-          // Wishlist Action
-          const wlBtn = card.querySelector(".btn-wl");
-          wlBtn.addEventListener("click", () => {
-            let list = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-            const exists = list.some(x => x.title === item.title && x.store === s.store);
-            if (exists) {
-              list = list.filter(x => !(x.title === item.title && x.store === s.store));
-              wlBtn.classList.remove("text-[#ff3355]");
-            } else {
-              list.push({ title: item.title, store: s.store, price: s.price, url: s.url, image: item.image });
-              wlBtn.classList.add("text-[#ff3355]");
-            }
-            localStorage.setItem("pennywise_wishlist", JSON.stringify(list));
-            updateNavCounts();
-          });
-
-          // Compare Action
-          const cmpBtn = card.querySelector(".btn-cmp");
-          cmpBtn.addEventListener("click", () => {
-            let list = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
-            const idx = list.findIndex(c => c.title === item.title && c.store === s.store);
-            if (idx >= 0) {
-              list.splice(idx, 1);
-              cmpBtn.textContent = "+ COMPARE";
-              cmpBtn.className = "btn-cmp text-[9px] font-semibold uppercase px-2 py-0.5 rounded border border-[rgba(255,255,255,0.15)] text-[#aaa]";
-            } else {
-              if (list.length >= 3) { alert("Maximum 3 items allowed in Compare."); return; }
-              list.push({ title: item.title, store: s.store, price: s.price, url: s.url, image: item.image });
-              cmpBtn.textContent = "VERIFIED IN COMPARE";
-              cmpBtn.className = "btn-cmp text-[9px] font-semibold uppercase px-2 py-0.5 rounded border bg-[#c8a96e] text-[#0a0a0a] border-[#c8a96e]";
-            }
-            localStorage.setItem("pennywise_compare", JSON.stringify(list));
-            updateNavCounts();
-          });
-
-          cardsContainer.appendChild(card);
-        });
-      }
-
-      // Initial Render
-      render(currentQuery);
-
-      // Search submit
-      searchForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const q = searchInput.value.trim();
-        for (let key in CATALOG) {
-          if (key.toLowerCase().includes(q.toLowerCase()) || q.toLowerCase().includes(key.toLowerCase())) {
-            currentQuery = key;
-            break;
-          }
-        }
-        render(currentQuery);
-      });
-
-      // Quick demo pills
-      document.querySelectorAll(".quick-pill").forEach(p => {
-        p.addEventListener("click", () => {
-          const q = p.getAttribute("data-q");
-          if (q && CATALOG[q]) {
-            currentQuery = q;
-            render(currentQuery);
-          }
-        });
-      });
-
-      // Sort change
-      sortSelect.addEventListener("change", () => render(currentQuery));
-
-      // Image Modal controls
-      btnOpenImageModal.addEventListener("click", () => imageModal.classList.remove("hidden"));
-      btnCloseImageModal.addEventListener("click", () => imageModal.classList.add("hidden"));
-      imageModal.addEventListener("click", (e) => {
-        if (e.target === imageModal) imageModal.classList.add("hidden");
-      });
-
-      if (btnTriggerFile && modalFileInput) {
-        btnTriggerFile.addEventListener("click", () => modalFileInput.click());
-        modalFileInput.addEventListener("change", () => {
-          if (modalFileInput.files.length > 0) {
-            imageModal.classList.add("hidden");
-            currentQuery = "Sony WH-1000XM5";
-            render(currentQuery);
-          }
-        });
-      }
-
-      // Sample photo clicks
-      document.querySelectorAll(".sample-photo-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
-          const t = btn.getAttribute("data-target");
-          if (t && CATALOG[t]) {
-            currentQuery = t;
-            imageModal.classList.add("hidden");
-            render(currentQuery);
-          }
-        });
-      });
-    });
-  </script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

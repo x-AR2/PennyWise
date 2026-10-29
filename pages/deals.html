@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
@@ -21,7 +22,7 @@
     <span class="text-[#333]">·</span>
     <span class="text-[#888]">Authentic Pakistani Merchant Deals Only</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#c8a96e]">Pakistan</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><img src="../assets/images/pakistan.svg" alt="Pakistan" class="w-3.5 h-3.5 object-contain inline-block"> Pakistan</span>
   </div>
 
   <!-- Header -->
@@ -37,17 +38,16 @@
         </a>
         <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
           <a href="../index.html" class="pm-nav">Home</a>
-          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="results.html" class="pm-nav">Live Search</a>
           <a href="deals.html" class="pm-nav active">Trending Deals</a>
           <a href="tickets.html" class="pm-nav">Tickets</a>
-          <a href="stores-categories.html" class="pm-nav">Stores</a>
           <a href="compare.html" class="pm-nav">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
           <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
           <a href="history.html" class="pm-nav">History</a>
           <a href="about.html" class="pm-nav">About</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+          <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-2">
             <i class="bi bi-person-circle text-[#c8a96e]"></i>
             <span>Account</span>
           </a>
@@ -62,6 +62,13 @@
     <div class="pm-coin-token">₨</div>
     <div class="pm-coin-line"></div>
   </div>
+
+  <!-- Pure CSS Category Radio Controls (Hidden) -->
+  <input type="radio" name="deal-cat" id="deal-cat-all" class="hidden" checked>
+  <input type="radio" name="deal-cat" id="deal-cat-smartphones" class="hidden">
+  <input type="radio" name="deal-cat" id="deal-cat-laptops" class="hidden">
+  <input type="radio" name="deal-cat" id="deal-cat-audio" class="hidden">
+  <input type="radio" name="deal-cat" id="deal-cat-appliances" class="hidden">
 
   <!-- Main Deals Page Content -->
   <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex-grow space-y-8">
@@ -89,28 +96,296 @@
       </div>
     </div>
 
-    <!-- Category Filter Tabs -->
+    <!-- Category Filter Tabs (Pure CSS Driven) -->
     <div class="flex flex-wrap items-center gap-2 pb-2 border-b border-[rgba(255,255,255,0.06)]">
-      <button type="button" class="deal-filter-btn pm-btn pm-btn-gold pm-btn-sm" data-category="all">
+      <label for="deal-cat-all" class="deal-filter-tab pm-btn pm-btn-sm cursor-pointer select-none">
         All Deals (8)
-      </button>
-      <button type="button" class="deal-filter-btn pm-btn pm-btn-dark pm-btn-sm" data-category="smartphones">
-        <i class="bi bi-phone"></i> Smartphones
-      </button>
-      <button type="button" class="deal-filter-btn pm-btn pm-btn-dark pm-btn-sm" data-category="laptops">
-        <i class="bi bi-laptop"></i> Laptops &amp; PCs
-      </button>
-      <button type="button" class="deal-filter-btn pm-btn pm-btn-dark pm-btn-sm" data-category="audio">
-        <i class="bi bi-headphones"></i> Audio &amp; Wearables
-      </button>
-      <button type="button" class="deal-filter-btn pm-btn pm-btn-dark pm-btn-sm" data-category="appliances">
-        <i class="bi bi-tv"></i> Appliances
-      </button>
+      </label>
+      <label for="deal-cat-smartphones" class="deal-filter-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-1.5">
+        <i class="bi bi-phone"></i>
+        <span>Smartphones</span>
+      </label>
+      <label for="deal-cat-laptops" class="deal-filter-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-1.5">
+        <i class="bi bi-laptop"></i>
+        <span>Laptops &amp; PCs</span>
+      </label>
+      <label for="deal-cat-audio" class="deal-filter-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-1.5">
+        <i class="bi bi-headphones"></i>
+        <span>Audio &amp; Wearables</span>
+      </label>
+      <label for="deal-cat-appliances" class="deal-filter-tab pm-btn pm-btn-sm cursor-pointer select-none flex items-center gap-1.5">
+        <i class="bi bi-tv"></i>
+        <span>Appliances</span>
+      </label>
     </div>
 
-    <!-- Deals Grid -->
+    <!-- Static Deals Catalog (Zero innerHTML, Pure Static HTML) -->
     <div id="deals-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Populated via Script -->
+
+      <!-- Deal 1: Audio -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="audio">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">9% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">PriceOye</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/sony-headphones.jpg" alt="Sony WH-1000XM5 Headphones" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Sony WH-1000XM5 Noise Cancelling Headphones</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 104,900</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 9,901</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 94,999</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Sony%20WH-1000XM5%20Noise%20Cancelling%20Headphones&price=94999&store=PriceOye&image=../assets/images/sony-headphones.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://priceoye.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 2: Smartphones -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="smartphones">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">8% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">Telemart</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/samsung-s26.jpg" alt="Samsung Galaxy S24 Ultra" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Samsung Galaxy S24 Ultra 5G 256GB Titanium</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 424,999</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 35,000</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 389,999</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Samsung%20Galaxy%20S24%20Ultra&price=389999&store=Telemart&image=../assets/images/samsung-s26.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://telemart.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 3: Laptops -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="laptops">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">10% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">Paklap</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/lenovo-legion.jpg" alt="Lenovo Legion 5 Pro" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Lenovo Legion 5 Pro Gaming Laptop Core i7 16GB</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 385,000</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 36,000</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 349,000</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Lenovo%20Legion%205%20Pro&price=349000&store=Paklap&image=../assets/images/lenovo-legion.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://paklap.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 4: Appliances -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="appliances">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">8% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">Daraz Mall</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/dawlance-ac.jpg" alt="Dawlance Mega T-Pro Inverter AC" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Dawlance 1.5 Ton Mega T-Pro Inverter AC</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 152,000</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 12,500</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 139,500</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Dawlance%201.5%20Ton%20Inverter%20AC&price=139500&store=Daraz%20Mall&image=../assets/images/dawlance-ac.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://daraz.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 5: Smartphones -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="smartphones">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">13% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">PriceOye</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/redmi-note.jpg" alt="Xiaomi Redmi Note 13 Pro" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Xiaomi Redmi Note 13 Pro 8GB 256GB</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 71,999</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 9,000</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 62,999</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Xiaomi%20Redmi%20Note%2013%20Pro&price=62999&store=PriceOye&image=../assets/images/redmi-note.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://priceoye.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 6: Audio -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="audio">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">10% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">Shophive</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/airpods-pro.jpg" alt="Apple AirPods Pro" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Apple AirPods Pro (2nd Generation) USB-C</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 74,000</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 7,500</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 66,500</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Apple%20AirPods%20Pro%202nd%20Gen&price=66500&store=Shophive&image=../assets/images/airpods-pro.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://shophive.com" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 7: Laptops -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="laptops">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">6% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">Paklap</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/macbook-air.jpg" alt="Apple MacBook Air M2" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Apple MacBook Air 13.6-inch M2 256GB</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 299,000</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 19,100</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 279,900</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Apple%20MacBook%20Air%20M2&price=279900&store=Paklap&image=../assets/images/macbook-air.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://paklap.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deal 8: Appliances -->
+      <div class="deal-card pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50 transition-all" data-category="appliances">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="pm-tag pm-tag-gold text-[8px] font-bold">14% Off</span>
+            <span class="pm-tag pm-tag-mint text-[8px]">Mega.pk</span>
+          </div>
+
+          <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
+            <img src="../assets/images/philips-airfry.jpg" alt="Philips Air Fryer" class="max-h-full max-w-full object-contain">
+          </div>
+
+          <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">Philips Air Fryer Essential XL 1.2kg Rapid Air</h3>
+
+          <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
+            <span class="line-through text-[#666]">Rs. 45,000</span>
+            <span class="text-[#4a9e6e] font-semibold">Save Rs. 6,001</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
+          <div class="font-display text-xl text-white mb-2.5">Rs. 38,999</div>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="product.html?title=Philips%20Air%20Fryer%20XL&price=38999&store=Mega.pk&image=../assets/images/philips-airfry.jpg" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Details</span> <i class="bi bi-arrow-right"></i>
+            </a>
+            <a href="https://mega.pk" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
+              <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </main>
@@ -130,14 +405,16 @@
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
-        <a href="../index.html" class="pm-nav">Home</a>
-        <a href="results.html" class="pm-nav">Live Crawler</a>
-        <a href="deals.html" class="pm-nav active">Deals</a>
-        <a href="tickets.html" class="pm-nav">Tickets</a>
-        <a href="history.html" class="pm-nav">History</a>
-        <a href="about.html" class="pm-nav">About</a>
-        <a href="login.html" class="pm-nav">Login</a>
+      <div class="flex items-center gap-5 text-xs font-medium tracking-wider">
+        <a href="https://github.com/x-AR2" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>x-AR2</span>
+        </a>
+        <span class="text-[#444]">·</span>
+        <a href="https://github.com/0xGhost63/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>0xGhost63</span>
+        </a>
       </div>
       <p class="text-[10px] font-medium text-[#555]">
         (c) 2026 PennyWise. Real discounts verified daily.
@@ -146,170 +423,5 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script>
-    const DEALS = [
-      {
-        id: 1,
-        category: "audio",
-        title: "Sony WH-1000XM5 Noise Cancelling Headphones",
-        store: "PriceOye",
-        currentPrice: 94999,
-        originalPrice: 104900,
-        discount: "9% Off",
-        saveAmt: 9901,
-        image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80",
-        url: "https://priceoye.pk"
-      },
-      {
-        id: 2,
-        category: "smartphones",
-        title: "Samsung Galaxy S24 Ultra 5G 256GB Titanium",
-        store: "Telemart",
-        currentPrice: 389999,
-        originalPrice: 424999,
-        discount: "8% Off",
-        saveAmt: 35000,
-        image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=80",
-        url: "https://telemart.pk"
-      },
-      {
-        id: 3,
-        category: "laptops",
-        title: "Lenovo Legion 5 Pro Gaming Laptop Core i7 16GB",
-        store: "Paklap",
-        currentPrice: 349000,
-        originalPrice: 385000,
-        discount: "10% Off",
-        saveAmt: 36000,
-        image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=600&q=80",
-        url: "https://paklap.pk"
-      },
-      {
-        id: 4,
-        category: "appliances",
-        title: "Dawlance 1.5 Ton Mega T-Pro Inverter AC",
-        store: "Daraz Mall",
-        currentPrice: 139500,
-        originalPrice: 152000,
-        discount: "8% Off",
-        saveAmt: 12500,
-        image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?auto=format&fit=crop&w=600&q=80",
-        url: "https://daraz.pk"
-      },
-      {
-        id: 5,
-        category: "smartphones",
-        title: "Xiaomi Redmi Note 13 Pro 8GB 256GB",
-        store: "PriceOye",
-        currentPrice: 62999,
-        originalPrice: 71999,
-        discount: "13% Off",
-        saveAmt: 9000,
-        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80",
-        url: "https://priceoye.pk"
-      },
-      {
-        id: 6,
-        category: "audio",
-        title: "Apple AirPods Pro (2nd Generation) USB-C",
-        store: "Shophive",
-        currentPrice: 66500,
-        originalPrice: 74000,
-        discount: "10% Off",
-        saveAmt: 7500,
-        image: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=600&q=80",
-        url: "https://shophive.com"
-      },
-      {
-        id: 7,
-        category: "laptops",
-        title: "Apple MacBook Air 13.6-inch M2 256GB",
-        store: "Paklap",
-        currentPrice: 279900,
-        originalPrice: 299000,
-        discount: "6% Off",
-        saveAmt: 19100,
-        image: "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?auto=format&fit=crop&w=600&q=80",
-        url: "https://paklap.pk"
-      },
-      {
-        id: 8,
-        category: "appliances",
-        title: "Philips Air Fryer Essential XL 1.2kg Rapid Air",
-        store: "Mega.pk",
-        currentPrice: 38999,
-        originalPrice: 45000,
-        discount: "14% Off",
-        saveAmt: 6001,
-        image: "https://images.unsplash.com/photo-1585515320310-259814833e62?auto=format&fit=crop&w=600&q=80",
-        url: "https://mega.pk"
-      }
-    ];
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const grid = document.getElementById("deals-grid");
-      const buttons = document.querySelectorAll(".deal-filter-btn");
-
-      function formatPKR(n) {
-        return "Rs. " + Number(n).toLocaleString("en-PK");
-      }
-
-      function render(category = "all") {
-        grid.innerHTML = "";
-        const filtered = category === "all" ? DEALS : DEALS.filter(d => d.category === category);
-
-        filtered.forEach(item => {
-          const card = document.createElement("div");
-          card.className = "pm-polaroid flex flex-col justify-between bg-[#141414] border border-[rgba(255,255,255,0.08)] hover:border-[#c8a96e]/50";
-
-          const detailUrl = `product.html?title=${encodeURIComponent(item.title)}&price=${item.currentPrice}&store=${encodeURIComponent(item.store)}&url=${encodeURIComponent(item.url)}&image=${encodeURIComponent(item.image)}`;
-
-          card.innerHTML = `
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="pm-tag pm-tag-gold text-[8px] font-bold">${item.discount}</span>
-                <span class="pm-tag pm-tag-mint text-[8px]">${item.store}</span>
-              </div>
-
-              <div class="w-full h-40 bg-[#0c0c0c] border border-[rgba(255,255,255,0.06)] rounded-lg mb-3 flex items-center justify-center p-3 overflow-hidden">
-                <img src="${item.image}" alt="${item.title}" class="max-h-full max-w-full object-contain" onerror="this.src='../assets/icons/favicon.svg'">
-              </div>
-
-              <h3 class="font-medium text-xs sm:text-sm text-white line-clamp-2 leading-snug mb-2">${item.title}</h3>
-
-              <div class="text-[10px] text-[#888] mb-1 flex items-center gap-1.5">
-                <span class="line-through text-[#666]">${formatPKR(item.originalPrice)}</span>
-                <span class="text-[#4a9e6e] font-semibold">Save ${formatPKR(item.saveAmt)}</span>
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] mt-2">
-              <div class="font-display text-xl text-white mb-2.5">${formatPKR(item.currentPrice)}</div>
-              <div class="grid grid-cols-2 gap-2">
-                <a href="${detailUrl}" class="pm-btn pm-btn-white py-2 text-[9px] flex items-center justify-center gap-1">
-                  <span>Details</span> <i class="bi bi-arrow-right"></i>
-                </a>
-                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="pm-btn pm-btn-primary py-2 text-[9px] flex items-center justify-center gap-1">
-                  <span>Store</span> <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-              </div>
-            </div>
-          `;
-
-          grid.appendChild(card);
-        });
-      }
-
-      render("all");
-
-      buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
-          buttons.forEach(b => b.className = "deal-filter-btn pm-btn pm-btn-dark pm-btn-sm text-[#aaa]");
-          btn.className = "deal-filter-btn pm-btn pm-btn-gold pm-btn-sm font-bold";
-          render(btn.getAttribute("data-category"));
-        });
-      });
-    });
-  </script>
 </body>
 </html>

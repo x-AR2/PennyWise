@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon.ico">
@@ -21,7 +22,7 @@
     <span class="text-[#333]">·</span>
     <span class="text-[#888]">Multi-Store Parity Audit</span>
     <span class="text-[#333]">·</span>
-    <span class="text-[#c8a96e]">Pakistan</span>
+    <span class="text-[#c8a96e] flex items-center gap-1.5"><img src="../assets/images/pakistan.svg" alt="Pakistan" class="w-3.5 h-3.5 object-contain inline-block"> Pakistan</span>
   </div>
 
   <!-- Header -->
@@ -37,17 +38,16 @@
         </a>
         <nav class="flex items-center gap-5 text-xs tracking-[0.12em] flex-wrap justify-center font-medium">
           <a href="../index.html" class="pm-nav">Home</a>
-          <a href="results.html" class="pm-nav">Live Crawler</a>
+          <a href="results.html" class="pm-nav">Live Search</a>
           <a href="deals.html" class="pm-nav">Trending Deals</a>
           <a href="tickets.html" class="pm-nav">Tickets</a>
-          <a href="stores-categories.html" class="pm-nav">Stores</a>
           <a href="compare.html" class="pm-nav active">Compare <span id="nav-compare-count" class="text-[9px] text-[#c8a96e]">(0)</span></a>
           <a href="wishlist.html" class="pm-nav">Wishlist <span id="nav-wishlist-count" class="text-[9px] text-[#ff3355]">(0)</span></a>
           <a href="history.html" class="pm-nav">History</a>
           <a href="about.html" class="pm-nav">About</a>
         </nav>
         <div class="flex items-center gap-3">
-          <a href="login.html" class="pm-btn pm-btn-white pm-btn-sm flex items-center gap-2">
+          <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm flex items-center gap-2">
             <i class="bi bi-person-circle text-[#c8a96e]"></i>
             <span>Account</span>
           </a>
@@ -96,7 +96,7 @@
       </p>
       <a href="results.html" class="pm-btn pm-btn-primary px-8 py-3 text-xs flex items-center justify-center gap-2 max-w-xs mx-auto">
         <i class="bi bi-search"></i>
-        <span>Explore Live Crawler</span>
+        <span>Explore Live Search</span>
       </a>
     </div>
 
@@ -128,14 +128,16 @@
         <span class="font-display text-lg text-white">PENNYWISE</span>
         <span class="text-[10px] font-medium text-[#666] tracking-[0.1em]">| Price Comparison for Pakistan</span>
       </div>
-      <div class="flex items-center gap-6 text-[10px] font-medium uppercase tracking-[0.15em] flex-wrap justify-center">
-        <a href="../index.html" class="pm-nav">Home</a>
-        <a href="results.html" class="pm-nav">Live Crawler</a>
-        <a href="deals.html" class="pm-nav">Deals</a>
-        <a href="tickets.html" class="pm-nav">Tickets</a>
-        <a href="history.html" class="pm-nav">History</a>
-        <a href="about.html" class="pm-nav">About</a>
-        <a href="login.html" class="pm-nav">Login</a>
+      <div class="flex items-center gap-5 text-xs font-medium tracking-wider">
+        <a href="https://github.com/x-AR2" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>x-AR2</span>
+        </a>
+        <span class="text-[#444]">·</span>
+        <a href="https://github.com/0xGhost63/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[#aaa] hover:text-[#c8a96e] transition-colors duration-200">
+          <i class="bi bi-github text-base"></i>
+          <span>0xGhost63</span>
+        </a>
       </div>
       <p class="text-[10px] font-medium text-[#555]">
         (c) 2026 PennyWise. Price comparisons reflect certified Pakistani store listings.
@@ -157,21 +159,21 @@
           store: "PriceOye",
           price: 94999,
           url: "https://priceoye.pk",
-          image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80"
+          image: "../assets/images/sony-headphones.jpg"
         },
         {
           title: "Sony WH-1000XM5 Wireless Headphones",
           store: "Telemart",
           price: 99499,
           url: "https://telemart.pk",
-          image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80"
+          image: "../assets/images/sony-headphones.jpg"
         },
         {
           title: "Sony WH-1000XM5 Wireless Headphones",
           store: "Daraz Mall",
           price: 104900,
           url: "https://daraz.pk",
-          image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80"
+          image: "../assets/images/sony-headphones.jpg"
         }
       ];
 
