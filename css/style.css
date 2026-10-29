@@ -229,7 +229,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .pm-btn-dark:hover i { color: #0a0a0a !important; }
 
 .pm-btn-sm { padding: 8px 18px; font-size: 11px; }
-.pm-btn-lg { padding: 16px 36px; font-size: 12px; }
 
 .pm-btn-burgundy {
   background: var(--pw-burgundy);
@@ -251,18 +250,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 
 .pm-card:hover { border-color: var(--pw-burgundy-border); }
-
-.pm-card-dark {
-  background: var(--pw-black);
-  color: var(--pw-pearl);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-}
-
-.pm-card-burgundy {
-  background: linear-gradient(135deg, rgba(84,17,33,0.3) 0%, rgba(18,18,18,0.95) 100%);
-  border: 1px solid var(--pw-burgundy-border);
-}
 
 /* ========== POLAROID CARDS ========== */
 .pm-polaroid {
@@ -392,18 +379,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 
 .pm-coin-token:hover { background: var(--pw-accent); color: var(--pw-black); }
 
-/* ========== SUBTLE DIVIDER LINES ========== */
-.pm-sawtooth-bottom-blush::after,
-.pm-sawtooth-bottom-ink::after {
-  content: "";
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
-  pointer-events: none;
-  z-index: 20;
-}
-
 /* ========== FORM INPUTS ========== */
 .pm-input {
   width: 100%;
@@ -428,147 +403,11 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   outline: none !important;
 }
 
-/* ========== SELECT ========== */
-.pm-select {
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-sm);
-  background: var(--pw-charcoal);
-  color: var(--pw-pure);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
 /* ========== ANIMATIONS ========== */
-@keyframes pw-fade-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.pw-fade-up { animation: pw-fade-up 0.8s var(--ease-out) both; }
-
-@keyframes pw-shimmer {
-  0%   { background-position: -200% 0; }
-  100% { background-position:  200% 0; }
-}
-
-.pw-shimmer {
-  background: linear-gradient(90deg, var(--pw-charcoal) 25%, var(--pw-graphite) 50%, var(--pw-charcoal) 75%);
-  background-size: 200% 100%;
-  animation: pw-shimmer 1.5s ease infinite;
-}
-
-@keyframes pw-pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(200,169,110,0); }
-  50%       { box-shadow: 0 0 20px 4px rgba(200,169,110,0.15); }
-}
-
-.pw-pulse-glow { animation: pw-pulse-glow 2s ease-in-out infinite; }
-
-@keyframes pw-spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-.pw-spin { animation: pw-spin 1s linear infinite; }
-
 @keyframes pm-coin-bounce {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-8px); }
 }
-
-/* ========== LOADING BAR ========== */
-.pw-loading-bar {
-  width: 100%;
-  height: 2px;
-  background: var(--pw-charcoal);
-  border-radius: 1px;
-  overflow: hidden;
-  position: relative;
-}
-
-.pw-loading-bar::after {
-  content: "";
-  position: absolute;
-  left: 0; top: 0;
-  height: 100%;
-  width: 40%;
-  background: linear-gradient(90deg, transparent, var(--pw-accent), transparent);
-  animation: pw-loading-slide 1.5s ease-in-out infinite;
-}
-
-@keyframes pw-loading-slide {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(350%); }
-}
-
-/* ========== SKELETON PLACEHOLDER ========== */
-.pw-skeleton {
-  background: linear-gradient(90deg, var(--pw-charcoal) 0%, var(--pw-graphite) 50%, var(--pw-charcoal) 100%);
-  background-size: 200% 100%;
-  animation: pw-shimmer 1.8s ease infinite;
-  border-radius: var(--radius-sm);
-}
-
-/* ========== SCROLL REVEAL ========== */
-.pw-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
-
-.pw-reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-/* ========== LEGACY COMPAT ========== */
-.neo-box {
-  background-color: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-}
-
-.neo-box-sm {
-  background-color: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-}
-
-.neo-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--border-medium);
-  border-radius: 50rem !important; /* Bootstrap rounded-pill */
-  font-family: var(--font-body);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: all var(--dur-normal) var(--ease-smooth);
-}
-
-.neo-btn:hover { background: var(--pw-pure); color: var(--pw-black); border-color: var(--pw-pure); }
-.neo-btn:active { transform: scale(0.98); }
-
-.neo-btn-yellow { background: var(--pw-accent); color: var(--pw-black); border-color: var(--pw-accent); }
-.neo-btn-white  { background: transparent; color: var(--pw-pure); border-color: var(--border-medium); }
-
-.neo-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 12px;
-  border-radius: 0;
-  border: 1px solid var(--border-medium);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-}
-
-.neo-badge-yellow { background: var(--pw-accent); color: var(--pw-black); border-color: var(--pw-accent); }
-.neo-badge-green  { background: transparent; color: var(--pw-accent); border-color: var(--pw-accent); }
-.neo-badge-white  { background: transparent; color: var(--pw-pearl); border-color: var(--border-medium); }
 
 /* ========== CUSTOM SCROLLBAR ========== */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -576,27 +415,6 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 ::-webkit-scrollbar-thumb { background: var(--pw-steel); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--pw-muted); }
 
-/* ========== TEXT GRADIENT ACCENT ========== */
-.pw-text-accent {
-  background: linear-gradient(135deg, var(--pw-accent), var(--pw-accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ========== GLASS MORPHISM ========== */
-.pw-glass {
-  background: rgba(10,10,10,0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-subtle);
-}
-
-/* ========== PRODUCT FALLBACK ========== */
-.product-fallback-box {
-  background: var(--pw-charcoal) !important;
-  border-color: var(--border-subtle) !important;
-}
 
 [title] { cursor: help; }
 
@@ -795,10 +613,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 button,
 .btn,
 .pm-btn,
-.neo-btn,
 .pw-round-submit,
 .deal-filter-tab,
-.quick-pill,
 input[type="button"],
 input[type="submit"],
 input[type="reset"] {
