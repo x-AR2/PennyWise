@@ -24,7 +24,6 @@
     <span class="text-[#333]">·</span>
     <span class="text-[#c8a96e] flex items-center gap-1.5"><img src="../assets/images/pakistan.svg" alt="Pakistan" class="w-3.5 h-3.5 object-contain inline-block"> Pakistan</span>
   </div>
-
   <!-- Header -->
   <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -43,45 +42,31 @@
             <span>Account</span>
           </a>
         </div>
+      </a>
+      <nav id="pill-nav-root" aria-label="Main"></nav>
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm rounded-pill flex items-center gap-2 whitespace-nowrap">
+          <i class="bi bi-person-circle text-[#c8a96e]"></i>
+          <span>Account</span>
+        </a>
       </div>
-
-      <!-- Round Bootstrap Search Console (HTML5 Validation, Zero JS) -->
-      <div class="mt-8 max-w-4xl mx-auto">
-        <form action="results.html" method="GET" class="space-y-3">
-          
-          <div class="pw-round-search">
-            <i class="bi bi-search text-[#777] text-base pl-1"></i>
-            <input 
-              type="text" 
-              name="q" 
-              value="Sony WH-1000XM5" 
-              placeholder="Search product across Pakistani stores (e.g. Sony WH-1000XM5, iPhone 15, PS5)..."
-              class="pw-round-search-input"
-              required
-              minlength="2"
-            >
-            
-            <!-- Pure CSS Modal Trigger (:target based - 0 JS) -->
-            <a 
-              href="#image-modal" 
-              class="pw-icon-btn rounded-circle" 
-              title="Upload product photo or visual search"
-            >
-              <i class="bi bi-camera-fill text-base"></i>
-            </a>
-
-            <!-- Round Submit Button -->
-            <button type="submit" class="pw-round-submit rounded-pill">
-              <i class="bi bi-search text-sm"></i>
-              <span>Search</span>
-            </button>
-          </div>
-
-        </form>
-      </div>
-
+    </div>
+    <!-- Round Bootstrap Search Console -->
+    <div class="mt-3 max-w-4xl mx-auto px-4 sm:px-6 pb-3">
+      <form action="results.html" method="GET" class="space-y-3">
+        <div class="pw-round-search">
+          <input type="search" name="q" placeholder="Search any product, gadget, appliance…" class="pw-round-search-input" required minlength="2" maxlength="120" autocomplete="off" value="">
+          <button type="button" class="pw-icon-btn" title="Search by photo" aria-label="Visual search">
+            <i class="bi bi-camera text-sm"></i>
+          </button>
+          <button type="submit" class="pw-round-submit">
+            <i class="bi bi-search"></i><span>Search</span>
+          </button>
+        </div>
+      </form>
     </div>
   </header>
+
 
   <!-- Divider -->
   <div class="pm-coin-divider px-4 my-6">
