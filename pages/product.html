@@ -42,13 +42,6 @@
             <span>Account</span>
           </a>
         </div>
-      </a>
-      <nav id="pill-nav-root" aria-label="Main"></nav>
-      <div class="flex items-center gap-3 flex-shrink-0">
-        <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm rounded-pill flex items-center gap-2 whitespace-nowrap">
-          <i class="bi bi-person-circle text-[#c8a96e]"></i>
-          <span>Account</span>
-        </a>
       </div>
     </div>
   </header>
@@ -89,7 +82,7 @@
       <div class="lg:col-span-5 pm-card p-6 bg-[#141414] border border-[rgba(255,255,255,0.08)] relative overflow-hidden">
         <div class="pm-washi"></div>
         <div id="product-img-box" class="w-full h-80 sm:h-96 rounded-lg bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] flex items-center justify-center p-6 relative">
-          <img id="product-main-img" src="../assets/icons/favicon.svg" alt="Product" class="max-h-full max-w-full object-contain" onerror="this.src='../assets/icons/favicon.svg'">
+          <img id="product-main-img" src="../assets/images/sony-headphones.jpg" alt="Product Image" class="max-h-full max-w-full object-contain transition-opacity duration-300" onerror="this.onerror=null; this.src='../assets/images/sony-headphones.jpg';">
           <div id="product-stock-pill" class="absolute top-3 left-3 pm-tag pm-tag-mint text-[9px]">
             <i class="bi bi-check-circle-fill"></i> In Stock
           </div>
@@ -207,6 +200,7 @@
   </footer>
 
 
+  <script src="../js/store.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
@@ -214,19 +208,66 @@
       const store = params.get("store") || "PriceOye";
       const price = parseInt(params.get("price")) || 94999;
       const url = params.get("url") || "https://priceoye.pk";
-      const image = params.get("image") || "../assets/images/sony-headphones.jpg";
+      const imageParam = params.get("image");
       const query = params.get("q") || title;
 
-      function updateNavCounts() {
-        try {
-          const wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
-          const cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
-          document.getElementById("nav-wishlist-count").textContent = `(${wl.length})`;
-          document.getElementById("nav-compare-count").textContent = `(${cmp.length})`;
-        } catch(e){}
+      function resolveProductImage(imgParam, titleText) {
+        if (imgParam && typeof imgParam === "string" && imgParam.trim()) {
+          let p = imgParam.trim();
+          if (p.startsWith("http://") || p.startsWith("https://") || p.startsWith("data:") || p.startsWith("/")) {
+            return p;
+          }
+          if (p.startsWith("../assets/")) {
+            return p;
+          }
+          if (p.startsWith("assets/")) {
+            return "../" + p;
+          }
+          if (!p.includes("/")) {
+            return "../assets/images/" + p;
+          }
+          return p;
+        }
+
+        const t = (titleText || "").toLowerCase();
+        if (t.includes("headphone") || t.includes("sony") || t.includes("wh-1000") || t.includes("xm5")) {
+          return "../assets/images/sony-headphones.jpg";
+        }
+        if (t.includes("s24") || t.includes("samsung") || t.includes("galaxy")) {
+          return "../assets/images/samsung-s24.jpg";
+        }
+        if (t.includes("iphone") || t.includes("15 pro") || t.includes("apple phone")) {
+          return "../assets/images/iphone-15.jpg";
+        }
+        if (t.includes("macbook") || t.includes("air m2") || t.includes("apple mac")) {
+          return "../assets/images/macbook-air.jpg";
+        }
+        if (t.includes("airpod") || t.includes("earbud")) {
+          return "../assets/images/airpods-pro.jpg";
+        }
+        if (t.includes("legion") || t.includes("lenovo")) {
+          return "../assets/images/lenovo-legion.jpg";
+        }
+        if (t.includes("ps5") || t.includes("playstation")) {
+          return "../assets/images/ps5-console.jpg";
+        }
+        if (t.includes("dawlance") || t.includes("inverter") || t.includes("ac") || t.includes("conditioner")) {
+          return "../assets/images/dawlance-ac.jpg";
+        }
+        if (t.includes("redmi") || t.includes("xiaomi") || t.includes("note 13") || t.includes("note")) {
+          return "../assets/images/redmi-note.jpg";
+        }
+        if (t.includes("fryer") || t.includes("airfry") || t.includes("philips")) {
+          return "../assets/images/philips-airfry.jpg";
+        }
+        return "../assets/images/sony-headphones.jpg";
       }
+
+      const resolvedImage = resolveProductImage(imageParam, title);
+
       updateNavCounts();
 
+      document.title = `${title} | PennyWise Pakistan`;
       document.getElementById("product-title").textContent = title.toUpperCase();
       document.getElementById("product-best-price").textContent = price > 0 ? "Rs. " + Number(price).toLocaleString("en-PK") : "Price on Store";
       document.getElementById("product-best-store").textContent = `Best verified price at ${store}`;
@@ -234,8 +275,15 @@
       document.getElementById("link-view-history").href = `price-history.html?q=${encodeURIComponent(query)}`;
 
       const mainImg = document.getElementById("product-main-img");
-      if (image && image.startsWith("http")) {
-        mainImg.src = image;
+      if (mainImg) {
+        mainImg.src = resolvedImage;
+        mainImg.alt = title;
+        mainImg.onerror = function() {
+          const fallback = resolveProductImage("", title);
+          if (this.src !== fallback && !this.src.endsWith(fallback.replace("../", ""))) {
+            this.src = fallback;
+          }
+        };
       }
 
       // Populate multiple store offers table
@@ -287,7 +335,7 @@
         let wl = JSON.parse(localStorage.getItem("pennywise_wishlist") || "[]");
         const idx = wl.findIndex(i => i.title === title);
         if (idx >= 0) wl.splice(idx, 1);
-        else wl.push({ title, store, price, url, image });
+        else wl.push({ title, store, price, url, image: resolvedImage });
         localStorage.setItem("pennywise_wishlist", JSON.stringify(wl));
         checkWishlist();
         updateNavCounts();
@@ -298,7 +346,7 @@
         let cmp = JSON.parse(localStorage.getItem("pennywise_compare") || "[]");
         if (!cmp.some(i => i.title === title)) {
           if (cmp.length >= 3) { alert("Maximum 3 items allowed in Compare."); return; }
-          cmp.push({ title, store, price, url, image });
+          cmp.push({ title, store, price, url, image: resolvedImage });
           localStorage.setItem("pennywise_compare", JSON.stringify(cmp));
           updateNavCounts();
           alert(`Added "${title.substring(0, 30)}..." to Compare list.`);
@@ -308,134 +356,6 @@
       });
     });
   </script>
-  <script>
-  (function(){
-    var EO = 'cubic-bezier(0.22, 1, 0.36, 1)';
-    var clamp = function(v, a, b){ return Math.min(b, Math.max(a, v)); };
-    function initPN(root, items, ahref){
-      if(!root) return;
-      var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-      var ai = 0;
-      for(var i = 0; i < items.length; i++){ if(items[i].href === ahref){ ai = i; break; } }
-      var v = {
-        '--pn-h': '48px', '--pn-pad': '4px', '--pn-inner': '40px', '--pn-x': '18px', '--pn-font': '14px', '--pn-gap': '8px', '--pn-mark': '24px',
-        '--pn-surface': 'rgba(10,10,10,0)', '--pn-solid': '#0a0a0a', '--pn-edge': 'rgba(255,255,255,0.08)', '--pn-rim': 'rgba(255,255,255,0.07)',
-        '--pn-shadow': 'none', '--pn-text': 'rgba(230,230,235,0.85)', '--pn-strong': '#ffffff',
-        '--pn-pill': 'linear-gradient(180deg,#dbc091 0%,#c8a96e 100%)', '--pn-pill-ink': '#0a0a0a',
-        '--pn-pill-shadow': 'inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 12px -4px rgba(200,169,110,0.5)',
-        '--pn-dot': '#c8a96e', '--pn-ring': 'rgba(200,169,110,0.55)', '--pn-row-hover': 'rgba(255,255,255,0.06)',
-        '--pn-tile': 'linear-gradient(180deg,#1e1e1e 0%,#141414 100%)',
-        '--pn-tile-rim': 'inset 0 0 0 1px rgba(255,255,255,0.07), inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 10px -4px rgba(0,0,0,0.6)',
-        '--pn-blur': 'none'
-      };
-      Object.keys(v).forEach(function(k){ root.style.setProperty(k, v[k]); });
-      root.className = 'pill-nav';
-      root.setAttribute('data-layout', 'split');
-      root.setAttribute('data-items', 'pill');
-      var h = '<div class="pill-nav__bar pill-nav__surface"><div class="pill-nav__track" id="pn-track"><ul class="pill-nav__list">';
-      items.forEach(function(it, idx){
-        var c = idx === ai ? ' aria-current="page"' : '';
-        h += '<li class="pill-nav__slot"><a href="' + it.href + '" class="pill-nav__item"' + c + '><span class="pill-nav__fill" aria-hidden="true"></span><span class="pill-nav__face">' + it.label + '</span><span class="pill-nav__face-alt" aria-hidden="true">' + it.label + '</span></a></li>';
-      });
-      h += '</ul><span class="pill-nav__dot" id="pn-dot" aria-hidden="true"></span></div></div><div class="pill-nav__measure" aria-hidden="true"><div class="pill-nav__list" id="pn-ml">';
-      items.forEach(function(it){ h += '<span class="pill-nav__ink-item">' + it.label + '</span>'; });
-      h += '</div></div>';
-      root.innerHTML = h;
-
-      var track = root.querySelector('#pn-track'), dot = root.querySelector('#pn-dot'), slots = root.querySelectorAll('.pill-nav__slot');
-      var rc = [], dx = 0, dv = 0, da = 0, ca = ai, raf = 0, last = 0;
-      function measure(){
-        slots.forEach(function(s, i){
-          rc[i] = { left: s.offsetLeft, width: s.offsetWidth };
-          var r = Math.ceil(2 * Math.sqrt(Math.pow(s.offsetWidth / 2, 2) + Math.pow(s.offsetHeight, 2))) + 2;
-          s.style.setProperty('--pn-fill', r + 'px');
-        });
-      }
-      function getC(){ var r = rc[ca]; return r ? r.left + r.width / 2 : null; }
-      function rdot(){
-        var p = clamp(Math.abs(dv) / 700, 0, 2.2);
-        dot.style.transform = 'translate3d(' + dx + 'px,0,0) scaleX(' + (1 + p) + ')';
-        dot.style.opacity = '' + da;
-      }
-      function tick(now){
-        raf = 0;
-        var dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60;
-        last = now;
-        var busy = false, c = getC();
-        if(c !== null){
-          if(da < 0.02){ dx = c; dv = 0; }
-          if(!reduce){
-            var k = 360, z = 0.85, st = Math.ceil(dt / (1 / 240)), hh = dt / st;
-            for(var i = 0; i < st; i++){ dv += (-k * (dx - c) - 2 * z * Math.sqrt(k) * dv) * hh; dx += dv * hh; }
-          } else { dx = c; dv = 0; }
-          da += (1 - da) * (reduce ? 1 : 1 - Math.exp(-dt / 0.1));
-          if(Math.abs(dx - c) > 0.05 || Math.abs(dv) > 0.5 || da < 0.999) busy = true;
-        } else {
-          da += (0 - da) * (reduce ? 1 : 1 - Math.exp(-dt / 0.1));
-          if(da > 0.002) busy = true; else da = 0;
-        }
-        rdot();
-        if(busy) raf = requestAnimationFrame(tick);
-      }
-      function wake(){ if(!raf){ last = 0; raf = requestAnimationFrame(tick); } }
-
-      slots.forEach(function(slot, idx){
-        slot.addEventListener('pointerenter', function(e){
-          if(e.pointerType === 'touch') return;
-          slots.forEach(function(s, i){ s.toggleAttribute('data-lit', i === idx); s.toggleAttribute('data-hover', i === idx); });
-        });
-        slot.querySelector('.pill-nav__item').addEventListener('click', function(){
-          ca = idx;
-          slots.forEach(function(s, i){
-            var a = s.querySelector('.pill-nav__item');
-            if(i === idx) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
-            s.toggleAttribute('data-on', i === idx);
-          });
-          wake();
-        });
-      });
-      track.addEventListener('pointerleave', function(){
-        slots.forEach(function(s){ s.removeAttribute('data-lit'); s.removeAttribute('data-hover'); });
-      });
-      if(slots[ai]) slots[ai].toggleAttribute('data-on', true);
-
-      setTimeout(function(){
-        measure();
-        var c = getC();
-        if(c !== null){ dx = c; da = 1; }
-        rdot();
-        wake();
-        if(!reduce){
-          var bar = root.querySelector('.pill-nav__bar');
-          if(bar){
-            var bh = bar.offsetHeight;
-            bar.animate([{clipPath: 'inset(0px ' + (Math.max(0, bar.offsetWidth - bh)) + 'px 0px 0px round ' + (bh / 2) + 'px)'}, {clipPath: 'inset(0px 0px 0px 0px round ' + (bh / 2) + 'px)'}], {duration: 760, delay: 90, easing: EO, fill: 'backwards'});
-          }
-          slots.forEach(function(s, i){
-            s.animate([{opacity: 0, transform: 'translateX(-8px)'}, {opacity: 1, transform: 'translateX(0)'}], {duration: 500, delay: 180 + i * 45, easing: EO, fill: 'backwards'});
-          });
-        }
-      }, 50);
-      if(window.ResizeObserver) new ResizeObserver(function(){ measure(); wake(); }).observe(track);
-    }
-
-    var inP = location.pathname.includes('/pages/');
-    var base = inP ? '' : 'pages/', rt = inP ? '../' : '';
-    var items = [
-      {label: 'Home', href: rt + 'index.html'},
-      {label: 'Live Search', href: base + 'results.html'},
-      {label: 'Deals', href: base + 'deals.html'},
-      {label: 'Tickets', href: base + 'tickets.html'},
-      {label: 'Compare', href: base + 'compare.html'},
-      {label: 'Wishlist', href: base + 'wishlist.html'},
-      {label: 'History', href: base + 'history.html'},
-      {label: 'About', href: base + 'about.html'}
-    ];
-    var fn = location.pathname.split('/').pop() || 'index.html', active = items[0].href;
-    items.forEach(function(it){ if(fn === it.href.split('/').pop()) active = it.href; });
-    var rootEl = document.getElementById('pill-nav-root');
-    if(rootEl){ initPN(rootEl, items, active); }
-  })();
-  </script>
+  <script src="../js/navbar.js"></script>
 </body>
 </html>

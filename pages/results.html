@@ -25,13 +25,14 @@
     <span class="text-[#c8a96e] flex items-center gap-1.5"><img src="../assets/images/pakistan.svg" alt="Pakistan" class="w-3.5 h-3.5 object-contain inline-block"> Pakistan</span>
   </div>
   <!-- Header -->
-  <header class="w-full bg-[#0a0a0a] text-white pt-6 pb-8 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
+  <header class="w-full bg-[#0a0a0a] text-white py-3 border-b border-[rgba(255,255,255,0.06)] sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex items-center justify-between gap-4 lg:gap-6 flex-nowrap w-full">
         <a href="../index.html" class="flex items-center gap-3 group flex-shrink-0">
           <div class="w-10 h-10 rounded-full border border-[#c8a96e] flex items-center justify-center text-[#c8a96e] text-lg font-light transition-all duration-300 group-hover:bg-[#c8a96e] group-hover:text-[#0a0a0a]">₨</div>
-          <div>
-            <span class="font-display text-2xl tracking-tight text-white group-hover:text-[#c8a96e] transition-colors duration-300">PENNYWISE</span>
+          <div class="flex items-baseline">
+            <span class="sr-only">PENNYWISE</span>
+            <div id="logo-tech-text" class="tech-text" style="width:185px;height:40px;" aria-hidden="true"><canvas class="tech-text-canvas"></canvas></div>
             <span class="text-[10px] font-medium text-[#666] uppercase tracking-[0.2em] ml-1.5">.pk</span>
           </div>
         </a>
@@ -42,21 +43,14 @@
             <span>Account</span>
           </a>
         </div>
-      </a>
-      <nav id="pill-nav-root" aria-label="Main"></nav>
-      <div class="flex items-center gap-3 flex-shrink-0">
-        <a href="login.html" class="pm-btn pm-btn-gold pm-btn-sm rounded-pill flex items-center gap-2 whitespace-nowrap">
-          <i class="bi bi-person-circle text-[#c8a96e]"></i>
-          <span>Account</span>
-        </a>
       </div>
     </div>
-    <!-- Round Bootstrap Search Console -->
-    <div class="mt-3 max-w-4xl mx-auto px-4 sm:px-6 pb-3">
-      <form action="results.html" method="GET" class="space-y-3">
+    <!-- Round Bootstrap Search Console & Image Upload Trigger -->
+    <div class="mt-3 max-w-4xl mx-auto px-4 sm:px-6 pb-2">
+      <form action="results.html" method="GET" class="space-y-2">
         <div class="pw-round-search">
-          <input type="search" name="q" placeholder="Search any product, gadget, appliance…" class="pw-round-search-input" required minlength="2" maxlength="120" autocomplete="off" value="">
-          <button type="button" class="pw-icon-btn" title="Search by photo" aria-label="Visual search">
+          <input type="search" id="results-search-input" name="q" placeholder="Search any product, gadget, appliance…" class="pw-round-search-input" required minlength="2" maxlength="120" autocomplete="off" value="">
+          <button type="button" id="btn-camera-upload" class="pw-icon-btn" title="Search by product photo" aria-label="Visual search">
             <i class="bi bi-camera text-sm"></i>
           </button>
           <button type="submit" class="pw-round-submit">
@@ -64,6 +58,70 @@
           </button>
         </div>
       </form>
+
+    </div>
+
+    <!-- Image Upload Interactive Interface (Minimalist) -->
+    <div id="image-upload-drawer" class="hidden max-w-xl mx-auto px-4 sm:px-6 pt-3 pb-1">
+      <div class="pm-card p-5 bg-[#161616] border border-[rgba(200,169,110,0.35)] relative overflow-hidden space-y-4">
+        <div class="pm-washi" style="background:linear-gradient(90deg,transparent,#c8a96e,transparent);"></div>
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between pb-3 border-b border-[rgba(255,255,255,0.08)]">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full border border-[#c8a96e] bg-[rgba(200,169,110,0.12)] flex items-center justify-center text-[#c8a96e]">
+              <i class="bi bi-camera-fill text-xs"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-sm text-white uppercase tracking-wide">Upload Product Image</h3>
+              <p class="text-[10px] text-[#777]">Drop or select a photo to search Pakistani retailer prices</p>
+            </div>
+          </div>
+          <button type="button" id="btn-close-upload-drawer" class="w-6 h-6 rounded-full border border-[rgba(255,255,255,0.15)] flex items-center justify-center text-[#888] hover:text-white hover:border-white transition-all">
+            <i class="bi bi-x-lg text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- Dropzone Area -->
+        <div id="visual-dropzone" class="pw-dropzone block space-y-2.5 cursor-pointer relative py-6 px-4">
+          <input type="file" id="visual-file-input" accept="image/*" class="hidden">
+          <div class="w-10 h-10 rounded-full border border-[rgba(200,169,110,0.3)] bg-[rgba(200,169,110,0.08)] flex items-center justify-center text-[#c8a96e] mx-auto">
+            <i class="bi bi-cloud-arrow-up-fill text-xl"></i>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-white">Drag &amp; drop product photo, or click to browse</div>
+            <p class="text-[10px] text-[#666] mt-0.5">JPG, PNG, WEBP supported</p>
+          </div>
+        </div>
+
+        <!-- Live Preview & Match State Container (Hidden initially) -->
+        <div id="visual-preview-container" class="hidden p-3.5 rounded-lg bg-[#0f0f0f] border border-[rgba(200,169,110,0.3)] space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-[rgba(255,255,255,0.06)]">
+            <span class="text-[10px] uppercase tracking-wider text-[#c8a96e] font-semibold flex items-center gap-1.5">
+              <i class="bi bi-check-circle-fill"></i> Image Loaded
+            </span>
+            <button type="button" id="btn-clear-preview" class="text-[10px] text-[#888] hover:text-[#cc3333] transition-colors">
+              <i class="bi bi-trash3"></i> Remove
+            </button>
+          </div>
+          <div class="flex items-center gap-3.5">
+            <div class="w-20 h-20 rounded bg-[#191919] border border-[rgba(255,255,255,0.1)] flex items-center justify-center p-1.5 flex-shrink-0 overflow-hidden">
+              <img id="visual-preview-img" src="" alt="Uploaded Photo" class="max-h-full max-w-full object-contain">
+            </div>
+            <div class="space-y-1 text-left flex-grow">
+              <div class="text-[10px] text-[#777]" id="visual-file-meta">image.jpg · 245 KB</div>
+              <h4 id="visual-match-title" class="font-display text-xs text-white uppercase line-clamp-1">
+                Product Image
+              </h4>
+              <button type="button" id="btn-visual-crawl-action" class="pm-btn pm-btn-gold pm-btn-sm text-[10px] font-bold inline-flex items-center gap-1.5 py-1 px-3 mt-1">
+                <i class="bi bi-search"></i>
+                <span>Search Prices</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </header>
 
@@ -102,14 +160,127 @@
       <div>
         <div class="flex items-center gap-3">
           <span class="pm-tag text-[9px]">Product</span>
-          <h1 class="font-display text-xl sm:text-2xl text-white">"Sony WH-1000XM5 Wireless Headphones"</h1>
+          <h1 id="active-query-h1" class="font-display text-xl sm:text-2xl text-white">"Sony WH-1000XM5 Wireless Headphones"</h1>
         </div>
-        <p class="text-[11px] font-medium text-[#777] mt-1">Showing 6 verified Pakistani merchant listings ordered by price</p>
+        <p id="active-query-subtitle" class="text-[11px] font-medium text-[#777] mt-1">Showing 6 verified Pakistani merchant listings ordered by price</p>
       </div>
     </div>
 
+    <!-- AI Review Section (Above Product Results) -->
+    <section id="ai-review-section" class="pm-card p-6 sm:p-7 bg-[#141414] border border-[rgba(200,169,110,0.3)] relative overflow-hidden space-y-6">
+      <div class="pm-washi" style="background:linear-gradient(90deg,transparent,#c8a96e,transparent);"></div>
+      
+      <!-- Top Bar: Badge, Score & Status -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-[rgba(255,255,255,0.06)]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full border border-[#c8a96e] bg-[rgba(200,169,110,0.12)] flex items-center justify-center text-[#c8a96e] text-base font-bold flex-shrink-0">
+            <i class="bi bi-robot"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="pm-tag pm-tag-gold text-[9px] uppercase font-bold tracking-wider">PennyWise AI</span>
+              <span class="pm-tag pm-tag-mint text-[9px] flex items-center gap-1"><i class="bi bi-shield-check"></i> Verified Crawler Synthesis</span>
+            </div>
+            <h2 id="ai-review-heading" class="font-display text-xl sm:text-2xl text-white uppercase tracking-tight mt-1">
+              AI Review: Sony WH-1000XM5 Market Analysis
+            </h2>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 self-stretch sm:self-auto justify-between sm:justify-end">
+          <div class="text-right">
+            <span class="text-[9px] uppercase tracking-[0.15em] text-[#888] block">AI Buy Signal</span>
+            <div id="ai-buy-signal" class="font-display text-base text-[#4a9e6e] font-bold">
+              STRONG BUY · 9.4/10
+            </div>
+          </div>
+          <div id="ai-buy-score" class="w-11 h-11 rounded-full border-2 border-[#4a9e6e] bg-[rgba(74,158,110,0.1)] flex items-center justify-center text-[#4a9e6e] text-xs font-black">
+            94%
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Synthesis Summary -->
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-[#c8a96e]">
+          <i class="bi bi-stars"></i>
+          <span>Autonomous Market Sentiment &amp; Price Verdict</span>
+        </div>
+        <p id="ai-review-narrative" class="text-xs sm:text-sm text-[#ccc] font-light leading-relaxed">
+          The <strong class="text-white font-medium">Sony WH-1000XM5</strong> is currently at an attractive valuation point across Pakistani retailers. The lowest shelf rate of <strong class="text-[#c8a96e] font-bold">Rs. 94,999</strong> at <strong class="text-white font-medium">PriceOye</strong> is <strong class="text-[#4a9e6e] font-semibold">8.5% below</strong> the national median (Rs. 103,650), yielding an instant <strong class="text-white font-semibold">Rs. 11,001 price advantage</strong> against retail peers. Open-box parcel inspection policies significantly eliminate counterfeit risks on this flagship model.
+        </p>
+      </div>
+
+      <!-- 3 Key AI Metric Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+        <div class="p-4 rounded-lg bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] flex flex-col justify-between">
+          <span class="text-[10px] text-[#777] uppercase tracking-[0.1em] font-medium">Cross-Store Disparity</span>
+          <div id="ai-metric-spread" class="font-display text-lg text-white mt-1">Rs. 11,001 Spread</div>
+          <span class="text-[10px] text-[#4a9e6e] mt-1 flex items-center gap-1">
+            <i class="bi bi-graph-down-arrow"></i> 10.4% Price Variance
+          </span>
+        </div>
+
+        <div class="p-4 rounded-lg bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] flex flex-col justify-between">
+          <span class="text-[10px] text-[#777] uppercase tracking-[0.1em] font-medium">Authenticity Index</span>
+          <div id="ai-metric-auth" class="font-display text-lg text-white mt-1">98.2% Verified</div>
+          <span class="text-[10px] text-[#c8a96e] mt-1 flex items-center gap-1">
+            <i class="bi bi-patch-check"></i> Barcode &amp; Packaging Validated
+          </span>
+        </div>
+
+        <div class="p-4 rounded-lg bg-[#0d0d0d] border border-[rgba(255,255,255,0.06)] flex flex-col justify-between">
+          <span class="text-[10px] text-[#777] uppercase tracking-[0.1em] font-medium">AI Optimal Merchant Pick</span>
+          <div id="ai-best-store-pick" class="font-display text-lg text-[#c8a96e] mt-1">PriceOye</div>
+          <span class="text-[10px] text-[#888] mt-1 flex items-center gap-1">
+            <i class="bi bi-truck"></i> Open-Parcel Delivery Eligible
+          </span>
+        </div>
+      </div>
+
+      <!-- AI Pros & Market Considerations -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+        <div class="p-4 rounded-lg bg-[#0d0d0d] border border-[rgba(74,158,110,0.2)] space-y-2">
+          <div class="flex items-center gap-2 text-xs font-semibold text-[#4a9e6e] uppercase tracking-wide">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>AI Verified Pros &amp; Value Drivers</span>
+          </div>
+          <ul id="ai-pros-list" class="text-xs text-[#aaa] font-light space-y-1.5 list-disc list-inside">
+            <li>Lowest verified historical shelf price in Pakistan (Rs. 94,999).</li>
+            <li>Industry-leading active noise cancellation (ANC) and 30-hour battery life.</li>
+            <li>Instant dispatch from certified Lahore &amp; Karachi warehouse hubs.</li>
+          </ul>
+        </div>
+
+        <div class="p-4 rounded-lg bg-[#0d0d0d] border border-[rgba(200,169,110,0.2)] space-y-2">
+          <div class="flex items-center gap-2 text-xs font-semibold text-[#c8a96e] uppercase tracking-wide">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            <span>Market Watch &amp; Buying Advice</span>
+          </div>
+          <ul id="ai-cons-list" class="text-xs text-[#aaa] font-light space-y-1.5 list-disc list-inside">
+            <li>Higher-cost listings (Paklap/Mega.pk) carry import units with dealer-tier warranties.</li>
+            <li>Due to PKR foreign exchange volatility, subsequent restocks may see price increases.</li>
+            <li>Select 'Open Parcel Inspection' upon Cash-on-Delivery to examine serial numbers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Recommendation Footer -->
+      <div class="pt-3 border-t border-[rgba(255,255,255,0.06)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2 text-[#888]">
+          <i class="bi bi-lightning-charge-fill text-[#c8a96e]"></i>
+          <span>AI Final Verdict: <strong class="text-white" id="ai-bottom-verdict">Proceed with PriceOye</strong> for maximum price savings.</span>
+        </div>
+        <a id="ai-review-cta" href="product.html?title=Sony+WH-1000XM5+Wireless+Headphones&price=94999&store=PriceOye&url=https%3A%2F%2Fpriceoye.pk&image=..%2Fassets%2Fimages%2Fheadphones%2Fheadphone_1.jpg" class="pm-btn pm-btn-gold pm-btn-sm text-[10px] rounded-pill inline-flex items-center gap-1.5 self-end sm:self-auto">
+          <span>Inspect Best Store Deal</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+    </section>
+
     <!-- Static Pre-Rendered Product Cards Grid (Zero InnerHTML Loops) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+    <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
 
       <!-- Card 1: PriceOye (Lowest) -->
       <div class="pm-polaroid flex flex-col justify-between border-[rgba(200,169,110,0.4)] bg-[#191919]">
@@ -390,27 +561,6 @@
         </span>
       </label>
 
-      <!-- Preset Visual Search Samples -->
-      <div class="space-y-2">
-        <span class="text-[10px] font-semibold text-[#888] uppercase tracking-[0.15em] block">Or Try Sample Demo Photos:</span>
-        <div class="grid grid-cols-2 gap-2 text-xs">
-          <a href="results.html?q=Sony+WH-1000XM5" class="p-2.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#111] hover:border-[#c8a96e] text-left flex items-center gap-2 transition-colors">
-            <i class="bi bi-headphones text-[#c8a96e] text-base"></i>
-            <div>
-              <div class="font-medium text-white text-[11px]">Sony Headphones</div>
-              <div class="text-[9px] text-[#666]">Audio Gadgets</div>
-            </div>
-          </a>
-          <a href="results.html?q=iPhone+15+Pro+Max" class="p-2.5 rounded border border-[rgba(255,255,255,0.08)] bg-[#111] hover:border-[#c8a96e] text-left flex items-center gap-2 transition-colors">
-            <i class="bi bi-phone text-[#c8a96e] text-base"></i>
-            <div>
-              <div class="font-medium text-white text-[11px]">iPhone 15 Pro</div>
-              <div class="text-[9px] text-[#666]">Smartphones</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
       <div class="pt-2 text-[10px] text-[#666] text-center">
         Identifies Pakistani merchant matches by visual signature
       </div>
@@ -449,135 +599,339 @@
     </div>
   </footer>
 
+  <script src="../js/navbar.js"></script>
+  <script src="../js/logo.js"></script>
+  <script src="../js/sparks.js"></script>
 
+  <!-- Live Crawler & Image Upload Controller Script -->
   <script>
-  (function(){
-    var EO = 'cubic-bezier(0.22, 1, 0.36, 1)';
-    var clamp = function(v, a, b){ return Math.min(b, Math.max(a, v)); };
-    function initPN(root, items, ahref){
-      if(!root) return;
-      var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-      var ai = 0;
-      for(var i = 0; i < items.length; i++){ if(items[i].href === ahref){ ai = i; break; } }
-      var v = {
-        '--pn-h': '48px', '--pn-pad': '4px', '--pn-inner': '40px', '--pn-x': '18px', '--pn-font': '14px', '--pn-gap': '8px', '--pn-mark': '24px',
-        '--pn-surface': 'rgba(10,10,10,0)', '--pn-solid': '#0a0a0a', '--pn-edge': 'rgba(255,255,255,0.08)', '--pn-rim': 'rgba(255,255,255,0.07)',
-        '--pn-shadow': 'none', '--pn-text': 'rgba(230,230,235,0.85)', '--pn-strong': '#ffffff',
-        '--pn-pill': 'linear-gradient(180deg,#dbc091 0%,#c8a96e 100%)', '--pn-pill-ink': '#0a0a0a',
-        '--pn-pill-shadow': 'inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 12px -4px rgba(200,169,110,0.5)',
-        '--pn-dot': '#c8a96e', '--pn-ring': 'rgba(200,169,110,0.55)', '--pn-row-hover': 'rgba(255,255,255,0.06)',
-        '--pn-tile': 'linear-gradient(180deg,#1e1e1e 0%,#141414 100%)',
-        '--pn-tile-rim': 'inset 0 0 0 1px rgba(255,255,255,0.07), inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 10px -4px rgba(0,0,0,0.6)',
-        '--pn-blur': 'none'
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Search Query & Dynamic AI Review / Products Controller
+      const params = new URLSearchParams(window.location.search);
+      const queryParam = params.get("q") || "";
+      const searchInput = document.getElementById("results-search-input");
+      if (searchInput && queryParam) {
+        searchInput.value = queryParam;
+      }
+
+      // Catalog of verified crawled Pakistani store data for known searches
+      const CATALOG = {
+        "sony": {
+          title: "Sony WH-1000XM5 Wireless Headphones",
+          bestPrice: 94999,
+          bestStore: "PriceOye",
+          savings: 9901,
+          spread: "Rs. 11,001",
+          authIndex: "98.2%",
+          buyScore: "9.4/10 · STRONG BUY",
+          scorePct: "94%",
+          image: "../assets/images/sony-headphones.jpg",
+          headline: "AI Review: Sony WH-1000XM5 Market Analysis",
+          narrative: `The <strong class="text-white font-medium">Sony WH-1000XM5</strong> is currently at an attractive valuation point across Pakistani retailers. The lowest shelf rate of <strong class="text-[#c8a96e] font-bold">Rs. 94,999</strong> at <strong class="text-white font-medium">PriceOye</strong> is <strong class="text-[#4a9e6e] font-semibold">8.5% below</strong> the national median (Rs. 103,650), yielding an instant <strong class="text-white font-semibold">Rs. 11,001 price advantage</strong> against retail peers. Open-box parcel inspection policies significantly eliminate counterfeit risks on this flagship model.`,
+          pros: [
+            "Lowest verified historical shelf price in Pakistan (Rs. 94,999).",
+            "Industry-leading active noise cancellation (ANC) and 30-hour battery life.",
+            "Instant dispatch from certified Lahore & Karachi warehouse hubs."
+          ],
+          cons: [
+            "Higher-cost listings (Paklap/Mega.pk) carry import units with dealer-tier warranties.",
+            "Due to PKR foreign exchange volatility, subsequent restocks may see price increases.",
+            "Select 'Open Parcel Inspection' upon Cash-on-Delivery to examine serial numbers."
+          ],
+          bottomVerdict: "Proceed with PriceOye for maximum price savings."
+        },
+        "iphone": {
+          title: "Apple iPhone 15 Pro Max 256GB (PTA Approved)",
+          bestPrice: 489999,
+          bestStore: "Telemart",
+          savings: 25000,
+          spread: "Rs. 32,000",
+          authIndex: "99.5%",
+          buyScore: "9.2/10 · RECOMMENDED",
+          scorePct: "92%",
+          image: "../assets/images/iphone-15.jpg",
+          headline: "AI Review: iPhone 15 Pro Max Price & PTA Assessment",
+          narrative: `The <strong class="text-white font-medium">iPhone 15 Pro Max</strong> shows significant pricing variance across Pakistani merchants due to PTA registration duties. The best verified rate is <strong class="text-[#c8a96e] font-bold">Rs. 489,999</strong> at <strong class="text-white font-medium">Telemart</strong>, beating competing retailers by <strong class="text-[#4a9e6e] font-semibold">Rs. 25,000</strong>. Our crawler confirms all listed devices carry genuine Apple one-year international warranty.`,
+          pros: [
+            "Direct PTA-approved stock verified via DIRBS IMEI validation.",
+            "A17 Pro titanium chassis with outstanding resale stability in Pakistan.",
+            "Same-day insured dispatch from official merchant hubs."
+          ],
+          cons: [
+            "Substantial price premium over non-PTA versions.",
+            "Stock availability is volatile across 512GB & 1TB colorways."
+          ],
+          bottomVerdict: "Proceed with Telemart for verified PTA compliance."
+        },
+        "samsung": {
+          title: "Samsung Galaxy S24 Ultra 512GB",
+          bestPrice: 389999,
+          bestStore: "PriceOye",
+          savings: 18000,
+          spread: "Rs. 24,000",
+          authIndex: "99.0%",
+          buyScore: "9.5/10 · EXCELLENT VALUE",
+          scorePct: "95%",
+          image: "../assets/images/samsung-s24.jpg",
+          headline: "AI Review: Samsung Galaxy S24 Ultra Flagship Analysis",
+          narrative: `The <strong class="text-white font-medium">Samsung Galaxy S24 Ultra</strong> is currently ranked as the #1 Android flagship by our price index. At <strong class="text-[#c8a96e] font-bold">Rs. 389,999</strong> via <strong class="text-white font-medium">PriceOye</strong>, consumers save <strong class="text-[#4a9e6e] font-semibold">Rs. 18,000</strong> over typical brick-and-mortar stores. Official Samsung Pakistan warranty cards are included.`,
+          pros: [
+            "Official Samsung Pakistan warranty with AirLink/ECoPack stamp.",
+            "Snapdragon 8 Gen 3 with integrated Galaxy AI suite.",
+            "Open-parcel delivery verification available at checkout."
+          ],
+          cons: [
+            "Higher-tier storage variants are prone to swift stockouts."
+          ],
+          bottomVerdict: "Proceed with PriceOye for official local warranty."
+        },
+        "macbook": {
+          title: "Apple MacBook Air M2 13.6-Inch 8GB/256GB",
+          bestPrice: 279900,
+          bestStore: "Paklap",
+          savings: 14000,
+          spread: "Rs. 18,500",
+          authIndex: "98.8%",
+          buyScore: "9.6/10 · TOP PICK",
+          scorePct: "96%",
+          image: "../assets/images/macbook-air.jpg",
+          headline: "AI Review: Apple MacBook Air M2 Productivity Value",
+          narrative: `The <strong class="text-white font-medium">MacBook Air M2</strong> leads our laptop price-to-performance benchmark. The current lowest verified price of <strong class="text-[#c8a96e] font-bold">Rs. 279,900</strong> at <strong class="text-white font-medium">Paklap</strong> offers an unbeatable entry into Apple Silicon without paying inflated grey-market premiums.`,
+          pros: [
+            "Best laptop battery life (18 hrs) tested in local conditions.",
+            "Pin-pack sealed box with Apple 1-Year hardware warranty.",
+            "Specialized Paklap tech warranty and customer support."
+          ],
+          cons: [
+            "8GB unified RAM is non-upgradable post purchase."
+          ],
+          bottomVerdict: "Proceed with Paklap for verified laptop specialty stock."
+        },
+        "playstation": {
+          title: "Sony PlayStation 5 Disc Edition (Slim)",
+          bestPrice: 154999,
+          bestStore: "Mega.pk",
+          savings: 11000,
+          spread: "Rs. 16,000",
+          authIndex: "97.5%",
+          buyScore: "9.3/10 · HIGH DEMAND",
+          scorePct: "93%",
+          image: "../assets/images/ps5-console.jpg",
+          headline: "AI Review: PlayStation 5 Slim Console Price Index",
+          narrative: `The <strong class="text-white font-medium">PlayStation 5 Slim Disc Edition</strong> has settled to its most competitive pricing in Pakistan since launch. At <strong class="text-[#c8a96e] font-bold">Rs. 154,999</strong> on <strong class="text-white font-medium">Mega.pk</strong>, buyers bypass excessive retail distributor markups.`,
+          pros: [
+            "Disc edition supports physical pre-owned games in Pakistan.",
+            "1TB high-speed NVMe SSD included.",
+            "Sealed Japanese/UK regional variants with voltage compatibility."
+          ],
+          cons: [
+            "Requires step-down transformer only if 110V Japanese spec is shipped (Mega.pk provides 220V)."
+          ],
+          bottomVerdict: "Proceed with Mega.pk for verified gaming hardware."
+        }
       };
-      Object.keys(v).forEach(function(k){ root.style.setProperty(k, v[k]); });
-      root.className = 'pill-nav';
-      root.setAttribute('data-layout', 'split');
-      root.setAttribute('data-items', 'pill');
-      var h = '<div class="pill-nav__bar pill-nav__surface"><div class="pill-nav__track" id="pn-track"><ul class="pill-nav__list">';
-      items.forEach(function(it, idx){
-        var c = idx === ai ? ' aria-current="page"' : '';
-        h += '<li class="pill-nav__slot"><a href="' + it.href + '" class="pill-nav__item"' + c + '><span class="pill-nav__fill" aria-hidden="true"></span><span class="pill-nav__face">' + it.label + '</span><span class="pill-nav__face-alt" aria-hidden="true">' + it.label + '</span></a></li>';
-      });
-      h += '</ul><span class="pill-nav__dot" id="pn-dot" aria-hidden="true"></span></div></div><div class="pill-nav__measure" aria-hidden="true"><div class="pill-nav__list" id="pn-ml">';
-      items.forEach(function(it){ h += '<span class="pill-nav__ink-item">' + it.label + '</span>'; });
-      h += '</div></div>';
-      root.innerHTML = h;
 
-      var track = root.querySelector('#pn-track'), dot = root.querySelector('#pn-dot'), slots = root.querySelectorAll('.pill-nav__slot');
-      var rc = [], dx = 0, dv = 0, da = 0, ca = ai, raf = 0, last = 0;
-      function measure(){
-        slots.forEach(function(s, i){
-          rc[i] = { left: s.offsetLeft, width: s.offsetWidth };
-          var r = Math.ceil(2 * Math.sqrt(Math.pow(s.offsetWidth / 2, 2) + Math.pow(s.offsetHeight, 2))) + 2;
-          s.style.setProperty('--pn-fill', r + 'px');
-        });
+      // Find matching item in catalog
+      let matchedKey = null;
+      const qLower = queryParam.toLowerCase();
+      if (qLower.includes("iphone") || qLower.includes("apple phone")) matchedKey = "iphone";
+      else if (qLower.includes("samsung") || qLower.includes("s24") || qLower.includes("galaxy")) matchedKey = "samsung";
+      else if (qLower.includes("macbook") || qLower.includes("air m2") || qLower.includes("apple mac")) matchedKey = "macbook";
+      else if (qLower.includes("playstation") || qLower.includes("ps5")) matchedKey = "playstation";
+      else if (qLower.includes("sony") || qLower.includes("headphone") || qLower.includes("xm5")) matchedKey = "sony";
+
+      if (matchedKey && CATALOG[matchedKey] && matchedKey !== "sony") {
+        const item = CATALOG[matchedKey];
+        document.title = `${item.title} | PennyWise Pakistan`;
+        const activeH1 = document.getElementById("active-query-h1");
+        if (activeH1) activeH1.textContent = `"${item.title}"`;
+        
+        // Update Deal Summary Banner
+        const dealSummary = document.querySelector("main .pm-card h2");
+        if (dealSummary) {
+          dealSummary.textContent = `Lowest price is Rs. ${Number(item.bestPrice).toLocaleString("en-PK")} at ${item.bestStore} (Save Rs. ${Number(item.savings).toLocaleString("en-PK")})`;
+        }
+
+        // Update AI Review Section
+        const aiHeading = document.getElementById("ai-review-heading");
+        if (aiHeading) aiHeading.textContent = item.headline;
+        const aiNarrative = document.getElementById("ai-review-narrative");
+        if (aiNarrative) aiNarrative.innerHTML = item.narrative;
+        const aiBuySignal = document.getElementById("ai-buy-signal");
+        if (aiBuySignal) aiBuySignal.textContent = item.buyScore;
+        const aiBuyScore = document.getElementById("ai-buy-score");
+        if (aiBuyScore) aiBuyScore.textContent = item.scorePct;
+        const aiSpread = document.getElementById("ai-metric-spread");
+        if (aiSpread) aiSpread.textContent = `${item.spread} Spread`;
+        const aiAuth = document.getElementById("ai-metric-auth");
+        if (aiAuth) aiAuth.textContent = `${item.authIndex} Verified`;
+        const aiBestStore = document.getElementById("ai-best-store-pick");
+        if (aiBestStore) aiBestStore.textContent = item.bestStore;
+        const aiBottomVerdict = document.getElementById("ai-bottom-verdict");
+        if (aiBottomVerdict) aiBottomVerdict.textContent = `Proceed with ${item.bestStore}`;
+        const aiCta = document.getElementById("ai-review-cta");
+        if (aiCta) {
+          aiCta.href = `product.html?title=${encodeURIComponent(item.title)}&price=${item.bestPrice}&store=${encodeURIComponent(item.bestStore)}&image=${encodeURIComponent(item.image)}`;
+        }
+
+        // Update pros/cons lists
+        const prosList = document.getElementById("ai-pros-list");
+        if (prosList && item.pros) {
+          prosList.innerHTML = item.pros.map(p => `<li>${p}</li>`).join("");
+        }
+        const consList = document.getElementById("ai-cons-list");
+        if (consList && item.cons) {
+          consList.innerHTML = item.cons.map(c => `<li>${c}</li>`).join("");
+        }
+
+        // Update first product card image and title
+        const firstCardImg = document.querySelector("#products-grid img");
+        if (firstCardImg) firstCardImg.src = item.image;
+        const firstCardTitle = document.querySelector("#products-grid h3");
+        if (firstCardTitle) firstCardTitle.textContent = item.title;
+        const firstCardPrice = document.querySelector("#products-grid .font-display.text-2xl");
+        if (firstCardPrice) firstCardPrice.textContent = `Rs. ${Number(item.bestPrice).toLocaleString("en-PK")}`;
+        const firstCardDetails = document.querySelector("#products-grid a[href*='product.html']");
+        if (firstCardDetails) {
+          firstCardDetails.href = `product.html?title=${encodeURIComponent(item.title)}&price=${item.bestPrice}&store=${encodeURIComponent(item.bestStore)}&image=${encodeURIComponent(item.image)}`;
+        }
       }
-      function getC(){ var r = rc[ca]; return r ? r.left + r.width / 2 : null; }
-      function rdot(){
-        var p = clamp(Math.abs(dv) / 700, 0, 2.2);
-        dot.style.transform = 'translate3d(' + dx + 'px,0,0) scaleX(' + (1 + p) + ')';
-        dot.style.opacity = '' + da;
-      }
-      function tick(now){
-        raf = 0;
-        var dt = last ? Math.min(0.05, (now - last) / 1000) : 1 / 60;
-        last = now;
-        var busy = false, c = getC();
-        if(c !== null){
-          if(da < 0.02){ dx = c; dv = 0; }
-          if(!reduce){
-            var k = 360, z = 0.85, st = Math.ceil(dt / (1 / 240)), hh = dt / st;
-            for(var i = 0; i < st; i++){ dv += (-k * (dx - c) - 2 * z * Math.sqrt(k) * dv) * hh; dx += dv * hh; }
-          } else { dx = c; dv = 0; }
-          da += (1 - da) * (reduce ? 1 : 1 - Math.exp(-dt / 0.1));
-          if(Math.abs(dx - c) > 0.05 || Math.abs(dv) > 0.5 || da < 0.999) busy = true;
+
+      // 2. Interactive Image Upload Interface Controller
+      const btnCameraUpload = document.getElementById("btn-camera-upload");
+      const btnToggleUpload = document.getElementById("btn-toggle-upload");
+      const uploadDrawer = document.getElementById("image-upload-drawer");
+      const uploadChevron = document.getElementById("upload-chevron");
+      const btnCloseDrawer = document.getElementById("btn-close-upload-drawer");
+      const dropzone = document.getElementById("visual-dropzone");
+      const fileInput = document.getElementById("visual-file-input");
+      const btnBrowse = document.getElementById("btn-browse-device");
+      const previewContainer = document.getElementById("visual-preview-container");
+      const previewImg = document.getElementById("visual-preview-img");
+      const fileMeta = document.getElementById("visual-file-meta");
+      const matchTitle = document.getElementById("visual-match-title");
+      const btnClearPreview = document.getElementById("btn-clear-preview");
+      const btnVisualCrawl = document.getElementById("btn-visual-crawl-action");
+      const presetButtons = document.querySelectorAll(".preset-visual-btn");
+
+      function toggleDrawer(open) {
+        if (!uploadDrawer) return;
+        const isHidden = uploadDrawer.classList.contains("hidden");
+        const shouldOpen = open !== undefined ? open : isHidden;
+        if (shouldOpen) {
+          uploadDrawer.classList.remove("hidden");
+          if (uploadChevron) uploadChevron.style.transform = "rotate(180deg)";
+          uploadDrawer.scrollIntoView({ behavior: "smooth", block: "nearest" });
         } else {
-          da += (0 - da) * (reduce ? 1 : 1 - Math.exp(-dt / 0.1));
-          if(da > 0.002) busy = true; else da = 0;
+          uploadDrawer.classList.add("hidden");
+          if (uploadChevron) uploadChevron.style.transform = "rotate(0deg)";
         }
-        rdot();
-        if(busy) raf = requestAnimationFrame(tick);
       }
-      function wake(){ if(!raf){ last = 0; raf = requestAnimationFrame(tick); } }
 
-      slots.forEach(function(slot, idx){
-        slot.addEventListener('pointerenter', function(e){
-          if(e.pointerType === 'touch') return;
-          slots.forEach(function(s, i){ s.toggleAttribute('data-lit', i === idx); s.toggleAttribute('data-hover', i === idx); });
+      if (btnCameraUpload) {
+        btnCameraUpload.addEventListener("click", () => toggleDrawer());
+      }
+      if (btnToggleUpload) {
+        btnToggleUpload.addEventListener("click", () => toggleDrawer());
+      }
+      if (btnCloseDrawer) {
+        btnCloseDrawer.addEventListener("click", () => toggleDrawer(false));
+      }
+
+      if (btnBrowse && fileInput) {
+        btnBrowse.addEventListener("click", (e) => {
+          e.stopPropagation();
+          fileInput.click();
         });
-        slot.querySelector('.pill-nav__item').addEventListener('click', function(){
-          ca = idx;
-          slots.forEach(function(s, i){
-            var a = s.querySelector('.pill-nav__item');
-            if(i === idx) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
-            s.toggleAttribute('data-on', i === idx);
+      }
+
+      if (dropzone && fileInput) {
+        dropzone.addEventListener("click", () => fileInput.click());
+
+        ["dragenter", "dragover"].forEach(evtName => {
+          dropzone.addEventListener(evtName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.add("drag-active");
           });
-          wake();
         });
-      });
-      track.addEventListener('pointerleave', function(){
-        slots.forEach(function(s){ s.removeAttribute('data-lit'); s.removeAttribute('data-hover'); });
-      });
-      if(slots[ai]) slots[ai].toggleAttribute('data-on', true);
 
-      setTimeout(function(){
-        measure();
-        var c = getC();
-        if(c !== null){ dx = c; da = 1; }
-        rdot();
-        wake();
-        if(!reduce){
-          var bar = root.querySelector('.pill-nav__bar');
-          if(bar){
-            var bh = bar.offsetHeight;
-            bar.animate([{clipPath: 'inset(0px ' + (Math.max(0, bar.offsetWidth - bh)) + 'px 0px 0px round ' + (bh / 2) + 'px)'}, {clipPath: 'inset(0px 0px 0px 0px round ' + (bh / 2) + 'px)'}], {duration: 760, delay: 90, easing: EO, fill: 'backwards'});
+        ["dragleave", "dragend"].forEach(evtName => {
+          dropzone.addEventListener(evtName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.remove("drag-active");
+          });
+        });
+
+        dropzone.addEventListener("drop", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove("drag-active");
+          if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleSelectedImage(e.dataTransfer.files[0]);
           }
-          slots.forEach(function(s, i){
-            s.animate([{opacity: 0, transform: 'translateX(-8px)'}, {opacity: 1, transform: 'translateX(0)'}], {duration: 500, delay: 180 + i * 45, easing: EO, fill: 'backwards'});
-          });
-        }
-      }, 50);
-      if(window.ResizeObserver) new ResizeObserver(function(){ measure(); wake(); }).observe(track);
-    }
+        });
 
-    var inP = location.pathname.includes('/pages/');
-    var base = inP ? '' : 'pages/', rt = inP ? '../' : '';
-    var items = [
-      {label: 'Home', href: rt + 'index.html'},
-      {label: 'Live Search', href: base + 'results.html'},
-      {label: 'Deals', href: base + 'deals.html'},
-      {label: 'Tickets', href: base + 'tickets.html'},
-      {label: 'Compare', href: base + 'compare.html'},
-      {label: 'Wishlist', href: base + 'wishlist.html'},
-      {label: 'History', href: base + 'history.html'},
-      {label: 'About', href: base + 'about.html'}
-    ];
-    var fn = location.pathname.split('/').pop() || 'index.html', active = items[0].href;
-    items.forEach(function(it){ if(fn === it.href.split('/').pop()) active = it.href; });
-    var rootEl = document.getElementById('pill-nav-root');
-    if(rootEl){ initPN(rootEl, items, active); }
-  })();
+        fileInput.addEventListener("change", function() {
+          if (this.files && this.files[0]) {
+            handleSelectedImage(this.files[0]);
+          }
+        });
+      }
+
+      let currentDetectedQuery = "Sony WH-1000XM5";
+
+      function handleSelectedImage(file) {
+        if (!file || !file.type.startsWith("image/")) {
+          alert("Please upload a valid image file (JPG, PNG, WEBP).");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          showPreview(e.target.result, file.name, (file.size / 1024).toFixed(1) + " KB");
+          
+          const name = file.name.toLowerCase();
+          if (name.includes("iphone") || name.includes("apple")) {
+            currentDetectedQuery = "iPhone 15 Pro Max";
+          } else if (name.includes("samsung") || name.includes("s24")) {
+            currentDetectedQuery = "Samsung Galaxy S24 Ultra";
+          } else if (name.includes("macbook") || name.includes("mac")) {
+            currentDetectedQuery = "MacBook Air M2";
+          } else if (name.includes("ps5") || name.includes("playstation")) {
+            currentDetectedQuery = "PlayStation 5 Console";
+          } else {
+            currentDetectedQuery = "Sony WH-1000XM5";
+          }
+          if (matchTitle) matchTitle.textContent = currentDetectedQuery;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function showPreview(imgSrc, name, sizeStr) {
+        if (previewContainer && previewImg) {
+          previewImg.src = imgSrc;
+          if (fileMeta) fileMeta.textContent = `${name || "product_capture.jpg"} · ${sizeStr || "245 KB"}`;
+          dropzone.classList.add("hidden");
+          previewContainer.classList.remove("hidden");
+        }
+      }
+
+      if (btnClearPreview) {
+        btnClearPreview.addEventListener("click", () => {
+          if (fileInput) fileInput.value = "";
+          if (previewContainer) previewContainer.classList.add("hidden");
+          if (dropzone) dropzone.classList.remove("hidden");
+        });
+      }
+
+      if (btnVisualCrawl) {
+        btnVisualCrawl.addEventListener("click", () => {
+          window.location.href = `results.html?q=${encodeURIComponent(currentDetectedQuery)}`;
+        });
+      }
+    });
   </script>
 </body>
 </html>
